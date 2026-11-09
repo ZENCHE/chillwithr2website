@@ -75,7 +75,7 @@ const schema = {
         <div class="wrap">
           <div class="section-heading"><div><p class="eyebrow">THE PROGRAM</p><h2 id="episodes-title">Latest broadcasts<span>.</span></h2></div><a class="text-link" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">All episodes <span aria-hidden="true">↗</span></a></div>
           <div class="episodes">
-            {episodes.map((episode,index) => (
+            {episodes.slice(0, 3).map((episode,index) => (
               <a class={'episode ' + episode.accent} href={episode.url} target="_blank" rel="noopener noreferrer">
                 <div class="episode-art" aria-hidden="true"><div class="art-grid"></div><span class="art-label">CHILL WITH R2</span><span class="art-code">{index===0?'LATEST REPLAY':'FROM THE ARCHIVE'}</span><span class="art-number">{episode.number}</span><div class="art-lines">{Array.from({length:17},(_,i)=><i style={'--i:'+i}></i>)}</div><span class="art-play">↗</span></div>
                 <div class="episode-info"><span class="episode-meta">EP {episode.number}<time datetime={episode.dateTime}>{episode.date}</time></span><h3>{episode.title}</h3><p>{episode.guests}</p></div>
