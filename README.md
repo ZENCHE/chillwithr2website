@@ -1,37 +1,30 @@
 # CR2
 
-A static, single-page site for CR2, an independent media brand covering crypto, finance, and technology. Chill with R2 is its flagship live show. Built with Astro and TypeScript. There is no database, CMS, account system, or server process in production.
+Single-page media company website. Astro + TypeScript, static hosting, local content, no database.
 
-## Run locally
+## Run and publish
 
-From this directory, run npm ci, then npm run dev. Open http://localhost:4321/. Use npm run check for Astro diagnostics and npm run build to generate the static site in dist/.
+Run npm ci, then npm run dev. Use npm run check and npm run build before publication. Static output is in dist/. The existing Sites project is recorded in .openai/hosting.json; preserve its ID and private audience.
 
-## Content architecture
+## Update episodes
 
-- The dark masthead introduces CR2 and its broader editorial position.
-- The lens sets out three areas of coverage. It describes the direction of the brand; it does not imply separate news products or feeds already exist.
-- The brick studio gives Chill with R2 its own flagship stage. Its optional neon and eight-second bumper start only after a click.
-- The latest replay and episode archive use verified show announcements and direct X replay links.
-- The manifesto, hosts, and closing invitation complete the company story. No contact form or guest pitch destination is published.
+Edit src/data.ts, newest first. The first episode fills the feature automatically; the rest appear in the archive. Supply the real title, guest handles, display date, ISO date, and canonical X replay URL. The page contains each episode once.
 
-## Update the show
+The schedule, partner, and short company introduction are in src/pages/index.astro. Styles are in src/styles/global.css. The optional eight-second intro is controlled by src/scripts/site.ts; it stops when the tab is hidden and resets after playback.
 
-1. Add the broadcast to src/data.ts, newest first. Use the canonical X replay URL. Keep the title, date, guests, description, and topic tags grounded in the broadcast announcement or recording.
-2. The first array entry is the featured episode. Its number, title, date, topic labels, and replay link flow into the feature automatically. Update the editorial summary in the #latest section of src/pages/index.astro to match the new recording.
-3. If the show schedule or partner changes, update the #show schedule and partner credit in src/pages/index.astro.
-4. Run the checks, preview at phone and desktop widths, and publish a new static version.
+## Copy standard
 
-The three episode categories are builders, markets, and culture. Multiple tags may be used per episode. The filter UI reads those tags from rendered cards.
+Keep the page focused on what CR2 covers, what to watch, when it airs, and who hosts it. Name the subject directly. Use episode titles and guest names instead of generic summaries.
 
-## Editorial and asset notes
+Avoid repeated introductions, mission sections, decorative labels, invented host biographies, unsupported rankings, and slogans about “signals,” “the next era,” or “shaping the future.” Add a section only when there is distinct, useful content for it.
 
-- Show identity, logo variants, brand colors, and the eight-second audio bumper were supplied by the project owner in C:\Users\Ethan\Downloads\r2-export.
-- The host handles, twice-weekly live format, Mosh credit, and episode announcements are published by [@chillwithr2](https://x.com/chillwithr2).
-- Replay destinations used on the site: [episode 09](https://x.com/i/broadcasts/2gqvWQyvOWanQy), [episode 08](https://x.com/i/broadcasts/2onABPznmqOgpZ), [episode 06](https://x.com/i/broadcasts/1DxleVAXgpdKL).
-- Robinhood Chain facts and external-facing naming should be checked against the [official documentation](https://docs.robinhood.com/chain/) and [brand guidelines](https://docs.robinhood.com/chain/brand-guidelines/) before future copy changes.
-- A literal “#1” claim is omitted until the team has a documented basis for it. CR2 is presented as independent media and does not use Robinhood's logo.
-- Contact or guest pitch actions are omitted until the team provides an updated destination.
+The current page has three sections: introduction with latest replay, earlier episodes, and hosts. No contact destination is published, per the owner's request.
 
-## Design and performance
+## Sources and assets
 
-The brick is a small repeatable vector pattern; the CR2 mark and show sign use supplied SVGs. The site has no background video or third-party X embed. Fredoka and Yellowtail are bundled locally. Motion honors reduced-motion preferences. The studio bumper begins only after an explicit click and pauses when the tab is hidden.
+The logo variants, colors, brick reference, and audio bumper were supplied in C:\Users\Ethan\Downloads\r2-export. Fonts are bundled locally.
+
+Show schedule, host handles, Mosh credit, and episodes come from [@chillwithr2](https://x.com/chillwithr2). Replays: [09](https://x.com/i/broadcasts/2gqvWQyvOWanQy), [08](https://x.com/i/broadcasts/2onABPznmqOgpZ), [06](https://x.com/i/broadcasts/1DxleVAXgpdKL).
+
+Use the full Robinhood Chain name and consult the [official brand guidelines](https://docs.robinhood.com/chain/brand-guidelines/) for future changes. CR2 is independent; no Robinhood logo or unverified “#1” claim is used.
+

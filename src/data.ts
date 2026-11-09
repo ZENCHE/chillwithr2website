@@ -1,12 +1,9 @@
-export type Channel = 'builders' | 'markets' | 'culture';
-
 export interface Episode {
   number: string;
   title: string;
   guests: string;
   date: string;
-  channels: Channel[];
-  dek: string;
+  dateTime: string;
   url: string;
   accent: 'violet' | 'green' | 'pink';
 }
@@ -19,8 +16,7 @@ export const episodes: Episode[] = [
     title: "What’s on Robinhood Chain?",
     guests: '@mil_itia · @nftboi_ · @justinbebis',
     date: '05 NOV 2026',
-    channels: ['builders', 'markets'],
-    dek: 'A tour through the projects, people, and ideas taking shape across the ecosystem.',
+    dateTime: '2026-11-05',
     url: 'https://x.com/i/broadcasts/2gqvWQyvOWanQy',
     accent: 'green'
   },
@@ -29,8 +25,7 @@ export const episodes: Episode[] = [
     title: 'What even is alpha anymore?',
     guests: '@CrypSaf · @AvgJoesCrypto',
     date: '03 NOV 2026',
-    channels: ['markets', 'culture'],
-    dek: 'Trading instinct, community, and what an edge looks like when everything is visible.',
+    dateTime: '2026-11-03',
     url: 'https://x.com/i/broadcasts/2onABPznmqOgpZ',
     accent: 'violet'
   },
@@ -39,14 +34,13 @@ export const episodes: Episode[] = [
     title: 'Follow the money',
     guests: '@tomwanhh · @zjbrenner',
     date: '27 OCT 2026',
-    channels: ['markets', 'builders'],
-    dek: 'A closer look at onchain activity, market behavior, and where products go next.',
+    dateTime: '2026-10-27',
     url: 'https://x.com/i/broadcasts/1DxleVAXgpdKL',
     accent: 'pink'
   }
 ];
 
 export const hosts = [
-  { name: 'Chill Pill', handle: '@ripchillpill', url: 'https://x.com/ripchillpill', initials: 'CP', description: 'Co-host. The instinct for the story behind the market.' },
-  { name: 'R2D2', handle: '@R2D2zen', url: 'https://x.com/R2D2zen', initials: 'R2', description: 'Co-host. A markets lens on what is happening onchain.' }
+  { name: 'Chill Pill', handle: '@ripchillpill', url: 'https://x.com/ripchillpill', initials: 'CP' },
+  { name: 'R2D2', handle: '@R2D2zen', url: 'https://x.com/R2D2zen', initials: 'R2' }
 ];
