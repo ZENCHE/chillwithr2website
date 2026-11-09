@@ -517,7 +517,7 @@ h2 > span {
 }
 .episodes {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 26px;
 }
 .episode {
@@ -709,25 +709,19 @@ h2 > span {
   gap: 16px;
   min-height: 75px;
 }
-.host-initial {
-  display: grid;
-  place-items: center;
+.host-avatar {
+  display: block;
+  object-fit: cover;
   flex: none;
-  width: 57px;
-  height: 57px;
+  width: 64px;
+  height: 64px;
   border: 1px solid #8b4dff65;
-  border-radius: 4px;
-  background: radial-gradient(ellipse at 0 0, #8b4dff45, transparent 90%);
-  color: #c7a1ff;
-  font:
-    500 24px "Fredoka Variable",
-    sans-serif;
-  box-shadow: inset 0 0 15px #8b4dff10;
+  border-radius: 8px;
+  box-shadow: 0 0 18px #8b4dff14;
 }
-.host:nth-child(2) .host-initial {
+.host:nth-child(2) .host-avatar {
   border-color: #33e06a45;
-  color: var(--green);
-  background: radial-gradient(ellipse at 0 0, #33e06a25, transparent 90%);
+  box-shadow: 0 0 18px #33e06a12;
 }
 .host strong {
   font-weight: 500;
@@ -879,6 +873,7 @@ h2 > span {
     font-size: 22px;
   }
   .episodes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
   .hosts {
@@ -1135,10 +1130,9 @@ h2 > span {
     gap: 10px;
     min-height: 55px;
   }
-  .host-initial {
-    width: 40px;
-    height: 45px;
-    font-size: 21px;
+  .host-avatar {
+    width: 48px;
+    height: 48px;
   }
   .host strong {
     font-size: 18px;
@@ -1367,9 +1361,9 @@ h2 > span {
   .host-arrow {
     display: block;
   }
-  .host-initial {
-    width: 45px;
-    height: 45px;
+  .host-avatar {
+    width: 48px;
+    height: 48px;
   }
   .host strong {
     font-size: 21px;
