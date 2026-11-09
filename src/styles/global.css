@@ -351,26 +351,6 @@ h1 > span {
   right: 14px;
   bottom: 14px;
 }
-.sign-caption {
-  font: 10px var(--mono);
-  letter-spacing: 0.18em;
-  color: #a99dae;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 66%;
-  margin: 13px auto 0;
-}
-.sign-caption i {
-  display: inline-block;
-  width: 22px;
-  height: 1px;
-  background: #8b4dff;
-}
-.sign-caption > span {
-  margin-left: auto;
-  color: #8d7e99;
-}
 .archive {
   padding: 74px 0 66px;
   background:
@@ -833,16 +813,6 @@ h2 > span {
     max-width: 600px;
     aspect-ratio: 820/620;
   }
-  .sign-caption {
-    margin-top: -13px;
-    font-size: 8px;
-    width: 69%;
-    position: relative;
-    top: -8px;
-  }
-  .sign-caption > span {
-    font-size: 8px;
-  }
   .wall {
     background-size: 690px auto;
     filter: brightness(0.35) saturate(0.4);
@@ -1211,8 +1181,5 @@ h2 > span {
     width: 100%;
     margin: 0;
     justify-self: end;
-  }
-  .sign-caption {
-    margin-top: 0;
   }
 }
