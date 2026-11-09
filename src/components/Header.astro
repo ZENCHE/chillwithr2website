@@ -1,0 +1,14 @@
+---
+interface Props { active?: 'home' | 'about' }
+const { active = 'home' } = Astro.props;
+const home = active === 'home';
+---
+<header class="header wrap">
+  <a class="brand" href={home ? '#top' : '/'} aria-label="CR2 home"><img src="/assets/studio-mark.svg" width="62" height="56" alt="CR2" /><span>INDEPENDENT<br />MEDIA</span></a>
+  <nav aria-label="Primary navigation">
+    <a href={home ? '#episodes' : '/#episodes'}>Episodes</a>
+    <a href={home ? '#hosts' : '/#hosts'}>Hosts</a>
+    <a href="/about/" aria-current={active === 'about' ? 'page' : undefined}>About</a>
+  </nav>
+  <a class="follow" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Follow on X <span aria-hidden="true">↗</span></a>
+</header>

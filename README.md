@@ -4,7 +4,7 @@ Static media-company website built with Astro and TypeScript. No database.
 
 ## Run and publish
 
-Run npm ci, npm run dev, npm run check, and npm run build. Production output is dist/. The existing Sites identity is in .openai/hosting.json. Preserve its ID and current private audience.
+Run npm ci, npm run dev, npm run check, and npm run build. Production output is dist/. The existing Sites identity is in .openai/hosting.json. Preserve its ID and current audience (public as of November 9, 2026).
 
 ## Design and content
 
@@ -17,6 +17,8 @@ Edit src/data.ts to update episodes, newest first. Supply real titles, guest han
 Keep copy concrete and concise. No repeated mission sections, invented biographies, audience claims, unsupported rankings, or slogans about signals and the next era. The owner requested no contact action until a destination is supplied.
 
 ## Sources and assets
+
+The advertiser-facing /about/ page uses the audience and guest information supplied by the owner on November 9, 2026. Counts are historical October snapshots, not live analytics. It distinguishes cumulative post views, monthly viewer hours, individual host followers and combined community memberships. It does not aggregate guest follower counts: the supplied 315k total does not reconcile with the list, and Zona's followers belong to an organization. The supplied top-1% streaming claim is omitted pending a defined ranking source. Only two countries were supplied, so the geography shows US 28%, UK 8%, and the calculated 64% remainder. No sponsorship packages, rates, contact address, audience guarantees or guest endorsements are invented. The existing no-contact constraint remains in effect. Native details contains measurement notes and examples.
 
 The original logos, palette and eight-second audio were supplied in C:\Users\Ethan\Downloads\r2-export. Original exports remain in public/assets. studio-sign.svg preserves the supplied logo paths while separating glow from geometry and refining edge colors; studio-mark.svg is the small flat header derivative. Space Grotesk supplies editorial type, Fredoka retains brand character in episode art, and IBM Plex Mono handles metadata. Font licenses ship in public/licenses.
 

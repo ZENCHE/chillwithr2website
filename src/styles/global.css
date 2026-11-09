@@ -179,6 +179,14 @@ a {
 .header nav a:hover {
   color: var(--green);
 }
+.header nav a[aria-current="page"] {
+  color: var(--green);
+}
+@media (max-width: 560px) {
+  .header .follow { display: flex; align-items: center; gap: 4px; padding: 8px; font-size: 0; }
+  .header .follow::before { content: "X"; font-size: 12px; }
+  .header .follow span { margin-left: 0; font-size: 12px; }
+}
 .follow {
   padding: 11px 17px;
   border: 1px solid #ffffff50;

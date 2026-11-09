@@ -1,5 +1,6 @@
 ---
 import { episodes, hosts } from '../data';
+import Header from '../components/Header.astro';
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/space-grotesk';
 import '@fontsource/ibm-plex-mono/400.css';
@@ -48,11 +49,7 @@ const schema = {
           <div class="light light-violet"></div><div class="light light-green"></div><div class="light light-pink"></div>
           <div class="scene-grain"></div>
         </div>
-        <header class="header wrap">
-          <a class="brand" href="#top" aria-label="CR2 home"><img src="/assets/studio-mark.svg" width="62" height="56" alt="CR2" /><span>INDEPENDENT<br />MEDIA</span></a>
-          <nav aria-label="Primary navigation"><a href="#episodes">Episodes</a><a href="#hosts">Hosts</a></nav>
-          <a class="follow" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Follow on X <span aria-hidden="true">↗</span></a>
-        </header>
+        <Header />
         <div class="hero-content wrap">
           <div class="intro-copy">
             <p class="eyebrow"><span></span> CR2 / INDEPENDENT MEDIA</p>
