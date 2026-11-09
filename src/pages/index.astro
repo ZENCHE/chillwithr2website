@@ -70,13 +70,6 @@ const schema = {
             <span class="sign-caption" aria-hidden="true"><i></i> THE CR2 STUDIO <span>01 / R2</span></span>
           </div>
         </div>
-        <div class="console wrap">
-          <div class="schedule"><span class="micro">THE FLAGSHIP SHOW</span><span>Tue + Thu <b>15:00 UTC</b><span class="on-x">Live on X</span></span></div>
-          <div class="audio-console"><button id="intro-audio" type="button" aria-pressed="false"><span class="audio-icon" aria-hidden="true">▶</span><span>Play intro</span></button><div class="meter" aria-hidden="true">{Array.from({length:20},(_,i)=><i style={'--bar:' + (16 + ((i * 17) % 31)) + '%'}></i>)}</div><span class="audio-time" aria-hidden="true">0:08</span></div>
-          <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="true" hidden><span class="motion-icon" aria-hidden="true">✳</span><span>Motion on</span></button>
-        </div>
-        <div class="nojs-audio"><span>Show intro</span><audio controls preload="none" src="/assets/cr2-bumper.wav"></audio></div>
-        <audio id="bumper" src="/assets/cr2-bumper.wav" preload="none"></audio>
       </section>
       <section class="archive" id="episodes" aria-labelledby="episodes-title">
         <div class="wrap">

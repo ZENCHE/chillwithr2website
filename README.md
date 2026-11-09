@@ -8,11 +8,11 @@ Run npm ci, npm run dev, npm run check, and npm run build. Production output is 
 
 ## Design and content
 
-The opening scene is a neon broadcast studio built with a photographed brick material, layered SVG sign, colored lighting, and bounded parallax. The three content sections are the studio, broadcasts, and hosts. All navigation and text are HTML. Effects stop when inactive, offscreen, or hidden. Reduced-motion preferences disable decorative movement; the motion control can also stop it. Intro audio is user-triggered and drives an actual analyser. A native audio control is available without JavaScript.
+The opening scene is a neon broadcast studio built with a photographed brick material, layered SVG sign, colored lighting, and bounded parallax. The three content sections are the studio, broadcasts, and hosts. All navigation and text are HTML. Effects stop when inactive, offscreen, or hidden. Reduced-motion preferences disable decorative movement. The schedule, intro player, audio analyser and motion-toggle row were removed at the owner’s request.
 
 The CSS/SVG treatment was selected after comparing it with a Three.js normal-mapped wall and selective bloom. It preserves sharper, more saturated logo artwork and avoids the experimental renderer's additional 136 KB gzip JavaScript. The production site has no WebGL dependency, so graphics-context failure cannot hide its content.
 
-Edit src/data.ts to update episodes, newest first. Supply real titles, guest handles, display/ISO dates, and canonical replay URLs. The first entry drives the hero replay action. Schedule and company introduction live in src/pages/index.astro. Styles are in src/styles/global.css; the interaction controller is src/scripts/site.ts. Development builds expose bounded frame statistics in the hero's data-motion-profile attribute; this instrumentation is removed from production.
+Edit src/data.ts to update episodes, newest first. Supply real titles, guest handles, display/ISO dates, and canonical replay URLs. The first entry drives the hero replay action. Company introduction lives in src/pages/index.astro. Styles are in src/styles/global.css; the interaction controller is src/scripts/site.ts. Development builds expose bounded frame statistics in the hero's data-motion-profile attribute; this instrumentation is removed from production.
 
 Keep copy concrete and concise. No repeated mission sections, invented biographies, audience claims, unsupported rankings, or slogans about signals and the next era. The owner requested no contact action until a destination is supplied.
 
