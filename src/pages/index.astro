@@ -1,188 +1,102 @@
 ---
 import { episodes, hosts } from '../data';
+import '@fontsource-variable/fredoka';
+import '@fontsource/yellowtail';
 import '../styles/global.css';
+import '../styles/media.css';
 
 const featured = episodes[0];
 const canonical = 'https://chill-with-r2.daring-pine-5405.chatgpt.site/';
-const title = 'Chill with R2 — Front row to Robinhood Chain';
-const description = 'An independent live show at the intersection of Robinhood Chain, builders, markets, and culture. Pull up a chair and join the conversation.';
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'PodcastSeries',
-  name: 'Chill with R2',
-  description,
-  url: canonical,
-  sameAs: ['https://x.com/chillwithr2']
-};
+const title = 'CR2 — Independent media for what comes next';
+const description = 'CR2 covers crypto, finance, and technology from inside the conversation. Watch our flagship live show, Chill with R2, and explore the latest conversations from Robinhood Chain.';
+const structuredData = [
+  { '@context': 'https://schema.org', '@type': 'Organization', name: 'CR2', description, url: canonical, sameAs: ['https://x.com/chillwithr2'] },
+  { '@context': 'https://schema.org', '@type': 'PodcastSeries', name: 'Chill with R2', description: 'The flagship live conversation from CR2, covering Robinhood Chain, builders, markets, and culture.', url: canonical + '#show', sameAs: ['https://x.com/chillwithr2'] }
+];
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#2b1f3f" />
+    <meta name="theme-color" content="#1b122b" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/assets/cr2-mark.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Yellowtail&display=swap" rel="stylesheet" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={`${canonical}assets/cr2-social.png`} />
+    <meta property="og:image" content={canonical + 'assets/cr2-social.png'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${canonical}assets/cr2-social.png`} />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <meta name="twitter:image" content={canonical + 'assets/cr2-social.png'} />
+    {structuredData.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
     <title>{title}</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
-
-    <header class="site-header" id="top">
-      <a class="brand" href="#top" aria-label="Chill with R2, back to top">
-        <img src="/assets/cr2-mark.svg" alt="" width="60" height="54" />
-        <span>CHILL WITH R2</span>
-      </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#latest">Latest</a>
-        <a href="#episodes">Episodes</a>
-        <a href="#hosts">The hosts</a>
-      </nav>
-      <a class="header-follow" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">
-        Follow on X <span aria-hidden="true">↗</span>
-      </a>
+    <div id="top" class="top-anchor" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top"><img src="/assets/cr2-mark-dark.svg" alt="" width="60" height="54" /><span class="brand-word">CR2<span class="brand-tag">INDEPENDENT MEDIA</span></span></a>
+      <nav class="nav" aria-label="Primary navigation"><a href="#about">The lens</a><a href="#show">The show</a><a href="#episodes">Episodes</a><a href="#hosts">People</a></nav>
+      <a class="header-follow" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Watch on X <span aria-hidden="true">↗</span></a>
     </header>
-
     <main id="main">
-      <section class="hero brick-scene" aria-labelledby="hero-title">
-        <div class="hero-glow" aria-hidden="true"></div>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-topline page-grid"><span><i></i> CR2 / MEDIA NETWORK</span><span>CRYPTO · FINANCE · TECHNOLOGY</span><span>EST. FOR WHAT'S NEXT</span></div>
         <div class="hero-layout page-grid">
           <div class="hero-copy">
-            <div class="eyebrow hero-eyebrow"><span class="eyebrow-rule"></span> INDEPENDENT CONVERSATIONS / ONCHAIN CULTURE</div>
-            <h1 id="hero-title">THE <em>FRONT ROW</em><br />TO ROBINHOOD<br />CHAIN<span class="period">.</span></h1>
-            <p class="hero-dek">The people building it. The traders reading it. The voices moving it forward. Pull up a chair.</p>
-            <div class="hero-actions">
-              <a class="button button-ink" href="#latest">Watch the latest <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="#episodes">Explore episodes <span aria-hidden="true">↓</span></a>
-            </div>
-            <p class="hero-disclosure">An independent show covering Robinhood Chain.</p>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> THE SIGNAL STARTS HERE</p>
+            <h1 id="hero-title">THE NEXT<br />ERA IS<br /><em>ON AIR.</em></h1>
+            <p class="hero-dek">CR2 is independent media for the people building, trading, and shaping the next financial world. Crypto, finance, and technology—covered from inside the conversation.</p>
+            <div class="hero-actions"><a class="button button-green" href="#show">Meet the flagship show <span aria-hidden="true">↘</span></a><a class="text-link" href="#about">Explore CR2 <span aria-hidden="true">↓</span></a></div>
           </div>
-          <div class="hero-sign-zone">
-            <div class="sign-orbit" aria-hidden="true"></div>
-            <img class="hero-sign" src="/assets/cr2-neon.svg" alt="Chill with R2 neon speech bubble sign" width="880" height="680" fetchpriority="high" />
-            <div class="sign-plaque"><span class="plaque-led"></span> THE STUDIO IS OPEN</div>
+          <div class="hero-visual" aria-label="CR2 signal graphic"><div class="hero-visual-ring ring-one"></div><div class="hero-visual-ring ring-two"></div><div class="hero-visual-ring ring-three"></div><div class="hero-visual-label label-left">INDEPENDENT<br />BY DESIGN</div><img src="/assets/cr2-mark-dark.svg" alt="" width="640" height="580" fetchpriority="high" /><div class="hero-visual-label label-right"><span class="live-dot"></span> SIGNAL / LIVE</div><div class="hero-visual-coordinate">CR2 / EVERYWHERE ONCHAIN</div></div>
+        </div>
+        <div class="hero-bottom page-grid"><span>01 / A NEW KIND OF FINANCIAL MEDIA</span><span class="hero-bottom-line"></span><a href="#about">SCROLL TO THE STORY <span aria-hidden="true">↓</span></a></div>
+      </section>
+      <div class="signal-strip" aria-hidden="true"><div class="signal-strip-inner"><span>CRYPTO</span><i>✳</i><span>FINANCE</span><i>✳</i><span>TECHNOLOGY</span><i>✳</i><span>PEOPLE</span><i>✳</i><span>CULTURE</span><i>✳</i><span>CRYPTO</span><i>✳</i><span>FINANCE</span></div></div>
+      <section class="about section-pad" id="about" aria-labelledby="about-title">
+        <div class="page-grid">
+          <div class="section-index dark-index"><span>01 / THE CR2 LENS</span><span class="index-line"></span><span>INSIDE THE NEXT CYCLE</span></div>
+          <div class="about-head" data-reveal><h2 id="about-title">CLOSER TO<br />THE <em>SIGNAL.</em></h2><p>Big shifts do not arrive in tidy categories. We follow the people, products, markets, and ideas making the next era of finance real.</p></div>
+          <div class="lens-grid">
+            <article class="lens-card lens-crypto" data-reveal><div class="lens-top"><span>01 / CRYPTO</span><span aria-hidden="true">✳</span></div><div class="lens-glyph" aria-hidden="true">C</div><div class="lens-body"><h3>Where the new rails are built.</h3><p>Onchain products, ecosystems, and the people shipping them.</p></div></article>
+            <article class="lens-card lens-finance" data-reveal><div class="lens-top"><span>02 / FINANCE</span><span aria-hidden="true">✳</span></div><div class="lens-glyph" aria-hidden="true">$</div><div class="lens-body"><h3>Where markets find their next language.</h3><p>Trading, behavior, capital, and what the numbers really mean.</p></div></article>
+            <article class="lens-card lens-tech" data-reveal><div class="lens-top"><span>03 / TECHNOLOGY</span><span aria-hidden="true">✳</span></div><div class="lens-glyph" aria-hidden="true">✳</div><div class="lens-body"><h3>Where tomorrow gets its interface.</h3><p>Tools, founders, and the systems changing how we live online.</p></div></article>
           </div>
         </div>
-        <div class="hero-bottom page-grid">
-          <button class="studio-switch" id="studio-switch" type="button" aria-pressed="false">
-            <span class="switch-track"><span class="switch-knob"></span></span>
-            <span class="switch-copy">SWITCH ON THE STUDIO <span class="switch-subcopy">SOUND IS OPTIONAL · CLICK TO PLAY</span></span>
-          </button>
-          <div class="hero-frequency" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="hero-broadcast"><span class="red-dot"></span> LIVE ON X · TUESDAYS + THURSDAYS</div>
+      </section>
+      <section class="show brick-scene" id="show" aria-labelledby="show-title">
+        <div class="show-top page-grid"><div class="section-index dark-index"><span>02 / THE FLAGSHIP PROGRAM</span><span class="index-line"></span></div><span>THE CONVERSATION, LIVE</span></div>
+        <div class="show-layout page-grid">
+          <div class="show-sign-zone" data-reveal><div class="show-sign-orbit"></div><img class="show-sign" src="/assets/cr2-neon.svg" alt="Chill with R2 neon speech bubble sign" width="880" height="680" /><span class="show-sign-sticker"><span class="live-dot"></span> THE ROOM IS OPEN</span></div>
+          <div class="show-copy" data-reveal><p class="eyebrow"><span class="eyebrow-rule"></span> ONE SHOW. A BIGGER CONVERSATION.</p><h2 id="show-title">CHILL<br />WITH <em>R2.</em></h2><p class="show-dek">The live show at the center of CR2. A front row seat to Robinhood Chain and the people pushing crypto, markets, and internet culture forward.</p><div class="show-schedule"><span><i class="live-dot"></i> LIVE ON X</span><strong>TUESDAYS + THURSDAYS</strong><span>15:00 UTC · REPLAYS ANYTIME</span></div><div class="show-actions"><a class="button button-ink" href={featured.url} target="_blank" rel="noopener noreferrer">Watch the latest episode <span aria-hidden="true">↗</span></a><a class="text-link" href="#episodes">See the archive <span aria-hidden="true">↓</span></a></div><button class="studio-switch" id="studio-switch" type="button" aria-pressed="false"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-copy">SWITCH ON THE STUDIO <span class="switch-subcopy">OPTIONAL AUDIO BUMPER · CLICK TO PLAY</span></span></button></div>
         </div>
+        <div class="show-bottom page-grid"><span>CR2 ORIGINAL PROGRAMMING</span><span>POWERED BY <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">MOSH ↗</a></span><span>INDEPENDENTLY PRODUCED</span></div>
         <audio id="bumper" preload="none" src="/assets/cr2-bumper.wav"></audio>
       </section>
-
-      <div class="signal-strip" aria-hidden="true">
-        <div class="signal-strip-inner"><span>BUILDERS</span><i>✳</i><span>MARKETS</span><i>✳</i><span>CULTURE</span><i>✳</i><span>CONVERSATION</span><i>✳</i><span>BUILDERS</span><i>✳</i><span>MARKETS</span><i>✳</i><span>CULTURE</span></div>
-      </div>
-
-      <section class="latest dark-section section-pad" id="latest" aria-labelledby="latest-title">
-        <div class="section-heading page-grid" data-reveal>
-          <div class="section-index"><span>01 / ON AIR</span><span class="index-line"></span></div>
-          <p>Every episode is a seat at the table.<br />Start with the most recent conversation.</p>
-        </div>
-        <div class="latest-layout page-grid">
-          <div class="latest-copy" data-reveal>
-            <span class="label-pill"><span class="pulse-dot"></span> LATEST REPLAY · EP {featured.number}</span>
-            <h2 id="latest-title">WHAT’S ON <span>ROBINHOOD CHAIN?</span></h2>
-            <p class="latest-summary">From the projects shipping now to the people shaping what comes next. This edition brings together builders from SlopCash and Umia Finance, plus Justin Bebis of Mosh.</p>
-            <div class="episode-meta"><span>05 NOV 2026</span><span class="meta-divider"></span><span>BUILDERS / MARKETS</span></div>
-            <a class="button button-violet" href={featured.url} target="_blank" rel="noopener noreferrer">Watch episode 09 on X <span aria-hidden="true">↗</span></a>
-          </div>
-          <a class="feature-art" href={featured.url} target="_blank" rel="noopener noreferrer" aria-label="Watch episode 09: What's on Robinhood Chain? on X" data-reveal>
-            <span class="feature-art-grid" aria-hidden="true"></span>
-            <span class="feature-art-top"><span>CHILL WITH R2</span><span>EDITION / 009</span></span>
-            <span class="feature-art-number" aria-hidden="true">09</span>
-            <span class="feature-art-center"><span class="feature-art-script">Chill</span><span class="feature-art-divider"></span><span class="feature-art-r2">R2</span></span>
-            <span class="feature-art-bottom"><span>WHAT’S ON<br />ROBINHOOD CHAIN?</span><span class="play-disc" aria-hidden="true">↗</span></span>
-          </a>
-        </div>
-        <div class="latest-footer page-grid"><span>POWERED BY <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">MOSH ↗</a></span><span>RECORDED LIVE / REPLAY ON X</span></div>
-      </section>
-
+      <section class="latest dark-section section-pad" id="latest" aria-labelledby="latest-title"><div class="page-grid">
+        <div class="section-index"><span>03 / NOW PLAYING</span><span class="index-line"></span><span>THE LATEST FROM CHILL WITH R2</span></div>
+        <div class="latest-layout"><div class="latest-copy" data-reveal><span class="label-pill"><span class="pulse-dot"></span> EPISODE {featured.number} / REPLAY</span><h2 id="latest-title">{featured.title}</h2><p class="latest-summary">From the projects shipping now to the people shaping what comes next. This edition brings together builders from SlopCash and Umia Finance, plus Justin Bebis of Mosh.</p><div class="episode-meta"><span>{featured.date}</span><span class="meta-divider"></span><span>{featured.channels.join(' / ').toUpperCase()}</span></div><a class="button button-violet" href={featured.url} target="_blank" rel="noopener noreferrer">Watch episode {featured.number} on X <span aria-hidden="true">↗</span></a></div>
+          <a class="feature-art" href={featured.url} target="_blank" rel="noopener noreferrer" aria-label={'Watch episode ' + featured.number + ': ' + featured.title + ' on X'} data-reveal><span class="feature-art-grid" aria-hidden="true"></span><span class="feature-art-top"><span>CR2 / ORIGINAL PROGRAMMING</span><span>EDITION / {featured.number}</span></span><span class="feature-art-number" aria-hidden="true">{featured.number}</span><span class="feature-art-center"><span class="feature-art-script">Chill</span><span class="feature-art-divider"></span><span class="feature-art-r2">R2</span></span><span class="feature-art-bottom"><span>{featured.title}</span><span class="play-disc" aria-hidden="true">↗</span></span></a></div>
+        <div class="latest-footer"><span>THE PEOPLE BUILDING IT. THE TRADERS READING IT.</span><span>RECORDED LIVE / REPLAY ON X</span></div>
+      </div></section>
       <section class="episodes section-pad" id="episodes" aria-labelledby="episodes-title">
-        <div class="episodes-head page-grid" data-reveal>
-          <div><div class="section-index dark-index"><span>02 / THE ARCHIVE</span><span class="index-line"></span></div><h2 id="episodes-title">GOOD TALK<br /><em>TRAVELS.</em></h2></div>
-          <p>Not a feed to skim. A room to return to. Find the conversations about building, trading, and the culture around Robinhood Chain.</p>
-        </div>
-        <div class="filter-row page-grid" data-reveal>
-          <div class="filters" role="group" aria-label="Filter episodes by topic">
-            <button class="filter active" type="button" data-filter="all" aria-pressed="true">ALL <span>03</span></button>
-            <button class="filter" type="button" data-filter="builders" aria-pressed="false">BUILDERS</button>
-            <button class="filter" type="button" data-filter="markets" aria-pressed="false">MARKETS</button>
-            <button class="filter" type="button" data-filter="culture" aria-pressed="false">CULTURE</button>
-          </div>
-          <span class="filter-caption" id="filter-count" aria-live="polite">SHOWING ALL CONVERSATIONS</span>
-        </div>
-        <div class="episode-grid page-grid">
-          {episodes.map((episode) => (
-            <article class={`episode-card episode-${episode.accent}`} data-channels={episode.channels.join(' ')} data-reveal>
-              <div class="episode-card-top"><span>CR2 / {episode.number}</span><span>{episode.date}</span></div>
-              <div class="episode-card-number" aria-hidden="true">{episode.number}</div>
-              <div class="episode-card-main"><span class="episode-card-type">{episode.channels.join(' / ').toUpperCase()}</span><h3>{episode.title}</h3><p>{episode.dek}</p></div>
-              <div class="episode-card-bottom"><span>{episode.guests}</span><a href={episode.url} target="_blank" rel="noopener noreferrer" aria-label={`Watch episode ${episode.number}: ${episode.title} on X`}>WATCH ↗</a></div>
-            </article>
-          ))}
-        </div>
-        <div class="archive-outro page-grid"><span>THERE’S MORE TO THE STORY.</span><a class="text-link" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Find every broadcast on X <span aria-hidden="true">↗</span></a></div>
+        <div class="episodes-head page-grid" data-reveal><div><div class="section-index dark-index"><span>04 / THE ARCHIVE</span><span class="index-line"></span></div><h2 id="episodes-title">GOOD TALK<br /><em>TRAVELS.</em></h2></div><p>A living record of the ideas and people moving the conversation forward. Find your entry point.</p></div>
+        <div class="filter-row page-grid" data-reveal><div class="filters" role="group" aria-label="Filter episodes by topic"><button class="filter active" type="button" data-filter="all" aria-pressed="true">ALL <span>03</span></button><button class="filter" type="button" data-filter="builders" aria-pressed="false">BUILDERS</button><button class="filter" type="button" data-filter="markets" aria-pressed="false">MARKETS</button><button class="filter" type="button" data-filter="culture" aria-pressed="false">CULTURE</button></div><span class="filter-caption" id="filter-count" aria-live="polite">SHOWING ALL CONVERSATIONS</span></div>
+        <div class="episode-grid page-grid">{episodes.map((episode) => (<article class={'episode-card episode-' + episode.accent} data-channels={episode.channels.join(' ')} data-reveal><div class="episode-card-top"><span>CR2 / {episode.number}</span><span>{episode.date}</span></div><div class="episode-card-number" aria-hidden="true">{episode.number}</div><div class="episode-card-main"><span class="episode-card-type">{episode.channels.join(' / ').toUpperCase()}</span><h3>{episode.title}</h3><p>{episode.dek}</p></div><div class="episode-card-bottom"><span>{episode.guests}</span><a href={episode.url} target="_blank" rel="noopener noreferrer" aria-label={'Watch episode ' + episode.number + ': ' + episode.title + ' on X'}>WATCH ↗</a></div></article>))}</div>
+        <div class="archive-outro page-grid"><span>MORE CONVERSATIONS, EVERY WEEK.</span><a class="text-link" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Find every broadcast on X <span aria-hidden="true">↗</span></a></div>
       </section>
-
-      <section class="questions dark-section section-pad" aria-labelledby="questions-title">
-        <div class="questions-layout page-grid">
-          <div class="questions-intro" data-reveal><div class="section-index"><span>03 / THE CONVERSATION</span><span class="index-line"></span></div><h2 id="questions-title">THE BEST<br />QUESTIONS<br /><em>STICK.</em></h2><p>Across every broadcast, the conversation keeps moving between what people are building and what the market makes of it.</p></div>
-          <div class="question-list" data-reveal>
-            <a href={episodes[0].url} target="_blank" rel="noopener noreferrer"><span>01 / BUILDERS</span><strong>What is taking shape on Robinhood Chain right now?</strong><span class="question-arrow" aria-hidden="true">↗</span></a>
-            <a href={episodes[1].url} target="_blank" rel="noopener noreferrer"><span>02 / MARKETS</span><strong>What counts as an edge when everyone can see the same chart?</strong><span class="question-arrow" aria-hidden="true">↗</span></a>
-            <a href={episodes[2].url} target="_blank" rel="noopener noreferrer"><span>03 / WHAT’S NEXT</span><strong>Where does onchain attention go from here?</strong><span class="question-arrow" aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </section>
-
-      <section class="hosts section-pad" id="hosts" aria-labelledby="hosts-title">
-        <div class="hosts-head page-grid" data-reveal><div class="section-index dark-index"><span>04 / BEHIND THE MIC</span><span class="index-line"></span></div><h2 id="hosts-title">GOOD COMPANY.<br /><em>BETTER QUESTIONS.</em></h2><p>Two hosts. A rotating room of builders, traders, and people with something worth saying.</p></div>
-        <div class="host-grid page-grid">
-          {hosts.map((host, index) => (
-            <a class={`host-card host-card-${index + 1}`} href={host.url} target="_blank" rel="noopener noreferrer" data-reveal>
-              <span class="host-card-top">CO-HOST / 0{index + 1}<span aria-hidden="true">↗</span></span>
-              <span class="host-monogram" aria-hidden="true">{host.initials}</span>
-              <span class="host-card-bottom"><strong>{host.name}</strong><span>{host.handle}</span></span>
-              <span class="host-card-description">{host.description}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section class="closing brick-scene" id="follow" aria-labelledby="closing-title">
-        <div class="closing-orbit" aria-hidden="true"></div>
-        <div class="closing-inner page-grid" data-reveal><span class="closing-kicker">YOUR SEAT IS OPEN</span><h2 id="closing-title">COME FOR THE<br />CONVERSATION.<br /><em>STAY FOR WHAT’S NEXT.</em></h2><p>Follow Chill with R2 for the next live show and the conversations you missed.</p><a class="button button-ink" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Join us on X <span aria-hidden="true">↗</span></a></div>
-      </section>
+      <section class="manifesto dark-section section-pad" aria-labelledby="manifesto-title"><div class="manifesto-layout page-grid"><div class="manifesto-copy" data-reveal><div class="section-index"><span>05 / WHY WE EXIST</span><span class="index-line"></span></div><h2 id="manifesto-title">LESS NOISE.<br />MORE <em>CONTEXT.</em><br />ALWAYS IN<br />THE ROOM.</h2></div><div class="manifesto-side" data-reveal><p>CR2 is built around conversation because the most important stories are still being written. We put builders, market minds, and internet voices in the same room—and let the questions lead.</p><div class="manifesto-rule"></div><span>AN INDEPENDENT POINT OF VIEW<br />ON A CONNECTED WORLD.</span></div></div></section>
+      <section class="hosts section-pad" id="hosts" aria-labelledby="hosts-title"><div class="hosts-head page-grid" data-reveal><div class="section-index dark-index"><span>06 / THE PEOPLE</span><span class="index-line"></span></div><h2 id="hosts-title">GOOD COMPANY.<br /><em>BETTER QUESTIONS.</em></h2><p>At the mic: two hosts and an expanding room of builders, traders, and people with something worth saying.</p></div><div class="host-grid page-grid">{hosts.map((host, index) => (<a class={'host-card host-card-' + (index + 1)} href={host.url} target="_blank" rel="noopener noreferrer" data-reveal><span class="host-card-top">CO-HOST / 0{index + 1}<span aria-hidden="true">↗</span></span><span class="host-monogram" aria-hidden="true">{host.initials}</span><span class="host-card-bottom"><strong>{host.name}</strong><span>{host.handle}</span></span><span class="host-card-description">{host.description}</span></a>))}</div></section>
+      <section class="closing brick-scene" id="follow" aria-labelledby="closing-title"><div class="closing-orbit" aria-hidden="true"></div><div class="closing-inner page-grid" data-reveal><span class="closing-kicker">THE SIGNAL IS JUST GETTING STARTED</span><h2 id="closing-title">PULL UP<br />A <em>CHAIR.</em></h2><p>Follow CR2 for the next live show and the conversations worth coming back to.</p><a class="button button-ink" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Join the conversation on X <span aria-hidden="true">↗</span></a></div></section>
     </main>
-
-    <footer class="footer dark-section">
-      <div class="footer-main page-grid"><a class="footer-brand" href="#top"><img src="/assets/cr2-neon-dark.svg" alt="Chill with R2" width="180" height="140" /></a><div class="footer-links"><a href="#latest">LATEST</a><a href="#episodes">EPISODES</a><a href="#hosts">HOSTS</a><a href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">X ↗</a></div></div>
-      <div class="footer-bottom page-grid"><p>Chill with R2 is an independent podcast and is not affiliated with, endorsed by, or officially connected with Robinhood Markets, Inc.</p><span>© 2026 CHILL WITH R2 · POWERED BY <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">MOSH</a></span></div>
-    </footer>
-
-    <script>
-      import '../scripts/site';
-    </script>
+    <footer class="footer dark-section"><div class="footer-main page-grid"><a class="footer-brand" href="#top"><img src="/assets/cr2-mark-dark.svg" alt="" width="120" height="105" /><span>CR2<small>CRYPTO. FINANCE. TECHNOLOGY.</small></span></a><div class="footer-links"><a href="#about">THE LENS</a><a href="#show">THE SHOW</a><a href="#episodes">EPISODES</a><a href="#hosts">PEOPLE</a><a href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">X ↗</a></div></div><div class="footer-bottom page-grid"><p>CR2 is independent media. Chill with R2 is not affiliated with, endorsed by, or officially connected with Robinhood Markets, Inc.</p><span>© 2026 CR2 · FLAGSHIP SHOW POWERED BY <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">MOSH</a></span></div></footer>
+    <script>import '../scripts/site';</script>
   </body>
 </html>

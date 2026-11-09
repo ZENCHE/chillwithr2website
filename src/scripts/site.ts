@@ -42,7 +42,7 @@ filterButtons.forEach((button) => {
 
 const studioSwitch = document.querySelector<HTMLButtonElement>('#studio-switch');
 const bumper = document.querySelector<HTMLAudioElement>('#bumper');
-const hero = document.querySelector<HTMLElement>('.hero');
+const hero = document.querySelector<HTMLElement>('.show');
 const switchCopy = studioSwitch?.querySelector<HTMLElement>('.switch-copy');
 
 studioSwitch?.addEventListener('click', () => {
