@@ -1,0 +1,33 @@
+---
+import { SITE_URL, SOCIAL_IMAGE, SOCIAL_IMAGE_ALT } from '../site-config';
+interface Props { title:string; description:string; path:string; schema:unknown; markdown:string; }
+const {title,description,path,schema,markdown}=Astro.props;
+const canonical=new URL(path,SITE_URL).href;
+---
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<link rel="canonical" href={canonical} />
+<link rel="icon" href="/assets/cr2-mark.svg" type="image/svg+xml" />
+<link rel="sitemap" href="/sitemap.xml" type="application/xml" />
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="Chill with R2 — Latest broadcasts" />
+<link rel="alternate" href={new URL(markdown,SITE_URL).href} type="text/markdown" title={`${title} — plain text`} />
+<link rel="describedby" href="/llms.txt" type="text/plain" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="CR2" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={SOCIAL_IMAGE} />
+<meta property="og:image:alt" content={SOCIAL_IMAGE_ALT} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@chillwithr2" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={SOCIAL_IMAGE} />
+<meta name="twitter:image:alt" content={SOCIAL_IMAGE_ALT} />
+<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g,'\\u003c')} />
+<title>{title}</title>

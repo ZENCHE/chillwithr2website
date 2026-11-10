@@ -1,22 +1,19 @@
 ---
 import { episodes, hosts } from '../data';
 import Header from '../components/Header.astro';
+import GuestBooking from '../components/GuestBooking.astro';
+import Seo from '../components/Seo.astro';
+import { homeSchema } from '../lib/seo';
+import { SITE_DESCRIPTION } from '../site-config';
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/space-grotesk';
 import '@fontsource/ibm-plex-mono/400.css';
 import '../styles/global.css';
 
 const featured = episodes[0];
-const canonical = 'https://chill-with-r2.daring-pine-5405.chatgpt.site/';
-const title = 'CR2 — Crypto, finance & tech';
-const description = 'Independent media on crypto, finance, and tech. Home of Chill with R2, a live podcast covering Robinhood Chain.';
-const schema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    { '@type': 'Organization', '@id': canonical + '#company', name: 'CR2', url: canonical, description, sameAs: ['https://x.com/chillwithr2'] },
-    { '@type': 'PodcastSeries', name: 'Chill with R2', url: canonical + '#show', description: 'A live podcast covering Robinhood Chain.', publisher: { '@id': canonical + '#company' }, sameAs: ['https://x.com/chillwithr2'] }
-  ]
-};
+const title = 'CR2 — Crypto, finance & tech | Chill with R2';
+const description = SITE_DESCRIPTION;
+const schema = homeSchema(title,description);
 ---
 <!doctype html>
 <html lang="en">
@@ -24,20 +21,7 @@ const schema = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#21172f" />
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/assets/cr2-mark.svg" type="image/svg+xml" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={canonical + 'assets/cr2-studio-social.png'} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={canonical + 'assets/cr2-studio-social.png'} />
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    <title>{title}</title>
+    <Seo {title} {description} path="/" {schema} markdown="/index.md" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -62,7 +46,7 @@ const schema = {
             <div class="sign" id="sign">
               <img class="sign-halo halo-wide" src="/assets/studio-sign.svg" alt="" aria-hidden="true" width="820" height="620" />
               <img class="sign-halo halo-tight" src="/assets/studio-sign.svg" alt="" aria-hidden="true" width="820" height="620" />
-              <img class="sign-core" src="/assets/studio-sign.svg" alt="Chill with R2" width="820" height="620" fetchpriority="high" />
+              <img class="sign-core" src="/assets/studio-sign.svg" alt="Chill with R2 neon logo in violet, green and pink" width="820" height="620" fetchpriority="high" />
             </div>
           </div>
         </div>
@@ -82,8 +66,9 @@ const schema = {
       </section>
       <section class="hosts wrap" id="hosts" aria-labelledby="hosts-title">
         <div><p class="eyebrow">BEHIND THE MICS</p><h2 id="hosts-title">Your hosts<span>.</span></h2></div>
-        <div class="host-list">{hosts.map((host)=>(<a class="host" href={host.url} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={host.avatar} width="400" height="400" loading="lazy" decoding="async" alt="" /><span><strong>{host.name}</strong><small>{host.handle}</small></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
+        <div class="host-list">{hosts.map((host)=>(<a class="host" href={host.url} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={host.avatar} width="400" height="400" loading="lazy" decoding="async" alt={host.avatarAlt} /><span><strong>{host.name}</strong><small>{host.handle}</small></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
       </section>
+      <GuestBooking />
     </main>
     <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh ↗</a><small>CR2 is not affiliated with Robinhood Markets, Inc.</small></p><a class="back-top" href="#top" aria-label="Back to top">↑</a></footer>
     <script>import '../scripts/site';</script>

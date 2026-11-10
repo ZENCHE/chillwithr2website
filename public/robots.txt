@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://chill-with-r2.daring-pine-5405.chatgpt.site/sitemap.xml
