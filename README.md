@@ -8,7 +8,7 @@ Run npm ci, npm run dev, npm run check, and npm run build. Production output is 
 
 ## Design and content
 
-The opening scene is a neon broadcast studio built with a photographed brick material, layered SVG sign, colored lighting, and bounded parallax. The landing page contains the studio, broadcasts, hosts, sponsorship panel and guest-booking row. All navigation and text are HTML. Effects stop when inactive, offscreen, or hidden. Reduced-motion preferences disable decorative movement. The schedule, intro player, audio analyser and motion-toggle row were removed at the owner’s request.
+The opening scene is a neon broadcast studio built with a photographed brick material, layered SVG sign, colored lighting, and bounded parallax. The landing page contains the studio, broadcasts, hosts, guest booking with a portrait collage, and a compact sponsorship row. All navigation and text are HTML. Effects stop when inactive, offscreen, or hidden. Reduced-motion preferences disable decorative movement. The schedule, intro player, audio analyser and motion-toggle row were removed at the owner’s request.
 
 The CSS/SVG treatment was selected after comparing it with a Three.js normal-mapped wall and selective bloom. It preserves sharper, more saturated logo artwork and avoids the experimental renderer's additional 136 KB gzip JavaScript. The production site has no WebGL dependency, so graphics-context failure cannot hide its content.
 
@@ -33,7 +33,9 @@ Guest avatars in src/assets/guests are public X profile images retrieved on Nove
 
 ## Guest booking
 
-The landing-page row opens a native dialog with name, X handle, email, project and message. Escape, the close button and backdrop clicks close it; focus returns to the opener. Mobile layouts scroll within the dialog. No visitor data is saved to the site, local storage or a database.
+The landing-page section pairs the booking action with a staggered collage of all twelve guest avatars. Bios open on hover, keyboard focus or tap; Escape, another tap or an outside click dismisses them. The local portraits are shared with About and included in both pages' image sitemap entries. Bio copy uses owner-supplied roles; follower-only entries retain their October 2026 date. Reduced motion removes portrait transitions.
+
+The booking action opens a native dialog with name, X handle, email, project and message. Escape, the close button and backdrop clicks close it; focus returns to the opener. Mobile layouts scroll within the dialog. No visitor data is saved to the site, local storage or a database.
 
 The owner selected FormSubmit but has no receiving email yet. `src/site-config.ts` therefore has an empty `guestBooking.recipient` and `activated: false`. The deployed form displays **Bookings opening soon**, disables its fields and submit button, and sends no requests. This is not a working email inbox or a confirmed booking system.
 
@@ -56,6 +58,6 @@ References: https://developers.google.com/search/docs/crawling-indexing/sitemaps
 
 ## Sponsorship
 
-Added November 11, 2026. The homepage's Sponsor CR2 panel opens its own contact modal and links Learn more to `/about/`. The About page ends with the same sponsor form inline at `/about/#sponsor`, replacing the Watch the latest episode closing action. It asks for name, email, company/project, message and an optional X handle. No rates, packages or audience guarantees are invented.
+Added November 11, 2026. The homepage's understated Sponsor CR2 row sits below guest booking, opens its own contact modal and links Learn more to `/about/`. The About page ends with the same sponsor form inline at `/about/#sponsor`, replacing the Watch the latest episode closing action. It asks for name, email, company/project, message and an optional X handle. No rates, packages or audience guarantees are invented.
 
 `ContactForm.astro` shares markup and response handling between guest and sponsor forms. Each form has distinct IDs, its own state, and a separate subject: `CR2 — Sponsorship inquiry` versus `CR2 — Guest spot request`. `sponsorshipContact` in `src/site-config.ts` remains empty with `activated: false`. Supply and activate its FormSubmit inbox before enabling it. Guest and sponsor delivery can use the same verified inbox or separate addresses. The existing guest-booking activation instructions apply. No inquiry is sent or retained while either form is closed.
