@@ -1,4 +1,5 @@
 ---
+import ContactForm from './ContactForm.astro';
 import { bookingEndpoint } from '../site-config';
 import '../styles/booking.css';
 const ready = Boolean(bookingEndpoint);
@@ -9,32 +10,16 @@ const ready = Boolean(bookingEndpoint);
     <h2 id="booking-row-title">Book a guest spot<span>.</span></h2>
     <p>Tell us what you’re building in crypto, finance or tech.</p>
   </div>
-  <a class="booking-trigger" href="#guest-booking-info" aria-haspopup="dialog" aria-controls="guest-dialog" data-booking-open>Pitch your story <span aria-hidden="true">↗</span></a>
+  <a class="booking-trigger" href="#guest-booking-info" aria-haspopup="dialog" aria-controls="guest-dialog" data-booking-open data-dialog-target="guest-dialog">Pitch your story <span aria-hidden="true">↗</span></a>
 </section>
-<dialog class="guest-dialog" id="guest-dialog" aria-labelledby="guest-title" aria-describedby="guest-intro">
+<dialog class="guest-dialog" id="guest-dialog" data-contact-dialog aria-labelledby="guest-title" aria-describedby="guest-intro">
   <div class="guest-dialog-inner">
-    <button class="guest-close" type="button" aria-label="Close guest booking" data-booking-close>×</button>
+    <button class="guest-close" type="button" aria-label="Close guest booking" data-contact-close>×</button>
     <p class="eyebrow">CHILL WITH R2 / GUEST REQUEST</p>
-    <h2 id="guest-title" tabindex="-1">Let’s talk<span>.</span></h2>
+    <h2 id="guest-title" tabindex="-1" data-dialog-heading>Let’s talk<span>.</span></h2>
     <p id="guest-intro">Introduce yourself and the conversation you’d like to have.</p>
-    {!ready && <div class="booking-notice"><span class="booking-status-dot" aria-hidden="true"></span><div><strong>Bookings opening soon</strong><p>The request form isn’t open yet. <a href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Follow CR2 on X for updates ↗</a></p></div></div>}
-    <form id="guest-request" method="post" action={ready ? bookingEndpoint.replace('/ajax/','/') : undefined} data-endpoint={bookingEndpoint} aria-label="Guest spot request">
-      <fieldset disabled={!ready}>
-        <legend class="visually-hidden">Your guest request</legend>
-        <div class="booking-fields">
-          <label for="guest-name">Name<input id="guest-name" name="name" autocomplete="name" maxlength="100" required placeholder="Your name" /></label>
-          <label for="guest-x">X handle<input id="guest-x" name="xHandle" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="16" pattern="@?[A-Za-z0-9_]{1,15}" title="Your X username, with or without @" required placeholder="@yourhandle" /></label>
-          <label for="guest-email">Email<input id="guest-email" name="email" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="254" required placeholder="you@project.com" /></label>
-          <label for="guest-project">Project<input id="guest-project" name="project" autocomplete="organization" maxlength="160" required placeholder="Project or company" /></label>
-          <label class="booking-message" for="guest-message">Message<textarea id="guest-message" name="message" rows="4" maxlength="3000" required placeholder="What are you working on, and what would you like to discuss?"></textarea></label>
-        </div>
-        <div class="booking-honey" aria-hidden="true"><label>Leave this blank<input name="_honey" type="text" tabindex="-1" autocomplete="off" /></label></div>
-        <div class="booking-submit-row"><p>{ready ? 'Your details go to CR2 via FormSubmit to review your guest request.' : 'No details are collected while booking is closed.'}</p><button class="booking-submit" type="submit">{ready ? 'Send guest request' : 'Bookings opening soon'}<span aria-hidden="true">↗</span></button></div>
-      </fieldset>
-      <p class="booking-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
-    </form>
-    <div class="booking-success" hidden tabindex="-1"><span aria-hidden="true">✓</span><h3>Request sent.</h3><p>Thanks for the introduction. The CR2 team will review your pitch and follow up by email if it’s a fit.</p><button type="button" data-booking-close>Back to the show <span aria-hidden="true">↗</span></button></div>
+    <ContactForm kind="guest" id="guest" />
   </div>
 </dialog>
 <noscript><div class="wrap booking-no-script" id="guest-booking-info"><p>Guest booking {ready ? 'requires JavaScript to send your request.' : 'opens soon.'} <a href="https://x.com/chillwithr2">Follow CR2 on X.</a></p></div></noscript>
-<script>import '../scripts/booking';</script>
+

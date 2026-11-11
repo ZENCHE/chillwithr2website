@@ -1,12 +1,13 @@
 ---
 import Header from '../components/Header.astro';
+import Sponsorship from '../components/Sponsorship.astro';
 import { Image } from 'astro:assets';
 import Seo from '../components/Seo.astro';
 import { aboutSchema } from '../lib/seo';
 import { guestPortraits } from '../lib/guest-portraits';
 import chillAvatar from '../../public/assets/chill-pill-avatar.png';
 import r2Avatar from '../../public/assets/r2d2-avatar.png';
-import { episodes, hosts, communities } from '../data';
+import { hosts, communities } from '../data';
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/space-grotesk';
 import '@fontsource/ibm-plex-mono/400.css';
@@ -86,10 +87,7 @@ const schema = aboutSchema(title,description,portraits.map(guest=>({...guest,ima
             <p class="about-note guest-note">¹ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildathon, which drew 1,200+ builders.</p>
           </div>
         </section>
-        <section class="about-close wrap" aria-labelledby="close-title">
-          <div><p class="eyebrow">SEE IT FOR YOURSELF</p><h2 id="close-title">Get to know CR2.</h2></div>
-          <a class="about-primary" href={episodes[0].url} target="_blank" rel="noopener noreferrer">Watch the latest episode <span aria-hidden="true">↗</span></a>
-        </section>
+        <Sponsorship inline />
         <div class="wrap metrics-notes">
           <details>
             <summary>About the numbers <span aria-hidden="true">+</span></summary>

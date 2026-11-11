@@ -1,0 +1,36 @@
+---
+import ContactForm from './ContactForm.astro';
+import '../styles/sponsorship.css';
+interface Props { inline?: boolean; }
+const { inline = false } = Astro.props;
+---
+{inline ? (
+  <section class="sponsor-contact wrap" id="sponsor" aria-labelledby="sponsor-heading">
+    <div class="sponsor-contact-copy">
+      <p class="eyebrow">WORK WITH CR2</p>
+      <h2 id="sponsor-heading">Let’s talk <br />sponsorship<span>.</span></h2>
+      <p>Tell us about your brand and who you want to reach.</p>
+      <div class="sponsor-signoff" aria-hidden="true"><img src="/assets/studio-mark.svg" alt="" width="62" height="56" /><span>CRYPTO. FINANCE. TECH.</span></div>
+    </div>
+    <div class="sponsor-form-card"><ContactForm kind="sponsor" id="sponsor" /></div>
+  </section>
+) : (
+  <>
+    <section class="sponsor-section wrap" id="sponsor" aria-labelledby="sponsor-heading">
+      <div class="sponsor-copy"><p class="eyebrow">PARTNER WITH THE SHOW</p><h2 id="sponsor-heading">Sponsor CR2<span>.</span></h2><p>Put your brand in front of founders, investors and builders.</p></div>
+      <div class="sponsor-actions">
+        <a class="sponsor-primary" href="/about/#sponsor" aria-haspopup="dialog" aria-controls="sponsor-dialog" data-dialog-target="sponsor-dialog">Contact CR2 <span aria-hidden="true">↗</span></a>
+        <a class="sponsor-learn" href="/about/">Learn more <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+    <dialog class="guest-dialog sponsor-dialog" id="sponsor-dialog" data-contact-dialog aria-labelledby="sponsor-title" aria-describedby="sponsor-intro">
+      <div class="guest-dialog-inner">
+        <button class="guest-close" type="button" aria-label="Close sponsorship inquiry" data-contact-close>×</button>
+        <p class="eyebrow">CR2 / PARTNERSHIPS</p>
+        <h2 id="sponsor-title" tabindex="-1" data-dialog-heading>Sponsor CR2<span>.</span></h2>
+        <p class="contact-intro" id="sponsor-intro">Tell us about your brand and who you want to reach.</p>
+        <ContactForm kind="sponsor" id="sponsor" />
+      </div>
+    </dialog>
+  </>
+)}

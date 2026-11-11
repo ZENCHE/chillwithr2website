@@ -62,3 +62,7 @@ html:has(.guest-dialog[open]) { overflow:hidden; }
   .booking-submit { width:100%; padding:15px; }
 }
 @media(prefers-reduced-motion:reduce) { .guest-dialog[open] { animation:none; } .booking-trigger { transition:none; } }
+
+.contact-panel { position:relative; min-width:0; }
+.contact-panel fieldset { padding:0; margin:0; border:0; min-width:0; }
+.field-optional { color:var(--muted); font-size:11px; }

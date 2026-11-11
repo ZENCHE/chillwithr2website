@@ -8,6 +8,9 @@ export const SOCIAL_IMAGE_ALT = 'Chill with R2 neon sign glowing violet, green a
 export const guestBooking = { recipient: '', activated: false };
 export const bookingEndpoint = guestBooking.activated && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(guestBooking.recipient)
   ? `https://formsubmit.co/ajax/${encodeURIComponent(guestBooking.recipient)}` : '';
+export const sponsorshipContact = { recipient: '', activated: false };
+export const sponsorEndpoint = sponsorshipContact.activated && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(sponsorshipContact.recipient)
+  ? `https://formsubmit.co/ajax/${encodeURIComponent(sponsorshipContact.recipient)}` : '';
 
 // Change only when the corresponding page's content materially changes.
-export const pageDates = { home: '2026-11-10', about: '2026-11-10' };
+export const pageDates = { home: '2026-11-11', about: '2026-11-11' };

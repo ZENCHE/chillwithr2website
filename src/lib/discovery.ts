@@ -1,5 +1,5 @@
 import { episodes, hosts, guests, communities } from '../data';
-import { SITE_URL, SITE_DESCRIPTION, bookingEndpoint } from '../site-config';
+import { SITE_URL, SITE_DESCRIPTION, bookingEndpoint, sponsorEndpoint } from '../site-config';
 export const xml=(value:string)=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]!));
 export const xmlResponse=(content:string)=>new Response('<?xml version="1.0" encoding="UTF-8"?>\n'+content,{headers:{'Content-Type':'application/xml; charset=utf-8'}});
 export const textResponse=(content:string,type='text/plain')=>new Response(content,{headers:{'Content-Type':`${type}; charset=utf-8`}});
@@ -22,6 +22,10 @@ ${hosts.map(h=>`- [${h.name}](${h.url}) — ${h.handle}.`).join('\n')}
 ## Guest appearances
 
 ${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_URL}/#guest-spot). The form asks for name, X handle, email, project and message. A request is not a confirmed booking.` : 'Guest bookings are opening soon. The request form is currently closed and does not collect submissions.'}
+
+## Sponsorship
+
+Put your brand in front of founders, investors and builders. [Learn about the CR2 audience](${SITE_URL}/about/) or use the [sponsorship form](${SITE_URL}/about/#sponsor). ${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."}
 
 ## More from CR2
 
@@ -57,7 +61,10 @@ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildat
 
 Figures and audience profile were supplied by CR2. Community sizes are reported memberships and subscriptions, not deduplicated people. Examples from the 22 October snapshot: launch post, 10,100 views; Episode 3 with @that1618guy, 8,258; Episode 3 clip, 8,167. CR2 is not affiliated with Robinhood Markets, Inc.
 
-- [Watch the latest episode](${episodes[0].url})
+## Sponsorship
+
+[Contact CR2 about sponsorship](${SITE_URL}/about/#sponsor). The form asks for name, email, company or project, an optional X handle, and a message. ${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."}
+
 - [CR2 homepage](${SITE_URL}/)
 - [CR2 on X](https://x.com/chillwithr2)
 `;

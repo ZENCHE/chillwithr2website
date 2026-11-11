@@ -2,6 +2,7 @@
 import { episodes, hosts } from '../data';
 import Header from '../components/Header.astro';
 import GuestBooking from '../components/GuestBooking.astro';
+import Sponsorship from '../components/Sponsorship.astro';
 import Seo from '../components/Seo.astro';
 import { homeSchema } from '../lib/seo';
 import { SITE_DESCRIPTION } from '../site-config';
@@ -68,6 +69,7 @@ const schema = homeSchema(title,description);
         <div><p class="eyebrow">BEHIND THE MICS</p><h2 id="hosts-title">Your hosts<span>.</span></h2></div>
         <div class="host-list">{hosts.map((host)=>(<a class="host" href={host.url} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={host.avatar} width="400" height="400" loading="lazy" decoding="async" alt={host.avatarAlt} /><span><strong>{host.name}</strong><small>{host.handle}</small></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
       </section>
+      <Sponsorship />
       <GuestBooking />
     </main>
     <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh ↗</a><small>CR2 is not affiliated with Robinhood Markets, Inc.</small></p><a class="back-top" href="#top" aria-label="Back to top">↑</a></footer>
