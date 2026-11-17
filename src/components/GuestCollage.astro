@@ -4,11 +4,7 @@ import '../styles/guest-collage.css';
 const portraits = await guestPortraits();
 const angles = [-8, 4, -3, 8, 5, -6, 7, -4, -5, 6, -7, 4];
 const offsets = [5, -2, 7, 0, -1, 5, -3, 4, 3, -4, 4, -2];
-const bios: Record<string, string> = {
-  Elizacreatez: 'Chill with R2 guest · 88.5k X followers in October 2026.',
-  AvgJoesCrypto: 'Chill with R2 guest · 33k X followers in October 2026.',
-  srinigoes: 'Joined CR2 live from Singapore for the Token2049 special.'
-};
+const bios: Record<string, string> = {};
 ---
 <figure class="guest-collage" data-guest-collage aria-label="CR2 guests">
   <ul class="collage-grid">
@@ -25,7 +21,7 @@ const bios: Record<string, string> = {
       </li>
     ))}
   </ul>
-  <noscript><p class="collage-fallback"><a href="/about/#guests">Meet the guests →</a></p></noscript>
+  <noscript><p class="collage-fallback"><a href="/sponsors/#guests">Meet the guests →</a></p></noscript>
 </figure>
 <script>
   import '../scripts/guest-collage';

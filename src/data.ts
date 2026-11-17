@@ -136,9 +136,9 @@ export const guests = [
   { name: 'banditxbt', handle: 'banditxbt', role: 'VP, PonderCorp · Robinhood Chain data' },
   { name: 'Berdyn', handle: 'berdyn', role: 'Founder, PonderCorp · daily Robinhood Spaces' },
   { name: 'Nill', handle: 'BigNillCollect', role: 'Blockworks · ex-Polygon & Magic Eden' },
-  { name: 'Eliza', handle: 'Elizacreatez', role: '88.5k X followers²' },
-  { name: 'Srini', handle: 'srinigoes', role: 'Token2049 special · live from Singapore' },
-  { name: 'Average Joes Crypto', handle: 'AvgJoesCrypto', role: '33k X followers²' },
+  { name: 'Eliza', handle: 'Elizacreatez', role: 'Video creatoor · Crypto x AI 👽' },
+  { name: 'Srini', handle: 'srinigoes', role: 'Crypto & NFT investor' },
+  { name: 'Average Joes Crypto', handle: 'AvgJoesCrypto', role: 'Top FOMO trader / EX Blockworks Research' },
   { name: 'Andrew Forte', handle: 'AndrewAsksHow', role: 'Business & Growth, Claynosaurz & Heeboo · podcast host' },
   { name: 'SafZ', handle: 'CrypSaf', role: 'Founder, AlphaGEMs · AI startup co-founder' },
   { name: 'Drew', handle: 'mil_itia', role: 'CEO, SlopCash · Co-founder, Toon Protocol' },
@@ -153,5 +153,5 @@ export const communities = [
   { name: 'Mosh Pit', count: '5,000+', label: 'members' },
   { name: 'GreenFeed', count: '800+', label: 'subscribers' },
   { name: 'Gypsy Traders', count: '440+', label: 'subscribers' },
-  { name: 'MHH Colony', count: 'Private', label: 'investor group' }
+  { name: 'MHH Colony - Private Crypto Network group', count: 'Private', label: 'network' }
 ];

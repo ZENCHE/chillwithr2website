@@ -29,45 +29,52 @@ ${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_U
 
 ## Sponsorship
 
-Put your brand in front of founders, investors and builders. [Learn about the CR2 audience](${SITE_URL}/about/) or use the [sponsorship form](${SITE_URL}/about/#sponsor). ${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."}
+Put your brand in front of founders, investors and builders. [See the Sponsors page](${SITE_URL}/sponsors/) or use the [sponsorship form](${SITE_URL}/sponsors/#sponsor). ${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."}
 
 ## More from CR2
 
-- [About CR2 and its audience](${SITE_URL}/about/)
+- [Sponsor CR2: audience, reach and formats](${SITE_URL}/sponsors/)
 - [CR2 on X](https://x.com/chillwithr2)
 - [Broadcast feed](${SITE_URL}/feed.xml)
 `;
-export const aboutMarkdown=()=>`# About CR2 — Meet your next audience
+export const sponsorsMarkdown=()=>`# Sponsor CR2 — Put your brand in the front row
 
-> Independent media for crypto, finance and tech, with Chill with R2 at the center.
+> Independent media for crypto, finance and tech, with Chill with R2 at the center. This page is for sponsors and partners.
 
-Canonical page: ${SITE_URL}/about/
+Canonical page: ${SITE_URL}/sponsors/
 
-The flagship podcast covers Robinhood Chain with the people building on it. The audience includes founders, high-net-worth investors, technologists and finance professionals.
+Chill with R2 goes live on X every Tuesday and Thursday with the founders and builders shaping Robinhood Chain. The audience includes founders, high-net-worth investors, technologists and finance professionals. Chill with R2 is currently powered by Mosh.
 
-## Audience and distribution
+## November 2026 snapshot
 
-- 150k+ cumulative views on October 2026 CR2-related X posts across @chillwithr2, @R2D2zen and @ripchillpill. Public X metrics as of 22 October; these are not unique viewers.
-- 757+ viewer hours per month, reported by CR2.
+- 600k+ X views on CR2 posts across @chillwithr2, @R2D2zen and @ripchillpill, September–November 2026 (supplied by CR2; a 16 November pull counted 512,863 excluding reposts and 646,527 including them). Views, not unique viewers.
+- 20k+ livestream views: X replay totals for Episodes 01–11 as of 16 November (20,198), live and replay views combined.
+- ${episodes.length} live episodes since 6 October 2026 and ${guests.length} guests on air.
+- Chill Pill: approximately 100k X followers. R2D2: 15k X followers. Public X counts checked 17 November 2026.
 - United States: 28%; United Kingdom: 8%; rest of the world: 64%.
-- Chill Pill: approximately 100k X followers. R2D2: approximately 14.6k X followers. These are October 2026 snapshots supplied by CR2, not live counts.
 - 6,000+ community memberships across the three communities with published sizes. Memberships may overlap; MHH Colony is additional.
 
 ${communities.map(c=>`- ${c.name}: ${c.count} ${c.label}.`).join('\n')}
+
+## Formats
+
+- Chill with R2 livestream: Tuesday and Thursday, 15:00 UTC, live on X, about 90 minutes, with a replay. Recurring segments: The Golden Ratio and In the Hood.
+- X Spaces: Monday and Wednesday.
+- Clips and posts across @chillwithr2, @R2D2zen and @ripchillpill.
 
 ## Guests who have appeared on CR2
 
 ${guests.map(g=>`- [${g.name}](https://x.com/${g.handle}) — ${g.role.replace(/[¹²]/g,'')}.`).join('\n')}
 
-Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildathon, which drew 1,200+ builders. Guest roles reflect the supplied guest list. Guest follower figures are approximate October 2026 snapshots, not live counts. Guest appearances do not imply endorsements.
+Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildathon, which drew 1,200+ builders. Guest appearances do not imply endorsements.
 
-## About the numbers
+## How to partner
 
-Figures and audience profile were supplied by CR2. Community sizes are reported memberships and subscriptions, not deduplicated people. Examples from the 22 October snapshot: launch post, 10,100 views; Episode 3 with @that1618guy, 8,258; Episode 3 clip, 8,167. CR2 is not affiliated with Robinhood Markets, Inc.
+1. Send an enquiry through the [sponsorship form](${SITE_URL}/sponsors/#sponsor). It asks for name, email, company or project, an optional X handle, and a message.
+2. Shape the fit: formats, segments, timing and posts.
+3. Go live on X in front of the CR2 audience.
 
-## Sponsorship
-
-[Contact CR2 about sponsorship](${SITE_URL}/about/#sponsor). The form asks for name, email, company or project, an optional X handle, and a message. ${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."}
+${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."} No rates, packages or audience guarantees are published. CR2 is not affiliated with Robinhood Markets, Inc.
 
 - [CR2 homepage](${SITE_URL}/)
 - [CR2 on X](https://x.com/chillwithr2)
