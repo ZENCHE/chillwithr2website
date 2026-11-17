@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://chill-with-r2.daring-pine-5405.chatgpt.site';
+export const SITE_URL = 'https://chillwithr2.com';
 export const SITE_DESCRIPTION = 'Independent media on crypto, finance and tech. Home of Chill with R2, a live podcast covering Robinhood Chain.';
 export const SOCIAL_IMAGE = `${SITE_URL}/assets/cr2-studio-social.png`;
 export const SOCIAL_IMAGE_ALT = 'Chill with R2 neon sign glowing violet, green and pink against a brick wall.';
