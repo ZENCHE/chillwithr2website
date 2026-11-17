@@ -59,7 +59,8 @@ ${communities.map(c=>`- ${c.name}: ${c.count} ${c.label}.`).join('\n')}
 ## Formats
 
 - Chill with R2 livestream: Tuesday and Thursday, 15:00 UTC, live on X, about 90 minutes, with a replay. Recurring segments: The Golden Ratio and In the Hood.
-- X Spaces: Monday and Wednesday.
+- Posts: five days a week across @chillwithr2, @R2D2zen and @ripchillpill.
+- Live product testing: hands-on usage and feedback on air.
 - Clips and posts across @chillwithr2, @R2D2zen and @ripchillpill.
 
 ## Guests who have appeared on CR2
