@@ -13,7 +13,7 @@ const bios: Record<string, string> = {
 <figure class="guest-collage" data-guest-collage aria-label="CR2 guests">
   <ul class="collage-grid">
     {portraits.map((guest, index) => (
-      <li class="collage-guest" style={`--tilt:${angles[index]}deg;--lift:${offsets[index]}px`}>
+      <li class="collage-guest" style={`--tilt:${angles[index % angles.length]}deg;--lift:${offsets[index % offsets.length]}px`}>
         <button class="collage-avatar" type="button" aria-label={`About ${guest.name}`} aria-expanded="false" aria-controls={`guest-bio-${guest.handle}`} aria-describedby={`guest-bio-${guest.handle}`}>
           <img src={guest.portrait.src} width="256" height="256" loading="lazy" decoding="async" alt={`${guest.name}’s X profile avatar`} />
         </button>

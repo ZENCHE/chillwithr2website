@@ -63,11 +63,27 @@ const schema = homeSchema(title,description);
               </a>
             ))}
           </div>
+          <div class="program-list">
+            <h3 id="program-title" class="program-title">Every episode<span>.</span></h3>
+            <ol aria-labelledby="program-title">
+              {episodes.map((episode) => (
+                <li class={'program-row ' + episode.accent}>
+                  <a href={episode.url} target="_blank" rel="noopener noreferrer">
+                    <span class="program-num">EP {episode.number}</span>
+                    <time datetime={episode.dateTime}>{episode.date}</time>
+                    <span class="program-name">{episode.title}</span>
+                    <span class="program-guests">{episode.guests}</span>
+                    <span class="program-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
       <section class="hosts wrap" id="hosts" aria-labelledby="hosts-title">
         <div><p class="eyebrow">BEHIND THE MICS</p><h2 id="hosts-title">Your hosts<span>.</span></h2></div>
-        <div class="host-list">{hosts.map((host)=>(<a class="host" href={host.url} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={host.avatar} width="400" height="400" loading="lazy" decoding="async" alt={host.avatarAlt} /><span><strong>{host.name}</strong><small>{host.handle}</small></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
+        <div class="host-list">{hosts.map((host)=>(<a class="host" href={host.url} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={host.avatar} width="400" height="400" loading="lazy" decoding="async" alt={host.avatarAlt} /><span><strong>{host.name}</strong><small>{host.handle}</small><span class="host-bio">{host.bio}</span></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
       </section>
       <GuestBooking />
       <Sponsorship />

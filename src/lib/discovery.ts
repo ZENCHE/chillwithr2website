@@ -15,9 +15,13 @@ CR2 is independent media. Its flagship show, Chill with R2, features live conver
 
 ${episodes.slice(0,3).map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}) — ${e.dateTime}. Guests: ${e.guests}.`).join('\n')}
 
+## Episode archive
+
+${episodes.map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}) — ${e.dateTime}. ${e.guests}.`).join('\n')}
+
 ## Hosts
 
-${hosts.map(h=>`- [${h.name}](${h.url}) — ${h.handle}.`).join('\n')}
+${hosts.map(h=>`- [${h.name}](${h.url}) — ${h.handle}. ${h.bio}`).join('\n')}
 
 ## Guest appearances
 

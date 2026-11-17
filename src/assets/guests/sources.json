@@ -106,5 +106,87 @@
     "avatar": "https://pbs.twimg.com/profile_images/1944809539515076609/37BJty-9_400x400.jpg",
     "file": "avgjoescrypto.jpg",
     "retrieved": "2026-11-09"
+  },
+  {
+    "handle": "AndrewAsksHow",
+    "name": "Andrew Forte",
+    "description": "Business and Growth @Claynosaurz @HeebooOfficial | Podcast: http://AndrewAsksHow.com | Golfer @404FNF",
+    "profile": "https://x.com/AndrewAsksHow",
+    "avatar": "https://pbs.twimg.com/profile_images/1998324481706602496/vTee1cyY_400x400.jpg",
+    "file": "andrewaskshow.jpg",
+    "retrieved": "2026-11-17"
+  },
+  {
+    "handle": "CrypSaf",
+    "name": "SafZ",
+    "description": "Tech-Biz Consultant | Co-founder of an AI Startup | @0xAlphaGEMs Founder 💎",
+    "profile": "https://x.com/CrypSaf",
+    "avatar": "https://pbs.twimg.com/profile_images/1683213602013036544/GuQn2-Ig_400x400.jpg",
+    "file": "crypsaf.jpg",
+    "retrieved": "2026-11-17"
+  },
+  {
+    "handle": "mil_itia",
+    "name": "Drew",
+    "description": "CEO @SlopCash, cofounder @toonprotocol. Book: http://dedication.ar.io. Rebellion against tyrants is obedience to god",
+    "profile": "https://x.com/mil_itia",
+    "avatar": "https://pbs.twimg.com/profile_images/1745409707471257600/WaCcwOcl_400x400.jpg",
+    "file": "mil_itia.jpg",
+    "retrieved": "2026-11-17"
+  },
+  {
+    "handle": "nftboi_",
+    "name": "NFTboi 🥷",
+    "description": "launching liquid ventures @umia_finance",
+    "profile": "https://x.com/nftboi_",
+    "avatar": "https://pbs.twimg.com/profile_images/1980707083377938432/qk4RQwXV_400x400.jpg",
+    "file": "nftboi_.jpg",
+    "retrieved": "2026-11-17"
+  },
+  {
+    "handle": "phtevenstrong",
+    "name": "Stephen | Mezzanine",
+    "description": "Wildly Christian | Father of Four\n\"The Calculator Guy\"\nFounder of DeFi Dojo\nCo-Founder of @mezzanine_fi",
+    "profile": "https://x.com/phtevenstrong",
+    "avatar": "https://pbs.twimg.com/profile_images/2008361866267881473/07eHrRmN_400x400.jpg",
+    "file": "phtevenstrong.jpg",
+    "retrieved": "2026-11-17"
+  },
+  {
+    "handle": "Deebs_DeFi",
+    "name": "Deebs DeFi 🛰",
+    "description": "Lead Detective @bubblemaps | Investigations & Onchain Alpha | Opinions are my own.",
+    "profile": "https://x.com/Deebs_DeFi",
+    "avatar": "https://pbs.twimg.com/profile_images/1968619702017523713/YYBKtycq_400x400.png",
+    "file": "deebs_defi.jpg",
+    "retrieved": "2026-11-17",
+    "note": "Original PNG converted to JPEG (white background) for the local asset pipeline."
+  },
+  {
+    "handle": "honey8bb",
+    "name": "Honey8 ❤️‍🔥",
+    "description": "professional overthinker @ajlacapital | undercover nerd | crypto content & marketing | C.S. engineer",
+    "profile": "https://x.com/honey8bb",
+    "avatar": "https://pbs.twimg.com/profile_images/1741137676567183360/L4oMumE__400x400.jpg",
+    "file": "honey8bb.jpg",
+    "retrieved": "2026-11-17"
+  },
+  {
+    "handle": "horkays",
+    "name": "OKES 🔜 Breakpoint",
+    "description": "-Video and AI content creator\n-intersection between AI x WEB3\n-building communities\n-https://t.me/kryptickryp",
+    "profile": "https://x.com/horkays",
+    "avatar": "https://pbs.twimg.com/profile_images/2115737882191097856/dn0YyAq5_400x400.jpg",
+    "file": "horkays.jpg",
+    "retrieved": "2026-11-17"
+  },
+  {
+    "handle": "marcellovtv",
+    "name": "Marcello @ Breakpoint 🇬🇧",
+    "description": "Crypto, Gaming, and AI Creator/Streamer | Co-Founder @NovaGamingGuild | Host @M3LEE_LIVE | Ambassador @Hamieverse @Solflare | Join my community👇",
+    "profile": "https://x.com/marcellovtv",
+    "avatar": "https://pbs.twimg.com/profile_images/2108557476291383296/3vF8J83i_400x400.jpg",
+    "file": "marcellovtv.jpg",
+    "retrieved": "2026-11-17"
   }
 ]

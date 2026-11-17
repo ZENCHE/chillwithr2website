@@ -12,6 +12,33 @@ export interface Episode {
 // Each entry is grounded in an announcement or replay on @chillwithr2.
 export const episodes: Episode[] = [
   {
+    number: '12',
+    title: 'Breaking point?',
+    guests: '@honey8bb · @horkays · @Elizacreatez · @marcellovtv · @that1618guy',
+    date: '17 NOV 2026',
+    dateTime: '2026-11-17',
+    url: 'https://x.com/i/broadcasts/2LPYYObyqVOdkp',
+    accent: 'green'
+  },
+  {
+    number: '11',
+    title: 'Who’s protecting the trenches?',
+    guests: '@Deebs_DeFi · @justinbebis',
+    date: '12 NOV 2026',
+    dateTime: '2026-11-12',
+    url: 'https://x.com/i/broadcasts/2EmPzpMqNOdLgN',
+    accent: 'violet'
+  },
+  {
+    number: '10',
+    title: 'Is onchain dead?',
+    guests: '@phtevenstrong · @that1618guy',
+    date: '10 NOV 2026',
+    dateTime: '2026-11-10',
+    url: 'https://x.com/i/broadcasts/2mdrpdpAborrYP',
+    accent: 'pink'
+  },
+  {
     number: '09',
     title: "What’s on Robinhood Chain?",
     guests: '@mil_itia · @nftboi_ · @justinbebis',
@@ -46,12 +73,57 @@ export const episodes: Episode[] = [
     dateTime: '2026-10-27',
     url: 'https://x.com/i/broadcasts/1DxleVAXgpdKL',
     accent: 'green'
+  },
+  {
+    number: '05',
+    title: 'State of the Hood',
+    guests: '@berdyn · @banditxbt · @justinbebis',
+    date: '22 OCT 2026',
+    dateTime: '2026-10-22',
+    url: 'https://x.com/i/broadcasts/1rGmqpMeeQkGy',
+    accent: 'violet'
+  },
+  {
+    number: '04',
+    title: 'Onchain Experiments Building the Next Financial Rails',
+    guests: '@OxSimpleFarmer · @DataLust_xyz',
+    date: '20 OCT 2026',
+    dateTime: '2026-10-20',
+    url: 'https://x.com/i/broadcasts/1lJQRWDMBoDxE',
+    accent: 'pink'
+  },
+  {
+    number: '03',
+    title: '100 days of Robinhood',
+    guests: '@that1618guy',
+    date: '15 OCT 2026',
+    dateTime: '2026-10-15',
+    url: 'https://x.com/i/broadcasts/1mGPaZkPoqyJN',
+    accent: 'green'
+  },
+  {
+    number: '02',
+    title: 'Dialing in from Token 2049',
+    guests: '@Elizacreatez · @BigNillCollect · @srinigoes',
+    date: '08 OCT 2026',
+    dateTime: '2026-10-08',
+    url: 'https://x.com/i/broadcasts/1AxRnZrakzDxl',
+    accent: 'violet'
+  },
+  {
+    number: '01',
+    title: 'Robinhood: Where We Are',
+    guests: 'Hosts only · @ripchillpill · @R2D2zen',
+    date: '06 OCT 2026',
+    dateTime: '2026-10-06',
+    url: 'https://x.com/i/broadcasts/1nxeLMQwBVbJX',
+    accent: 'pink'
   }
 ];
 
 export const hosts = [
-  { name: 'Chill Pill', handle: '@ripchillpill', url: 'https://x.com/ripchillpill', avatar: '/assets/chill-pill-avatar.png', avatarAlt: 'Chill Pill’s avatar: a purple-hooded character with glowing cyan eyes' },
-  { name: 'R2D2', handle: '@R2D2zen', url: 'https://x.com/R2D2zen', avatar: '/assets/r2d2-avatar.png', avatarAlt: 'R2D2’s avatar: a geometric green character on a mint background' }
+  { name: 'Chill Pill', handle: '@ripchillpill', url: 'https://x.com/ripchillpill', avatar: '/assets/chill-pill-avatar.png', avatarAlt: 'Chill Pill’s avatar: a purple-hooded character with glowing cyan eyes', bio: 'Crypto veteran and a degen at heart.' },
+  { name: 'R2D2', handle: '@R2D2zen', url: 'https://x.com/R2D2zen', avatar: '/assets/r2d2-avatar.png', avatarAlt: 'R2D2’s avatar: a geometric green character on a mint background', bio: '10y TradFi, now a crypto bag holder.' }
 ];
 
 export const guests = [
@@ -66,7 +138,16 @@ export const guests = [
   { name: 'Nill', handle: 'BigNillCollect', role: 'Blockworks · ex-Polygon & Magic Eden' },
   { name: 'Eliza', handle: 'Elizacreatez', role: '88.5k X followers²' },
   { name: 'Srini', handle: 'srinigoes', role: 'Token2049 special · live from Singapore' },
-  { name: 'Average Joes Crypto', handle: 'AvgJoesCrypto', role: '33k X followers²' }
+  { name: 'Average Joes Crypto', handle: 'AvgJoesCrypto', role: '33k X followers²' },
+  { name: 'Andrew Forte', handle: 'AndrewAsksHow', role: 'Business & Growth, Claynosaurz & Heeboo · podcast host' },
+  { name: 'SafZ', handle: 'CrypSaf', role: 'Founder, AlphaGEMs · AI startup co-founder' },
+  { name: 'Drew', handle: 'mil_itia', role: 'CEO, SlopCash · Co-founder, Toon Protocol' },
+  { name: 'NFTboi', handle: 'nftboi_', role: 'Launching liquid ventures at Umia Finance' },
+  { name: 'Stephen', handle: 'phtevenstrong', role: 'Co-founder, Mezzanine · Founder, DeFi Dojo' },
+  { name: 'Deebs', handle: 'Deebs_DeFi', role: 'Lead Detective, Bubblemaps · onchain investigations' },
+  { name: 'Honey8', handle: 'honey8bb', role: 'Crypto content & marketing, Ajla Capital · CS engineer' },
+  { name: 'OKES', handle: 'horkays', role: 'Video & AI content creator · AI × Web3' },
+  { name: 'Marcello', handle: 'marcellovtv', role: 'Co-founder, Nova Gaming Guild · Host, M3LEE Live' }
 ];
 export const communities = [
   { name: 'Mosh Pit', count: '5,000+', label: 'members' },

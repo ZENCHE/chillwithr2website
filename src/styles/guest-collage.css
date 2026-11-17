@@ -1,5 +1,5 @@
-.guest-collage { position:relative; width:100%; max-width:420px; margin:0; justify-self:end; }
-.collage-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:11px 12px; list-style:none; margin:0; padding:5px 8px 12px; }
+.guest-collage { position:relative; width:100%; max-width:480px; margin:0; justify-self:end; }
+.collage-grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:10px 9px; list-style:none; margin:0; padding:5px 8px 12px; }
 .collage-guest { position:relative; min-width:0; }
 .collage-avatar { display:block; width:100%; aspect-ratio:1; padding:4px; border:1px solid #b58aff60; border-radius:12px; background:#30233f; cursor:pointer; transform:translateY(var(--lift)) rotate(var(--tilt)); box-shadow:0 7px 14px #09050e70; transition:transform .22s ease,border-color .22s,box-shadow .22s; }
 .collage-guest:nth-child(3n + 2) .collage-avatar { border-color:#33e06a50; background:#233329; }
@@ -16,5 +16,5 @@
 .collage-handle { display:block; color:#c7a7f2; font:10px/1.5 var(--mono); margin-top:5px; overflow-wrap:anywhere; }
 .collage-bio p { font-size:13px; line-height:1.55; color:#c6bbd1; margin:10px 0 0; }
 .collage-fallback { margin:16px 0 0; color:#c7a7f2; font-size:13px; }
-@media(max-width:700px) { .guest-collage { justify-self:center; max-width:380px; } .collage-grid { gap:10px; } }
+@media(max-width:700px) { .guest-collage { justify-self:center; max-width:380px; } .collage-grid { gap:8px 7px; } }
 @media(prefers-reduced-motion:reduce) { .collage-avatar { transition:none; } }
