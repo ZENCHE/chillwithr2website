@@ -1,5 +1,5 @@
 import { episodes, hosts, guests, permanentGuests, show } from '../data';
-import { SITE_URL, ORG_DESCRIPTION, SOCIAL_IMAGE } from '../site-config';
+import { SITE_URL, ORG_DESCRIPTION, SOCIAL_IMAGE, YOUTUBE_URL, YOUTUBE_LIVE } from '../site-config';
 import { episodePage, type EpisodePage } from './episode-pages';
 
 // All structured data is generated from src/data.ts, so a new episode, host or
@@ -13,7 +13,7 @@ const ORG_ID=absolute('/#organization');
 const WEBSITE_ID=absolute('/#website');
 const SERIES_ID=absolute('/#show');
 
-const organization={'@type':'Organization','@id':ORG_ID,name:'CR2',alternateName:['Chill with R2','ChillwithR2'],url:absolute('/'),description:ORG_DESCRIPTION,logo:{'@type':'ImageObject',url:absolute('/apple-touch-icon.png'),width:180,height:180},image:SOCIAL_IMAGE,foundingDate:show.firstEpisode,founder:hosts.map(h=>({'@id':personId(h.handle)})),sameAs:['https://x.com/chillwithr2']};
+const organization={'@type':'Organization','@id':ORG_ID,name:'CR2',alternateName:['Chill with R2','ChillwithR2'],url:absolute('/'),description:ORG_DESCRIPTION,logo:{'@type':'ImageObject',url:absolute('/apple-touch-icon.png'),width:180,height:180},image:SOCIAL_IMAGE,foundingDate:show.firstEpisode,founder:hosts.map(h=>({'@id':personId(h.handle)})),sameAs:['https://x.com/chillwithr2',...(YOUTUBE_LIVE?[YOUTUBE_URL]:[])]};
 const website={'@type':'WebSite','@id':WEBSITE_ID,url:absolute('/'),name:'CR2',alternateName:'Chill with R2',description:ORG_DESCRIPTION,inLanguage:'en',publisher:{'@id':ORG_ID}};
 
 const hostPeople=hosts.map(h=>({'@type':'Person','@id':personId(h.handle),name:h.name,alternateName:h.handle,url:xUrl(h.handle),sameAs:[xUrl(h.handle)],image:absolute(h.avatar),description:h.bio,jobTitle:'Co-host, Chill with R2',worksFor:{'@id':ORG_ID}}));
@@ -51,6 +51,10 @@ export function episodeSchema(page:EpisodePage){
   const crumbs=[{name:'CR2',path:'/'},{name:'Episodes',path:'/#episodes'},{name:`Ep ${page.number}`,path:page.path}];
   // Episode pages carry the series without its full episode list (that lives on the homepage) plus this episode, keeping the block small.
   const {hasPart:_all,...seriesLite}=series;
-  const own=episodeNodes.find(n=>n['@id']===episodeId(page.number));
-  return graph([...(own?[own]:[]),webPage('WebPage',page.path,page.title,page.description,{mainEntity:{'@id':episodeId(page.number)},datePublished:page.episode.dateTime}),breadcrumb(page.path,crumbs)],seriesLite);
+  const found=episodeNodes.find(n=>n['@id']===episodeId(page.number));
+  // VideoObject only when the episode has a YouTube ID. No duration: there is no per-episode runtime in the data yet.
+  const id=page.youtubeId; const videoId=absolute(page.path+'#video');
+  const video=id?{'@type':'VideoObject','@id':videoId,name:`Episode ${page.number}: ${page.episode.title}`,description:page.description,thumbnailUrl:[`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,`https://i.ytimg.com/vi/${id}/hqdefault.jpg`],uploadDate:page.episode.dateTime,embedUrl:`https://www.youtube-nocookie.com/embed/${id}`,contentUrl:`https://www.youtube.com/watch?v=${id}`,inLanguage:'en',publisher:{'@id':ORG_ID},isPartOf:{'@id':episodeId(page.number)}}:undefined;
+  const own=found&&video?{...found,video:{'@id':videoId}}:found;
+  return graph([...(own?[own]:[]),...(video?[video]:[]),webPage('WebPage',page.path,page.title,page.description,{mainEntity:{'@id':episodeId(page.number)},datePublished:page.episode.dateTime}),breadcrumb(page.path,crumbs)],seriesLite);
 }

@@ -90,7 +90,7 @@ export const episodeMarkdown=(p:EpisodePage)=>`# Episode ${p.number}: ${p.episod
 > ${p.summary}
 
 Canonical page: ${SITE_URL}${p.path}
-Live on X: ${p.episode.dateTime}. [Watch the replay on X](${p.episode.url}).
+Live on X: ${p.episode.dateTime}. [Watch the replay on X](${p.episode.url}).${p.youtubeId?` [Watch on YouTube](https://www.youtube.com/watch?v=${p.youtubeId}).`:''}
 
 ## Key takeaways
 
