@@ -36,6 +36,7 @@
 @media (min-width: 900px) {
   .episode-intro { grid-template-columns: 1.2fr 1fr; padding-block: 60px 70px; }
   .episode-intro:not(:has(.episode-video)) { grid-template-columns: minmax(0, 860px); }
+  .episode-intro.has-video { grid-template-columns: 1fr 1.2fr; column-gap: clamp(32px, 4vw, 64px); }
   .episode-intro.has-video .about-copy > * { grid-column: 1; }
   .episode-intro.has-video .episode-video { grid-column: 2; grid-row: 1 / span 6; align-self: center; margin: 0; }
   .episode-page .guest-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
