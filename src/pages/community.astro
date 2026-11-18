@@ -5,7 +5,7 @@ import Arrow from '../components/Arrow.astro';
 import { getImage } from 'astro:assets';
 import { communitySchema } from '../lib/seo';
 import { communityTitle, communityDescription } from '../lib/pages';
-import { listedCommunityChannels } from '../data';
+import { listedCommunityChannels, weekRunOrder } from '../data';
 import mfisher10x from '../assets/guests/mfisher10x.jpg';
 import captaincketh from '../assets/guests/captaincketh.jpg';
 import thegreatola from '../assets/guests/thegreatola.jpg';
@@ -55,9 +55,15 @@ const schema = communitySchema(title, description, founders.map(founder => ({ na
           </div>
           <aside class="week-board" aria-label="The weekly CR2 schedule">
             <div class="week-board-heading"><span>THE WEEK</span><img src="/assets/studio-mark.svg" width="62" height="56" alt="" /></div>
-            <div class="week-row"><span class="week-day">Tue</span><span><strong>Livestream on X</strong><p>15:00 UTC, about 90 minutes, with @that1618guy.</p></span></div>
-            <div class="week-row"><span class="week-day">Thu</span><span><strong>Livestream on X</strong><p>15:00 UTC, about 90 minutes, with Justin.</p></span></div>
-            <div class="week-board-footer"><span>CHILL WITH R2</span><span>15:00 UTC</span></div>
+            {weekRunOrder.map(day => (
+              <div class="week-day-block">
+                <div class="week-day-label"><span class="week-day">{day.day}</span><span class="week-day-note">Live on X</span></div>
+                <ol class="week-slots">{day.slots.map(slot => (
+                  <li class={'week-slot' + (slot.fixed ? ' is-fixed' : '')}><time>{slot.time}</time><span><strong>{slot.title}</strong><p>{slot.detail}</p></span></li>
+                ))}</ol>
+              </div>
+            ))}
+            <div class="week-board-footer"><span>CHILL WITH R2</span><span>ALL TIMES UTC</span></div>
           </aside>
         </section>
         <section class="formats-section" id="join" aria-labelledby="join-title">
@@ -86,8 +92,8 @@ const schema = communitySchema(title, description, founders.map(founder => ({ na
             <p>The show goes live on X every Tuesday and Thursday at 15:00 UTC. Follow @chillwithr2 for the live link each show.</p>
           </div>
           <div class="why-grid">
-            <article class="why-card"><span class="why-num">TUESDAY</span><h3>Livestream with @that1618guy</h3><p>15:00 UTC, about 90 minutes, with a full replay after. Recurring segment: The Golden Ratio.</p></article>
-            <article class="why-card"><span class="why-num">THURSDAY</span><h3>Livestream with Justin</h3><p>15:00 UTC, about 90 minutes, with a full replay after. Recurring segment: In the Hood.</p></article>
+            <article class="why-card"><span class="why-num">TUESDAY</span><h3>Market updates, guests and The Golden Ratio</h3><p>15:00 UTC market updates with ChillPill and R2D2, a top industry guest or Young Crypto Voices guest from 15:20, and The Golden Ratio with @that1618guy from 16:15.</p></article>
+            <article class="why-card"><span class="why-num">THURSDAY</span><h3>Market updates, guests and In the Hood</h3><p>15:00 UTC market updates with ChillPill and R2D2, a top industry guest or Young Crypto Voices guest from 15:20, and In the Hood with Justin from 16:00.</p></article>
             <article class="why-card"><span class="why-num">EVERY EPISODE</span><h3>Replays and clips</h3><p>Each livestream stays up as a replay on X. Full episodes and key moments also go on the YouTube channel as they are published.</p></article>
           </div>
         </section>

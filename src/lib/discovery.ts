@@ -92,7 +92,7 @@ export const communityMarkdown=()=>`# Join the CR2 community
 
 Canonical page: ${SITE_URL}/community/
 
-Chill with R2 is a live crypto show on X. There are two livestreams a week, every Tuesday and Thursday at 15:00 UTC, about 90 minutes each. Recurring segments: The Golden Ratio with @that1618guy on Tuesdays, and In the Hood with Justin on Thursdays.
+Chill with R2 is a live crypto show on X. There are two livestreams a week, every Tuesday and Thursday at 15:00 UTC, about 90 minutes each. Running order (UTC): 15:00 market updates with ChillPill and R2D2; 15:20 top industry guests and the Young Crypto Voices series; then The Golden Ratio with @that1618guy at 16:15 on Tuesdays, or In the Hood with Justin at 16:00 on Thursdays.
 
 ## How to join
 

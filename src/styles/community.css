@@ -48,6 +48,18 @@
   line-height: 1.5;
   color: var(--muted);
 }
+.week-day-block { padding: 18px 0 6px; }
+.week-day-block + .week-day-block { border-top: 1px solid var(--line); }
+.week-day-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.week-day-label .week-day { font-size: 12px; letter-spacing: 0.16em; }
+.week-day-note { color: var(--muted); font: 10px var(--mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.week-slots { list-style: none; margin: 0; padding: 0; position: relative; }
+.week-slot { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 9px 0 9px; position: relative; }
+.week-slot time { font: 13px/1.4 var(--mono); color: var(--cream); letter-spacing: 0.02em; }
+.week-slot strong { display: block; font-size: 16px; font-weight: 500; letter-spacing: -0.02em; }
+.week-slot p { margin: 3px 0 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.week-slot.is-fixed strong { color: #d4b7ff; }
+.week-slot.is-fixed time { color: var(--green); }
 .week-board-footer {
   display: flex;
   justify-content: space-between;

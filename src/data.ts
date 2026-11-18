@@ -262,3 +262,11 @@ export const show = {
   segments: ['The Golden Ratio', 'In the Hood'],
   topics: ['Robinhood Chain', 'tokenized stocks', 'onchain finance', 'macro', 'TradFi to crypto']
 };
+
+// Running order for the /community "The week" board. All times UTC.
+const marketUpdates = { time: '15:00', title: 'Market updates', detail: 'ChillPill and R2D2 on the week in crypto and markets.' };
+const guestSlot = { time: '15:20', title: 'Top industry guests', detail: 'Founders, builders and the Young Crypto Voices series.' };
+export const weekRunOrder = [
+  { day: 'Tue', slots: [marketUpdates, guestSlot, { time: '16:15', title: 'The Golden Ratio', detail: 'Macro and markets with @that1618guy.', fixed: true }] },
+  { day: 'Thu', slots: [marketUpdates, guestSlot, { time: '16:00', title: 'In the Hood', detail: 'Robinhood Chain with Justin.', fixed: true }] }
+];
