@@ -1,0 +1,21 @@
+{
+  "_about": "Applied by scripts/sync-episodes.mjs to every draft, so the drafts in /workspace/cr2/episodes/pages stay untouched. Decisions by R2D2, 18 Nov 2026.",
+  "spelling": [
+    { "find": "StateOfBlocks", "replace": "Stateofblocks", "source": "src/data.ts guest role for @that1618guy" },
+    { "find": "State of Blocks", "replace": "Stateofblocks", "source": "src/data.ts guest role for @that1618guy" }
+  ],
+  "community": [
+    {
+      "when": "Stateofblocks|StateOfBlocks|State of Blocks",
+      "set": {
+        "community_line": "Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+        "community_url": "https://t.me/GreenFeedTG",
+        "community_cta": "Join GreenFeed on Telegram"
+      },
+      "reason": "No StateOfBlocks community line on any episode; use GreenFeed instead."
+    }
+  ],
+  "episodes": {
+    "12": { "drop_guests": ["Elizacreatez"], "reason": "R2D2: Eliza was not on Ep 12." }
+  }
+}

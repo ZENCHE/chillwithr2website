@@ -3,3 +3,6 @@ dist/
 .astro/
 .DS_Store
 *.log
+
+# Episode page data stays local until the copy is approved (public repo).
+src/content/episodes/ep-*.json

@@ -38,7 +38,7 @@ const series={'@type':'PodcastSeries','@id':SERIES_ID,name:show.name,alternateNa
 type Crumb={name:string;path:string};
 const breadcrumb=(path:string,crumbs:Crumb[])=>({'@type':'BreadcrumbList','@id':absolute(path+'#breadcrumbs'),itemListElement:crumbs.map((c,i)=>({'@type':'ListItem',position:i+1,name:c.name,item:absolute(c.path)}))});
 const webPage=(type:string,path:string,title:string,description:string,extra:Record<string,unknown>={})=>({'@type':type,'@id':absolute(path+'#webpage'),url:absolute(path),name:title,description,inLanguage:'en',isPartOf:{'@id':WEBSITE_ID},about:{'@id':ORG_ID},primaryImageOfPage:{'@type':'ImageObject',url:SOCIAL_IMAGE},breadcrumb:{'@id':absolute(path+'#breadcrumbs')},...extra});
-const graph=(nodes:unknown[])=>({'@context':'https://schema.org','@graph':[organization,website,...hostPeople,...regularPeople,series,...nodes]});
+const graph=(nodes:unknown[],seriesNode:Record<string,unknown>=series)=>({'@context':'https://schema.org','@graph':[organization,website,...hostPeople,...regularPeople,seriesNode,...nodes]});
 
 export function homeSchema(title:string,description:string){const crumbs=[{name:'CR2',path:'/'}];return graph([webPage('WebPage','/',title,description,{mainEntity:{'@id':SERIES_ID}}),breadcrumb('/',crumbs)]);}
 export function partnersSchema(title:string,description:string,people:Array<{name:string;handle:string;role:string;image:string}>){
@@ -49,5 +49,8 @@ export function partnersSchema(title:string,description:string,people:Array<{nam
 export function notFoundSchema(){return {'@context':'https://schema.org','@graph':[organization,website]};}
 export function episodeSchema(page:EpisodePage){
   const crumbs=[{name:'CR2',path:'/'},{name:'Episodes',path:'/#episodes'},{name:`Ep ${page.number}`,path:page.path}];
-  return graph([webPage('WebPage',page.path,page.title,page.description,{mainEntity:{'@id':episodeId(page.number)},datePublished:page.episode.dateTime}),breadcrumb(page.path,crumbs)]);
+  // Episode pages carry the series without its full episode list (that lives on the homepage) plus this episode, keeping the block small.
+  const {hasPart:_all,...seriesLite}=series;
+  const own=episodeNodes.find(n=>n['@id']===episodeId(page.number));
+  return graph([...(own?[own]:[]),webPage('WebPage',page.path,page.title,page.description,{mainEntity:{'@id':episodeId(page.number)},datePublished:page.episode.dateTime}),breadcrumb(page.path,crumbs)],seriesLite);
 }

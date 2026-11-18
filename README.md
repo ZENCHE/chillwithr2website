@@ -47,11 +47,20 @@ Check the delivery adapter without sending email: `node --experimental-strip-typ
 
 ## Episode pages
 
-Template added November 18, 2026 (preview branch `episode-pages`). Each episode with a data file gets a page at `/episodes/ep-XX-<slug>/` plus a markdown twin at `index.md`: H1 and summary, 5 takeaways, chapters, guest cards (photos and roles from `src/data.ts` and `src/assets/guests`), the X replay button, a YouTube embed that renders only when `youtube_id` is set, the full transcript in a collapsible block, the community line, a neutral newsletter "coming soon" slot (no form) and 3 related episodes. Episodes without a data file keep their X link.
+Template added November 18, 2026 (preview branch `episode-pages`). Each episode with a data file gets a page at `/episodes/ep-XX-<slug>/` plus a markdown twin at `index.md`: H1 and summary, 5 takeaways, chapters, guest cards (photos and roles from `src/data.ts` and `src/assets/guests`), the X replay button, a YouTube embed that renders only when `youtube_id` is set, the community line (with an optional link button), a neutral newsletter "coming soon" slot (no form) and 3 related episodes. No transcripts are published anywhere on the site. Episodes without a data file keep their X link.
 
-- Data: `src/content/episodes/ep-XX.json` and `src/content/episodes/transcripts/ep-XX.txt`. Add or refresh them with `npm run sync:episodes` (drafts from `/workspace/cr2/episodes/pages`, or `EPISODES_SRC=/path`). The sync keeps only page fields, applies the private redaction list kept outside this repo, and rewrites `transcript_path`.
-- Validation: `src/lib/episode-pages.ts` checks every file with zod (slug, 5 takeaways, chapter times, X handles that exist in `src/data.ts`, no em-dashes, transcript present) and fails the build with the file and field on bad data. A hashed guard also fails the build if a name that must not appear on the site slips into the data or transcript.
-- Wiring: episode pages join the shared page list (`src/lib/pages.ts`), so they appear in the sitemap, `llms.txt` and `llms-full.txt` (summary, takeaways and chapters; the full transcript stays in the page and its markdown twin). `feed.xml` links to the page when one exists (guid stays the X URL). The homepage cards and the Every episode list link to the page, with "Watch the replay on X" as a secondary link; Watch the latest still opens the X replay. JSON-LD: the PodcastEpisode in the series uses the page as `@id` and `url`, keeps the X replay as `sameAs`, and the page adds a WebPage and BreadcrumbList (CR2 > Episodes > Ep XX).
+### Weekly flow (one step)
+
+1. Make sure the episode is already in `episodes` in `src/data.ts` (number, title, guests, date, dateTime, X replay url). The page takes its date, replay link and guest list from there.
+2. Drop the approved draft at `/workspace/cr2/episodes/pages/ep-XX.json`.
+3. Run `npm run sync:episodes && npm run build`.
+
+The sync stops with a clear message if `src/data.ts` does not have the episode yet. The build stops with the file and field if anything else is off.
+
+- Data: `src/content/episodes/ep-XX.json`, written by `npm run sync:episodes` (drafts from `/workspace/cr2/episodes/pages`, or `EPISODES_SRC=/path`). These files are gitignored while the copy is in review, because this repo is public. The sync keeps only page fields (internal notes and `transcript_path` are dropped), applies the private redaction list kept outside this repo, applies `scripts/episode-overrides.json`, normalises chapter times to HH:MM:SS and handles to `@handle`, and prints what it changed per file.
+- Overrides: `scripts/episode-overrides.json` holds spelling fixes taken from the site data, community-line rules (any draft line that mentions Stateofblocks is replaced with the GreenFeed Telegram line and link) and per-episode guest removals. Drafts are never rewritten.
+- Validation: `src/lib/episode-pages.ts` checks every file with zod (slug, 5 takeaways, chapter times, X handles that exist in `src/data.ts`, guests matching the episode in `src/data.ts`, https community link, no em-dashes) and fails the build with the file and field on bad data. A hashed guard also fails the build if a name that must not appear on the site slips into the data.
+- Wiring: episode pages join the shared page list (`src/lib/pages.ts`), so they appear in the sitemap, `llms.txt` and `llms-full.txt` (summary, takeaways and chapters). `feed.xml` links to the page when one exists (guid stays the X URL). The homepage cards and the Every episode list link to the page, with "Watch the replay on X" as a secondary link; Watch the latest still opens the X replay. JSON-LD: the PodcastEpisode in the series uses the page as `@id` and `url`, keeps the X replay as `sameAs`, and the page adds a WebPage and BreadcrumbList (CR2 > Episodes > Ep XX). Episode pages carry the series node without the full episode list (that stays on the homepage) plus their own PodcastEpisode.
 
 ## Analytics
 

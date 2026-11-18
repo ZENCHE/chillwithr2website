@@ -2,10 +2,9 @@ import { z } from 'astro/zod';
 import { episodes, guests, hosts, type Episode } from '../data';
 
 // Episode pages are generated from src/content/episodes/ep-XX.json (synced by
-// scripts/sync-episodes.mjs). Every file is validated here at build time; any bad
+// scripts/sync-episodes.mjs). No transcripts are published. Every file is validated here at build time; any bad
 // field throws and stops the build with the file name and the failing path.
 const raw=import.meta.glob<unknown>('../content/episodes/ep-*.json',{eager:true,import:'default'});
-const transcripts=import.meta.glob<string>('../content/episodes/transcripts/*.txt',{eager:true,query:'?raw',import:'default'});
 
 const noEmDash=(s:string)=>!s.includes('—');
 const text=(max:number)=>z.string().trim().min(1).max(max).refine(noEmDash,'contains an em-dash');
@@ -20,10 +19,11 @@ export const episodePageSchema=z.object({
   summary:text(600),
   takeaways:z.array(text(400)).length(5,'needs exactly 5 takeaways'),
   chapters:z.array(chapter).min(1),
-  guests:z.array(guest),
+  guests:z.array(guest).optional(),
   topics:z.array(text(60)).min(1),
   community_line:text(400),
-  transcript_path:z.string().trim().min(1),
+  community_url:z.string().regex(/^https:\/\/\S+$/,'must be an https URL').optional(),
+  community_cta:text(60).optional(),
   youtube_id:z.string().regex(/^[A-Za-z0-9_-]{11}$/).nullable().optional(),
   episode:z.union([z.string(),z.number()]).optional(),
   number:z.union([z.string(),z.number()]).optional()
@@ -39,22 +39,11 @@ const toSeconds=(t:string|number)=>typeof t==='number'?Math.floor(t):t.split(':'
 export const clock=(sec:number)=>{const h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return (h?`${h}:${String(m).padStart(2,'0')}`:`${m}`)+`:${String(s).padStart(2,'0')}`;};
 const bare=(h:string)=>h.replace(/^@/,'');
 
-export interface TranscriptBlock { start:number; text:string; }
-function parseTranscript(src:string){
-  const blocks:TranscriptBlock[]=[]; let cur:TranscriptBlock|null=null;
-  for(const line of src.split('\n')){
-    const m=line.match(/^\[(\d{1,2}:\d{2}:\d{2})\]\s*(.*)$/); if(!m) continue;
-    const sec=toSeconds(m[1]);
-    if(!cur||sec-cur.start>=60){cur={start:sec,text:m[2]};blocks.push(cur);} else cur.text+=' '+m[2];
-  }
-  return blocks;
-}
-
 export interface EpisodePage {
   number:string; episode:Episode; path:string; title:string; description:string; summary:string;
   takeaways:string[]; chapters:{seconds:number;label:string;title:string}[];
-  guests:{handle:string;name:string;role?:string;url:string}[]; topics:string[]; communityLine:string;
-  transcript:TranscriptBlock[]; youtubeId?:string;
+  guests:{handle:string;name:string;role?:string;url:string}[]; topics:string[]; communityLine:string; communityUrl?:string; communityCta?:string;
+  youtubeId?:string;
 }
 function build():EpisodePage[]{
   const pages=Object.entries(raw).map(([file,data])=>{
@@ -65,22 +54,25 @@ function build():EpisodePage[]{
     if(!parsed.success) fail('invalid data\n'+parsed.error.issues.map(i=>`  - ${i.path.join('.')||'(root)'}: ${i.message}`).join('\n'));
     const d=parsed.data!;
     const declared=d.episode??d.number; if(declared!==undefined&&String(declared).padStart(2,'0')!==number) fail(`episode field ${declared} does not match file name`);
-    const episode=episodes.find(e=>e.number===number) ?? fail(`episode ${number} is not in src/data.ts`) as never;
-    const tKey=`../content/episodes/transcripts/${d.transcript_path.split('/').pop()}`;
-    const tSrc=transcripts[tKey] ?? fail(`transcript not found at src/content/episodes/${d.transcript_path} (run npm run sync:episodes)`) as never;
-    const transcript=parseTranscript(tSrc); if(!transcript.length) fail('transcript has no [HH:MM:SS] lines');
-    const people=d.guests.map(g=>{
-      const h=bare(typeof g==='string'?g:g.handle);
-      const known=guests.find(x=>x.handle.toLowerCase()===h.toLowerCase()) ?? hosts.find(x=>bare(x.handle).toLowerCase()===h.toLowerCase());
-      if(!known) fail(`guest @${h} is not in src/data.ts guests (add them with a photo first)`);
-      const k=known as {name:string;handle:string;role?:string;bio?:string};
-      return {handle:bare(k.handle),name:k.name,role:k.role?.replace(/[¹²]/g,'')??k.bio,url:`https://x.com/${bare(k.handle)}`};
+    const episode=episodes.find(e=>e.number===number) ?? fail(`Episode ${number} is not in src/data.ts yet. Add it to the episodes list there (number, title, guests, date, dateTime, url, accent) first; the date, replay URL and guests come from there.`) as never;
+    // Guests come from src/data.ts (the episode's handle list). If the JSON lists guests too, they must match.
+    const fromData=(episode.guests.match(/@[A-Za-z0-9_]+/g)??[]).map(bare).filter(h=>!hosts.some(x=>bare(x.handle).toLowerCase()===h.toLowerCase()));
+    if(d.guests){
+      const listed=d.guests.map(g=>bare(typeof g==='string'?g:g.handle).toLowerCase()); const want=fromData.map(h=>h.toLowerCase());
+      const extra=listed.filter(h=>!want.includes(h)), missing=want.filter(h=>!listed.includes(h));
+      if(extra.length||missing.length) fail(`guests do not match episode ${number} in src/data.ts`+(extra.length?`; not in data.ts: @${extra.join(', @')}`:'')+(missing.length?`; missing from JSON: @${missing.join(', @')}`:''));
+    }
+    const people=fromData.map(h=>{
+      const known=guests.find(x=>x.handle.toLowerCase()===h.toLowerCase());
+      if(!known) fail(`guest @${h} (episode ${number} in src/data.ts) has no entry in the guests list there; add name, role and a photo in src/assets/guests first`);
+      const k=known!;
+      return {handle:k.handle,name:k.name,role:k.role.replace(/[¹²]/g,''),url:`https://x.com/${k.handle}`};
     });
     const slug=d.slug.startsWith(`ep-${number}-`)?d.slug.slice(6):d.slug;
     const page:EpisodePage={number:number!,episode,path:`/episodes/ep-${number}-${slug}/`,title:d.seo_title,description:d.meta_description,summary:d.summary,takeaways:d.takeaways,
       chapters:d.chapters.map(c=>{const s=toSeconds((c.time??c.start??c.timestamp)!);return {seconds:s,label:clock(s),title:c.title};}).sort((a,b)=>a.seconds-b.seconds),
-      guests:people,topics:d.topics,communityLine:d.community_line,transcript,youtubeId:d.youtube_id??undefined};
-    const hit=blockedWord(JSON.stringify(d)+' '+tSrc); if(hit!==undefined) fail('contains a name that must not appear on the site (run npm run sync:episodes to apply redactions)');
+      guests:people,topics:d.topics,communityLine:d.community_line,communityUrl:d.community_url,communityCta:d.community_cta,youtubeId:d.youtube_id??undefined};
+    const hit=blockedWord(JSON.stringify(d)); if(hit!==undefined) fail('contains a name that must not appear on the site. Replace it with the X handle (that1618guy) in the draft, or add it to the redaction list, and sync again.');
     return page;
   });
   return pages.sort((a,b)=>Number(b.number)-Number(a.number));

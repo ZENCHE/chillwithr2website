@@ -14,7 +14,7 @@ export const episodes: Episode[] = [
   {
     number: '12',
     title: 'Breaking point?',
-    guests: '@honey8bb · @horkays · @Elizacreatez · @marcellovtv · @that1618guy',
+    guests: '@honey8bb · @horkays · @marcellovtv · @that1618guy',
     date: '17 NOV 2026',
     dateTime: '2026-11-17',
     url: 'https://x.com/i/broadcasts/2LPYYObyqVOdkp',

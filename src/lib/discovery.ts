@@ -85,8 +85,7 @@ ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries a
 - [CR2 homepage](${SITE_URL}/)
 - [CR2 on X](https://x.com/chillwithr2)
 `;
-const ts=(s:number)=>`${String(Math.floor(s/3600)).padStart(2,'0')}:${String(Math.floor(s%3600/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
-export const episodeMarkdown=(p:EpisodePage,withTranscript=false)=>`# Episode ${p.number}: ${p.episode.title}
+export const episodeMarkdown=(p:EpisodePage)=>`# Episode ${p.number}: ${p.episode.title}
 
 > ${p.summary}
 
@@ -107,11 +106,5 @@ ${p.guests.map(g=>`- [${g.name}](${g.url}), @${g.handle}${g.role?`: ${g.role}`:'
 
 Topics: ${p.topics.join(', ')}.
 
-${p.communityLine}
-${withTranscript?`
-## Transcript
-
-Automatic transcript. It may contain errors in names and terms.
-
-${p.transcript.map(b=>`[${ts(b.start)}] ${b.text}`).join('\n\n')}
-`:''}`;
+${p.communityLine}${p.communityUrl?` [${p.communityCta??'Join the community'}](${p.communityUrl})`:''}
+`;
