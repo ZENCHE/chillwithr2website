@@ -60,7 +60,7 @@ const schema = homeSchema(title,description);
         <div class="host-list">{hosts.map((host)=>(<a class="host" href={host.url} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={host.avatar} width="400" height="400" loading="lazy" decoding="async" alt={host.avatarAlt} /><span><strong>{host.name}</strong><small>{host.handle}</small><span class="host-bio">{host.bio}</span></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
       </section>
       <section class="hosts permanent-guests wrap" id="permanent-guests" aria-labelledby="permanent-title">
-        <div><p class="eyebrow">ON EVERY WEEK</p><h2 id="permanent-title">Permanent guests<span>.</span></h2></div>
+        <div><p class="eyebrow">EVERY WEEK ON CR2</p><h2 id="permanent-title">Permanent guests<span>.</span></h2></div>
         <div class="host-list">{permanent.map((guest)=>(<a class="host" href={'https://x.com/' + guest.handle} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={guest.portrait.src} width="128" height="128" loading="lazy" decoding="async" alt={guest.name + '’s X profile avatar'} /><span><strong>{guest.name}</strong><small>@{guest.handle}</small><span class="host-bio">{guest.role}</span><span class="guest-slot">{guest.slot}</span><span class="host-bio guest-topics">{guest.topics}</span></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
       </section>
       <section class="archive" id="episodes" aria-labelledby="episodes-title">
