@@ -141,3 +141,6 @@ a.format-card .icon-arrow {
     grid-template-columns: 1fr;
   }
 }
+
+.guest-wall-link { padding: 8px 0 20px; }
+.guest-wall-link .text-link { display: inline-block; }
