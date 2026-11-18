@@ -1,0 +1,99 @@
+{
+  "episode": "02",
+  "slug": "ep-02-token2049-singapore",
+  "seo_title": "Token2049 Live: Eliza, Nill and Srini Report from Singapore",
+  "meta_description": "Eliza, Nill and Srini dial in from Token2049 Singapore: tokenization, social trading, security worries, Murad's meme coin keynote and why people attend.",
+  "summary": "Chill Pill and R2D2 start with the week's news, including PONS listings and a Robinhood app campaign aimed at Webull customers, then bring in three guests live from Token2049 in Singapore. Eliza, Nill and Srini describe what builders and traders were talking about on the floor, from tokenization and trading data to wallet security and Murad's meme coin keynote.",
+  "takeaways": [
+    "The guests say tokenization was a common thread at Token2049: teams are building all-in-one platforms that can offer stocks, commodities, gold and other assets in one place.",
+    "Social trading was very visible at the conference, with several teams competing for attention and trading events drawing crowds.",
+    "Robinhood Chain had less presence in Asia than BNB, Mantle or Solana; a guest argues that entering these markets through RWAs takes longer than a few months.",
+    "Security and quantum resilience were high on people's minds, and the guests linked that to more interest in hardware wallets and more care with phones and QR codes at events.",
+    "For the guests, the main value of a conference is networking and meeting the people behind the accounts, rather than any single announcement."
+  ],
+  "chapters": [
+    {
+      "time": "00:02:39",
+      "title": "Welcome and a quick news recap"
+    },
+    {
+      "time": "00:04:42",
+      "title": "PONS listings and what a Robinhood listing would mean"
+    },
+    {
+      "time": "00:07:27",
+      "title": "The Robinhood app and Webull campaign"
+    },
+    {
+      "time": "00:10:15",
+      "title": "CR2 on the MCG signal"
+    },
+    {
+      "time": "00:14:57",
+      "title": "Eliza joins from Singapore"
+    },
+    {
+      "time": "00:22:38",
+      "title": "The scale of Token2049 and the New York edition"
+    },
+    {
+      "time": "00:26:05",
+      "title": "Social trading on the conference floor"
+    },
+    {
+      "time": "00:33:12",
+      "title": "Tokenization and all-in-one trading platforms"
+    },
+    {
+      "time": "00:35:24",
+      "title": "Robinhood Chain's presence in Asia"
+    },
+    {
+      "time": "00:40:10",
+      "title": "Murad's keynote: will meme coins flip the stock market?"
+    },
+    {
+      "time": "00:43:32",
+      "title": "Security, wallets and staying safe at events"
+    },
+    {
+      "time": "00:46:48",
+      "title": "Side events: legal services, Standard Chartered, KPMG and agentic finance"
+    },
+    {
+      "time": "00:53:42",
+      "title": "Why go to conferences: networking and people"
+    },
+    {
+      "time": "01:02:42",
+      "title": "Hosts' wrap-up: travel, events and Lisbon"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Eliza",
+      "handle": "@Elizacreatez",
+      "role": "Video creatoor · Crypto x AI 👽"
+    },
+    {
+      "name": "Nill",
+      "handle": "@BigNillCollect",
+      "role": "Blockworks · ex-Polygon & Magic Eden"
+    },
+    {
+      "name": "Srini",
+      "handle": "@srinigoes",
+      "role": "Crypto & NFT investor"
+    }
+  ],
+  "topics": [
+    "Token2049",
+    "tokenized stocks",
+    "social trading",
+    "crypto security",
+    "Robinhood Chain"
+  ],
+  "community_line": "Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+  "community_url": "https://t.me/GreenFeedTG",
+  "community_cta": "Join GreenFeed on Telegram"
+}

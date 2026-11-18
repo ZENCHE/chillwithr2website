@@ -1,0 +1,89 @@
+{
+  "episode": "03",
+  "slug": "ep-03-100-days-of-robinhood-chain",
+  "seo_title": "100 Days of Robinhood Chain with that1618guy",
+  "meta_description": "that1618guy joins Chill Pill and R2D2 to review Robinhood Chain's first 100 days: Bitcoin's trend change, token listings, PONS revenue and social trading.",
+  "summary": "Chill Pill and R2D2 mark roughly 100 days of Robinhood Chain, looking at the team, the Singapore hackathon and the dashboard numbers. that1618guy then joins to explain why he reads the current pullback as a higher low to watch, why he thinks listings have been too slow, how he tracks PONS revenue and how social trading is changing behaviour onchain.",
+  "takeaways": [
+    "The hosts think Robinhood's crypto team is still growing into the job and leans on Arbitrum for support, while the Robinhood Crypto account has started engaging with ecosystem projects.",
+    "that1618guy sees a trend change on Bitcoin and says the higher low after such a change is where conservative buyers such as family offices tend to act, rather than trying to time the bottom.",
+    "He argues Robinhood itself has a business reason to keep pushing the chain, and that token listings in the app are important for the narrative but have come too slowly since the first one.",
+    "He tracks PONS with a price to sales style ratio: if revenue stays low while the price rises, the market is paying a growing premium, which he treats as a risk.",
+    "On social trading, he calls it a net positive because wallet tracking and copy trading give everyone fast access to information, while the hosts question how long reward subsidies can last."
+  ],
+  "chapters": [
+    {
+      "time": "00:01:10",
+      "title": "Welcome back"
+    },
+    {
+      "time": "00:04:27",
+      "title": "The week: Bubblemaps exposés and Vlad's live AMA"
+    },
+    {
+      "time": "00:08:44",
+      "title": "100 days of Robinhood Chain: the team and the hackathon"
+    },
+    {
+      "time": "00:12:35",
+      "title": "Cumulative volume and the standards the chain is held to"
+    },
+    {
+      "time": "00:13:39",
+      "title": "Dashboard: project tokens and the market dump"
+    },
+    {
+      "time": "00:16:49",
+      "title": "The trenches then and now"
+    },
+    {
+      "time": "00:22:39",
+      "title": "that1618guy joins: the pullback and Bitcoin's trend change"
+    },
+    {
+      "time": "00:24:39",
+      "title": "What Robinhood earns from the chain, and listings"
+    },
+    {
+      "time": "00:29:57",
+      "title": "that1618guy's backstory and research"
+    },
+    {
+      "time": "00:34:09",
+      "title": "Why the market needs a liquidity event"
+    },
+    {
+      "time": "00:40:25",
+      "title": "Tracking PONS revenue and its premium"
+    },
+    {
+      "time": "00:43:36",
+      "title": "How social trading is changing behaviour"
+    },
+    {
+      "time": "00:54:23",
+      "title": "BUN, Mosh and the bundle model"
+    },
+    {
+      "time": "01:05:21",
+      "title": "Would a celebrity launch on Mosh prove the model?"
+    }
+  ],
+  "guests": [
+    {
+      "name": "that1618guy",
+      "handle": "@that1618guy",
+      "role": "Founder, Stateofblocks · ex-Delphi Digital"
+    }
+  ],
+  "topics": [
+    "Robinhood Chain",
+    "macro",
+    "token listings",
+    "social trading",
+    "Mosh"
+  ],
+  "community_line": "Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+  "community_url": "https://t.me/GreenFeedTG",
+  "community_cta": "Join GreenFeed on Telegram"
+}

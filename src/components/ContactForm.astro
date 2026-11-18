@@ -22,7 +22,7 @@ const submitLabel = sponsor ? 'Send partnership inquiry' : 'Send guest request';
         <label class="booking-message" for={id + '-message'}>Message<textarea id={id + '-message'} name="message" rows="4" maxlength="3000" required placeholder={sponsor ? 'Tell us about your brand and what you have in mind.' : 'What are you working on, and what would you like to discuss?'}></textarea></label>
       </div>
       <div class="booking-honey" aria-hidden="true"><label>Leave this blank<input name="_honey" type="text" tabindex="-1" autocomplete="off" /></label></div>
-      <input type="hidden" name="_subject" value={sponsor ? 'CR2: Partnership inquiry' : 'CR2 — Guest spot request'} />
+      <input type="hidden" name="_subject" value={sponsor ? 'CR2: Partnership inquiry' : 'CR2: Guest spot request'} />
       <input type="hidden" name="_template" value="table" />
       <div class="booking-submit-row"><p>{ready ? `Your details go to CR2 via FormSubmit to review your ${sponsor ? 'partnership inquiry' : 'guest request'}.` : 'No details are collected while this form is closed.'}</p><button class="booking-submit" type="submit">{ready ? submitLabel : closedLabel}<span aria-hidden="true">↗</span></button></div>
     </fieldset>

@@ -6,8 +6,8 @@ import { episodes, guests, hosts, type Episode } from '../data';
 // field throws and stops the build with the file name and the failing path.
 const raw=import.meta.glob<unknown>('../content/episodes/ep-*.json',{eager:true,import:'default'});
 
-const noEmDash=(s:string)=>!s.includes('—');
-const text=(max:number)=>z.string().trim().min(1).max(max).refine(noEmDash,'contains an em-dash');
+const noEmDash=(s:string)=>!/[—–]/.test(s);
+const text=(max:number)=>z.string().trim().min(1).max(max).refine(noEmDash,'contains an em-dash or en-dash');
 const handle=z.string().trim().regex(/^@?[A-Za-z0-9_]{1,15}$/,'must be an X handle');
 const time=z.union([z.string().trim().regex(/^(\d{1,2}:)?\d{1,2}:\d{2}$/,'must be HH:MM:SS or MM:SS'),z.number().nonnegative()]);
 const chapter=z.object({time:time.optional(),start:time.optional(),timestamp:time.optional(),title:text(140)}).refine(c=>c.time??c.start??c.timestamp,'needs time');
@@ -17,7 +17,7 @@ export const episodePageSchema=z.object({
   seo_title:text(90),
   meta_description:text(320),
   summary:text(600),
-  takeaways:z.array(text(400)).length(5,'needs exactly 5 takeaways'),
+  takeaways:z.array(text(400)).min(4,'needs 4 or 5 takeaways').max(5,'needs 4 or 5 takeaways'),
   chapters:z.array(chapter).min(1),
   guests:z.array(guest).optional(),
   topics:z.array(text(60)).min(1),

@@ -1,0 +1,99 @@
+{
+  "episode": "10",
+  "slug": "ep-10-is-onchain-dead",
+  "seo_title": "Is Onchain Dead? Stephen and that1618guy on DeFi Yields",
+  "meta_description": "Stephen of Mezzanine on where DeFi yield still makes sense, and that1618guy on the dollar index, the VIX, Robinhood Chain and agentic finance.",
+  "summary": "Mezzanine co-founder Stephen explains what onchain means to him, why he thinks most retail has left DeFi for meme coin gambling, and how Mezzanine's senior and junior tranches work. In The Golden Ratio, that1618guy reads the dollar index and the VIX, sets out a framework for the Robinhood Chain ecosystem, and discusses the Elysium mainnet launch.",
+  "takeaways": [
+    "Stephen sees two very different onchain audiences: meme coin and social trading, which he calls rigged against the user, and onchain finance such as RWAs and fixed rates, which he says now mostly attracts investors with six to seven figure accounts.",
+    "His suggested edges for someone arriving now: learn to value yield tokens and points before an airdrop, underwrite depegs where the asset is still solvent, and wait for a few high-conviction trades a year rather than farming every day.",
+    "On the show, Mezzanine was described as a strategy tranching protocol: the first vault optimises Hastra assets, the junior tranche is meant to absorb losses before the senior tranche, and the junior tranche gets leveraged exposure, with more vaults for other asset issuers planned each month.",
+    "that1618guy reads a dollar index (DXY) pushing above the 100 level and a VIX spike above 22 as signs that macro is not yet supportive of risk assets, and links the VIX spike to fears that the AI trade is over rather than to the midterms.",
+    "On Robinhood Chain, he is bullish on agentic finance but expects revenue to arrive more slowly than for launchpads, and suggests a framework: identify the market phase, ask where capital goes next, then research projects that fit that narrative."
+  ],
+  "chapters": [
+    {
+      "time": "00:02:06",
+      "title": "Intro: is onchain dead?"
+    },
+    {
+      "time": "00:03:32",
+      "title": "Are the hosts still having fun, and the Elysium mainnet launch"
+    },
+    {
+      "time": "00:13:15",
+      "title": "Trading from the X timeline with FOMO"
+    },
+    {
+      "time": "00:16:02",
+      "title": "Social trading exposés and Bubblemaps"
+    },
+    {
+      "time": "00:21:22",
+      "title": "Stephen joins: what onchain means to him"
+    },
+    {
+      "time": "00:27:00",
+      "title": "Where retail went and who uses DeFi now"
+    },
+    {
+      "time": "00:31:12",
+      "title": "Stephen's backstory: from philosophy teacher to DeFi"
+    },
+    {
+      "time": "00:36:45",
+      "title": "Where a newcomer can still find an edge"
+    },
+    {
+      "time": "00:41:32",
+      "title": "What institutions are doing onchain, and hack fears"
+    },
+    {
+      "time": "00:45:05",
+      "title": "What Mezzanine is: senior and junior tranches"
+    },
+    {
+      "time": "00:51:07",
+      "title": "Trust, audits, competitors and reaching users"
+    },
+    {
+      "time": "01:04:51",
+      "title": "Hosts' debrief: bubbles, levels and saving habits"
+    },
+    {
+      "time": "01:14:57",
+      "title": "The Golden Ratio with that1618guy: DXY, VIX and the AI trade"
+    },
+    {
+      "time": "01:30:34",
+      "title": "Robinhood Chain, agentic finance and AI trading"
+    },
+    {
+      "time": "01:43:20",
+      "title": "Elysium launch, Stateofblocks and the Grift Index"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Stephen",
+      "handle": "@phtevenstrong",
+      "role": "Co-founder, Mezzanine · Founder, DeFi Dojo"
+    },
+    {
+      "name": "that1618guy",
+      "handle": "@that1618guy",
+      "role": "Founder, Stateofblocks · ex-Delphi Digital"
+    }
+  ],
+  "topics": [
+    "DeFi yields",
+    "onchain finance",
+    "macro",
+    "Robinhood Chain",
+    "Agentic AI",
+    "Elysium"
+  ],
+  "community_line": "Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+  "community_url": "https://t.me/GreenFeedTG",
+  "community_cta": "Join GreenFeed on Telegram"
+}

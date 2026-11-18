@@ -60,7 +60,7 @@ const dateLabel = e.date;
             )}
           </section>
           <section class="why-section wrap" aria-labelledby="takeaways-title">
-            <div class="about-section-heading"><p class="eyebrow">KEY TAKEAWAYS</p><h2 id="takeaways-title">Five things<br />from the show.</h2></div>
+            <div class="about-section-heading"><p class="eyebrow">KEY TAKEAWAYS</p><h2 id="takeaways-title">{page.takeaways.length === 4 ? "Four" : "Five"} things<br />from the show.</h2></div>
             <ol class="why-grid takeaways">{page.takeaways.map((t, i) => <li class="why-card"><span class="why-num">{String(i + 1).padStart(2, '0')}</span><p>{t}</p></li>)}</ol>
           </section>
           <section class="wrap episode-block" id="chapters" aria-labelledby="chapters-title">

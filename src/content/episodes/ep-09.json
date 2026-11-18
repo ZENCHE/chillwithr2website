@@ -1,0 +1,104 @@
+{
+  "episode": "09",
+  "slug": "ep-09-whats-on-robinhood-chain",
+  "seo_title": "What's on Robinhood Chain? Drew, NFTboi and Justin on CR2",
+  "meta_description": "Drew on SlopCash, which pays for merged open source code; NFTboi on Umia's auctions and decision markets; Justin on Robinhood, UV and AI security.",
+  "summary": "Drew explains SlopCash, which attaches budgets to code repositories and pays only for contributions that get merged, and NFTboi explains how Umia runs its token auction and uses decision markets so holders can price major changes. Justin then talks about how Robinhood is working with builders, the history of the UV stack behind Mosh, and why he thinks AI is changing security in DeFi.",
+  "takeaways": [
+    "SlopCash lets a project attach a budget to a repo and pay only for merged contributions, which Drew says avoids paying for low-value submissions; AI agents can contribute too, and security findings go privately to the maintainer.",
+    "NFTboi describes Umia as a full-stack launch route that covers the legal setup and investor information, aimed at token-only ventures where value accrual is clear.",
+    "He explains that the early bid in Umia's auction is not a presale: committed capital clears into the first block of the public auction rather than getting a lower price.",
+    "Umia's decision markets let holders trade conditional versions of a token to show how a proposal, such as unlocking treasury funds, would change its expected value.",
+    "Justin says Robinhood keeps telling builders to keep shipping, expects it to market the chain to its existing app users, and argues that in the AI era DeFi needs basic safeguards and smart contract design that limits what a hacker can take."
+  ],
+  "chapters": [
+    {
+      "time": "00:03:28",
+      "title": "Welcome and life after the midterms"
+    },
+    {
+      "time": "00:08:56",
+      "title": "AI, regulation, cyber attacks and US politics"
+    },
+    {
+      "time": "00:21:57",
+      "title": "Are crypto events still worth it?"
+    },
+    {
+      "time": "00:23:30",
+      "title": "Drew and NFTboi join"
+    },
+    {
+      "time": "00:24:56",
+      "title": "What SlopCash is: paying for merged code"
+    },
+    {
+      "time": "00:28:14",
+      "title": "Auction day: why launch through Umia"
+    },
+    {
+      "time": "00:35:20",
+      "title": "Token-only ventures and the full-stack launch"
+    },
+    {
+      "time": "00:38:30",
+      "title": "Agents, sloperators and private security findings"
+    },
+    {
+      "time": "00:44:13",
+      "title": "Disclosure and investor information in crypto"
+    },
+    {
+      "time": "00:47:20",
+      "title": "How the early bid and public auction work"
+    },
+    {
+      "time": "00:51:59",
+      "title": "Decision markets explained"
+    },
+    {
+      "time": "01:00:10",
+      "title": "Justin joins: politics and the crypto industry"
+    },
+    {
+      "time": "01:08:56",
+      "title": "Robinhood, Arbitrum and what builders hear from the team"
+    },
+    {
+      "time": "01:21:25",
+      "title": "The UV harness and building Mosh's agents"
+    },
+    {
+      "time": "01:38:15",
+      "title": "AI and security: hacks, audits and DeFi safeguards"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Drew",
+      "handle": "@mil_itia",
+      "role": "CEO, SlopCash · Co-founder, Toon Protocol"
+    },
+    {
+      "name": "NFTboi",
+      "handle": "@nftboi_",
+      "role": "Launching liquid ventures at Umia Finance"
+    },
+    {
+      "name": "Justin Bebis",
+      "handle": "@justinbebis",
+      "role": "Co-founder, Mosh · CEO, UV"
+    }
+  ],
+  "topics": [
+    "Robinhood Chain",
+    "token launches",
+    "open source",
+    "decision markets",
+    "Agentic AI",
+    "crypto security"
+  ],
+  "community_line": "To follow Mosh and Justin's agents with other holders, join the Mosh Pit on Telegram. Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+  "community_url": "https://t.me/GreenFeedTG",
+  "community_cta": "Join GreenFeed on Telegram"
+}

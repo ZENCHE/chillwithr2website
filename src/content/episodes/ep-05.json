@@ -1,0 +1,101 @@
+{
+  "episode": "05",
+  "slug": "ep-05-state-of-the-hood",
+  "seo_title": "State of the Hood: Berdyn, banditxbt and Justin on Robinhood",
+  "meta_description": "Berdyn and banditxbt on traders as celebrities and the bull case for Robinhood Chain; Justin on founders, VC shifts and how Mosh bundles and agents work.",
+  "summary": "Berdyn and banditxbt of PonderCorp discuss whether social traders are becoming celebrities, why Berdyn is bullish on Robinhood Chain, and what they have learned from running daily Spaces. Justin then talks about founder authenticity, why VC funds are moving towards AI and deep tech, and how Mosh's bundle, partner launchpads and trading agents are meant to work.",
+  "takeaways": [
+    "The guests see trading turning into something like an e-sport, where attention matters as much as skill, and argue that personal brand is what lets a trader or a platform capture that attention.",
+    "Berdyn's bull case for Robinhood Chain rests on distribution: the app already has millions of funded accounts and the chain is only a few months old, so he does not expect a rerun of past chains' cycles.",
+    "Berdyn and banditxbt say their daily Spaces work because the conversations are authentic and long, and that consistency over time is what builds an audience.",
+    "Justin says founders need to be authentic and transparent to build trust, and describes VCs moving from crypto towards AI and deep tech, with tokenization as one of the next waves.",
+    "He explains the Mosh model: a bundle that bootstraps a token, extra supply sold after the bundle with fees and vesting, partner launchpads such as Orbio building on Mosh, and trading agents that hold and trade the supply."
+  ],
+  "chapters": [
+    {
+      "time": "00:01:28",
+      "title": "Welcome, and Robinhood Chain TVL at a high"
+    },
+    {
+      "time": "00:04:58",
+      "title": "Drama on the timeline and the Kimchi token"
+    },
+    {
+      "time": "00:13:56",
+      "title": "Are traders the new celebrities?"
+    },
+    {
+      "time": "00:21:11",
+      "title": "Is onchain trading a fair playing field?"
+    },
+    {
+      "time": "00:22:43",
+      "title": "Is Robinhood Chain over or just starting?"
+    },
+    {
+      "time": "00:24:17",
+      "title": "Berdyn's bull case: distribution and timing"
+    },
+    {
+      "time": "00:29:06",
+      "title": "Running daily Robinhood Spaces"
+    },
+    {
+      "time": "00:33:56",
+      "title": "Justin joins: books, shoes and the Bun video"
+    },
+    {
+      "time": "00:41:13",
+      "title": "Why founder charisma and authenticity matter"
+    },
+    {
+      "time": "00:46:04",
+      "title": "VC funds moving to AI and deep tech"
+    },
+    {
+      "time": "00:54:03",
+      "title": "How the Mosh bundle and post-bundle sales work"
+    },
+    {
+      "time": "01:00:06",
+      "title": "Partner launchpads: Orbio and PONS buybacks"
+    },
+    {
+      "time": "01:04:06",
+      "title": "Justin's long-term case for Robinhood Chain"
+    },
+    {
+      "time": "01:13:43",
+      "title": "Trading agents, donations and market making"
+    },
+    {
+      "time": "01:27:41",
+      "title": "Ask Chill Pill anything"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Berdyn",
+      "handle": "@berdyn",
+      "role": "Founder, PonderCorp · daily Robinhood Spaces"
+    },
+    {
+      "name": "banditxbt",
+      "handle": "@banditxbt",
+      "role": "VP, PonderCorp · Robinhood Chain data"
+    },
+    {
+      "name": "Justin Bebis",
+      "handle": "@justinbebis",
+      "role": "Co-founder, Mosh · CEO, UV"
+    }
+  ],
+  "topics": [
+    "Robinhood Chain",
+    "social trading",
+    "Mosh",
+    "Agentic AI",
+    "crypto VC"
+  ],
+  "community_line": "To follow Mosh and its agents with other holders and builders, join the Mosh Pit on Telegram."
+}

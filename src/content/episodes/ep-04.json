@@ -1,0 +1,92 @@
+{
+  "episode": "04",
+  "slug": "ep-04-onchain-financial-rails",
+  "seo_title": "SimpleFarmer and DataLust on MiCA and Tokenized Stock Credit",
+  "meta_description": "SimpleFarmer on StonkBrokers' MiCA white paper, tax tokens and trading epochs; DataLust on Zona, a credit layer for tokenized stocks on Robinhood Chain.",
+  "summary": "SimpleFarmer explains what MiCA compliance means for the StonkBrokers token in Europe, why he prefers revenue from smart contract features over tax tokens, and how his new trading product mixes creator capital markets with social trading. DataLust, winner of the Robinhood Chain hackathon, then describes Zona, a borrowing and credit layer for tokenized stocks, and how it handles weekend liquidity.",
+  "takeaways": [
+    "SimpleFarmer says MiCA matters because centralised exchanges serving the EU can only list tokens with a compliant white paper; StonkBrokers' white paper covers the token itself, and staking or DeFi features are a red flag in that process.",
+    "He calls tax tokens a shortcut to revenue that caps a business from day one, and prefers revenue from extra smart contract functions, with the marketing budget sent to the community.",
+    "His trading product runs in epochs: traders pick a small set of tokens in advance, can add two more during the epoch, and good results are rewarded, which he hopes will favour real traders over manipulation.",
+    "DataLust is building Zona as a credit layer for stock tokens, because trading alone limits their use; prices update only on weekdays to match market hours, which he says has avoided weekend liquidations.",
+    "DataLust sees tokenized stocks as early, with liquidity strong during market hours but thin at weekends, and the conversation expects 2027 to show whether companies bring their own stock onchain."
+  ],
+  "chapters": [
+    {
+      "time": "00:01:30",
+      "title": "Welcome: SimpleFarmer, StonkBrokers and Clutch Markets"
+    },
+    {
+      "time": "00:02:19",
+      "title": "StonkBrokers' MiCA white paper and what it unlocks in Europe"
+    },
+    {
+      "time": "00:09:42",
+      "title": "Why tax tokens are a shortcut to revenue"
+    },
+    {
+      "time": "00:13:36",
+      "title": "Deflationary tokens and the current market"
+    },
+    {
+      "time": "00:15:56",
+      "title": "Creator capital markets meet social trading"
+    },
+    {
+      "time": "00:18:09",
+      "title": "How trading epochs and rewards work"
+    },
+    {
+      "time": "00:24:43",
+      "title": "Experiences with social traders"
+    },
+    {
+      "time": "00:26:14",
+      "title": "DataLust joins: winning the hackathon"
+    },
+    {
+      "time": "00:30:56",
+      "title": "Why tokenized stocks need a credit layer"
+    },
+    {
+      "time": "00:37:36",
+      "title": "Support from the Arbitrum and Robinhood teams"
+    },
+    {
+      "time": "00:42:26",
+      "title": "Oracles, weekday pricing and liquidations"
+    },
+    {
+      "time": "00:44:34",
+      "title": "Liquidity during market hours and at weekends"
+    },
+    {
+      "time": "00:48:09",
+      "title": "Will companies bring their stock onchain?"
+    },
+    {
+      "time": "00:58:40",
+      "title": "Hosts' wrap-up: building beyond the casino and using X"
+    }
+  ],
+  "guests": [
+    {
+      "name": "SimpleFarmer",
+      "handle": "@OxSimpleFarmer",
+      "role": "Founder, Clutch Markets · StonkBrokers"
+    },
+    {
+      "name": "DataLust",
+      "handle": "@DataLust_xyz",
+      "role": "Builds Zona · Open House buildathon winner"
+    }
+  ],
+  "topics": [
+    "tokenized stocks",
+    "Robinhood Chain",
+    "MiCA",
+    "onchain credit",
+    "social trading"
+  ],
+  "community_line": "To trade and talk through new launches like these with the hosts, join Gypsy Traders on Telegram."
+}

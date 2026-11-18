@@ -3,7 +3,7 @@
 //   npm run sync:episodes && npm run build
 // Optional: node scripts/sync-episodes.mjs [srcDir], or EPISODES_SRC=/path.
 // - Copies only page fields (editorial notes such as needs_check, and transcript_path, are dropped).
-// - Applies scripts/episode-overrides.json (spelling fixes, community line rules, per-episode decisions).
+// - Applies scripts/episode-overrides.json (spelling fixes, community line rules, per-episode guest/takeaway/text decisions).
 // - Applies the private redaction list (EPISODES_REDACTIONS, default /workspace/cr2/episodes/redactions.json).
 // - Normalises chapter times to HH:MM:SS and handles to @handle.
 // - Fails with a clear message if an episode is not in src/data.ts yet.
@@ -43,6 +43,8 @@ for(const f of files){
   for(const rule of overrides.community??[]) if(new RegExp(rule.when,'i').test(d.community_line??'')){Object.assign(d,rule.set);notes.push('community line override');}
   const ep=overrides.episodes?.[num];
   if(ep?.drop_guests&&Array.isArray(d.guests)){const drop=ep.drop_guests.map(h=>h.toLowerCase());const n=d.guests.length;d.guests=d.guests.filter(g=>!drop.includes((typeof g==='string'?g:g.handle).replace(/^@/,'').toLowerCase()));if(d.guests.length!==n)notes.push(`dropped guest ${ep.drop_guests.join(', ')}`);}
+  for(const r of ep?.replace??[]){const t=JSON.stringify(d);if(!t.includes(JSON.stringify(r.find).slice(1,-1))){errors.push(`${f}: override text not found in the draft (episode ${num} replace): "${r.find.slice(0,60)}..." Update scripts/episode-overrides.json.`);continue;}d=deep(d,v=>v===r.find?r.replace:v.split(r.find).join(r.replace));notes.push('softened line');}
+  for(const k of ep?.drop_takeaways??[]){const n=(d.takeaways??[]).length;d.takeaways=(d.takeaways??[]).filter(t=>!t.includes(k));if(d.takeaways.length===n)errors.push(`${f}: takeaway to drop not found (episode ${num}): "${k}". Update scripts/episode-overrides.json.`);else notes.push(`dropped ${n-d.takeaways.length} takeaway`);}
   if(ep?.set) Object.assign(d,ep.set);
   writeFileSync(join(out,f),JSON.stringify(d,null,2)+'\n');
   log.push(`synced ${f}${notes.length?` (${[...new Set(notes)].join('; ')})`:''}`);

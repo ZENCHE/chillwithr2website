@@ -1,8 +1,26 @@
 {
-  "_about": "Applied by scripts/sync-episodes.mjs to every draft, so the drafts in /workspace/cr2/episodes/pages stay untouched. Decisions by R2D2, 18 Nov 2026.",
+  "_about": "Applied by scripts/sync-episodes.mjs to every draft, so the drafts in /workspace/cr2/episodes/pages stay untouched. Decisions by R2D2, 18 Nov 2026. Per-episode 'replace' and 'drop_takeaways' must match the draft exactly, or the sync fails so a changed draft is noticed.",
   "spelling": [
-    { "find": "StateOfBlocks", "replace": "Stateofblocks", "source": "src/data.ts guest role for @that1618guy" },
-    { "find": "State of Blocks", "replace": "Stateofblocks", "source": "src/data.ts guest role for @that1618guy" }
+    {
+      "find": "StateOfBlocks",
+      "replace": "Stateofblocks",
+      "source": "src/data.ts guest role for @that1618guy"
+    },
+    {
+      "find": "State of Blocks",
+      "replace": "Stateofblocks",
+      "source": "src/data.ts guest role for @that1618guy"
+    },
+    {
+      "find": "PONDS",
+      "replace": "PONS",
+      "source": "Pons, launchpad on Robinhood Chain, token PONS: https://ponsfamily.com/mica and https://x.com/ponsdotfamily/status/2107889342676951054"
+    },
+    {
+      "find": "Orbeo",
+      "replace": "Orbio",
+      "source": "Orbio, first launchpad building on Mosh: https://www.orbio.so/launchpad and https://x.com/orbiodotso"
+    }
   ],
   "community": [
     {
@@ -13,9 +31,56 @@
         "community_cta": "Join GreenFeed on Telegram"
       },
       "reason": "No StateOfBlocks community line on any episode; use GreenFeed instead."
+    },
+    {
+      "when": "Green ?Feed",
+      "set": {
+        "community_line": "Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+        "community_url": "https://t.me/GreenFeedTG",
+        "community_cta": "Join GreenFeed on Telegram"
+      },
+      "reason": "R2D2: GreenFeed is a Telegram channel, not a newsletter; one approved GreenFeed line and button everywhere."
     }
   ],
   "episodes": {
-    "12": { "drop_guests": ["Elizacreatez"], "reason": "R2D2: Eliza was not on Ep 12." }
+    "09": {
+      "set": {
+        "community_line": "To follow Mosh and Justin's agents with other holders, join the Mosh Pit on Telegram. Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel."
+      },
+      "reason": "Keeps the Mosh Pit mention as drafted and uses the approved GreenFeed line."
+    },
+    "10": {
+      "replace": [
+        {
+          "find": "Mezzanine is a strategy tranching protocol: the first vault optimises Hastra assets, the senior tranche is protected from losses by the junior tranche, and the junior tranche gets leveraged exposure. More vaults for other asset issuers are planned each month.",
+          "replace": "On the show, Mezzanine was described as a strategy tranching protocol: the first vault optimises Hastra assets, the junior tranche is meant to absorb losses before the senior tranche, and the junior tranche gets leveraged exposure, with more vaults for other asset issuers planned each month."
+        }
+      ],
+      "reason": "Soften a project claim stated as fact so it reports what was said on the show."
+    },
+    "11": {
+      "replace": [
+        {
+          "find": "Deebs still sees Robinhood as possibly the best chance for crypto to onboard retail, because it already had a native brokerage trading app, and suggests reading ZachXBT and Bubblemaps investigations as a way to learn the craft.",
+          "replace": "On the show, Deebs said he still sees Robinhood as possibly the best chance for crypto to onboard retail, because it already had a native brokerage trading app, and suggested reading published investigations by ZachXBT and Bubblemaps as a way to learn the craft."
+        }
+      ],
+      "reason": "Make clear this is the guest's view as said on the show."
+    },
+    "12": {
+      "drop_guests": [
+        "Elizacreatez"
+      ],
+      "drop_takeaways": [
+        "linking it in his view to the Binance hack"
+      ],
+      "reason": "R2D2: Eliza was not on Ep 12; drop the takeaway linking BTC selling to the Binance hack (no replacement). The next takeaway names that1618guy, since the dropped one introduced him.",
+      "replace": [
+        {
+          "find": "He does not expect a large first-day pop in the Anthropic IPO",
+          "replace": "that1618guy does not expect a large first-day pop in the Anthropic IPO"
+        }
+      ]
+    }
   }
 }

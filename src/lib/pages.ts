@@ -10,7 +10,7 @@ export interface SitePage { path:string; name:string; summary:string; title:stri
 const latest=(...dates:string[])=>dates.sort().at(-1)!;
 export const homeTitle='Chill with R2: crypto livestream on Robinhood Chain and tokenized stocks | CR2';
 export const partnersTitle='Partner with CR2 | Chill with R2 crypto livestream';
-export const partnersDescription='Partner with CR2 and Chill with R2: live Tuesday and Thursday shows on X, posts five days a week, live product testing, 600k+ X views on CR2 posts (Sep–Nov 2026) and an audience of founders, investors and builders.';
+export const partnersDescription='Partner with CR2 and Chill with R2: live Tuesday and Thursday shows on X, posts five days a week, live product testing, 600k+ X views on CR2 posts (Sep to Nov 2026) and an audience of founders, investors and builders.';
 export const sitePages:SitePage[]=[
   {path:'/',name:'CR2 homepage',summary:'The show, latest broadcasts, every episode with its X replay, hosts and guest booking.',title:homeTitle,description:SITE_DESCRIPTION,markdown:'/index.md',lastmod:latest(pageDates.home,episodes[0].dateTime),text:homeMarkdown},
   {path:'/partners/',name:'Partner with CR2',summary:'Partnerships: audience, reach, formats, guests and measurement notes.',title:partnersTitle,description:partnersDescription,markdown:'/partners/index.md',lastmod:pageDates.partners,text:partnersMarkdown}

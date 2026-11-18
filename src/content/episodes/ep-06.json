@@ -1,0 +1,99 @@
+{
+  "episode": "06",
+  "slug": "ep-06-follow-the-money",
+  "seo_title": "Follow the Money: Tom Wan and Zack Brenner on Robinhood",
+  "meta_description": "Tom Wan of Entropy Advisors reads Robinhood Chain's data and compares Robinhood with Base; Zack Brenner of OpenSea on OpenSea Mobile and social trading.",
+  "summary": "Tom Wan of Entropy Advisors walks through what the data says about Robinhood Chain three months in, how the chain could add to Robinhood's revenue, and how Robinhood and Coinbase's Base are taking different routes to tokenization. Zack Brenner of OpenSea then explains OpenSea Mobile, its aggregated social trading feed and Signals, and what he expects from the next few months.",
+  "takeaways": [
+    "Tom says DEX volume on Robinhood Chain has cooled from its September peak, as it has across the wider industry, while TVL has held roughly level, which he reads as longer-term capital staying.",
+    "He argues the chain is not only a fee stream: stock tokens can bring Robinhood new users and revenue, and the Q3 call would be the first time the company discusses the chain.",
+    "Comparing Robinhood and Coinbase, he notes Robinhood is both a chain operator and a stock token issuer, and that both companies are moving into tokenization and prediction markets in different ways.",
+    "On tokenization, Tom expects depegs when buying or selling volume is unusually high, and points out that pairing a volatile meme coin with a stable asset affects impermanent loss for liquidity providers.",
+    "Zack describes OpenSea Mobile as an all-in-one app that tracks everything a user owns and trades across chains, with an aggregated feed of trades from other apps and Signals for both tokens and NFTs."
+  ],
+  "chapters": [
+    {
+      "time": "00:02:40",
+      "title": "Welcome, and curating the timeline"
+    },
+    {
+      "time": "00:07:21",
+      "title": "Looking back at Vlad's July tweet and the two wolves"
+    },
+    {
+      "time": "00:12:30",
+      "title": "What to watch in Robinhood's Q3 results"
+    },
+    {
+      "time": "00:18:10",
+      "title": "Tom Wan joins: data work with Arbitrum"
+    },
+    {
+      "time": "00:23:34",
+      "title": "DEX volume, TVL and a cooling market"
+    },
+    {
+      "time": "00:31:16",
+      "title": "How the chain and stock tokens add to Robinhood's revenue"
+    },
+    {
+      "time": "00:34:22",
+      "title": "Robinhood vs Base: two routes to tokenization"
+    },
+    {
+      "time": "00:40:06",
+      "title": "RWAs and meme coins on the same chain"
+    },
+    {
+      "time": "00:44:09",
+      "title": "Tokenized stocks, depegs and liquidity pairs"
+    },
+    {
+      "time": "00:51:33",
+      "title": "Tom's view on Bitcoin and the Robinhood campaign"
+    },
+    {
+      "time": "00:56:18",
+      "title": "Zack Brenner joins: from Rally to OpenSea"
+    },
+    {
+      "time": "01:02:42",
+      "title": "OpenSea Mobile: one app for everything you trade"
+    },
+    {
+      "time": "01:13:40",
+      "title": "Token, referrals and rewards"
+    },
+    {
+      "time": "01:19:23",
+      "title": "The aggregated feed and Signals"
+    },
+    {
+      "time": "01:29:36",
+      "title": "NFTs, Robinhood Chain and the next three to six months"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Tom Wan",
+      "handle": "@tomwanhh",
+      "role": "Head of Data, Entropy Advisors · ex-21Shares"
+    },
+    {
+      "name": "Zack Brenner",
+      "handle": "@zjbrenner",
+      "role": "Product Marketing, OpenSea · ex-Rally"
+    }
+  ],
+  "topics": [
+    "Robinhood Chain",
+    "onchain data",
+    "tokenized stocks",
+    "social trading",
+    "OpenSea",
+    "TradFi to crypto"
+  ],
+  "community_line": "Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+  "community_url": "https://t.me/GreenFeedTG",
+  "community_cta": "Join GreenFeed on Telegram"
+}

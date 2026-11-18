@@ -1,0 +1,96 @@
+{
+  "episode": "07",
+  "slug": "ep-07-you-just-dont-see-growth-like-this",
+  "seo_title": "Andrew Forte and Justin on Robinhood Q3 and Serial Deployers",
+  "meta_description": "Andrew Forte and Justin debate serial token deployers, launchpad incentives and pump.fun's model, and what Robinhood's Q3 call means for Robinhood Chain.",
+  "summary": "Chill Pill and R2D2 open with Stanley Druckenmiller's first post on X, about Hyperliquid, and a heated debate on serial token deployers and whether anyone will face consequences. Andrew Forte and Justin then discuss how launchpad incentives shape the trenches, what Robinhood's Q3 earnings call said about the chain, and what it costs to build a sustainable crypto business.",
+  "takeaways": [
+    "The hosts read a first post on X about Hyperliquid from TradFi investor Stanley Druckenmiller as a sign that perpetual futures onchain are reaching fund managers and family offices.",
+    "Data shared on the stream about October token launches showed a small number of serial deployers launching huge numbers of tokens, with very few graduating; the guests and hosts disagree on whether this will ever be prosecuted.",
+    "The guests argue launchpad design drives behaviour: rewarding rotation and call-outs favours deployers who extract the most, which they see as harmful to traders and to the wider market.",
+    "On Robinhood's Q3 call, Vlad described the chain's growth and said Robinhood is building a team for it; Justin thinks Robinhood did not expect this level of success and is now catching up.",
+    "The guests argue that bootstrapping liquidity and building a sustainable crypto business is expensive, and the closing discussion frames fairer launches as reducing the power the deployer has over traders."
+  ],
+  "chapters": [
+    {
+      "time": "00:02:34",
+      "title": "Welcome and the week's breaking news"
+    },
+    {
+      "time": "00:05:30",
+      "title": "Stanley Druckenmiller's first post on X, about Hyperliquid"
+    },
+    {
+      "time": "00:12:17",
+      "title": "Another exposé, and why it keeps happening"
+    },
+    {
+      "time": "00:17:05",
+      "title": "R2D2 and Chill Pill disagree: will anyone be held to account?"
+    },
+    {
+      "time": "00:32:57",
+      "title": "Clemente's video and money extracted by one deployer"
+    },
+    {
+      "time": "00:37:43",
+      "title": "Andrew Forte joins"
+    },
+    {
+      "time": "00:39:11",
+      "title": "Serial deployers and what counts as a runner"
+    },
+    {
+      "time": "00:41:53",
+      "title": "Too many choices: the dating app comparison"
+    },
+    {
+      "time": "00:50:24",
+      "title": "Crime, consequences and the legal system"
+    },
+    {
+      "time": "00:58:14",
+      "title": "How launchpad incentives shape the trenches"
+    },
+    {
+      "time": "01:08:27",
+      "title": "Would you still object if you made 20 million?"
+    },
+    {
+      "time": "01:19:38",
+      "title": "Robinhood's Q3 call: you just don't see growth like this"
+    },
+    {
+      "time": "01:29:18",
+      "title": "The real cost of building and bootstrapping liquidity"
+    },
+    {
+      "time": "01:42:57",
+      "title": "Fairer launches and reducing deployer power"
+    },
+    {
+      "time": "01:49:16",
+      "title": "Both wolves, token issuance and off-topic: politics and AI"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Andrew Forte",
+      "handle": "@AndrewAsksHow",
+      "role": "Business & Growth, Claynosaurz & Heeboo · podcast host"
+    },
+    {
+      "name": "Justin Bebis",
+      "handle": "@justinbebis",
+      "role": "Co-founder, Mosh · CEO, UV"
+    }
+  ],
+  "topics": [
+    "Robinhood Chain",
+    "token launches",
+    "social trading",
+    "Hyperliquid",
+    "TradFi to crypto"
+  ],
+  "community_line": "If you trade the trenches and want to talk launches through with other traders, join Gypsy Traders or the Mosh Pit on Telegram."
+}

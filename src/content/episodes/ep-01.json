@@ -1,0 +1,79 @@
+{
+  "episode": "01",
+  "slug": "ep-01-robinhood-where-we-are",
+  "seo_title": "Robinhood Chain: Where We Are | Chill with R2 Ep 01",
+  "meta_description": "Chill Pill and R2D2 recap Robinhood Chain's first months: the Entropy Advisors dashboard, asset flows, Token2049 expectations and launching tokens on Mosh.",
+  "summary": "In the first CR2 episode, hosts Chill Pill and R2D2 look back at how the Robinhood Chain thesis has played out since summer and read the Entropy Advisors dashboard to see where money has moved on the chain. They then cover what to watch at Token2049, the PONS listing news, and how token launches work on Mosh.",
+  "takeaways": [
+    "The hosts argue that this onchain season started with Robinhood Chain and that Robinhood treats the chain as a growth area, with a large app user base that has not yet been offered crypto assets onchain.",
+    "On the Entropy Advisors dashboard, the hosts focus on the asset landscape rather than TVL alone: value held in protocol tokens fell from its early September peak while stablecoins on the chain kept growing.",
+    "They see Robinhood Chain on Arbitrum as a proof of concept that could lead other TradFi trading platforms to follow with their own onchain plans.",
+    "Coinbase adding PONS to its roadmap is not the same as a listing, and the hosts would rather a listing came with wider market momentum than act as the only catalyst.",
+    "Chill Pill explains why launching a token on Mosh is more complex than buying one: the creator settings and the agent bundle are meant to produce healthier charts than tokens bundled by insiders."
+  ],
+  "chapters": [
+    {
+      "time": "00:02:44",
+      "title": "Welcome to the first CR2 livestream"
+    },
+    {
+      "time": "00:03:45",
+      "title": "Looking back at the Robinhood Chain thesis"
+    },
+    {
+      "time": "00:12:12",
+      "title": "Reading the Entropy Advisors dashboard"
+    },
+    {
+      "time": "00:16:52",
+      "title": "Why TVL still matters, and how Robinhood sees the numbers"
+    },
+    {
+      "time": "00:20:50",
+      "title": "Arbitrum, the Superchain and TradFi players coming onchain"
+    },
+    {
+      "time": "00:29:53",
+      "title": "Catalysts the hosts are watching this month"
+    },
+    {
+      "time": "00:32:44",
+      "title": "PONS added to the Coinbase roadmap"
+    },
+    {
+      "time": "00:35:39",
+      "title": "Asset managers already onchain, and the 6 to 12 month view"
+    },
+    {
+      "time": "00:39:18",
+      "title": "A new liquid launchpad and builders on the chain"
+    },
+    {
+      "time": "00:43:35",
+      "title": "Robinhood at Token2049: panels to watch"
+    },
+    {
+      "time": "00:46:32",
+      "title": "Ecosystem news and community lore"
+    },
+    {
+      "time": "00:55:15",
+      "title": "How launching a token on Mosh works"
+    },
+    {
+      "time": "01:06:46",
+      "title": "Bundle fees sent to the AI agent swarm, and wrap-up"
+    }
+  ],
+  "guests": [],
+  "topics": [
+    "Robinhood Chain",
+    "onchain finance",
+    "TradFi to crypto",
+    "token launches",
+    "Mosh"
+  ],
+  "community_line": "Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+  "community_url": "https://t.me/GreenFeedTG",
+  "community_cta": "Join GreenFeed on Telegram"
+}

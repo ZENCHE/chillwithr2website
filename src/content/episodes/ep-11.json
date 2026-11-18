@@ -1,0 +1,96 @@
+{
+  "episode": "11",
+  "slug": "ep-11-whos-protecting-the-trenches",
+  "seo_title": "Deebs of Bubblemaps on Who Is Protecting the Trenches",
+  "meta_description": "Deebs of Bubblemaps on side wallets, paid call-outs and how to check a trader before copying them; Justin on AI agents in trading and trading terminals.",
+  "summary": "Deebs, lead detective at Bubblemaps, explains how onchain investigations into social traders work, why paid call-outs and side wallets make copy trading risky, and how anyone can do basic checks before following a trader. Justin then discusses how AI agents are changing trading, why he thinks most trading terminals struggle to make money, and why he built Mosh.",
+  "takeaways": [
+    "Deebs says side wallets, multiple hops between wallets and funding from different exchanges are how large holders hide positions, and that a KOL openly holding most of a supply in one public wallet is less of a problem than hidden accumulation.",
+    "His view is that more is coordinated in crypto than people assume; he sees little chance of change until enforcement catches people at scale and a few cases set an example.",
+    "Before copying a trader, he suggests checking their history, for example by asking Grok to look up their X history, and finding traders whose style, size and timeframe match your own; people copying popular calls mostly end up on the losing side.",
+    "On the show, Deebs said he still sees Robinhood as possibly the best chance for crypto to onboard retail, because it already had a native brokerage trading app, and suggested reading published investigations by ZachXBT and Bubblemaps as a way to learn the craft.",
+    "Justin expects agents to become standard for traders but thinks fully autonomous agent markets are years away, and argues that trading terminals are costly to run and hard to win unless you are a top-two player."
+  ],
+  "chapters": [
+    {
+      "time": "00:03:24",
+      "title": "Welcome and the week's market mood"
+    },
+    {
+      "time": "00:07:29",
+      "title": "Volatility, and why euphoria is the risky time"
+    },
+    {
+      "time": "00:14:02",
+      "title": "US regulation and the AI trade"
+    },
+    {
+      "time": "00:17:59",
+      "title": "Are the trenches back? Paid tweets and coordination"
+    },
+    {
+      "time": "00:23:30",
+      "title": "Deebs joins: investigating social traders"
+    },
+    {
+      "time": "00:29:19",
+      "title": "Call-out rewards, the law and whether anything will change"
+    },
+    {
+      "time": "00:34:07",
+      "title": "pump.fun's rewards and the KOL deals"
+    },
+    {
+      "time": "00:40:48",
+      "title": "Does copy trading work?"
+    },
+    {
+      "time": "00:43:57",
+      "title": "How to check a trader before you follow them"
+    },
+    {
+      "time": "00:47:09",
+      "title": "Public wallets vs hidden supply"
+    },
+    {
+      "time": "00:53:29",
+      "title": "Deebs on Robinhood Chain and onboarding retail"
+    },
+    {
+      "time": "00:59:48",
+      "title": "Advice for aspiring onchain investigators"
+    },
+    {
+      "time": "01:03:07",
+      "title": "Justin joins: markets, leverage and founders"
+    },
+    {
+      "time": "01:13:17",
+      "title": "AI agents and the future of trading"
+    },
+    {
+      "time": "01:33:43",
+      "title": "Why trading terminals struggle, and why Mosh"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Deebs",
+      "handle": "@Deebs_DeFi",
+      "role": "Lead Detective, Bubblemaps · onchain investigations"
+    },
+    {
+      "name": "Justin Bebis",
+      "handle": "@justinbebis",
+      "role": "Co-founder, Mosh · CEO, UV"
+    }
+  ],
+  "topics": [
+    "onchain investigations",
+    "social trading",
+    "copy trading",
+    "Agentic AI",
+    "Robinhood Chain"
+  ],
+  "community_line": "If you trade the trenches, do it with people who check before they ape: join Gypsy Traders or the Mosh Pit on Telegram."
+}
