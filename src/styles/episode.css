@@ -1,0 +1,42 @@
+/* Episode pages. Mobile first; reuses the Partners layout (about.css) and homepage rows (global.css). */
+.episode-intro { grid-template-columns: 1fr; padding-block: 40px 48px; }
+.episode-page .about-copy h1 { font-size: clamp(42px, 9vw, 84px); margin: 18px 0 22px; }
+.episode-crumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; color: var(--muted); font: 11px var(--mono); }
+.episode-crumbs a:hover { color: var(--green); }
+.episode-topics { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; padding: 0; }
+.episode-topics li { border: 1px solid var(--line); border-radius: 99px; padding: 5px 12px; color: #c1b8ca; font: 11px var(--mono); }
+.episode-video { position: relative; aspect-ratio: 16 / 9; border: 1px solid #aa77ff69; border-radius: 12px; overflow: hidden; background: #0d0a12; }
+.episode-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.takeaways { list-style: none; margin: 0; padding: 0; }
+.episode-block { padding-block: 56px 8px; scroll-margin-top: 20px; }
+.chapter-list, .related-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.chapter-list .program-row { display: grid; grid-template-columns: 76px 1fr; gap: 12px; align-items: baseline; padding: 14px 0; }
+.chapter-time { color: var(--green); font: 11px/1.5 var(--mono); }
+.transcript details > div { max-height: 70vh; overflow: auto; padding-right: 8px; }
+.transcript p { font-size: 14px; line-height: 1.7; color: #c1b8ca; }
+.transcript .chapter-time { margin-right: 8px; }
+.community-line { font-size: 19px; line-height: 1.55; color: var(--cream); max-width: 760px; margin: 0 0 26px; }
+.newsletter-slot { border: 1px dashed var(--line); border-radius: 10px; padding: 20px 22px; max-width: 520px; }
+.newsletter-slot .format-when { margin: 0 0 8px; font: 11px/1.5 var(--mono); letter-spacing: .12em; color: var(--muted); }
+.newsletter-slot p { margin: 0; font-size: 14px; color: #c1b8ca; }
+.newsletter-slot a, .community-line a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.episode-page .guest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.episode-page .guest-section { margin-top: 56px; }
+@media (min-width: 900px) {
+  .episode-intro { grid-template-columns: 1.2fr 1fr; padding-block: 60px 70px; }
+  .episode-intro:not(:has(.episode-video)) { grid-template-columns: minmax(0, 860px); }
+  .episode-page .guest-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+  .episode-block { padding-block: 80px 10px; }
+}
+/* Homepage: secondary X replay link next to episodes that have their own page. */
+.episode-cell { min-width: 0; }
+.episode-replay, .program-row a.program-replay { display: inline-block; margin-top: 10px; color: var(--muted); font: 10px/1.5 var(--mono); letter-spacing: .08em; text-decoration: underline; text-underline-offset: 3px; }
+.episode-replay:hover, .program-row a.program-replay:hover { color: var(--green); }
+.program-row a.program-replay { display: block; grid-template-columns: none; padding: 0 0 12px 82px; margin-top: -6px; }
+@media (max-width: 760px) { .program-row a.program-replay { padding-left: 68px; } }
+
+@media (max-width: 760px) {
+  .episode-cell:has(.episode-replay) .episode { border-bottom: 0; padding-bottom: 6px; }
+  .episode-cell:has(.episode-replay) { border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .episode-replay { margin: 0 0 0 130px; }
+}

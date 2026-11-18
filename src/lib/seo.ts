@@ -1,5 +1,6 @@
 import { episodes, hosts, guests, permanentGuests, show } from '../data';
 import { SITE_URL, ORG_DESCRIPTION, SOCIAL_IMAGE } from '../site-config';
+import { episodePage, type EpisodePage } from './episode-pages';
 
 // All structured data is generated from src/data.ts, so a new episode, host or
 // regular appears in JSON-LD on the next build without touching this file.
@@ -7,7 +8,7 @@ export const absolute=(path:string)=>new URL(path,SITE_URL).href;
 const xUrl=(handle:string)=>`https://x.com/${handle.replace(/^@/,'')}`;
 const slug=(handle:string)=>handle.replace(/^@/,'').toLowerCase();
 export const personId=(handle:string)=>absolute(`/#person-${slug(handle)}`);
-export const episodeId=(number:string)=>absolute(`/#episode-${number}`);
+export const episodeId=(number:string)=>{const p=episodePage(number);return p?absolute(p.path+'#episode'):absolute(`/#episode-${number}`);};
 const ORG_ID=absolute('/#organization');
 const WEBSITE_ID=absolute('/#website');
 const SERIES_ID=absolute('/#show');
@@ -27,8 +28,10 @@ const episodeGuests=(list:string)=>(list.match(/@[A-Za-z0-9_]+/g)??[]).filter(h=
   return {'@type':'Person',name:g?.name??h.slice(1),url:xUrl(h),sameAs:[xUrl(h)]};
 });
 const episodeNodes=episodes.map(e=>{
-  const people=episodeGuests(e.guests);
-  return {'@type':'PodcastEpisode','@id':episodeId(e.number),name:`Episode ${e.number}: ${e.title}`,episodeNumber:Number(e.number),datePublished:e.dateTime,url:e.url,inLanguage:'en',description:people.length?`Chill with R2 episode ${e.number}, live on X with ${e.guests.replace(/ · /g,', ')}.`:`Chill with R2 episode ${e.number}, live on X with hosts Chill Pill and R2D2.`,partOfSeries:{'@id':SERIES_ID},publisher:{'@id':ORG_ID},...(people.length?{contributor:people}:{})};
+  const page=episodePage(e.number);
+  const people=page?page.guests.filter(g=>!hosts.some(h=>slug(h.handle)===slug(g.handle))).map(g=>knownIds.has(slug(g.handle))?{'@id':personId(g.handle)}:{'@type':'Person',name:g.name,url:g.url,sameAs:[g.url]}):episodeGuests(e.guests);
+  const description=page?page.description:people.length?`Chill with R2 episode ${e.number}, live on X with ${e.guests.replace(/ · /g,', ')}.`:`Chill with R2 episode ${e.number}, live on X with hosts Chill Pill and R2D2.`;
+  return {'@type':'PodcastEpisode','@id':episodeId(e.number),name:`Episode ${e.number}: ${e.title}`,episodeNumber:Number(e.number),datePublished:e.dateTime,url:page?absolute(page.path):e.url,inLanguage:'en',description,partOfSeries:{'@id':SERIES_ID},publisher:{'@id':ORG_ID},...(page?{sameAs:[e.url],abstract:page.summary,keywords:page.topics.join(', ')}:{}),...(people.length?{contributor:people}:{})};
 });
 const series={'@type':'PodcastSeries','@id':SERIES_ID,name:show.name,alternateName:'CR2',url:absolute('/'),description:`A live crypto show on X, ${show.schedule.replace(', live on X','')}. Robinhood Chain, tokenized stocks, macro and onchain finance from a TradFi to crypto angle.`,inLanguage:'en',image:SOCIAL_IMAGE,startDate:show.firstEpisode,genre:['Crypto','Finance','Technology'],keywords:show.topics.join(', '),publisher:{'@id':ORG_ID},author:hosts.map(h=>({'@id':personId(h.handle)})),sameAs:['https://x.com/chillwithr2'],hasPart:episodeNodes};
 
@@ -44,3 +47,7 @@ export function partnersSchema(title:string,description:string,people:Array<{nam
   return graph([...guestNodes,webPage('WebPage','/partners/',title,description,{mentions:people.map(g=>({'@id':personId(g.handle)}))}),breadcrumb('/partners/',crumbs)]);
 }
 export function notFoundSchema(){return {'@context':'https://schema.org','@graph':[organization,website]};}
+export function episodeSchema(page:EpisodePage){
+  const crumbs=[{name:'CR2',path:'/'},{name:'Episodes',path:'/#episodes'},{name:`Ep ${page.number}`,path:page.path}];
+  return graph([webPage('WebPage',page.path,page.title,page.description,{mainEntity:{'@id':episodeId(page.number)},datePublished:page.episode.dateTime}),breadcrumb(page.path,crumbs)]);
+}

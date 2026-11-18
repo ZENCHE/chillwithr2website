@@ -1,4 +1,5 @@
 import { episodes, hosts, guests, communities, permanentGuests } from '../data';
+import { episodePages, type EpisodePage } from './episode-pages';
 import { SITE_URL, SITE_DESCRIPTION, bookingEndpoint, sponsorEndpoint } from '../site-config';
 export const xml=(value:string)=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]!));
 export const xmlResponse=(content:string)=>new Response('<?xml version="1.0" encoding="UTF-8"?>\n'+content,{headers:{'Content-Type':'application/xml; charset=utf-8'}});
@@ -17,7 +18,7 @@ ${episodes.slice(0,3).map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}), ${e
 
 ## Episode archive
 
-${episodes.map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}. ${e.guests}.`).join('\n')}
+${episodes.map(e=>{const p=episodePages.find(x=>x.number===e.number);return p?`- [Episode ${e.number}: ${e.title}](${SITE_URL}${p.path}), ${e.dateTime}. ${e.guests}. [X replay](${e.url}).`:`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}. ${e.guests}.`;}).join('\n')}
 
 ## Hosts
 
@@ -84,3 +85,33 @@ ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries a
 - [CR2 homepage](${SITE_URL}/)
 - [CR2 on X](https://x.com/chillwithr2)
 `;
+const ts=(s:number)=>`${String(Math.floor(s/3600)).padStart(2,'0')}:${String(Math.floor(s%3600/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
+export const episodeMarkdown=(p:EpisodePage,withTranscript=false)=>`# Episode ${p.number}: ${p.episode.title}
+
+> ${p.summary}
+
+Canonical page: ${SITE_URL}${p.path}
+Live on X: ${p.episode.dateTime}. [Watch the replay on X](${p.episode.url}).
+
+## Key takeaways
+
+${p.takeaways.map(t=>`- ${t}`).join('\n')}
+
+## Chapters
+
+${p.chapters.map(c=>`- ${c.label} ${c.title}`).join('\n')}
+
+## Guests
+
+${p.guests.map(g=>`- [${g.name}](${g.url}), @${g.handle}${g.role?`: ${g.role}`:''}`).join('\n')}
+
+Topics: ${p.topics.join(', ')}.
+
+${p.communityLine}
+${withTranscript?`
+## Transcript
+
+Automatic transcript. It may contain errors in names and terms.
+
+${p.transcript.map(b=>`[${ts(b.start)}] ${b.text}`).join('\n\n')}
+`:''}`;

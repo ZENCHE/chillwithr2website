@@ -1,6 +1,7 @@
 import { episodes } from '../data';
 import { SITE_URL, SITE_DESCRIPTION, pageDates } from '../site-config';
-import { homeMarkdown, partnersMarkdown } from './discovery';
+import { homeMarkdown, partnersMarkdown, episodeMarkdown } from './discovery';
+import { episodePages } from './episode-pages';
 
 // One registry for every indexable page. The sitemap, llms.txt and llms-full.txt are
 // generated from it at build time. Any .astro route that is missing here is still
@@ -14,6 +15,8 @@ export const sitePages:SitePage[]=[
   {path:'/',name:'CR2 homepage',summary:'The show, latest broadcasts, every episode with its X replay, hosts and guest booking.',title:homeTitle,description:SITE_DESCRIPTION,markdown:'/index.md',lastmod:latest(pageDates.home,episodes[0].dateTime),text:homeMarkdown},
   {path:'/partners/',name:'Partner with CR2',summary:'Partnerships: audience, reach, formats, guests and measurement notes.',title:partnersTitle,description:partnersDescription,markdown:'/partners/index.md',lastmod:pageDates.partners,text:partnersMarkdown}
 ];
+// Episode pages (one per synced src/content/episodes/ep-XX.json), newest first.
+sitePages.push(...episodePages.map(p=>({path:p.path,name:`Episode ${p.number}: ${p.episode.title}`,summary:p.description,title:p.title,description:p.description,markdown:p.path+'index.md',lastmod:p.episode.dateTime,text:()=>episodeMarkdown(p)})));
 export const pageByPath=(path:string)=>sitePages.find(p=>p.path===path)!;
 
 // Every static .astro route in src/pages, excluding the 404 page and dynamic routes.
