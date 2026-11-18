@@ -11,6 +11,8 @@ const text=(max:number)=>z.string().trim().min(1).max(max).refine(noEmDash,'cont
 const handle=z.string().trim().regex(/^@?[A-Za-z0-9_]{1,15}$/,'must be an X handle');
 const time=z.union([z.string().trim().regex(/^(\d{1,2}:)?\d{1,2}:\d{2}$/,'must be HH:MM:SS or MM:SS'),z.number().nonnegative()]);
 const chapter=z.object({time:time.optional(),start:time.optional(),timestamp:time.optional(),title:text(140)}).refine(c=>c.time??c.start??c.timestamp,'needs time');
+// A YouTube video ID is exactly 11 characters from A-Z, a-z, 0-9, '_' and '-' (not a URL).
+const youtubeIdField=z.string().trim().regex(/^[A-Za-z0-9_-]{11}$/,'must be an 11-character YouTube video ID (the part after watch?v=), not a URL');
 const guest=z.union([handle,z.object({handle,name:text(80).optional(),role:text(160).optional()})]);
 export const episodePageSchema=z.object({
   slug:z.string().trim().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/,'must be lowercase-kebab-case'),
@@ -24,10 +26,11 @@ export const episodePageSchema=z.object({
   community_line:text(400),
   community_url:z.string().regex(/^https:\/\/\S+$/,'must be an https URL').optional(),
   community_cta:text(60).optional(),
-  youtube_id:z.string().regex(/^[A-Za-z0-9_-]{11}$/).nullable().optional(),
+  youtube_id:youtubeIdField.nullable().optional(),
+  youtubeId:youtubeIdField.nullable().optional(),
   episode:z.union([z.string(),z.number()]).optional(),
   number:z.union([z.string(),z.number()]).optional()
-});
+}).refine(d=>!(d.youtube_id&&d.youtubeId&&d.youtube_id!==d.youtubeId),{message:'youtube_id and youtubeId disagree; keep one',path:['youtubeId']});
 
 // Guard: names that must never appear on the site are checked by hash, so the
 // names themselves are not stored in this public repo.
@@ -71,7 +74,7 @@ function build():EpisodePage[]{
     const slug=d.slug.startsWith(`ep-${number}-`)?d.slug.slice(6):d.slug;
     const page:EpisodePage={number:number!,episode,path:`/episodes/ep-${number}-${slug}/`,title:d.seo_title,description:d.meta_description,summary:d.summary,takeaways:d.takeaways,
       chapters:d.chapters.map(c=>{const s=toSeconds((c.time??c.start??c.timestamp)!);return {seconds:s,label:clock(s),title:c.title};}).sort((a,b)=>a.seconds-b.seconds),
-      guests:people,topics:d.topics,communityLine:d.community_line,communityUrl:d.community_url,communityCta:d.community_cta,youtubeId:d.youtube_id??undefined};
+      guests:people,topics:d.topics,communityLine:d.community_line,communityUrl:d.community_url,communityCta:d.community_cta,youtubeId:d.youtubeId??d.youtube_id??undefined};
     const hit=blockedWord(JSON.stringify(d)); if(hit!==undefined) fail('contains a name that must not appear on the site. Replace it with the X handle (that1618guy) in the draft, or add it to the redaction list, and sync again.');
     return page;
   });

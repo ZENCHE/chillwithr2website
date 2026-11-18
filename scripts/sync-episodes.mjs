@@ -5,6 +5,7 @@
 // - Copies only page fields (editorial notes such as needs_check, and transcript_path, are dropped).
 // - Applies scripts/episode-overrides.json (spelling fixes, community line rules, per-episode guest/takeaway/text decisions).
 // - Applies the private redaction list (EPISODES_REDACTIONS, default /workspace/cr2/episodes/redactions.json).
+// - YouTube: set "youtube_id": "<11-char id>" per episode in scripts/episode-overrides.json (or youtubeId/youtube_id in the draft).
 // - Normalises chapter times to HH:MM:SS and handles to @handle.
 // - Fails with a clear message if an episode is not in src/data.ts yet.
 // Transcripts are never copied into this repo.
@@ -22,7 +23,7 @@ const edge=(c,b)=>/\w/.test(c)?b:'';
 // Whole-word match when the phrase starts or ends with a word character; longer phrases first.
 const replacer=(list,flags)=>s=>[...list].sort((a,b)=>b.find.length-a.find.length).reduce((t,r)=>t.replace(new RegExp(`${edge(r.find[0],'\\b')}${esc(r.find)}${edge(r.find.at(-1),'\\b')}`,flags),r.replace),s);
 const redact=replacer(rules,'gi'); const spell=replacer(overrides.spelling??[],'g');
-const KEEP=['episode','slug','seo_title','meta_description','summary','takeaways','chapters','guests','topics','community_line','community_url','community_cta','youtube_id'];
+const KEEP=['episode','slug','seo_title','meta_description','summary','takeaways','chapters','guests','topics','community_line','community_url','community_cta','youtube_id','youtubeId'];
 const pick=o=>Object.fromEntries(KEEP.filter(k=>k in o).map(k=>[k,o[k]]));
 const deep=(v,f)=>typeof v==='string'?f(v):Array.isArray(v)?v.map(x=>deep(x,f)):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).map(([k,x])=>[k,deep(x,f)])):v;
 const hms=t=>{if(typeof t==='number'){t=Math.floor(t);return [t/3600|0,(t%3600)/60|0,t%60].map(n=>String(n).padStart(2,'0')).join(':');}const p=String(t).trim().split(':').map(Number);while(p.length<3)p.unshift(0);return p.map(n=>String(n).padStart(2,'0')).join(':');};
@@ -46,6 +47,11 @@ for(const f of files){
   for(const r of ep?.replace??[]){const t=JSON.stringify(d);if(!t.includes(JSON.stringify(r.find).slice(1,-1))){errors.push(`${f}: override text not found in the draft (episode ${num} replace): "${r.find.slice(0,60)}..." Update scripts/episode-overrides.json.`);continue;}d=deep(d,v=>v===r.find?r.replace:v.split(r.find).join(r.replace));notes.push('softened line');}
   for(const k of ep?.drop_takeaways??[]){const n=(d.takeaways??[]).length;d.takeaways=(d.takeaways??[]).filter(t=>!t.includes(k));if(d.takeaways.length===n)errors.push(`${f}: takeaway to drop not found (episode ${num}): "${k}". Update scripts/episode-overrides.json.`);else notes.push(`dropped ${n-d.takeaways.length} takeaway`);}
   if(ep?.set) Object.assign(d,ep.set);
+  if(ep?.youtube_id!==undefined||ep?.youtubeId!==undefined){d.youtube_id=ep.youtubeId??ep.youtube_id;notes.push(`youtube ${d.youtube_id}`);}
+  if(d.youtubeId!==undefined){d.youtube_id??=d.youtubeId;delete d.youtubeId;}
+  if(d.youtube_id===null||d.youtube_id==='') delete d.youtube_id;
+  if(d.youtube_id!==undefined&&!/^[A-Za-z0-9_-]{11}$/.test(String(d.youtube_id))) errors.push(`${f}: youtube id "${d.youtube_id}" is not an 11-character YouTube video ID (use the part after watch?v=).`);
+  if(ep?._todo) console.warn(`! TODO ep-${num}: ${ep._todo}`);
   writeFileSync(join(out,f),JSON.stringify(d,null,2)+'\n');
   log.push(`synced ${f}${notes.length?` (${[...new Set(notes)].join('; ')})`:''}`);
 }

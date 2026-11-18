@@ -68,6 +68,7 @@
       "reason": "Make clear this is the guest's view as said on the show."
     },
     "12": {
+      "_todo": "TEST ONLY: youtube_id below is Big Buck Bunny (Blender open movie) for the youtube-embed preview. Remove it, or replace it with the real Ep 12 ID, before merge.",
       "drop_guests": [
         "Elizacreatez"
       ],
@@ -80,7 +81,8 @@
           "find": "He does not expect a large first-day pop in the Anthropic IPO",
           "replace": "that1618guy does not expect a large first-day pop in the Anthropic IPO"
         }
-      ]
+      ],
+      "youtube_id": "aqz-KE-bpKQ"
     }
   }
 }

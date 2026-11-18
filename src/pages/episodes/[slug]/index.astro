@@ -26,6 +26,8 @@ const people = await Promise.all(page.guests.map(async g => {
 const related = relatedEpisodes(page.number);
 const schema = episodeSchema(page);
 const dateLabel = e.date;
+const yt = page.youtubeId;
+const videoTitle = `Episode ${page.number}: ${e.title} on YouTube`;
 ---
 <!doctype html>
 <html lang="en">
@@ -42,23 +44,27 @@ const dateLabel = e.date;
       <Header active="none" />
       <main id="main">
         <article class={'episode-article ' + e.accent}>
-          <section class="about-intro episode-intro wrap" aria-labelledby="ep-title">
+          <section class={'about-intro episode-intro wrap' + (yt ? ' has-video' : '')} aria-labelledby="ep-title">
             <div class="about-copy">
               <nav class="episode-crumbs" aria-label="Breadcrumb"><a href="/">CR2</a><span aria-hidden="true">/</span><a href="/#episodes">Episodes</a><span aria-hidden="true">/</span><span aria-current="page">Ep {page.number}</span></nav>
               <p class="eyebrow">EPISODE {page.number} <span class="about-divider">/</span> <time datetime={e.dateTime}>{dateLabel}</time></p>
               <h1 id="ep-title">{e.title}</h1>
               <p class="about-dek">{page.summary}</p>
+              {yt && (
+                <div class="episode-video">
+                  <button type="button" class="yt-facade" data-yt={yt} data-title={videoTitle} aria-label={`Play ${videoTitle}`}>
+                    <img src={`https://i.ytimg.com/vi/${yt}/maxresdefault.jpg`} onerror={`this.onerror=null;this.src='https://i.ytimg.com/vi/${yt}/hqdefault.jpg'`} alt={`Video thumbnail for Episode ${page.number}: ${e.title}`} width="1280" height="720" loading="lazy" decoding="async" />
+                    <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path class="yt-play-bg" d="M66.5 7.7A8.6 8.6 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.6 8.6 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.6 8.6 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.6 8.6 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3Z"/><path d="M45 24 27 14v20Z" fill="#fff"/></svg></span>
+                  </button>
+                  <noscript><a class="yt-noscript" href={`https://www.youtube.com/watch?v=${yt}`} target="_blank" rel="noopener noreferrer">Watch on YouTube <Arrow /></a></noscript>
+                </div>
+              )}
               <div class="sponsor-hero-actions">
-                <a class="about-primary" href={e.url} target="_blank" rel="noopener noreferrer">Watch the replay on X <Arrow /></a>
+                <a class={yt ? 'text-link' : 'about-primary'} href={e.url} target="_blank" rel="noopener noreferrer">Watch the replay on X <Arrow /></a>
                 <a class="text-link" href="#chapters">Jump to the chapters <Arrow direction="south" /></a>
               </div>
               <ul class="episode-topics" aria-label="Topics">{page.topics.map(t => <li>{t}</li>)}</ul>
             </div>
-            {page.youtubeId && (
-              <div class="episode-video">
-                <iframe src={`https://www.youtube-nocookie.com/embed/${page.youtubeId}`} title={`Episode ${page.number}: ${e.title} on YouTube`} loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
-            )}
           </section>
           <section class="why-section wrap" aria-labelledby="takeaways-title">
             <div class="about-section-heading"><p class="eyebrow">KEY TAKEAWAYS</p><h2 id="takeaways-title">{page.takeaways.length === 4 ? "Four" : "Five"} things<br />from the show.</h2></div>
@@ -95,6 +101,7 @@ const dateLabel = e.date;
         </article>
       </main>
     </div>
+    {yt && <script is:inline>document.querySelectorAll('.yt-facade').forEach(b=>b.addEventListener('click',()=>{const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';f.title=b.dataset.title;f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';b.replaceWith(f);f.focus();},{once:true}));</script>}
     <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p><small>CR2 is not affiliated with Robinhood Markets, Inc.</small></p><a class="back-top" href="#top" aria-label="Back to top"><Arrow direction="north" /></a></footer>
   </body>
 </html>
