@@ -13,7 +13,7 @@ const ORG_ID=absolute('/#organization');
 const WEBSITE_ID=absolute('/#website');
 const SERIES_ID=absolute('/#show');
 
-const organization={'@type':'Organization','@id':ORG_ID,name:'CR2',alternateName:['Chill with R2','ChillwithR2'],url:absolute('/'),description:ORG_DESCRIPTION,logo:{'@type':'ImageObject',url:absolute('/apple-touch-icon.png'),width:180,height:180},image:SOCIAL_IMAGE,foundingDate:show.firstEpisode,founder:hosts.map(h=>({'@id':personId(h.handle)})),sameAs:['https://x.com/chillwithr2']};
+const organization={'@type':'Organization','@id':ORG_ID,name:'CR2',alternateName:['Chill with R2','ChillwithR2'],url:absolute('/'),description:ORG_DESCRIPTION,logo:{'@type':'ImageObject',url:absolute('/apple-touch-icon.png'),width:180,height:180},image:SOCIAL_IMAGE,foundingDate:show.firstEpisode,founder:hosts.map(h=>({'@id':personId(h.handle)})),sameAs:['https://x.com/chillwithr2','https://www.youtube.com/@chillwithr2official','https://www.tiktok.com/@chillwithr2official','https://t.me/GreenFeedTG']};
 const website={'@type':'WebSite','@id':WEBSITE_ID,url:absolute('/'),name:'CR2',alternateName:'Chill with R2',description:ORG_DESCRIPTION,inLanguage:'en',publisher:{'@id':ORG_ID}};
 
 const hostPeople=hosts.map(h=>({'@type':'Person','@id':personId(h.handle),name:h.name,alternateName:h.handle,url:xUrl(h.handle),sameAs:[xUrl(h.handle)],image:absolute(h.avatar),description:h.bio,jobTitle:'Co-host, Chill with R2',worksFor:{'@id':ORG_ID}}));
@@ -33,7 +33,7 @@ const episodeNodes=episodes.map(e=>{
   const description=page?page.description:people.length?`Chill with R2 episode ${e.number}, live on X with ${e.guests.replace(/ · /g,', ')}.`:`Chill with R2 episode ${e.number}, live on X with hosts Chill Pill and R2D2.`;
   return {'@type':'PodcastEpisode','@id':episodeId(e.number),name:`Episode ${e.number}: ${e.title}`,episodeNumber:Number(e.number),datePublished:e.dateTime,url:page?absolute(page.path):e.url,inLanguage:'en',description,partOfSeries:{'@id':SERIES_ID},publisher:{'@id':ORG_ID},...(page?{sameAs:[e.url],abstract:page.summary,keywords:page.topics.join(', ')}:{}),...(people.length?{contributor:people}:{})};
 });
-const series={'@type':'PodcastSeries','@id':SERIES_ID,name:show.name,alternateName:'CR2',url:absolute('/'),description:`A live crypto show on X, ${show.schedule.replace(', live on X','')}. Robinhood Chain, tokenized stocks, macro and onchain finance from a TradFi to crypto angle.`,inLanguage:'en',image:SOCIAL_IMAGE,startDate:show.firstEpisode,genre:['Crypto','Finance','Technology'],keywords:show.topics.join(', '),publisher:{'@id':ORG_ID},author:hosts.map(h=>({'@id':personId(h.handle)})),sameAs:['https://x.com/chillwithr2'],hasPart:episodeNodes};
+const series={'@type':'PodcastSeries','@id':SERIES_ID,name:show.name,alternateName:'CR2',url:absolute('/'),description:`A live crypto show on X, ${show.schedule.replace(', live on X','')}. Robinhood Chain, tokenized stocks, macro and onchain finance from a TradFi to crypto angle.`,inLanguage:'en',image:SOCIAL_IMAGE,startDate:show.firstEpisode,genre:['Crypto','Finance','Technology'],keywords:show.topics.join(', '),publisher:{'@id':ORG_ID},author:hosts.map(h=>({'@id':personId(h.handle)})),sameAs:['https://x.com/chillwithr2','https://www.youtube.com/@chillwithr2official','https://www.tiktok.com/@chillwithr2official'],hasPart:episodeNodes};
 
 type Crumb={name:string;path:string};
 const breadcrumb=(path:string,crumbs:Crumb[])=>({'@type':'BreadcrumbList','@id':absolute(path+'#breadcrumbs'),itemListElement:crumbs.map((c,i)=>({'@type':'ListItem',position:i+1,name:c.name,item:absolute(c.path)}))});
@@ -45,6 +45,11 @@ export function partnersSchema(title:string,description:string,people:Array<{nam
   const crumbs=[{name:'CR2',path:'/'},{name:'Partners',path:'/partners/'}];
   const guestNodes=people.filter(g=>!knownIds.has(slug(g.handle))).map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],image:absolute(g.image),description:g.role.replace(/[¹²]/g,'')}));
   return graph([...guestNodes,webPage('WebPage','/partners/',title,description,{mentions:people.map(g=>({'@id':personId(g.handle)}))}),breadcrumb('/partners/',crumbs)]);
+}
+export function communitySchema(title:string,description:string,people:Array<{name:string;handle:string;role:string;image:string}>){
+  const crumbs=[{name:'CR2',path:'/'},{name:'Community',path:'/community/'}];
+  const guestNodes=people.filter(g=>!knownIds.has(slug(g.handle))).map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],image:absolute(g.image),description:g.role.replace(/[¹²]/g,'')}));
+  return graph([...guestNodes,webPage('WebPage','/community/',title,description,{mentions:people.map(g=>({'@id':personId(g.handle)}))}),breadcrumb('/community/',crumbs)]);
 }
 export function notFoundSchema(){return {'@context':'https://schema.org','@graph':[organization,website]};}
 export function episodeSchema(page:EpisodePage){

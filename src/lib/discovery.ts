@@ -1,4 +1,4 @@
-import { episodes, hosts, guests, communities, permanentGuests } from '../data';
+import { episodes, hosts, guests, communities, permanentGuests, communityChannels } from '../data';
 import { episodePages, type EpisodePage } from './episode-pages';
 import { SITE_URL, SITE_DESCRIPTION, bookingEndpoint, sponsorEndpoint } from '../site-config';
 export const xml=(value:string)=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]!));
@@ -38,6 +38,7 @@ Put your brand in front of founders, investors and builders. [See the Partners p
 
 ## More from CR2
 
+- [Join the CR2 community](${SITE_URL}/community/)
 - [Partner with CR2: audience, reach and formats](${SITE_URL}/partners/)
 - [CR2 on X](https://x.com/chillwithr2)
 - [Broadcast feed](${SITE_URL}/feed.xml)
@@ -81,6 +82,45 @@ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildat
 3. Go live on X in front of the CR2 audience.
 
 ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."} No rates, packages or audience guarantees are published. CR2 is not affiliated with Robinhood Markets, Inc.
+
+- [CR2 homepage](${SITE_URL}/)
+- [CR2 on X](https://x.com/chillwithr2)
+`;
+export const communityMarkdown=()=>`# Join the CR2 community
+
+> Watch Chill with R2 live on X every Tuesday and Thursday at 15:00 UTC, follow X Spaces on Monday and Wednesday, and stay with the show on GreenFeed, YouTube and TikTok.
+
+Canonical page: ${SITE_URL}/community/
+
+Chill with R2 is a live crypto show on X. Livestreams are about 90 minutes and stay at 15:00 UTC all year (17:00 in Bucharest in winter, 18:00 during summer time). Recurring segments: The Golden Ratio with @that1618guy on Tuesdays, and In the Hood with Justin on Thursdays. X Spaces run on Monday and Wednesday.
+
+## How to join
+
+${communityChannels.map(c=>`- [${c.name}](${c.url}) (${c.handle}): ${c.note}`).join('\n')}
+
+GreenFeed's subscriber count is the November 2026 snapshot also used on the Partners page. YouTube and TikTok are the official @chillwithr2official channels; subscriber counts are not listed until a dated public snapshot is confirmed.
+
+## Young founders, builders and traders
+
+A new series of conversations about the journey, what guests are building, and the markets they work in.
+
+- Thursday 19 November: [Matthew Fisher](https://x.com/mfisher10x) (@mfisher10x), CEO of Katana. The first guest in the series.
+- Tuesday 24 November: [CK](https://x.com/CaptainCKeth) (@CaptainCKeth), co-founder of R3ACH.
+- Thursday 26 November: [Ola](https://x.com/thegreatola) (@thegreatola), AI engineer, building Vano.
+
+Follow [@chillwithr2](https://x.com/chillwithr2) for who is on next. Watch every episode from the [homepage archive](${SITE_URL}/#episodes).
+
+## Guests who have appeared on CR2
+
+${guests.map(g=>`- [${g.name}](https://x.com/${g.handle}): ${g.role.replace(/[¹²]/g,'')}.`).join('\n')}
+
+Guest appearances do not imply endorsements.
+
+## Be a guest or a partner
+
+${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_URL}/community/#guest-spot). The form asks for name, X handle, email, project and message. A request is not a confirmed booking.` : 'Guest bookings are opening soon. The request form is currently closed and does not collect submissions.'}
+
+[Partner with CR2](${SITE_URL}/partners/) to reach founders, investors and builders. ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."} No rates or packages are published. CR2 is not affiliated with Robinhood Markets, Inc.
 
 - [CR2 homepage](${SITE_URL}/)
 - [CR2 on X](https://x.com/chillwithr2)

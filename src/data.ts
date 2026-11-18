@@ -156,6 +156,47 @@ export const communities = [
   { name: 'MHH Colony - Private Crypto Network group', count: 'Private', label: 'network' }
 ];
 
+
+// Public CR2 channels on the /community page. Only include a join URL that has been confirmed.
+// Do not add MHH Colony. StateOfBlocks stays off this list until @that1618guy agrees.
+export const communityChannels = [
+  {
+    intent: 'Watch live',
+    name: 'Chill with R2 on X',
+    handle: '@chillwithr2',
+    url: 'https://x.com/chillwithr2',
+    note: 'Livestreams every Tuesday and Thursday, show updates, and X Spaces on Monday and Wednesday.',
+    cta: 'Follow on X',
+    accent: 'violet'
+  },
+  {
+    intent: 'Full episodes',
+    name: 'YouTube',
+    handle: '@chillwithr2official',
+    url: 'https://www.youtube.com/@chillwithr2official',
+    note: 'The official channel for full episodes and clips from the show.',
+    cta: 'Subscribe on YouTube',
+    accent: 'green'
+  },
+  {
+    intent: 'Daily clips',
+    name: 'TikTok',
+    handle: '@chillwithr2official',
+    url: 'https://www.tiktok.com/@chillwithr2official',
+    note: 'Short clips from each episode.',
+    cta: 'Follow on TikTok',
+    accent: 'pink'
+  },
+  {
+    intent: 'Daily updates',
+    name: 'GreenFeed on Telegram',
+    handle: 't.me/GreenFeedTG',
+    url: 'https://t.me/GreenFeedTG',
+    note: 'Updates, clips and opportunities between shows. 800+ subscribers, November 2026 snapshot.',
+    cta: 'Join GreenFeed',
+    accent: 'green'
+  }
+];
 // Permanent guests: shown on the homepage under the hosts, in the markdown/llms copies
 // and as Person entities in JSON-LD. Portraits come from src/assets/guests/<handle>.jpg.
 // that1618guy appears by X handle only.
