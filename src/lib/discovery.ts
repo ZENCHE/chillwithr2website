@@ -28,12 +28,6 @@ ${hosts.map(h=>`- [${h.name}](${h.url}), ${h.handle}. ${h.bio}`).join('\n')}
 
 ${permanentGuests.map(g=>`- [${g.name}](https://x.com/${g.handle}), @${g.handle}. ${g.role}. ${g.slot}. Topics: ${g.topics}.`).join('\n')}
 
-## Who’s been on CR2
-
-${guests.map(g=>`- [${g.name}](https://x.com/${g.handle}): ${g.role.replace(/[¹²]/g,'')}.`).join('\n')}
-
-Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildathon, which drew 1,200+ builders. Guest appearances do not imply endorsements.
-
 ## Guest appearances
 
 ${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_URL}/#guest-spot). The form asks for name, X handle, email, project and message. A request is not a confirmed booking.` : 'Guest bookings are opening soon. The request form is currently closed and does not collect submissions.'}
@@ -115,14 +109,6 @@ A new series of conversations about the journey, what guests are building, and t
 - Thursday 26 November: [Ola](https://x.com/thegreatola) (@thegreatola), AI engineer, building Vano.
 
 Follow [@chillwithr2](https://x.com/chillwithr2) for who is on next. Watch every episode from the [homepage archive](${SITE_URL}/#episodes).
-
-See [who’s been on CR2](${SITE_URL}/#guests) on the homepage.
-
-## Be a guest or a partner
-
-${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_URL}/community/#guest-spot). The form asks for name, X handle, email, project and message. A request is not a confirmed booking.` : 'Guest bookings are opening soon. The request form is currently closed and does not collect submissions.'}
-
-[Partner with CR2](${SITE_URL}/partners/) to reach founders, investors and builders. ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."} No rates or packages are published. CR2 is not affiliated with Robinhood Markets, Inc.
 
 - [CR2 homepage](${SITE_URL}/)
 - [CR2 on X](https://x.com/chillwithr2)

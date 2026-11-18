@@ -40,19 +40,16 @@ const breadcrumb=(path:string,crumbs:Crumb[])=>({'@type':'BreadcrumbList','@id':
 const webPage=(type:string,path:string,title:string,description:string,extra:Record<string,unknown>={})=>({'@type':type,'@id':absolute(path+'#webpage'),url:absolute(path),name:title,description,inLanguage:'en',isPartOf:{'@id':WEBSITE_ID},about:{'@id':ORG_ID},primaryImageOfPage:{'@type':'ImageObject',url:SOCIAL_IMAGE},breadcrumb:{'@id':absolute(path+'#breadcrumbs')},...extra});
 const graph=(nodes:unknown[],seriesNode:Record<string,unknown>=series)=>({'@context':'https://schema.org','@graph':[organization,website,...hostPeople,...regularPeople,seriesNode,...nodes]});
 
-export function homeSchema(title:string,description:string,people:Array<{name:string;handle:string;role:string;image:string}>=[]){
-  const crumbs=[{name:'CR2',path:'/'}];
-  const guestNodes=people.filter(g=>!knownIds.has(slug(g.handle))).map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],image:absolute(g.image),description:g.role.replace(/[¹²]/g,'')}));
-  return graph([...guestNodes,webPage('WebPage','/',title,description,{mainEntity:{'@id':SERIES_ID},mentions:people.map(g=>({'@id':personId(g.handle)}))}),breadcrumb('/',crumbs)]);
-}
+export function homeSchema(title:string,description:string){const crumbs=[{name:'CR2',path:'/'}];return graph([webPage('WebPage','/',title,description,{mainEntity:{'@id':SERIES_ID}}),breadcrumb('/',crumbs)]);}
 export function partnersSchema(title:string,description:string,people:Array<{name:string;handle:string;role:string;image:string}>){
   const crumbs=[{name:'CR2',path:'/'},{name:'Partners',path:'/partners/'}];
   const guestNodes=people.filter(g=>!knownIds.has(slug(g.handle))).map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],image:absolute(g.image),description:g.role.replace(/[¹²]/g,'')}));
   return graph([...guestNodes,webPage('WebPage','/partners/',title,description,{mentions:people.map(g=>({'@id':personId(g.handle)}))}),breadcrumb('/partners/',crumbs)]);
 }
-export function communitySchema(title:string,description:string){
+export function communitySchema(title:string,description:string,people:Array<{name:string;handle:string;role:string;image:string}>=[]){
   const crumbs=[{name:'CR2',path:'/'},{name:'Community',path:'/community/'}];
-  return graph([webPage('WebPage','/community/',title,description),breadcrumb('/community/',crumbs)]);
+  const guestNodes=people.filter(g=>!knownIds.has(slug(g.handle))).map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],image:absolute(g.image),description:g.role.replace(/[¹²]/g,'')}));
+  return graph([...guestNodes,webPage('WebPage','/community/',title,description,{mentions:people.map(g=>({'@id':personId(g.handle)}))}),breadcrumb('/community/',crumbs)]);
 }
 export function notFoundSchema(){return {'@context':'https://schema.org','@graph':[organization,website]};}
 export function episodeSchema(page:EpisodePage){

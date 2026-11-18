@@ -1,12 +1,14 @@
 ---
 import Header from '../components/Header.astro';
-import GuestBooking from '../components/GuestBooking.astro';
-import Sponsorship from '../components/Sponsorship.astro';
 import Seo from '../components/Seo.astro';
 import Arrow from '../components/Arrow.astro';
+import { getImage } from 'astro:assets';
 import { communitySchema } from '../lib/seo';
 import { communityTitle, communityDescription } from '../lib/pages';
 import { listedCommunityChannels } from '../data';
+import mfisher10x from '../assets/guests/mfisher10x.jpg';
+import captaincketh from '../assets/guests/captaincketh.jpg';
+import thegreatola from '../assets/guests/thegreatola.jpg';
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/space-grotesk';
 import '@fontsource/ibm-plex-mono/400.css';
@@ -14,9 +16,18 @@ import '../styles/global.css';
 import '../styles/about.css';
 import '../styles/community.css';
 
+const founders = await Promise.all([
+  { name: 'Matthew Fisher', handle: 'mfisher10x', datetime: '2026-11-19', when: 'Thu 19 Nov', role: 'CEO of Katana. The first guest in the series.', image: mfisher10x },
+  { name: 'CK', handle: 'CaptainCKeth', datetime: '2026-11-24', when: 'Tue 24 Nov', role: 'Co-founder of R3ACH.', image: captaincketh },
+  { name: 'Ola', handle: 'thegreatola', datetime: '2026-11-26', when: 'Thu 26 Nov', role: 'AI engineer, building Vano.', image: thegreatola },
+].map(async founder => ({
+  ...founder,
+  portrait: await getImage({ src: founder.image, width: 256, height: 256, format: 'webp', quality: 90 }),
+})));
+
 const title = communityTitle;
 const description = communityDescription;
-const schema = communitySchema(title, description);
+const schema = communitySchema(title, description, founders.map(founder => ({ name: founder.name, handle: founder.handle, role: founder.role, image: founder.portrait.src })));
 ---
 <!doctype html>
 <html lang="en">
@@ -39,7 +50,7 @@ const schema = communitySchema(title, description);
             <p class="about-dek">Chill with R2 goes live on X every Tuesday and Thursday at 15:00 UTC. Between shows, the conversation continues on Telegram, YouTube and TikTok. Here is how to watch, follow and take part.</p>
             <div class="sponsor-hero-actions">
               <a class="about-primary sponsor-cta" href="#join">How to join <Arrow direction="south" /></a>
-              <a class="text-link" href="/#guests">See who’s been on CR2 <Arrow /></a>
+              <a class="text-link" href="#founders">Meet the young founders <Arrow direction="south" /></a>
             </div>
           </div>
           <aside class="week-board" aria-label="The weekly CR2 schedule">
@@ -88,32 +99,20 @@ const schema = communitySchema(title, description);
               <p class="founders-intro">A new series of conversations about the journey, what they are building, and the markets they work in. <a href="https://x.com/chillwithr2/status/2123049654568751240" target="_blank" rel="noopener noreferrer">Read the announcement on X <Arrow /></a></p>
             </div>
             <ol class="founders-list">
-              <li>
-                <time datetime="2026-11-19" class="founders-when">Thu 19 Nov</time>
-                <h3>Matthew Fisher</h3>
-                <p>CEO of Katana. The first guest in the series.</p>
-                <span class="guest-handle">@mfisher10x</span>
-              </li>
-              <li>
-                <time datetime="2026-11-24" class="founders-when">Tue 24 Nov</time>
-                <h3>CK</h3>
-                <p>Co-founder of R3ACH.</p>
-                <span class="guest-handle">@CaptainCKeth</span>
-              </li>
-              <li>
-                <time datetime="2026-11-26" class="founders-when">Thu 26 Nov</time>
-                <h3>Ola</h3>
-                <p>AI engineer, building Vano.</p>
-                <span class="guest-handle">@thegreatola</span>
-              </li>
+              {founders.map(founder => (
+                <li>
+                  <time datetime={founder.datetime} class="founders-when">{founder.when}</time>
+                  <a class="founders-portrait" href={'https://x.com/' + founder.handle} target="_blank" rel="noopener noreferrer">
+                    <img src={founder.portrait.src} width="256" height="256" loading="lazy" decoding="async" alt={founder.name + '’s X profile avatar'} />
+                  </a>
+                  <h3>{founder.name}</h3>
+                  <p>{founder.role}</p>
+                  <a class="guest-handle" href={'https://x.com/' + founder.handle} target="_blank" rel="noopener noreferrer">@{founder.handle}</a>
+                </li>
+              ))}
             </ol>
           </div>
         </section>
-        <p class="wrap guest-wall-link"><a class="text-link" href="/#guests">See who’s been on CR2 <Arrow /></a></p>
-        <div class="community-close">
-          <GuestBooking />
-          <Sponsorship />
-        </div>
       </main>
     </div>
     <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh <Arrow /></a><small>CR2 is not affiliated with Robinhood Markets, Inc.</small></p><a class="back-top" href="#top" aria-label="Back to top"><Arrow direction="north" /></a></footer>

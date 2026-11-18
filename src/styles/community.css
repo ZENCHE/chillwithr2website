@@ -99,6 +99,23 @@ a.format-card .icon-arrow {
   border-top: 1px solid var(--line);
   padding-top: 22px;
 }
+.founders-portrait {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 0 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  outline: 1px solid color-mix(in srgb, #b18aff 45%, transparent);
+  outline-offset: 3px;
+  box-shadow: 0 10px 25px #0005;
+}
+.founders-portrait img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  display: block;
+}
 .founders-list time,
 .founders-when {
   display: block;
@@ -111,12 +128,18 @@ a.format-card .icon-arrow {
 .founders-list h3 {
   font-size: 22px;
 }
-.founders-list .guest-handle {
+.founders-list a.guest-handle {
   margin-top: 8px;
   padding-top: 0;
+  color: #ab94c5;
+  text-decoration: none;
+  display: inline-block;
 }
-.community-close {
-  padding-block: 20px 8px;
+.founders-list a.guest-handle:hover,
+.founders-list a.guest-handle:focus-visible {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 @media (prefers-reduced-motion: reduce) {
   a.format-card {
@@ -142,5 +165,3 @@ a.format-card .icon-arrow {
   }
 }
 
-.guest-wall-link { padding: 8px 0 20px; }
-.guest-wall-link .text-link { display: inline-block; }
