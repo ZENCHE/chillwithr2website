@@ -1,4 +1,4 @@
-import { episodes, hosts, guests, regulars, show } from '../data';
+import { episodes, hosts, guests, permanentGuests, show } from '../data';
 import { SITE_URL, ORG_DESCRIPTION, SOCIAL_IMAGE } from '../site-config';
 
 // All structured data is generated from src/data.ts, so a new episode, host or
@@ -16,10 +16,10 @@ const organization={'@type':'Organization','@id':ORG_ID,name:'CR2',alternateName
 const website={'@type':'WebSite','@id':WEBSITE_ID,url:absolute('/'),name:'CR2',alternateName:'Chill with R2',description:ORG_DESCRIPTION,inLanguage:'en',publisher:{'@id':ORG_ID}};
 
 const hostPeople=hosts.map(h=>({'@type':'Person','@id':personId(h.handle),name:h.name,alternateName:h.handle,url:xUrl(h.handle),sameAs:[xUrl(h.handle)],image:absolute(h.avatar),description:h.bio,jobTitle:'Co-host, Chill with R2',worksFor:{'@id':ORG_ID}}));
-const regularPeople=regulars.map(handle=>guests.find(g=>g.handle===handle)).filter((g):g is typeof guests[number]=>Boolean(g)).map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,alternateName:'@'+g.handle,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],description:`${g.role.replace(/[¹²]/g,'')}. Regular guest on Chill with R2.`}));
-const knownIds=new Set([...hosts.map(h=>slug(h.handle)),...regulars.map(slug)]);
+const regularPeople=permanentGuests.map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,alternateName:'@'+g.handle,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],description:`${g.role}. Permanent guest on Chill with R2: ${g.slot}. ${g.topics}.`}));
+const knownIds=new Set([...hosts.map(h=>slug(h.handle)),...permanentGuests.map(g=>slug(g.handle))]);
 
-// Guests are parsed from the episode's handle list. Hosts and regulars link to
+// Guests are parsed from the episode's handle list. Hosts and permanent guests link to
 // their Person node; other guests get a light inline Person with their X profile.
 const episodeGuests=(list:string)=>(list.match(/@[A-Za-z0-9_]+/g)??[]).filter(h=>!hosts.some(host=>slug(host.handle)===slug(h))).map(h=>{
   if(knownIds.has(slug(h))) return {'@id':personId(h)};
@@ -38,7 +38,6 @@ const webPage=(type:string,path:string,title:string,description:string,extra:Rec
 const graph=(nodes:unknown[])=>({'@context':'https://schema.org','@graph':[organization,website,...hostPeople,...regularPeople,series,...nodes]});
 
 export function homeSchema(title:string,description:string){const crumbs=[{name:'CR2',path:'/'}];return graph([webPage('WebPage','/',title,description,{mainEntity:{'@id':SERIES_ID}}),breadcrumb('/',crumbs)]);}
-export function aboutSchema(title:string,description:string){const crumbs=[{name:'CR2',path:'/'},{name:'About',path:'/about/'}];return graph([webPage('AboutPage','/about/',title,description,{mainEntity:{'@id':ORG_ID},mentions:[...hostPeople,...regularPeople].map(p=>({'@id':p['@id']}))}),breadcrumb('/about/',crumbs)]);}
 export function sponsorsSchema(title:string,description:string,people:Array<{name:string;handle:string;role:string;image:string}>){
   const crumbs=[{name:'CR2',path:'/'},{name:'Sponsors',path:'/sponsors/'}];
   const guestNodes=people.filter(g=>!knownIds.has(slug(g.handle))).map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],image:absolute(g.image),description:g.role.replace(/[¹²]/g,'')}));

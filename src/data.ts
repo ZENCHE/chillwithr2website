@@ -156,8 +156,15 @@ export const communities = [
   { name: 'MHH Colony - Private Crypto Network group', count: 'Private', label: 'network' }
 ];
 
-// Recurring guests (X handles from `guests`). Shown on /about/ and as Person entities in JSON-LD.
-export const regulars = ['that1618guy', 'justinbebis'];
+// Permanent guests: shown on the homepage under the hosts, in the markdown/llms copies
+// and as Person entities in JSON-LD. Portraits come from src/assets/guests/<handle>.jpg.
+// that1618guy appears by X handle only.
+const guestRole = (handle: string) => guests.find(g => g.handle === handle)!.role;
+export const permanentGuests = [
+  { name: 'that1618guy', handle: 'that1618guy', role: guestRole('that1618guy'), slot: 'Every Tuesday · 16:15 UTC', topics: 'Macro, Crypto Markets, Charts and Robinhood Coverage' },
+  { name: 'Justin', handle: 'justinbebis', role: guestRole('justinbebis'), slot: 'Every Thursday · 16:00 UTC', topics: 'Agentic AI, Markets and Robinhood Chain Coverage' }
+];
+export const regulars = permanentGuests.map(g => g.handle);
 
 // Show facts used by the About page, metadata and structured data.
 export const show = {

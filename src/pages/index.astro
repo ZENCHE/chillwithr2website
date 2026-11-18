@@ -7,12 +7,14 @@ import Seo from '../components/Seo.astro';
 import { homeSchema } from '../lib/seo';
 import { SITE_DESCRIPTION } from '../site-config';
 import { homeTitle } from '../lib/pages';
+import { permanentGuestPortraits } from '../lib/guest-portraits';
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/space-grotesk';
 import '@fontsource/ibm-plex-mono/400.css';
 import '../styles/global.css';
 
 const featured = episodes[0];
+const permanent = await permanentGuestPortraits();
 const title = homeTitle;
 const description = SITE_DESCRIPTION;
 const schema = homeSchema(title,description);
@@ -53,6 +55,14 @@ const schema = homeSchema(title,description);
           </div>
         </div>
       </section>
+      <section class="hosts wrap" id="hosts" aria-labelledby="hosts-title">
+        <div><p class="eyebrow">BEHIND THE MICS</p><h2 id="hosts-title">Your hosts<span>.</span></h2></div>
+        <div class="host-list">{hosts.map((host)=>(<a class="host" href={host.url} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={host.avatar} width="400" height="400" loading="lazy" decoding="async" alt={host.avatarAlt} /><span><strong>{host.name}</strong><small>{host.handle}</small><span class="host-bio">{host.bio}</span></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
+      </section>
+      <section class="hosts permanent-guests wrap" id="permanent-guests" aria-labelledby="permanent-title">
+        <div><p class="eyebrow">ON EVERY WEEK</p><h2 id="permanent-title">Permanent guests<span>.</span></h2></div>
+        <div class="host-list">{permanent.map((guest)=>(<a class="host" href={'https://x.com/' + guest.handle} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={guest.portrait.src} width="128" height="128" loading="lazy" decoding="async" alt={guest.name + '’s X profile avatar'} /><span><strong>{guest.name}</strong><small>@{guest.handle}</small><span class="host-bio">{guest.role}</span><span class="guest-slot">{guest.slot}</span><span class="host-bio guest-topics">{guest.topics}</span></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
+      </section>
       <section class="archive" id="episodes" aria-labelledby="episodes-title">
         <div class="wrap">
           <div class="section-heading"><div><p class="eyebrow">THE PROGRAM</p><h2 id="episodes-title">Latest broadcasts<span>.</span></h2></div><a class="text-link" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">All episodes <span aria-hidden="true">↗</span></a></div>
@@ -82,14 +92,10 @@ const schema = homeSchema(title,description);
           </div>
         </div>
       </section>
-      <section class="hosts wrap" id="hosts" aria-labelledby="hosts-title">
-        <div><p class="eyebrow">BEHIND THE MICS</p><h2 id="hosts-title">Your hosts<span>.</span></h2></div>
-        <div class="host-list">{hosts.map((host)=>(<a class="host" href={host.url} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={host.avatar} width="400" height="400" loading="lazy" decoding="async" alt={host.avatarAlt} /><span><strong>{host.name}</strong><small>{host.handle}</small><span class="host-bio">{host.bio}</span></span><span class="host-arrow" aria-hidden="true">↗</span></a>))}</div>
-      </section>
       <GuestBooking />
       <Sponsorship />
     </main>
-    <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh ↗</a><small>CR2 is not affiliated with Robinhood Markets, Inc. <a href="/about/#disclosures">Disclosures</a></small></p><a class="back-top" href="#top" aria-label="Back to top">↑</a></footer>
+    <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh ↗</a><small>CR2 is not affiliated with Robinhood Markets, Inc.</small></p><a class="back-top" href="#top" aria-label="Back to top">↑</a></footer>
     <script>import '../scripts/site';</script>
   </body>
 </html>

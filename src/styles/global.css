@@ -1282,3 +1282,15 @@ h2 > span {
     grid-column: 2 / 4;
   }
 }
+
+/* Permanent guests: same layout as the hosts row. */
+.permanent-guests .host { align-items: flex-start; }
+.guest-slot {
+  display: block;
+  color: var(--green);
+  font: 10px var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 9px;
+}
+.guest-topics { margin-top: 5px; }

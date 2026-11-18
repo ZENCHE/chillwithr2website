@@ -1,4 +1,4 @@
-/* /about/ and 404 additions. Reuses the Sponsors page layout from about.css. */
+/* 404 additions. Reuses the Sponsors page layout from about.css. */
 .host-line { display: block; margin-top: 14px; color: #c1b8ca; font-size: 15px; line-height: 1.5; max-width: 260px; }
 .why-card a, .policy-block a, .step-list a, .format-card h3 a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
 .format-card h3 a { color: inherit; text-decoration: none; }

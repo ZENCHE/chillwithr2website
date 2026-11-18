@@ -1,6 +1,5 @@
-import { episodes, hosts, guests, communities } from '../data';
+import { episodes, hosts, guests, communities, permanentGuests } from '../data';
 import { SITE_URL, SITE_DESCRIPTION, bookingEndpoint, sponsorEndpoint } from '../site-config';
-import { aboutTitle, aboutLead, aboutWhat, aboutSince, aboutHosts, aboutRegulars, aboutIndependence, aboutPolicy } from './about';
 export const xml=(value:string)=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]!));
 export const xmlResponse=(content:string)=>new Response('<?xml version="1.0" encoding="UTF-8"?>\n'+content,{headers:{'Content-Type':'application/xml; charset=utf-8'}});
 export const textResponse=(content:string,type='text/plain')=>new Response(content,{headers:{'Content-Type':`${type}; charset=utf-8`}});
@@ -24,6 +23,10 @@ ${episodes.map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}.
 
 ${hosts.map(h=>`- [${h.name}](${h.url}), ${h.handle}. ${h.bio}`).join('\n')}
 
+## Permanent guests
+
+${permanentGuests.map(g=>`- [${g.name}](https://x.com/${g.handle}), @${g.handle}. ${g.role}. ${g.slot}. Topics: ${g.topics}.`).join('\n')}
+
 ## Guest appearances
 
 ${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_URL}/#guest-spot). The form asks for name, X handle, email, project and message. A request is not a confirmed booking.` : 'Guest bookings are opening soon. The request form is currently closed and does not collect submissions.'}
@@ -34,7 +37,6 @@ Put your brand in front of founders, investors and builders. [See the Sponsors p
 
 ## More from CR2
 
-- [About CR2: hosts, regulars, independence and disclosures](${SITE_URL}/about/)
 - [Sponsor CR2: audience, reach and formats](${SITE_URL}/sponsors/)
 - [CR2 on X](https://x.com/chillwithr2)
 - [Broadcast feed](${SITE_URL}/feed.xml)
@@ -80,42 +82,5 @@ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildat
 ${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."} No rates, packages or audience guarantees are published. CR2 is not affiliated with Robinhood Markets, Inc.
 
 - [CR2 homepage](${SITE_URL}/)
-- [About CR2](${SITE_URL}/about/)
 - [CR2 on X](https://x.com/chillwithr2)
-`;
-export const aboutMarkdown=()=>`# ${aboutTitle}
-
-> ${aboutLead}
-
-Canonical page: ${SITE_URL}/about/
-
-## What we make
-
-${aboutWhat.join('\n\n')}
-
-## Since 6 October 2026
-
-${aboutSince} [Every episode](${SITE_URL}/#episodes) is listed on the homepage with its X replay.
-
-## Hosts
-
-${aboutHosts.map(h=>`- [${h.name}](${h.url}), ${h.handle}: ${h.bio}`).join('\n')}
-
-## Regulars
-
-${aboutRegulars.map(r=>`- [${r.name}](https://x.com/${r.handle}), @${r.handle}: ${r.role}. On ${r.appearances.length} episodes (${r.appearances.map(e=>'Ep '+e.number).join(', ')}).`).join('\n')}
-
-## Independence
-
-${aboutIndependence.join('\n\n')}
-
-## Editorial and disclosure policy
-
-${aboutPolicy.map(p=>`- ${p}`).join('\n')}
-
-## Contact
-
-- Guests: use the [guest booking form](${SITE_URL}/#guest-spot). A request is not a confirmed booking.
-- Sponsors and partners: use the [sponsorship form](${SITE_URL}/sponsors/#sponsor).
-- On X: [@chillwithr2](https://x.com/chillwithr2).
 `;

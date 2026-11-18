@@ -1,7 +1,6 @@
 import { episodes } from '../data';
 import { SITE_URL, SITE_DESCRIPTION, pageDates } from '../site-config';
-import { homeMarkdown, aboutMarkdown, sponsorsMarkdown } from './discovery';
-import { aboutTitle, aboutDescription } from './about';
+import { homeMarkdown, sponsorsMarkdown } from './discovery';
 
 // One registry for every indexable page. The sitemap, llms.txt and llms-full.txt are
 // generated from it at build time. Any .astro route that is missing here is still
@@ -13,15 +12,15 @@ export const sponsorsTitle='Sponsor CR2 | Partner with the Chill with R2 crypto 
 export const sponsorsDescription='Partner with CR2 and Chill with R2: live Tuesday and Thursday shows on X, posts five days a week, live product testing, 600k+ X views on CR2 posts (Sep–Nov 2026) and an audience of founders, investors and builders.';
 export const sitePages:SitePage[]=[
   {path:'/',name:'CR2 homepage',summary:'The show, latest broadcasts, every episode with its X replay, hosts and guest booking.',title:homeTitle,description:SITE_DESCRIPTION,markdown:'/index.md',lastmod:latest(pageDates.home,episodes[0].dateTime),text:homeMarkdown},
-  {path:'/about/',name:'About CR2',summary:'Who makes the show, hosts and regulars, independence, editorial and disclosure policy, contact.',title:aboutTitle,description:aboutDescription,markdown:'/about/index.md',lastmod:latest(pageDates.about,episodes[0].dateTime),text:aboutMarkdown},
   {path:'/sponsors/',name:'Sponsor CR2',summary:'Sponsorship and partnerships: audience, reach, formats, guests and measurement notes.',title:sponsorsTitle,description:sponsorsDescription,markdown:'/sponsors/index.md',lastmod:pageDates.sponsors,text:sponsorsMarkdown}
 ];
 export const pageByPath=(path:string)=>sitePages.find(p=>p.path===path)!;
 
 // Every static .astro route in src/pages, excluding the 404 page and dynamic routes.
+// /about/ is a noindex redirect to /sponsors/, so it is excluded too.
 const routeFiles=Object.keys(import.meta.glob('../pages/**/*.astro'));
 export function discoveredRoutes(){
-  return routeFiles.filter(f=>!/\/404\.astro$|\[/.test(f)).map(f=>{
+  return routeFiles.filter(f=>!/\/404\.astro$|\/about\/index\.astro$|\[/.test(f)).map(f=>{
     const route=f.replace(/^\.\.\/pages/,'').replace(/\.astro$/,'').replace(/\/index$/,'');
     return route===''?'/':route+'/';
   });
