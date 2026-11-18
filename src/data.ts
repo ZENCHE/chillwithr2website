@@ -155,3 +155,16 @@ export const communities = [
   { name: 'Gypsy Traders', count: '440+', label: 'subscribers' },
   { name: 'MHH Colony - Private Crypto Network group', count: 'Private', label: 'network' }
 ];
+
+// Recurring guests (X handles from `guests`). Shown on /about/ and as Person entities in JSON-LD.
+export const regulars = ['that1618guy', 'justinbebis'];
+
+// Show facts used by the About page, metadata and structured data.
+export const show = {
+  name: 'Chill with R2',
+  firstEpisode: '2026-10-06',
+  schedule: 'Tuesday and Thursday, 15:00 UTC, live on X',
+  length: 'about 90 minutes',
+  segments: ['The Golden Ratio', 'In the Hood'],
+  topics: ['Robinhood Chain', 'tokenized stocks', 'onchain finance', 'macro', 'TradFi to crypto']
+};

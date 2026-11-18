@@ -1,0 +1,19 @@
+/* /about/ and 404 additions. Reuses the Sponsors page layout from about.css. */
+.host-line { display: block; margin-top: 14px; color: #c1b8ca; font-size: 15px; line-height: 1.5; max-width: 260px; }
+.why-card a, .policy-block a, .step-list a, .format-card h3 a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.format-card h3 a { color: inherit; text-decoration: none; }
+.format-card h3 a span { font-size: .7em; color: var(--green); }
+.regulars-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.policy-section { padding-block: 80px; scroll-margin-top: 25px; }
+.policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.policy-block { border-top: 1px solid var(--line); padding-top: 26px; }
+.policy-block p, .policy-block li { font-size: 15px; line-height: 1.65; color: #c1b8ca; }
+.policy-block ul { margin: 14px 0 0; padding-left: 18px; }
+.policy-block li + li { margin-top: 10px; }
+.footer small a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.notfound { min-height: 70vh; display: grid; align-content: center; padding-block: 90px; }
+.notfound .about-copy h1 { margin-top: 20px; }
+.notfound-links { display: flex; flex-wrap: wrap; gap: 14px 28px; margin-top: 30px; }
+@media (max-width: 860px) {
+  .regulars-grid, .policy-grid { grid-template-columns: 1fr; gap: 28px; }
+}

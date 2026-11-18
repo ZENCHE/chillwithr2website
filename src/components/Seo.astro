@@ -1,16 +1,18 @@
 ---
 import { SITE_URL, SOCIAL_IMAGE, SOCIAL_IMAGE_ALT } from '../site-config';
-interface Props { title:string; description:string; path:string; schema:unknown; markdown:string; }
-const {title,description,path,schema,markdown}=Astro.props;
+interface Props { title:string; description:string; path:string; schema:unknown; markdown?:string; noindex?:boolean; }
+const {title,description,path,schema,markdown,noindex=false}=Astro.props;
 const canonical=new URL(path,SITE_URL).href;
 ---
 <meta name="description" content={description} />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<link rel="canonical" href={canonical} />
-<link rel="icon" href="/assets/cr2-mark.svg" type="image/svg+xml" />
+<meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+{!noindex && <link rel="canonical" href={canonical} />}
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/assets/studio-mark.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="sitemap" href="/sitemap.xml" type="application/xml" />
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="Chill with R2 — Latest broadcasts" />
-<link rel="alternate" href={new URL(markdown,SITE_URL).href} type="text/markdown" title={`${title} — plain text`} />
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="Chill with R2: every episode" />
+{markdown && <link rel="alternate" href={new URL(markdown,SITE_URL).href} type="text/markdown" title={`${title} (plain text)`} />}
 <link rel="describedby" href="/llms.txt" type="text/plain" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="CR2" />

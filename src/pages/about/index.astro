@@ -1,18 +1,99 @@
 ---
-import { SITE_URL } from '../../site-config';
-const target = new URL('/sponsors/', SITE_URL).href;
+import Header from '../../components/Header.astro';
+import Seo from '../../components/Seo.astro';
+import { Image } from 'astro:assets';
+import { aboutSchema } from '../../lib/seo';
+import { aboutTitle, aboutDescription, aboutLead, aboutWhat, aboutSince, aboutHosts, aboutRegulars, aboutIndependence, aboutPolicy } from '../../lib/about';
+import { episodes } from '../../data';
+import chillAvatar from '../../../public/assets/chill-pill-avatar.png';
+import r2Avatar from '../../../public/assets/r2d2-avatar.png';
+import '@fontsource-variable/fredoka';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/ibm-plex-mono/400.css';
+import '../../styles/global.css';
+import '../../styles/about.css';
+import '../../styles/about-us.css';
+
+const title = aboutTitle;
+const description = aboutDescription;
+const schema = aboutSchema(title, description);
+const latest = episodes[0];
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Moved to Sponsors — CR2</title>
-    <meta http-equiv="refresh" content="0; url=/sponsors/" />
-    <link rel="canonical" href={target} />
-    <meta name="robots" content="noindex, follow" />
-    <script is:inline>location.replace('/sponsors/' + location.hash);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#15101d" />
+    <Seo {title} {description} path="/about/" {schema} markdown="/about/index.md" />
   </head>
-  <body>
-    <p>This page has moved to <a href="/sponsors/">Sponsors</a>.</p>
+  <body class="about-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div id="top"></div>
+    <div class="about-opening">
+      <Header active="about" />
+      <main id="main">
+        <section class="about-intro wrap" aria-labelledby="about-title">
+          <div class="about-copy">
+            <p class="eyebrow">ABOUT <span class="about-divider">/</span> CR2</p>
+            <h1 id="about-title">Independent.<br />Live on X.<br /><em>Since Ep 01.</em></h1>
+            <p class="about-dek">{aboutLead}</p>
+            <div class="sponsor-hero-actions">
+              <a class="about-primary" href={latest.url} target="_blank" rel="noopener noreferrer">Watch Episode {latest.number} <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="#disclosures">Disclosures <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <aside class="host-board" aria-label="The hosts">
+            <div class="host-board-heading"><span>THE HOSTS</span><img src="/assets/studio-mark.svg" width="62" height="56" alt="" /></div>
+            {aboutHosts.map((host, index) => (
+              <a class={'reach-host ' + (index === 0 ? 'chill' : 'r2')} id={host.handle.slice(1).toLowerCase()} href={host.url} target="_blank" rel="noopener noreferrer">
+                <Image class="reach-avatar" src={index === 0 ? chillAvatar : r2Avatar} width={200} height={200} format="webp" quality={90} alt={host.avatarAlt} loading="eager" decoding="async" />
+                <span class="reach-person"><strong>{host.name}</strong><small>{host.handle}</small><span class="host-line">{host.bio}</span></span>
+                <span class="reach-arrow" aria-hidden="true">↗</span>
+              </a>
+            ))}
+            <div class="host-board-footer"><span>CHILL WITH R2</span><span>TUE + THU · 15:00 UTC</span></div>
+          </aside>
+        </section>
+        <section class="why-section wrap" aria-labelledby="what-title">
+          <div class="about-section-heading"><p class="eyebrow">WHAT WE MAKE</p><h2 id="what-title">A crypto livestream,<br />twice a week.</h2><p>{aboutSince}</p></div>
+          <div class="why-grid">
+            <article class="why-card"><span class="why-num">01</span><h3>The show</h3><p>{aboutWhat[0]}</p></article>
+            <article class="why-card"><span class="why-num">02</span><h3>The topics</h3><p>{aboutWhat[1]}</p></article>
+            <article class="why-card"><span class="why-num">03</span><h3>The archive</h3><p>Every episode since 6 October 2026 is listed on the homepage with its full replay on X. <a href="/#episodes">See every episode</a>.</p></article>
+          </div>
+        </section>
+        <section class="formats-section" id="regulars" aria-labelledby="regulars-title">
+          <div class="wrap">
+            <div class="about-section-heading"><p class="eyebrow">REGULARS</p><h2 id="regulars-title">Familiar voices.</h2><p>Alongside new guests each week, these regulars come back to the show.</p></div>
+            <div class="format-grid regulars-grid">
+              {aboutRegulars.map((r, i) => (
+                <article class={'format-card ' + (i % 2 ? 'green' : 'violet')} id={r.handle.toLowerCase()}>
+                  <p class="format-when">{r.appearances.length} EPISODES · {r.appearances.map(e => 'EP ' + e.number).join(' · ')}</p>
+                  <h3><a href={'https://x.com/' + r.handle} target="_blank" rel="noopener noreferrer">{r.name} <span aria-hidden="true">↗</span></a></h3>
+                  <p>@{r.handle}. {r.role}.</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section class="policy-section wrap" id="disclosures" aria-labelledby="policy-title">
+          <div class="about-section-heading"><p class="eyebrow">INDEPENDENCE AND DISCLOSURES</p><h2 id="policy-title">How we stay<br />straight with you.</h2><p>{aboutIndependence[0]}</p></div>
+          <div class="policy-grid">
+            <div class="policy-block"><h3>Independence</h3>{aboutIndependence.map(p => <p>{p}</p>)}</div>
+            <div class="policy-block"><h3>Editorial and disclosure policy</h3><ul>{aboutPolicy.map(p => <li>{p}</li>)}</ul></div>
+          </div>
+        </section>
+        <section class="partner-steps wrap" id="contact" aria-labelledby="contact-title">
+          <div class="about-section-heading"><p class="eyebrow">CONTACT</p><h2 id="contact-title">Get in touch.</h2><p>Messages from both forms go to the CR2 team.</p></div>
+          <ol class="step-list">
+            <li><span>01</span><h3>Come on the show</h3><p>Use the <a href="/#guest-spot">guest booking form</a>. A request is not a confirmed booking.</p></li>
+            <li><span>02</span><h3>Partner with CR2</h3><p>Use the <a href="/sponsors/#sponsor">sponsorship form</a> on the Sponsors page.</p></li>
+            <li><span>03</span><h3>Find us on X</h3><p>Follow <a href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">@chillwithr2</a> for every show, clip and post.</p></li>
+          </ol>
+        </section>
+      </main>
+    </div>
+    <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh ↗</a><small>CR2 is not affiliated with Robinhood Markets, Inc. <a href="/about/#disclosures">Disclosures</a></small></p><a class="back-top" href="#top" aria-label="Back to top">↑</a></footer>
   </body>
 </html>

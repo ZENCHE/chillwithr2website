@@ -4,6 +4,7 @@ import Sponsorship from '../components/Sponsorship.astro';
 import { Image } from 'astro:assets';
 import Seo from '../components/Seo.astro';
 import { sponsorsSchema } from '../lib/seo';
+import { sponsorsTitle, sponsorsDescription } from '../lib/pages';
 import { guestPortraits } from '../lib/guest-portraits';
 import chillAvatar from '../../public/assets/chill-pill-avatar.png';
 import r2Avatar from '../../public/assets/r2d2-avatar.png';
@@ -14,8 +15,8 @@ import '@fontsource/ibm-plex-mono/400.css';
 import '../styles/global.css';
 import '../styles/about.css';
 
-const title = 'Sponsor CR2 — Put your brand in the front row';
-const description = 'Partner with CR2 and Chill with R2: live Tuesday and Thursday shows on X, posts five days a week, live product testing, 600k+ X views on CR2 posts (Sep–Nov 2026) and an audience of founders, investors and builders.';
+const title = sponsorsTitle;
+const description = sponsorsDescription;
 const portraits = await guestPortraits();
 const schema = sponsorsSchema(title,description,portraits.map(guest=>({...guest,image:guest.portrait.src})));
 ---
@@ -131,6 +132,6 @@ const schema = sponsorsSchema(title,description,portraits.map(guest=>({...guest,
         </div>
       </main>
     </div>
-    <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh ↗</a><small>CR2 is not affiliated with Robinhood Markets, Inc.</small></p><a class="back-top" href="#top" aria-label="Back to top">↑</a></footer>
+    <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh ↗</a><small>CR2 is not affiliated with Robinhood Markets, Inc. <a href="/about/#disclosures">Disclosures</a></small></p><a class="back-top" href="#top" aria-label="Back to top">↑</a></footer>
   </body>
 </html>

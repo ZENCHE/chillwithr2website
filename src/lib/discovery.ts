@@ -1,27 +1,28 @@
 import { episodes, hosts, guests, communities } from '../data';
 import { SITE_URL, SITE_DESCRIPTION, bookingEndpoint, sponsorEndpoint } from '../site-config';
+import { aboutTitle, aboutLead, aboutWhat, aboutSince, aboutHosts, aboutRegulars, aboutIndependence, aboutPolicy } from './about';
 export const xml=(value:string)=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]!));
 export const xmlResponse=(content:string)=>new Response('<?xml version="1.0" encoding="UTF-8"?>\n'+content,{headers:{'Content-Type':'application/xml; charset=utf-8'}});
 export const textResponse=(content:string,type='text/plain')=>new Response(content,{headers:{'Content-Type':`${type}; charset=utf-8`}});
-export const homeMarkdown=()=>`# CR2 — Crypto, finance & tech
+export const homeMarkdown=()=>`# Chill with R2: crypto livestream on Robinhood Chain and tokenized stocks
 
 > ${SITE_DESCRIPTION}
 
 Canonical page: ${SITE_URL}/
 
-CR2 is independent media. Its flagship show, Chill with R2, features live conversations on Robinhood Chain. CR2 is not affiliated with Robinhood Markets, Inc.
+CR2 is independent media. Its flagship show, Chill with R2, goes live on X every Tuesday and Thursday at 15:00 UTC with conversations on Robinhood Chain, tokenized stocks and macro, from a TradFi to crypto angle. CR2 is not affiliated with Robinhood Markets, Inc.
 
 ## Latest broadcasts
 
-${episodes.slice(0,3).map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}) — ${e.dateTime}. Guests: ${e.guests}.`).join('\n')}
+${episodes.slice(0,3).map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}. Guests: ${e.guests}.`).join('\n')}
 
 ## Episode archive
 
-${episodes.map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}) — ${e.dateTime}. ${e.guests}.`).join('\n')}
+${episodes.map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}. ${e.guests}.`).join('\n')}
 
 ## Hosts
 
-${hosts.map(h=>`- [${h.name}](${h.url}) — ${h.handle}. ${h.bio}`).join('\n')}
+${hosts.map(h=>`- [${h.name}](${h.url}), ${h.handle}. ${h.bio}`).join('\n')}
 
 ## Guest appearances
 
@@ -33,11 +34,12 @@ Put your brand in front of founders, investors and builders. [See the Sponsors p
 
 ## More from CR2
 
+- [About CR2: hosts, regulars, independence and disclosures](${SITE_URL}/about/)
 - [Sponsor CR2: audience, reach and formats](${SITE_URL}/sponsors/)
 - [CR2 on X](https://x.com/chillwithr2)
 - [Broadcast feed](${SITE_URL}/feed.xml)
 `;
-export const sponsorsMarkdown=()=>`# Sponsor CR2 — Put your brand in the front row
+export const sponsorsMarkdown=()=>`# Sponsor CR2: put your brand in the front row
 
 > Independent media for crypto, finance and tech, with Chill with R2 at the center. This page is for sponsors and partners.
 
@@ -65,7 +67,7 @@ ${communities.map(c=>`- ${c.name}: ${c.count} ${c.label}.`).join('\n')}
 
 ## Guests who have appeared on CR2
 
-${guests.map(g=>`- [${g.name}](https://x.com/${g.handle}) — ${g.role.replace(/[¹²]/g,'')}.`).join('\n')}
+${guests.map(g=>`- [${g.name}](https://x.com/${g.handle}): ${g.role.replace(/[¹²]/g,'')}.`).join('\n')}
 
 Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildathon, which drew 1,200+ builders. Guest appearances do not imply endorsements.
 
@@ -78,5 +80,42 @@ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildat
 ${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."} No rates, packages or audience guarantees are published. CR2 is not affiliated with Robinhood Markets, Inc.
 
 - [CR2 homepage](${SITE_URL}/)
+- [About CR2](${SITE_URL}/about/)
 - [CR2 on X](https://x.com/chillwithr2)
+`;
+export const aboutMarkdown=()=>`# ${aboutTitle}
+
+> ${aboutLead}
+
+Canonical page: ${SITE_URL}/about/
+
+## What we make
+
+${aboutWhat.join('\n\n')}
+
+## Since 6 October 2026
+
+${aboutSince} [Every episode](${SITE_URL}/#episodes) is listed on the homepage with its X replay.
+
+## Hosts
+
+${aboutHosts.map(h=>`- [${h.name}](${h.url}), ${h.handle}: ${h.bio}`).join('\n')}
+
+## Regulars
+
+${aboutRegulars.map(r=>`- [${r.name}](https://x.com/${r.handle}), @${r.handle}: ${r.role}. On ${r.appearances.length} episodes (${r.appearances.map(e=>'Ep '+e.number).join(', ')}).`).join('\n')}
+
+## Independence
+
+${aboutIndependence.join('\n\n')}
+
+## Editorial and disclosure policy
+
+${aboutPolicy.map(p=>`- ${p}`).join('\n')}
+
+## Contact
+
+- Guests: use the [guest booking form](${SITE_URL}/#guest-spot). A request is not a confirmed booking.
+- Sponsors and partners: use the [sponsorship form](${SITE_URL}/sponsors/#sponsor).
+- On X: [@chillwithr2](https://x.com/chillwithr2).
 `;

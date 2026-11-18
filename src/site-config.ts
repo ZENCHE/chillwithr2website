@@ -1,5 +1,6 @@
 export const SITE_URL = 'https://chillwithr2.com';
-export const SITE_DESCRIPTION = 'Independent media on crypto, finance and tech. Home of Chill with R2, a live podcast covering Robinhood Chain.';
+export const SITE_DESCRIPTION = 'Chill with R2 is a live crypto show on X every Tuesday and Thursday at 15:00 UTC. A TradFi to crypto take on Robinhood Chain, tokenized stocks and macro, with the founders and builders behind them.';
+export const ORG_DESCRIPTION = 'CR2 is independent media for crypto, finance and tech, and the home of Chill with R2, a live crypto show on X.';
 export const SOCIAL_IMAGE = `${SITE_URL}/assets/cr2-studio-social.png`;
 export const SOCIAL_IMAGE_ALT = 'Chill with R2 neon sign glowing violet, green and pink against a brick wall.';
 
@@ -13,4 +14,4 @@ export const sponsorEndpoint = sponsorshipContact.activated && /^[^\s@]+@[^\s@]+
   ? `https://formsubmit.co/ajax/${encodeURIComponent(sponsorshipContact.recipient)}` : '';
 
 // Change only when the corresponding page's content materially changes.
-export const pageDates = { home: '2026-11-17', sponsors: '2026-11-17' };
+export const pageDates = { home: '2026-11-18', sponsors: '2026-11-18', about: '2026-11-18' };

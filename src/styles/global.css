@@ -238,6 +238,8 @@ h1 > span {
   text-shadow: 0 0 55px #33e06a20;
 }
 .intro-dek {
+  font-weight: 400;
+  letter-spacing: normal;
   font-size: 17px;
   line-height: 1.6;
   color: #bbb1c6;
