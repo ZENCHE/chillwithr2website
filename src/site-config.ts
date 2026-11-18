@@ -4,7 +4,7 @@ export const ORG_DESCRIPTION = 'CR2 is independent media for crypto, finance and
 export const SOCIAL_IMAGE = `${SITE_URL}/assets/cr2-studio-social.png`;
 // YouTube channel for Organization sameAs. One-line switch: set YOUTUBE_LIVE to true once the channel is live.
 export const YOUTUBE_URL = 'https://www.youtube.com/@chillwithr2official';
-export const YOUTUBE_LIVE = false;
+export const YOUTUBE_LIVE = true;
 export const SOCIAL_IMAGE_ALT = 'Chill with R2 neon sign glowing violet, green and pink against a brick wall.';
 
 // Set the receiving inbox, complete FormSubmit's email activation, then set activated.

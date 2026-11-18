@@ -43,11 +43,36 @@
     }
   ],
   "episodes": {
+    "01": {
+      "youtube_id": "smuTYrqw2BU"
+    },
+    "02": {
+      "youtube_id": "z9eCSZ8xPSg"
+    },
+    "03": {
+      "youtube_id": "oIHs2lsVfVM"
+    },
+    "04": {
+      "youtube_id": "c5tE_4ztl2g"
+    },
+    "05": {
+      "youtube_id": "L8QlK6nHfhU"
+    },
+    "06": {
+      "youtube_id": "SdZO6_Q28Sg"
+    },
+    "07": {
+      "youtube_id": "EOpy2ChuRoI"
+    },
+    "08": {
+      "youtube_id": "4TSokpe9GEk"
+    },
     "09": {
       "set": {
         "community_line": "To follow Mosh and Justin's agents with other holders, join the Mosh Pit on Telegram. Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel."
       },
-      "reason": "Keeps the Mosh Pit mention as drafted and uses the approved GreenFeed line."
+      "reason": "Keeps the Mosh Pit mention as drafted and uses the approved GreenFeed line.",
+      "youtube_id": "tYn2K0tLrn8"
     },
     "10": {
       "replace": [
@@ -68,7 +93,6 @@
       "reason": "Make clear this is the guest's view as said on the show."
     },
     "12": {
-      "_todo": "TEST ONLY: youtube_id below is Big Buck Bunny (Blender open movie) for the youtube-embed preview. Remove it, or replace it with the real Ep 12 ID, before merge.",
       "drop_guests": [
         "Elizacreatez"
       ],
@@ -81,8 +105,7 @@
           "find": "He does not expect a large first-day pop in the Anthropic IPO",
           "replace": "that1618guy does not expect a large first-day pop in the Anthropic IPO"
         }
-      ],
-      "youtube_id": "aqz-KE-bpKQ"
+      ]
     }
   }
 }
