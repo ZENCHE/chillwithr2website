@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import { bookingEndpoint, sponsorEndpoint } from '../site-config';
 import '../styles/booking.css';
 interface Props { kind: 'guest' | 'sponsor'; id: string; }
@@ -10,7 +11,7 @@ const closedLabel = sponsor ? 'Partnership inquiries opening soon' : 'Bookings o
 const submitLabel = sponsor ? 'Send partnership inquiry' : 'Send guest request';
 ---
 <div class="contact-panel" data-contact-panel>
-  {!ready && <div class="booking-notice"><span class="booking-status-dot" aria-hidden="true"></span><div><strong>{closedLabel}</strong><p>The {sponsor ? 'contact' : 'request'} form isn’t open yet. <a href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Follow CR2 on X for updates ↗</a></p></div></div>}
+  {!ready && <div class="booking-notice"><span class="booking-status-dot" aria-hidden="true"></span><div><strong>{closedLabel}</strong><p>The {sponsor ? 'contact' : 'request'} form isn’t open yet. <a href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Follow CR2 on X for updates <Arrow /></a></p></div></div>}
   <form id={id + '-request'} method="post" action={ready ? endpoint.replace('/ajax/', '/') : undefined} data-contact-form data-kind={kind} data-endpoint={endpoint} data-submit-label={submitLabel} aria-label={sponsor ? 'Partnership inquiry' : 'Guest spot request'}>
     <fieldset disabled={!ready}>
       <legend class="visually-hidden">{sponsor ? 'Your partnership inquiry' : 'Your guest request'}</legend>
@@ -24,7 +25,7 @@ const submitLabel = sponsor ? 'Send partnership inquiry' : 'Send guest request';
       <div class="booking-honey" aria-hidden="true"><label>Leave this blank<input name="_honey" type="text" tabindex="-1" autocomplete="off" /></label></div>
       <input type="hidden" name="_subject" value={sponsor ? 'CR2: Partnership inquiry' : 'CR2: Guest spot request'} />
       <input type="hidden" name="_template" value="table" />
-      <div class="booking-submit-row"><p>{ready ? `Your details go to CR2 via FormSubmit to review your ${sponsor ? 'partnership inquiry' : 'guest request'}.` : 'No details are collected while this form is closed.'}</p><button class="booking-submit" type="submit">{ready ? submitLabel : closedLabel}<span aria-hidden="true">↗</span></button></div>
+      <div class="booking-submit-row"><p>{ready ? `Your details go to CR2 via FormSubmit to review your ${sponsor ? 'partnership inquiry' : 'guest request'}.` : 'No details are collected while this form is closed.'}</p><button class="booking-submit" type="submit"><span data-submit-text>{ready ? submitLabel : closedLabel}</span><Arrow /></button></div>
     </fieldset>
     <p class="booking-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
   </form>

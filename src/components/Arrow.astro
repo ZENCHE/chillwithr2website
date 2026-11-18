@@ -1,0 +1,16 @@
+---
+interface Props {
+  direction?: 'ne' | 'east' | 'north' | 'south';
+  class?: string;
+}
+const { direction = 'ne', class: className } = Astro.props;
+const rotate = { ne: 0, east: 45, south: 135, north: -45 }[direction];
+---
+<span class:list={['icon-arrow', className]} aria-hidden="true">
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" focusable="false">
+    <g transform={`rotate(${rotate} 8 8)`}>
+      <path d="M5 11.5L11.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+      <path d="M6.25 5H11.5V10.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+  </svg>
+</span>

@@ -40,7 +40,11 @@ document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach(form =
     fields.disabled = true;
     form.setAttribute('aria-busy', 'true');
     feedback.textContent = sponsor ? 'Sending your partnership inquiry…' : 'Sending your guest request…';
-    submit.textContent = 'Sending…';
+    const submitLabelEl = submit.querySelector<HTMLElement>('[data-submit-text]');
+    const submitArrow = submit.querySelector<HTMLElement>('.icon-arrow');
+    if (submitLabelEl) submitLabelEl.textContent = 'Sending…';
+    else submit.textContent = 'Sending…';
+    if (submitArrow) submitArrow.hidden = true;
     const send = sponsor ? sendSponsorInquiry : sendGuestRequest;
     const result = await send(form.dataset.endpoint, {
       name: value('name'), xHandle: value('xHandle'), email: value('email'),
@@ -49,7 +53,9 @@ document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach(form =
     sending = false;
     fields.disabled = false;
     form.removeAttribute('aria-busy');
-    submit.textContent = form.dataset.submitLabel + ' ↗';
+    if (submitLabelEl) submitLabelEl.textContent = form.dataset.submitLabel ?? '';
+    else submit.textContent = form.dataset.submitLabel ?? '';
+    if (submitArrow) submitArrow.hidden = false;
     if (result.ok) {
       form.reset();
       form.hidden = true;

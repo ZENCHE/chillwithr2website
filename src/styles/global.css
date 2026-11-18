@@ -46,6 +46,22 @@ a {
   background: var(--green);
   color: var(--ink);
 }
+.icon-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  vertical-align: -0.12em;
+  line-height: 0;
+}
+.icon-arrow[hidden] {
+  display: none;
+}
+.icon-arrow svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
 .wrap {
   width: min(100% - 112px, 1328px);
   margin-inline: auto;

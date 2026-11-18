@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import { guestPortraits } from '../lib/guest-portraits';
 import '../styles/guest-collage.css';
 const portraits = await guestPortraits();
@@ -21,7 +22,7 @@ const bios: Record<string, string> = {};
       </li>
     ))}
   </ul>
-  <noscript><p class="collage-fallback"><a href="/partners/#guests">Meet the guests →</a></p></noscript>
+  <noscript><p class="collage-fallback"><a href="/partners/#guests">Meet the guests <Arrow direction="east" /></a></p></noscript>
 </figure>
 <script>
   import '../scripts/guest-collage';

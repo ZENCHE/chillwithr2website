@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Seo from '../components/Seo.astro';
+import Arrow from '../components/Arrow.astro';
 import { notFoundSchema } from '../lib/seo';
 import { episodes } from '../data';
 import '@fontsource-variable/fredoka';
@@ -30,14 +31,14 @@ const latest = episodes[0];
             <h1 id="nf-title">This page is<br /><em>off air.</em></h1>
             <p class="about-dek">The link may be old or mistyped. The show is still live every Tuesday and Thursday at 15:00 UTC.</p>
             <div class="sponsor-hero-actions">
-              <a class="about-primary" href="/">Back to CR2 <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href={latest.url} target="_blank" rel="noopener noreferrer">Watch Episode {latest.number} <span aria-hidden="true">↗</span></a>
+              <a class="about-primary" href="/">Back to CR2 <Arrow /></a>
+              <a class="text-link" href={latest.url} target="_blank" rel="noopener noreferrer">Watch Episode {latest.number} <Arrow /></a>
             </div>
             <p class="notfound-links"><a class="text-link" href="/#episodes">Every episode</a><a class="text-link" href="/partners/">Partners</a></p>
           </div>
         </section>
       </main>
     </div>
-    <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh ↗</a><small>CR2 is not affiliated with Robinhood Markets, Inc.</small></p><a class="back-top" href="#main" aria-label="Back to top">↑</a></footer>
+    <footer class="footer wrap"><div class="footer-brand">CR2<span>© 2026</span></div><p>Powered by <a href="https://x.com/Moshdottrade" target="_blank" rel="noopener noreferrer">Mosh <Arrow /></a><small>CR2 is not affiliated with Robinhood Markets, Inc.</small></p><a class="back-top" href="#main" aria-label="Back to top"><Arrow direction="north" /></a></footer>
   </body>
 </html>

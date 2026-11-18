@@ -1,6 +1,7 @@
 ---
 import ContactForm from './ContactForm.astro';
 import GuestCollage from './GuestCollage.astro';
+import Arrow from './Arrow.astro';
 import { bookingEndpoint } from '../site-config';
 import '../styles/booking.css';
 const ready = Boolean(bookingEndpoint);
@@ -10,7 +11,7 @@ const ready = Boolean(bookingEndpoint);
     <p class="eyebrow">COME ON THE SHOW</p>
     <h2 id="booking-row-title">Book a guest spot<span>.</span></h2>
     <p class="booking-dek">Join our amazing lineup of guests.</p>
-    <a class="booking-trigger" href="#guest-booking-info" aria-haspopup="dialog" aria-controls="guest-dialog" data-booking-open data-dialog-target="guest-dialog">Pitch your story <span aria-hidden="true">↗</span></a>
+    <a class="booking-trigger" href="#guest-booking-info" aria-haspopup="dialog" aria-controls="guest-dialog" data-booking-open data-dialog-target="guest-dialog">Pitch your story <Arrow /></a>
   </div>
   <GuestCollage />
 </section>
