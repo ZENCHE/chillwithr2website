@@ -153,6 +153,7 @@ export const communities = [
   { name: 'Mosh Pit', count: '5,000+', label: 'members' },
   { name: 'GreenFeed', count: '800+', label: 'subscribers' },
   { name: 'Gypsy Traders', count: '440+', label: 'subscribers' },
+  { name: 'State of Blocks', count: '1,480+', label: 'members' },
   { name: 'MHH Colony - Private Crypto Network group', count: 'Private', label: 'network' }
 ];
 
@@ -178,21 +179,21 @@ export const communityChannels = [
     name: 'YouTube',
     handle: '@chillwithr2official',
     url: 'https://www.youtube.com/@chillwithr2official',
-    note: 'The official channel for full episodes and clips from the show.',
+    note: 'Full show library and key moments with our guests.',
     cta: 'Subscribe on YouTube',
     accent: 'green',
     owned: true,
     listed: true
   },
   {
-    intent: 'Daily clips',
-    name: 'TikTok',
-    handle: '@chillwithr2official',
-    url: 'https://www.tiktok.com/@chillwithr2official',
-    note: 'Short clips from each episode.',
-    cta: 'Follow on TikTok',
+    intent: 'Premium traders',
+    name: 'State of Blocks on Discord',
+    handle: 'discord.gg/DUYTMzxcDS',
+    url: 'https://discord.gg/DUYTMzxcDS',
+    note: 'Premium traders community specialising in crypto and macro technical analysis, fundamental analysis, trade entries, altcoin calls and much more.',
+    cta: 'Join State of Blocks',
     accent: 'pink',
-    owned: true,
+    owned: false,
     listed: true
   },
   {
@@ -200,7 +201,7 @@ export const communityChannels = [
     name: 'GreenFeed on Telegram',
     handle: 't.me/GreenFeedTG',
     url: 'https://t.me/GreenFeedTG',
-    note: 'Updates, clips and opportunities between shows. 800+ subscribers, November 2026 snapshot.',
+    note: 'Market updates, actionable opportunities, airdrops and referrals, from a team of contributors.',
     cta: 'Join GreenFeed',
     accent: 'green',
     owned: true,
@@ -222,7 +223,7 @@ export const communityChannels = [
     name: 'Gypsy Traders on Telegram',
     handle: 't.me/gypsytrades',
     url: 'https://t.me/gypsytrades',
-    note: "Chill Pill's Telegram community, for talking through trades and launches with the hosts.",
+    note: "Chill Pill's degen corner and his onchain and offchain personal diary.",
     cta: 'Join Gypsy Traders',
     accent: 'pink',
     owned: false,

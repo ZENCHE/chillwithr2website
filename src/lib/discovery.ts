@@ -58,7 +58,7 @@ Chill with R2 goes live on X every Tuesday and Thursday with the founders and bu
 - ${episodes.length} live episodes since 6 October 2026 and ${guests.length} guests on air.
 - Chill Pill: approximately 100k X followers. R2D2: 15k X followers. Public X counts checked 17 November 2026.
 - United States: 28%; United Kingdom: 8%; rest of the world: 64%.
-- 6,000+ community memberships across the three communities with published sizes. Memberships may overlap; MHH Colony is additional.
+- 7,500+ community memberships across the four communities with published sizes. Memberships may overlap; MHH Colony is additional.
 
 ${communities.map(c=>`- ${c.name}: ${c.count} ${c.label}.`).join('\n')}
 
@@ -88,7 +88,7 @@ ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries a
 `;
 export const communityMarkdown=()=>`# Join the CR2 community
 
-> Watch Chill with R2 live on X every Tuesday and Thursday at 15:00 UTC, and stay with the show on GreenFeed, YouTube, TikTok, Mosh Pit and Gypsy Traders.
+> Watch Chill with R2 live on X every Tuesday and Thursday at 15:00 UTC, and stay with the show on YouTube, State of Blocks, GreenFeed, Mosh Pit and Gypsy Traders.
 
 Canonical page: ${SITE_URL}/community/
 
@@ -98,7 +98,7 @@ Chill with R2 is a live crypto show on X. There are two livestreams a week, ever
 
 ${listedCommunityChannels.map(c=>`- [${c.name}](${c.url}) (${c.handle}): ${c.note}`).join('\n')}
 
-GreenFeed's subscriber count is the November 2026 snapshot also used on the Partners page. YouTube and TikTok are the official @chillwithr2official channels; subscriber counts are not listed until a dated public snapshot is confirmed.
+GreenFeed's subscriber count is the November 2026 snapshot also used on the Partners page. YouTube is the official @chillwithr2official channel; subscriber counts are not listed until a dated public snapshot is confirmed.
 
 ## Young founders, builders and traders
 
