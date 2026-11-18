@@ -157,17 +157,21 @@ export const communities = [
 ];
 
 
-// Public CR2 channels on the /community page. Only include a join URL that has been confirmed.
-// Do not add MHH Colony. StateOfBlocks stays off this list until @that1618guy agrees.
+// Public channels on the /community page. Only include a confirmed join URL.
+// owned: true means a CR2-owned property and may be listed in Organization sameAs.
+// listed: false keeps a reserved slot out of the page until a join URL is confirmed.
+// Do not add MHH Colony.
 export const communityChannels = [
   {
     intent: 'Watch live',
     name: 'Chill with R2 on X',
     handle: '@chillwithr2',
     url: 'https://x.com/chillwithr2',
-    note: 'Livestreams every Tuesday and Thursday, show updates, and X Spaces on Monday and Wednesday.',
+    note: 'Livestreams every Tuesday and Thursday at 15:00 UTC, plus show updates.',
     cta: 'Follow on X',
-    accent: 'violet'
+    accent: 'violet',
+    owned: true,
+    listed: true
   },
   {
     intent: 'Full episodes',
@@ -176,7 +180,9 @@ export const communityChannels = [
     url: 'https://www.youtube.com/@chillwithr2official',
     note: 'The official channel for full episodes and clips from the show.',
     cta: 'Subscribe on YouTube',
-    accent: 'green'
+    accent: 'green',
+    owned: true,
+    listed: true
   },
   {
     intent: 'Daily clips',
@@ -185,7 +191,9 @@ export const communityChannels = [
     url: 'https://www.tiktok.com/@chillwithr2official',
     note: 'Short clips from each episode.',
     cta: 'Follow on TikTok',
-    accent: 'pink'
+    accent: 'pink',
+    owned: true,
+    listed: true
   },
   {
     intent: 'Daily updates',
@@ -194,9 +202,46 @@ export const communityChannels = [
     url: 'https://t.me/GreenFeedTG',
     note: 'Updates, clips and opportunities between shows. 800+ subscribers, November 2026 snapshot.',
     cta: 'Join GreenFeed',
-    accent: 'green'
+    accent: 'green',
+    owned: true,
+    listed: true
+  },
+  {
+    intent: 'Mosh community',
+    name: 'Mosh Pit on Telegram',
+    handle: 't.me/moshtrade',
+    url: 'https://t.me/moshtrade',
+    note: "Mosh's Telegram community, for holders and builders following the project between shows.",
+    cta: 'Join Mosh Pit',
+    accent: 'violet',
+    owned: false,
+    listed: true
+  },
+  {
+    intent: 'With the hosts',
+    name: 'Gypsy Traders on Telegram',
+    handle: 't.me/gypsytrades',
+    url: 'https://t.me/gypsytrades',
+    note: "Chill Pill's Telegram community, for talking through trades and launches with the hosts.",
+    cta: 'Join Gypsy Traders',
+    accent: 'pink',
+    owned: false,
+    listed: true
+  },
+  // Reserved for @that1618guy's Discord. Waiting on a join link. Do not set listed to true until then.
+  {
+    intent: 'Research',
+    name: 'Discord with @that1618guy',
+    handle: '',
+    url: '',
+    note: '',
+    cta: 'Join the Discord',
+    accent: 'violet',
+    owned: false,
+    listed: false
   }
 ];
+export const listedCommunityChannels = communityChannels.filter(channel => channel.listed);
 // Permanent guests: shown on the homepage under the hosts, in the markdown/llms copies
 // and as Person entities in JSON-LD. Portraits come from src/assets/guests/<handle>.jpg.
 // that1618guy appears by X handle only.

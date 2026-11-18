@@ -1,4 +1,4 @@
-import { episodes, hosts, guests, communities, permanentGuests, communityChannels } from '../data';
+import { episodes, hosts, guests, communities, permanentGuests, listedCommunityChannels } from '../data';
 import { episodePages, type EpisodePage } from './episode-pages';
 import { SITE_URL, SITE_DESCRIPTION, bookingEndpoint, sponsorEndpoint } from '../site-config';
 export const xml=(value:string)=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]!));
@@ -88,21 +88,21 @@ ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries a
 `;
 export const communityMarkdown=()=>`# Join the CR2 community
 
-> Watch Chill with R2 live on X every Tuesday and Thursday at 15:00 UTC, follow X Spaces on Monday and Wednesday, and stay with the show on GreenFeed, YouTube and TikTok.
+> Watch Chill with R2 live on X every Tuesday and Thursday at 15:00 UTC, and stay with the show on GreenFeed, YouTube, TikTok, Mosh Pit and Gypsy Traders.
 
 Canonical page: ${SITE_URL}/community/
 
-Chill with R2 is a live crypto show on X. Livestreams are about 90 minutes and stay at 15:00 UTC all year (17:00 in Bucharest in winter, 18:00 during summer time). Recurring segments: The Golden Ratio with @that1618guy on Tuesdays, and In the Hood with Justin on Thursdays. X Spaces run on Monday and Wednesday.
+Chill with R2 is a live crypto show on X. There are two livestreams a week, every Tuesday and Thursday at 15:00 UTC, about 90 minutes each. Recurring segments: The Golden Ratio with @that1618guy on Tuesdays, and In the Hood with Justin on Thursdays.
 
 ## How to join
 
-${communityChannels.map(c=>`- [${c.name}](${c.url}) (${c.handle}): ${c.note}`).join('\n')}
+${listedCommunityChannels.map(c=>`- [${c.name}](${c.url}) (${c.handle}): ${c.note}`).join('\n')}
 
 GreenFeed's subscriber count is the November 2026 snapshot also used on the Partners page. YouTube and TikTok are the official @chillwithr2official channels; subscriber counts are not listed until a dated public snapshot is confirmed.
 
 ## Young founders, builders and traders
 
-A new series of conversations about the journey, what guests are building, and the markets they work in.
+A new series of conversations about the journey, what guests are building, and the markets they work in. [Announcement on X](https://x.com/chillwithr2/status/2123049654568751240).
 
 - Thursday 19 November: [Matthew Fisher](https://x.com/mfisher10x) (@mfisher10x), CEO of Katana. The first guest in the series.
 - Tuesday 24 November: [CK](https://x.com/CaptainCKeth) (@CaptainCKeth), co-founder of R3ACH.
