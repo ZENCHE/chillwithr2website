@@ -31,21 +31,21 @@ ${permanentGuests.map(g=>`- [${g.name}](https://x.com/${g.handle}), @${g.handle}
 
 ${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_URL}/#guest-spot). The form asks for name, X handle, email, project and message. A request is not a confirmed booking.` : 'Guest bookings are opening soon. The request form is currently closed and does not collect submissions.'}
 
-## Sponsorship
+## Partnerships
 
-Put your brand in front of founders, investors and builders. [See the Sponsors page](${SITE_URL}/sponsors/) or use the [sponsorship form](${SITE_URL}/sponsors/#sponsor). ${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."}
+Put your brand in front of founders, investors and builders. [See the Partners page](${SITE_URL}/partners/) or use the [partnership form](${SITE_URL}/partners/#sponsor). ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."}
 
 ## More from CR2
 
-- [Sponsor CR2: audience, reach and formats](${SITE_URL}/sponsors/)
+- [Partner with CR2: audience, reach and formats](${SITE_URL}/partners/)
 - [CR2 on X](https://x.com/chillwithr2)
 - [Broadcast feed](${SITE_URL}/feed.xml)
 `;
-export const sponsorsMarkdown=()=>`# Sponsor CR2: put your brand in the front row
+export const partnersMarkdown=()=>`# Partner with CR2: put your brand in the front row
 
-> Independent media for crypto, finance and tech, with Chill with R2 at the center. This page is for sponsors and partners.
+> Independent media for crypto, finance and tech, with Chill with R2 at the center. This page is for partners and brands.
 
-Canonical page: ${SITE_URL}/sponsors/
+Canonical page: ${SITE_URL}/partners/
 
 Chill with R2 goes live on X every Tuesday and Thursday with the founders and builders shaping Robinhood Chain. The audience includes founders, high-net-worth investors, technologists and finance professionals. Chill with R2 is currently powered by Mosh.
 
@@ -75,11 +75,11 @@ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildat
 
 ## How to partner
 
-1. Send an enquiry through the [sponsorship form](${SITE_URL}/sponsors/#sponsor). It asks for name, email, company or project, an optional X handle, and a message.
+1. Send an enquiry through the [partnership form](${SITE_URL}/partners/#sponsor). It asks for name, email, company or project, an optional X handle, and a message.
 2. Shape the fit: formats, segments, timing and posts.
 3. Go live on X in front of the CR2 audience.
 
-${sponsorEndpoint ? "Sponsorship inquiries are open." : "Sponsorship inquiries are opening soon; the form is currently closed and collects no details."} No rates, packages or audience guarantees are published. CR2 is not affiliated with Robinhood Markets, Inc.
+${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."} No rates, packages or audience guarantees are published. CR2 is not affiliated with Robinhood Markets, Inc.
 
 - [CR2 homepage](${SITE_URL}/)
 - [CR2 on X](https://x.com/chillwithr2)

@@ -3,8 +3,8 @@ import Header from '../components/Header.astro';
 import Sponsorship from '../components/Sponsorship.astro';
 import { Image } from 'astro:assets';
 import Seo from '../components/Seo.astro';
-import { sponsorsSchema } from '../lib/seo';
-import { sponsorsTitle, sponsorsDescription } from '../lib/pages';
+import { partnersSchema } from '../lib/seo';
+import { partnersTitle, partnersDescription } from '../lib/pages';
 import { guestPortraits } from '../lib/guest-portraits';
 import chillAvatar from '../../public/assets/chill-pill-avatar.png';
 import r2Avatar from '../../public/assets/r2d2-avatar.png';
@@ -15,10 +15,10 @@ import '@fontsource/ibm-plex-mono/400.css';
 import '../styles/global.css';
 import '../styles/about.css';
 
-const title = sponsorsTitle;
-const description = sponsorsDescription;
+const title = partnersTitle;
+const description = partnersDescription;
 const portraits = await guestPortraits();
-const schema = sponsorsSchema(title,description,portraits.map(guest=>({...guest,image:guest.portrait.src})));
+const schema = partnersSchema(title,description,portraits.map(guest=>({...guest,image:guest.portrait.src})));
 ---
 <!doctype html>
 <html lang="en">
@@ -26,17 +26,17 @@ const schema = sponsorsSchema(title,description,portraits.map(guest=>({...guest,
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#15101d" />
-    <Seo {title} {description} path="/sponsors/" {schema} markdown="/sponsors/index.md" />
+    <Seo {title} {description} path="/partners/" {schema} markdown="/partners/index.md" />
   </head>
   <body class="about-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <div id="top"></div>
     <div class="about-opening">
-      <Header active="sponsors" />
+      <Header active="partners" />
       <main id="main">
         <section class="about-intro wrap" aria-labelledby="about-title">
           <div class="about-copy">
-            <p class="eyebrow">SPONSORS <span class="about-divider">/</span> PARTNER WITH CR2</p>
+            <p class="eyebrow">PARTNERS <span class="about-divider">/</span> WORK WITH CR2</p>
             <h1 id="about-title">Put your brand<br />in the <em>front row.</em></h1>
             <p class="about-dek">CR2 is independent media for crypto, finance and tech. Our flagship show, <strong>Chill with R2</strong>, goes live on X every Tuesday and Thursday with the founders and builders shaping Robinhood Chain. Partner with us to reach the people who build and invest.</p>
             <div class="sponsor-hero-actions">
@@ -68,7 +68,7 @@ const schema = sponsorsSchema(title,description,portraits.map(guest=>({...guest,
           </div>
         </section>
         <section class="why-section wrap" aria-labelledby="why-title">
-          <div class="about-section-heading"><p class="eyebrow">WHY PARTNER WITH CR2</p><h2 id="why-title">A live room for<br />crypto’s builders.</h2><p>Sponsors sit inside the conversation, not around it: live shows, recurring segments and clips shared across the hosts’ accounts and CR2’s communities.</p></div>
+          <div class="about-section-heading"><p class="eyebrow">WHY PARTNER WITH CR2</p><h2 id="why-title">A live room for<br />crypto’s builders.</h2><p>Partners sit inside the conversation, not around it: live shows, recurring segments and clips shared across the hosts’ accounts and CR2’s communities.</p></div>
           <div class="why-grid">
             <article class="why-card"><span class="why-num">01</span><h3>A focused audience</h3><p>Founders, high-net-worth investors, technologists and finance professionals following Robinhood Chain and onchain markets.</p></article>
             <article class="why-card"><span class="why-num">02</span><h3>Live twice a week, posting five</h3><p>Tuesday and Thursday livestreams on X, plus posts five days a week across CR2 and both hosts. Every livestream stays up as a replay.</p></article>

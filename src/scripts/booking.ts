@@ -39,7 +39,7 @@ document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach(form =
     sending = true;
     fields.disabled = true;
     form.setAttribute('aria-busy', 'true');
-    feedback.textContent = sponsor ? 'Sending your sponsorship inquiry…' : 'Sending your guest request…';
+    feedback.textContent = sponsor ? 'Sending your partnership inquiry…' : 'Sending your guest request…';
     submit.textContent = 'Sending…';
     const send = sponsor ? sendSponsorInquiry : sendGuestRequest;
     const result = await send(form.dataset.endpoint, {

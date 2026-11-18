@@ -38,9 +38,9 @@ const webPage=(type:string,path:string,title:string,description:string,extra:Rec
 const graph=(nodes:unknown[])=>({'@context':'https://schema.org','@graph':[organization,website,...hostPeople,...regularPeople,series,...nodes]});
 
 export function homeSchema(title:string,description:string){const crumbs=[{name:'CR2',path:'/'}];return graph([webPage('WebPage','/',title,description,{mainEntity:{'@id':SERIES_ID}}),breadcrumb('/',crumbs)]);}
-export function sponsorsSchema(title:string,description:string,people:Array<{name:string;handle:string;role:string;image:string}>){
-  const crumbs=[{name:'CR2',path:'/'},{name:'Sponsors',path:'/sponsors/'}];
+export function partnersSchema(title:string,description:string,people:Array<{name:string;handle:string;role:string;image:string}>){
+  const crumbs=[{name:'CR2',path:'/'},{name:'Partners',path:'/partners/'}];
   const guestNodes=people.filter(g=>!knownIds.has(slug(g.handle))).map(g=>({'@type':'Person','@id':personId(g.handle),name:g.name,url:xUrl(g.handle),sameAs:[xUrl(g.handle)],image:absolute(g.image),description:g.role.replace(/[¹²]/g,'')}));
-  return graph([...guestNodes,webPage('WebPage','/sponsors/',title,description,{mentions:people.map(g=>({'@id':personId(g.handle)}))}),breadcrumb('/sponsors/',crumbs)]);
+  return graph([...guestNodes,webPage('WebPage','/partners/',title,description,{mentions:people.map(g=>({'@id':personId(g.handle)}))}),breadcrumb('/partners/',crumbs)]);
 }
 export function notFoundSchema(){return {'@context':'https://schema.org','@graph':[organization,website]};}

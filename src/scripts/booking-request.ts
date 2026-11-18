@@ -20,7 +20,7 @@ async function sendContactRequest(endpoint:string, data:GuestRequest, kind:'gues
   try {
     const response = await fetcher(endpoint, {
       method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, signal:controller.signal,
-      body:JSON.stringify({name:data.name.trim(),'X handle':handle,email:data.email.trim(),project:data.project.trim(),message:data.message.trim(),_subject:kind==='sponsor'?'CR2 — Sponsorship inquiry':'CR2 — Guest spot request',_template:'table',_honey:''})
+      body:JSON.stringify({name:data.name.trim(),'X handle':handle,email:data.email.trim(),project:data.project.trim(),message:data.message.trim(),_subject:kind==='sponsor'?'CR2: Partnership inquiry':'CR2 — Guest spot request',_template:'table',_honey:''})
     });
     if (!response.ok) return {ok:false,message:response.status===429?'Too many attempts. Please wait a moment and try again.':'Your request wasn’t sent. Please try again shortly.'};
     const result:unknown = await response.json();

@@ -1,18 +1,4 @@
 ---
-import { SITE_URL } from '../../site-config';
-const target = new URL('/sponsors/', SITE_URL).href;
+import Redirect from '../../components/Redirect.astro';
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Moved to Sponsors — CR2</title>
-    <meta http-equiv="refresh" content="0; url=/sponsors/" />
-    <link rel="canonical" href={target} />
-    <meta name="robots" content="noindex, follow" />
-    <script is:inline>location.replace('/sponsors/' + location.hash);</script>
-  </head>
-  <body>
-    <p>This page has moved to <a href="/sponsors/">Sponsors</a>.</p>
-  </body>
-</html>
+<Redirect to="/partners/" label="Partners" />

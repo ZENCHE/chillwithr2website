@@ -1,5 +1,5 @@
 ---
-interface Props { active?: 'home' | 'sponsors' | 'none' }
+interface Props { active?: 'home' | 'partners' | 'none' }
 const { active = 'home' } = Astro.props;
 const home = active === 'home';
 ---
@@ -8,7 +8,7 @@ const home = active === 'home';
   <nav aria-label="Primary navigation">
     <a href={home ? '#episodes' : '/#episodes'}>Episodes</a>
     <a href={home ? '#hosts' : '/#hosts'}>Hosts</a>
-    <a href="/sponsors/" aria-current={active === 'sponsors' ? 'page' : undefined}>Sponsors</a>
+    <a href="/partners/" aria-current={active === 'partners' ? 'page' : undefined}>Partners</a>
   </nav>
   <a class="follow" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Follow on X <span aria-hidden="true">↗</span></a>
 </header>

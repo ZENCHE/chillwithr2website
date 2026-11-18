@@ -6,14 +6,14 @@ const { kind, id } = Astro.props;
 const sponsor = kind === 'sponsor';
 const endpoint = sponsor ? sponsorEndpoint : bookingEndpoint;
 const ready = Boolean(endpoint);
-const closedLabel = sponsor ? 'Sponsorship inquiries opening soon' : 'Bookings opening soon';
-const submitLabel = sponsor ? 'Send sponsorship inquiry' : 'Send guest request';
+const closedLabel = sponsor ? 'Partnership inquiries opening soon' : 'Bookings opening soon';
+const submitLabel = sponsor ? 'Send partnership inquiry' : 'Send guest request';
 ---
 <div class="contact-panel" data-contact-panel>
   {!ready && <div class="booking-notice"><span class="booking-status-dot" aria-hidden="true"></span><div><strong>{closedLabel}</strong><p>The {sponsor ? 'contact' : 'request'} form isn’t open yet. <a href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Follow CR2 on X for updates ↗</a></p></div></div>}
-  <form id={id + '-request'} method="post" action={ready ? endpoint.replace('/ajax/', '/') : undefined} data-contact-form data-kind={kind} data-endpoint={endpoint} data-submit-label={submitLabel} aria-label={sponsor ? 'Sponsorship inquiry' : 'Guest spot request'}>
+  <form id={id + '-request'} method="post" action={ready ? endpoint.replace('/ajax/', '/') : undefined} data-contact-form data-kind={kind} data-endpoint={endpoint} data-submit-label={submitLabel} aria-label={sponsor ? 'Partnership inquiry' : 'Guest spot request'}>
     <fieldset disabled={!ready}>
-      <legend class="visually-hidden">{sponsor ? 'Your sponsorship inquiry' : 'Your guest request'}</legend>
+      <legend class="visually-hidden">{sponsor ? 'Your partnership inquiry' : 'Your guest request'}</legend>
       <div class="booking-fields">
         <label for={id + '-name'}>Name<input id={id + '-name'} name="name" autocomplete="name" maxlength="100" required placeholder="Your name" /></label>
         <label for={id + '-x'}><span>X handle{sponsor && <span class="field-optional"> (optional)</span>}</span><input id={id + '-x'} name="xHandle" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="16" pattern="@?[A-Za-z0-9_]{1,15}" title="Your X username, with or without @" required={!sponsor} placeholder="@yourhandle" /></label>
@@ -22,9 +22,9 @@ const submitLabel = sponsor ? 'Send sponsorship inquiry' : 'Send guest request';
         <label class="booking-message" for={id + '-message'}>Message<textarea id={id + '-message'} name="message" rows="4" maxlength="3000" required placeholder={sponsor ? 'Tell us about your brand and what you have in mind.' : 'What are you working on, and what would you like to discuss?'}></textarea></label>
       </div>
       <div class="booking-honey" aria-hidden="true"><label>Leave this blank<input name="_honey" type="text" tabindex="-1" autocomplete="off" /></label></div>
-      <input type="hidden" name="_subject" value={sponsor ? 'CR2 — Sponsorship inquiry' : 'CR2 — Guest spot request'} />
+      <input type="hidden" name="_subject" value={sponsor ? 'CR2: Partnership inquiry' : 'CR2 — Guest spot request'} />
       <input type="hidden" name="_template" value="table" />
-      <div class="booking-submit-row"><p>{ready ? `Your details go to CR2 via FormSubmit to review your ${sponsor ? 'sponsorship inquiry' : 'guest request'}.` : 'No details are collected while this form is closed.'}</p><button class="booking-submit" type="submit">{ready ? submitLabel : closedLabel}<span aria-hidden="true">↗</span></button></div>
+      <div class="booking-submit-row"><p>{ready ? `Your details go to CR2 via FormSubmit to review your ${sponsor ? 'partnership inquiry' : 'guest request'}.` : 'No details are collected while this form is closed.'}</p><button class="booking-submit" type="submit">{ready ? submitLabel : closedLabel}<span aria-hidden="true">↗</span></button></div>
     </fieldset>
     <p class="booking-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
   </form>

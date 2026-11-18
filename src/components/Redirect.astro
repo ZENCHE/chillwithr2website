@@ -1,0 +1,23 @@
+---
+// Static redirect page: meta refresh, JS redirect that keeps location.hash,
+// canonical to the target and noindex. Keep redirect routes out of the sitemap
+// and llms files (see `redirectRoutes` in src/lib/pages.ts).
+import { SITE_URL } from '../site-config';
+interface Props { to: string; label: string; }
+const { to, label } = Astro.props;
+const target = new URL(to, SITE_URL).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{`Moved to ${label} | CR2`}</title>
+    <meta http-equiv="refresh" content={`0; url=${to}`} />
+    <link rel="canonical" href={target} />
+    <meta name="robots" content="noindex, follow" />
+    <script is:inline define:vars={{ to }}>location.replace(to + location.hash);</script>
+  </head>
+  <body>
+    <p>This page has moved to <a href={to}>{label}</a>.</p>
+  </body>
+</html>

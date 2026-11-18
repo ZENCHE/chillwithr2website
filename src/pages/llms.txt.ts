@@ -9,7 +9,7 @@ export function GET(){
 
 > ${SITE_DESCRIPTION}
 
-CR2 is independent media for crypto, finance and tech. The show is hosted by Chill Pill (@ripchillpill) and R2D2 (@R2D2zen). CR2 is not affiliated with Robinhood Markets, Inc. Chill with R2 livestreams are a paid partnership with Mosh. Audience and follower numbers on the Sponsors page are attributed snapshots (November 2026), not live analytics.
+CR2 is independent media for crypto, finance and tech. The show is hosted by Chill Pill (@ripchillpill) and R2D2 (@R2D2zen). CR2 is not affiliated with Robinhood Markets, Inc. Chill with R2 livestreams are a paid partnership with Mosh. Audience and follower numbers on the Partners page are attributed snapshots (November 2026), not live analytics.
 
 CR2 welcomes automated crawling of its public pages for search, retrieval, summaries and citation. Crawler access is allowed in robots.txt. Guest requests are private communications and are not part of the public content.
 

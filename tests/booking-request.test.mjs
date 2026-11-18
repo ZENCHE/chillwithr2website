@@ -39,7 +39,7 @@ test('sponsorship accepts an optional X handle and uses its own subject',async()
     return new Response(JSON.stringify({success:true}));
   });
   assert.equal(result.ok,true);
-  assert.equal(sent._subject,'CR2 — Sponsorship inquiry');
+  assert.equal(sent._subject,'CR2: Partnership inquiry');
   assert.equal(sent.project,request.project);
   assert.equal(sent['X handle'],'');
 });
