@@ -1,5 +1,6 @@
 ---
 import { SITE_URL, SOCIAL_IMAGE, SOCIAL_IMAGE_ALT } from '../site-config';
+import Analytics from './Analytics.astro';
 interface Props { title:string; description:string; path:string; schema:unknown; markdown?:string; noindex?:boolean; }
 const {title,description,path,schema,markdown,noindex=false}=Astro.props;
 const canonical=new URL(path,SITE_URL).href;
@@ -33,3 +34,4 @@ const canonical=new URL(path,SITE_URL).href;
 <meta name="twitter:image:alt" content={SOCIAL_IMAGE_ALT} />
 <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g,'\\u003c')} />
 <title>{title}</title>
+<Analytics />

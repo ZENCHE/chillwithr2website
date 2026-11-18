@@ -1,0 +1,7 @@
+---
+// Cloudflare Web Analytics (approved by R2D2, 18 Nov 2026). Included in every HTML page
+// via Seo.astro and Redirect.astro. Emitted as raw HTML so the snippet ships byte-for-byte
+// unchanged (Astro neither bundles nor re-quotes it).
+const snippet = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "00f81c4cb24a43a4b1128ccc641ef3bd"}'></script><!-- End Cloudflare Web Analytics -->`;
+---
+<Fragment set:html={snippet} />

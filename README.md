@@ -45,6 +45,10 @@ Once enabled, the form posts directly to FormSubmit, using its named email field
 
 Check the delivery adapter without sending email: `node --experimental-strip-types --test tests/booking-request.test.mjs`. All responses are mocked. Real delivery cannot be verified until the recipient activates it.
 
+## Analytics
+
+Cloudflare Web Analytics (added November 18, 2026, approved by R2D2) ships on every HTML page, including the 404 and the /sponsors/ and /about/ redirect pages. The snippet lives in `src/components/Analytics.astro`, is emitted unchanged as raw HTML, and is included by `Seo.astro` and `Redirect.astro`. The site has no Content-Security-Policy; if one is added, allow `static.cloudflareinsights.com` (script) and `cloudflareinsights.com` (connect).
+
 ## Discovery
 
 Shared SEO metadata lives in `src/components/Seo.astro` and `src/lib/seo.ts`: canonical URLs, social preview descriptions and dimensions, permissive search-preview directives (404 is `noindex`), favicon.ico, SVG icon and apple-touch-icon. JSON-LD is generated from `src/data.ts` on every build: Organization, WebSite, WebPage, BreadcrumbList, Person nodes for the hosts and `permanentGuests` (sameAs X profile), and a PodcastSeries whose `hasPart` lists every episode as a PodcastEpisode (episodeNumber, datePublished, X replay url, guests as contributors). Adding an episode to `episodes` updates the JSON-LD, feed and llms.txt automatically. No invented transcripts, video media URLs, ratings, endorsements or rankings are added.

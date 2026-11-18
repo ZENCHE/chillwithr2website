@@ -3,6 +3,7 @@
 // canonical to the target and noindex. Keep redirect routes out of the sitemap
 // and llms files (see `redirectRoutes` in src/lib/pages.ts).
 import { SITE_URL } from '../site-config';
+import Analytics from './Analytics.astro';
 interface Props { to: string; label: string; }
 const { to, label } = Astro.props;
 const target = new URL(to, SITE_URL).href;
@@ -15,6 +16,7 @@ const target = new URL(to, SITE_URL).href;
     <meta http-equiv="refresh" content={`0; url=${to}`} />
     <link rel="canonical" href={target} />
     <meta name="robots" content="noindex, follow" />
+    <Analytics />
     <script is:inline define:vars={{ to }}>location.replace(to + location.hash);</script>
   </head>
   <body>
