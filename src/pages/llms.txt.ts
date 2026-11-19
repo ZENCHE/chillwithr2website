@@ -20,7 +20,7 @@ ${sitePages.map(p=>`- [${p.name}](${pageUrl(p.markdown)}): ${p.summary}`).join('
 ${extra.map(p=>`- [${pageUrl(p.path)}](${pageUrl(p.path)})`).join('\n')}
 ## Episodes
 
-${episodes.map(e=>{const p=episodePage(e.number);return p?`- [Episode ${e.number}: ${e.title}](${pageUrl(p.path)}): ${e.dateTime}, live on X. ${e.guests}. Page with summary, takeaways and chapters; [X replay](${e.url}).`:`- [Episode ${e.number}: ${e.title}](${e.url}): ${e.dateTime}, live on X. ${e.guests}.`;}).join('\n')}
+${episodes.map(e=>{const p=episodePage(e.number);return p?`- [Episode ${e.number}: ${e.title}](${pageUrl(p.path)}): ${e.dateTime}. ${e.guests}. Page with summary, takeaways and chapters; [X replay](${e.url}).`:`- [Episode ${e.number}: ${e.title}](${e.url}): ${e.dateTime}. ${e.guests}.`;}).join('\n')}
 
 ## Optional
 

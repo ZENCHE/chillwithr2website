@@ -267,7 +267,7 @@ export const regulars = permanentGuests.map(g => g.handle);
 export const show = {
   name: 'Chill with R2',
   firstEpisode: '2026-10-06',
-  schedule: 'Tuesday and Thursday, 15:00 UTC, live on X',
+  schedule: 'Tuesday and Thursday, 15:00 UTC',
   length: 'about 90 minutes',
   segments: ['The Golden Ratio', 'In the Hood'],
   topics: ['Robinhood Chain', 'tokenized stocks', 'onchain finance', 'macro', 'TradFi to crypto']

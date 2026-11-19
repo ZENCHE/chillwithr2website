@@ -10,7 +10,7 @@ export const homeMarkdown=()=>`# Chill with R2: crypto livestream on Robinhood C
 
 Canonical page: ${SITE_URL}/
 
-CR2 is independent media. Its flagship show, Chill with R2, goes live on X every Tuesday and Thursday at 15:00 UTC with conversations on Robinhood Chain, tokenized stocks and macro, from a TradFi to crypto angle. CR2 is not affiliated with Robinhood Markets, Inc.
+CR2 is independent media. Its flagship show, Chill with R2, goes live every Tuesday and Thursday at 15:00 UTC with conversations on Robinhood Chain, tokenized stocks and macro, from a TradFi to crypto angle. CR2 is not affiliated with Robinhood Markets, Inc.
 
 ## Latest broadcasts
 
@@ -51,7 +51,7 @@ export const partnersMarkdown=()=>`# Partner with CR2: put your brand in the fro
 
 Canonical page: ${SITE_URL}/partners/
 
-Chill with R2 goes live on X every Tuesday and Thursday with the founders and builders shaping Robinhood Chain. The audience includes founders, high-net-worth investors, technologists and finance professionals. Chill with R2 is currently powered by Mosh.
+Chill with R2 goes live every Tuesday and Thursday with the founders and builders shaping Robinhood Chain. The audience includes founders, high-net-worth investors, technologists and finance professionals. Chill with R2 is currently powered by Mosh.
 
 ## November 2026 snapshot
 
@@ -66,7 +66,7 @@ ${communities.map(c=>`- ${c.name}: ${c.count} ${c.label}.`).join('\n')}
 
 ## Formats
 
-- Chill with R2 livestream: Tuesday and Thursday, 15:00 UTC, live on X, about 90 minutes, with a replay. Recurring segments: The Golden Ratio and In the Hood.
+- Chill with R2 livestream: Tuesday and Thursday, 15:00 UTC, about 90 minutes, with a replay. Recurring segments: The Golden Ratio and In the Hood.
 - Posts: five days a week across @chillwithr2, @R2D2zen and @ripchillpill.
 - Live product testing: hands-on usage and feedback on air.
 - Clips and posts across @chillwithr2, @R2D2zen and @ripchillpill.
@@ -81,7 +81,7 @@ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildat
 
 1. Send an enquiry through the [partnership form](${SITE_URL}/partners/#sponsor). It asks for name, email, company or project, an optional X handle, and a message.
 2. Shape the fit: formats, segments, timing and posts.
-3. Go live on X in front of the CR2 audience.
+3. Go live in front of the CR2 audience.
 
 ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."} No rates, packages or audience guarantees are published. CR2 is not affiliated with Robinhood Markets, Inc.
 
@@ -90,7 +90,7 @@ ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries a
 `;
 export const communityMarkdown=()=>`# Join the CR2 community
 
-> Watch Chill with R2 live on X every Tuesday and Thursday at 15:00 UTC, and stay with the show on YouTube, State of Blocks, GreenFeed, Mosh Pit and Gypsy Traders.
+> Watch Chill with R2 live every Tuesday and Thursday at 15:00 UTC, and stay with the show on YouTube, State of Blocks, GreenFeed, Mosh Pit and Gypsy Traders.
 
 Canonical page: ${SITE_URL}/community/
 
@@ -121,7 +121,7 @@ export const episodesMarkdown=()=>`# Every Chill with R2 episode
 
 Canonical page: ${SITE_URL}/episodes/
 
-Chill with R2 goes live on X every Tuesday and Thursday at 15:00 UTC. [Subscribe on YouTube](${YOUTUBE_SUBSCRIBE}).
+Chill with R2 goes live every Tuesday and Thursday at 15:00 UTC. [Subscribe on YouTube](${YOUTUBE_SUBSCRIBE}).
 
 ${episodes.map(e=>{const p=episodePages.find(x=>x.number===e.number);const r=replayLink(e);return p?`- [Episode ${e.number}: ${e.title}](${SITE_URL}${p.path}), ${e.dateTime}. ${e.guests}. [${r.label}](${r.url}).`:`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}. ${e.guests}.`;}).join('\n')}
 
