@@ -15,4 +15,5 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
+Sitemap: ${SITE_URL}/sitemap-videos.xml
 `);}

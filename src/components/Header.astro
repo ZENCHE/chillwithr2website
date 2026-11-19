@@ -1,13 +1,13 @@
 ---
 import Arrow from './Arrow.astro';
-interface Props { active?: 'home' | 'partners' | 'community' | 'none' }
+interface Props { active?: 'home' | 'partners' | 'community' | 'episodes' | 'none' }
 const { active = 'home' } = Astro.props;
 const home = active === 'home';
 ---
 <header class="header wrap">
   <a class="brand" href={home ? '#top' : '/'} aria-label="CR2 home"><img src="/assets/studio-mark.svg" width="62" height="56" alt="CR2" /><span>INDEPENDENT<br />MEDIA</span></a>
   <nav aria-label="Primary navigation">
-    <a href={home ? '#episodes' : '/#episodes'}>Episodes</a>
+    <a href="/episodes/" aria-current={active === 'episodes' ? 'page' : undefined}>Episodes</a>
     <a href="/community/" aria-current={active === 'community' ? 'page' : undefined}>Community</a>
     <a href="/partners/" aria-current={active === 'partners' ? 'page' : undefined}>Partners</a>
   </nav>

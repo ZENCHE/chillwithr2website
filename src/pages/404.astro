@@ -4,6 +4,7 @@ import Seo from '../components/Seo.astro';
 import Arrow from '../components/Arrow.astro';
 import { notFoundSchema } from '../lib/seo';
 import { episodes } from '../data';
+import { replayLink } from '../lib/episode-pages';
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/space-grotesk';
 import '@fontsource/ibm-plex-mono/400.css';
@@ -11,6 +12,7 @@ import '../styles/global.css';
 import '../styles/about.css';
 import '../styles/about-us.css';
 const latest = episodes[0];
+const latestReplay = replayLink(latest);
 ---
 <!doctype html>
 <html lang="en">
@@ -32,9 +34,9 @@ const latest = episodes[0];
             <p class="about-dek">The link may be old or mistyped. The show is still live every Tuesday and Thursday at 15:00 UTC.</p>
             <div class="sponsor-hero-actions">
               <a class="about-primary" href="/">Back to CR2 <Arrow /></a>
-              <a class="text-link" href={latest.url} target="_blank" rel="noopener noreferrer">Watch Episode {latest.number} <Arrow /></a>
+              <a class="text-link" href={latestReplay.url} target="_blank" rel="noopener noreferrer">Watch Episode {latest.number} <Arrow /></a>
             </div>
-            <p class="notfound-links"><a class="text-link" href="/#episodes">Every episode</a><a class="text-link" href="/community/">Community</a><a class="text-link" href="/partners/">Partners</a></p>
+            <p class="notfound-links"><a class="text-link" href="/episodes/">Every episode</a><a class="text-link" href="/community/">Community</a><a class="text-link" href="/partners/">Partners</a></p>
           </div>
         </section>
       </main>

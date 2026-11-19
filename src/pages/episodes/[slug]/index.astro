@@ -41,12 +41,12 @@ const videoTitle = `Episode ${page.number}: ${e.title} on YouTube`;
     <a class="skip-link" href="#main">Skip to content</a>
     <div id="top"></div>
     <div class="about-opening">
-      <Header active="none" />
+      <Header active="episodes" />
       <main id="main">
         <article class={'episode-article ' + e.accent}>
           <section class={'about-intro episode-intro wrap' + (yt ? ' has-video' : '')} aria-labelledby="ep-title">
             <div class="about-copy">
-              <nav class="episode-crumbs" aria-label="Breadcrumb"><a href="/">CR2</a><span aria-hidden="true">/</span><a href="/#episodes">Episodes</a><span aria-hidden="true">/</span><span aria-current="page">Ep {page.number}</span></nav>
+              <nav class="episode-crumbs" aria-label="Breadcrumb"><a href="/">CR2</a><span aria-hidden="true">/</span><a href="/episodes/">Episodes</a><span aria-hidden="true">/</span><span aria-current="page">Ep {page.number}</span></nav>
               <p class="eyebrow">EPISODE {page.number} <span class="about-divider">/</span> <time datetime={e.dateTime}>{dateLabel}</time></p>
               <h1 id="ep-title">{e.title}</h1>
               <p class="about-dek">{page.summary}</p>

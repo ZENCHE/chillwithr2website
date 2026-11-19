@@ -1,5 +1,7 @@
 import { z } from 'astro/zod';
 import { episodes, guests, hosts, type Episode } from '../data';
+// ISO 8601 runtimes from the trimmed YouTube files, copied here so the GitHub Pages build can read them.
+import durations from './youtube-durations.json';
 
 // Episode pages are generated from src/content/episodes/ep-XX.json (synced by
 // scripts/sync-episodes.mjs). No transcripts are published. Every file is validated here at build time; any bad
@@ -40,13 +42,21 @@ const blockedWord=(s:string)=>(s.toLowerCase().match(/[a-z]+/g)??[]).find(w=>blo
 
 const toSeconds=(t:string|number)=>typeof t==='number'?Math.floor(t):t.split(':').map(Number).reduce((a,n)=>a*60+n,0);
 export const clock=(sec:number)=>{const h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return (h?`${h}:${String(m).padStart(2,'0')}`:`${m}`)+`:${String(s).padStart(2,'0')}`;};
+
+export const youtubeWatch=(id:string)=>`https://www.youtube.com/watch?v=${id}`;
+export const youtubeEmbed=(id:string)=>`https://www.youtube-nocookie.com/embed/${id}`;
+export const youtubeThumb=(id:string)=>`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+const durationIso=(number:string)=>{const iso=(durations as Record<string,string>)[number];return typeof iso==='string'&&/^PT(?:\d+H)?(?:\d+M)?(?:\d+S)?$/.test(iso)?iso:undefined;};
+export const durationSeconds=(iso:string)=>{const m=iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);return m?(Number(m[1]||0)*3600+Number(m[2]||0)*60+Number(m[3]||0)):undefined;};
+export function replayLink(e:Episode){const id=episodePage(e.number)?.youtubeId;return id?{url:youtubeWatch(id),label:'Watch on YouTube',youtube:true as const}:{url:e.url,label:'Watch the replay on X',youtube:false as const};}
+
 const bare=(h:string)=>h.replace(/^@/,'');
 
 export interface EpisodePage {
   number:string; episode:Episode; path:string; title:string; description:string; summary:string;
   takeaways:string[]; chapters:{seconds:number;label:string;title:string}[];
   guests:{handle:string;name:string;role?:string;url:string}[]; topics:string[]; communityLine:string; communityUrl?:string; communityCta?:string;
-  youtubeId?:string;
+  youtubeId?:string; durationIso?:string;
 }
 function build():EpisodePage[]{
   const pages=Object.entries(raw).map(([file,data])=>{
@@ -75,6 +85,7 @@ function build():EpisodePage[]{
     const page:EpisodePage={number:number!,episode,path:`/episodes/ep-${number}-${slug}/`,title:d.seo_title,description:d.meta_description,summary:d.summary,takeaways:d.takeaways,
       chapters:d.chapters.map(c=>{const s=toSeconds((c.time??c.start??c.timestamp)!);return {seconds:s,label:clock(s),title:c.title};}).sort((a,b)=>a.seconds-b.seconds),
       guests:people,topics:d.topics,communityLine:d.community_line,communityUrl:d.community_url,communityCta:d.community_cta,youtubeId:d.youtubeId??d.youtube_id??undefined};
+    page.durationIso=page.youtubeId?durationIso(number!):undefined;
     const hit=blockedWord(JSON.stringify(d)); if(hit!==undefined) fail('contains a name that must not appear on the site. Replace it with the X handle (that1618guy) in the draft, or add it to the redaction list, and sync again.');
     return page;
   });

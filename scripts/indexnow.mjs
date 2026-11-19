@@ -1,5 +1,6 @@
 // Ping IndexNow for live chillwithr2.com URLs.
-// Usage: node scripts/indexnow.mjs <url> [url...]   or   node scripts/indexnow.mjs --all  (every URL in the live sitemap)
+// Usage: node scripts/indexnow.mjs <url> [url...]   or   node scripts/indexnow.mjs --all
+// --all walks the live sitemap index and every child map except image sitemaps, so /episodes/ (in sitemap-pages) and video locs (in sitemap-videos) are included.
 const KEY = '3e4c5db17dff8b188f44eefc396f3658';
 const HOST = 'chillwithr2.com';
 let urls = process.argv.slice(2);

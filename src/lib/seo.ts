@@ -1,6 +1,6 @@
 import { episodes, hosts, guests, permanentGuests, show } from '../data';
 import { SITE_URL, ORG_DESCRIPTION, SOCIAL_IMAGE, YOUTUBE_URL, YOUTUBE_LIVE } from '../site-config';
-import { episodePage, type EpisodePage } from './episode-pages';
+import { episodePage, youtubeWatch, type EpisodePage } from './episode-pages';
 
 // All structured data is generated from src/data.ts, so a new episode, host or
 // regular appears in JSON-LD on the next build without touching this file.
@@ -31,7 +31,7 @@ const episodeNodes=episodes.map(e=>{
   const page=episodePage(e.number);
   const people=page?page.guests.filter(g=>!hosts.some(h=>slug(h.handle)===slug(g.handle))).map(g=>knownIds.has(slug(g.handle))?{'@id':personId(g.handle)}:{'@type':'Person',name:g.name,url:g.url,sameAs:[g.url]}):episodeGuests(e.guests);
   const description=page?page.description:people.length?`Chill with R2 episode ${e.number}, live on X with ${e.guests.replace(/ · /g,', ')}.`:`Chill with R2 episode ${e.number}, live on X with hosts Chill Pill and R2D2.`;
-  return {'@type':'PodcastEpisode','@id':episodeId(e.number),name:`Episode ${e.number}: ${e.title}`,episodeNumber:Number(e.number),datePublished:e.dateTime,url:page?absolute(page.path):e.url,inLanguage:'en',description,partOfSeries:{'@id':SERIES_ID},publisher:{'@id':ORG_ID},...(page?{sameAs:[e.url],abstract:page.summary,keywords:page.topics.join(', ')}:{}),...(people.length?{contributor:people}:{})};
+  return {'@type':'PodcastEpisode','@id':episodeId(e.number),name:`Episode ${e.number}: ${e.title}`,episodeNumber:Number(e.number),datePublished:e.dateTime,url:page?absolute(page.path):e.url,inLanguage:'en',description,partOfSeries:{'@id':SERIES_ID},publisher:{'@id':ORG_ID},...(page?{sameAs:[e.url,...(page.youtubeId?[youtubeWatch(page.youtubeId)]:[])],abstract:page.summary,keywords:page.topics.join(', ')}:{}),...(people.length?{contributor:people}:{})};
 });
 const series={'@type':'PodcastSeries','@id':SERIES_ID,name:show.name,alternateName:'CR2',url:absolute('/'),description:`A live crypto show on X, ${show.schedule.replace(', live on X','')}. Robinhood Chain, tokenized stocks, macro and onchain finance from a TradFi to crypto angle.`,inLanguage:'en',image:SOCIAL_IMAGE,startDate:show.firstEpisode,genre:['Crypto','Finance','Technology'],keywords:show.topics.join(', '),publisher:{'@id':ORG_ID},author:hosts.map(h=>({'@id':personId(h.handle)})),sameAs:['https://x.com/chillwithr2','https://www.youtube.com/@chillwithr2official','https://www.tiktok.com/@chillwithr2official'],hasPart:episodeNodes};
 
@@ -53,13 +53,18 @@ export function communitySchema(title:string,description:string,people:Array<{na
 }
 export function notFoundSchema(){return {'@context':'https://schema.org','@graph':[organization,website]};}
 export function episodeSchema(page:EpisodePage){
-  const crumbs=[{name:'CR2',path:'/'},{name:'Episodes',path:'/#episodes'},{name:`Ep ${page.number}`,path:page.path}];
+  const crumbs=[{name:'CR2',path:'/'},{name:'Episodes',path:'/episodes/'},{name:`Ep ${page.number}`,path:page.path}];
   // Episode pages carry the series without its full episode list (that lives on the homepage) plus this episode, keeping the block small.
   const {hasPart:_all,...seriesLite}=series;
   const found=episodeNodes.find(n=>n['@id']===episodeId(page.number));
-  // VideoObject only when the episode has a YouTube ID. No duration: there is no per-episode runtime in the data yet.
+  // VideoObject only when the episode has a YouTube ID. duration is ISO 8601 from src/lib/youtube-durations.json (from the trimmed YouTube file); omitted if missing.
   const id=page.youtubeId; const videoId=absolute(page.path+'#video');
-  const video=id?{'@type':'VideoObject','@id':videoId,name:`Episode ${page.number}: ${page.episode.title}`,description:page.description,thumbnailUrl:[`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,`https://i.ytimg.com/vi/${id}/hqdefault.jpg`],uploadDate:page.episode.dateTime,embedUrl:`https://www.youtube-nocookie.com/embed/${id}`,contentUrl:`https://www.youtube.com/watch?v=${id}`,inLanguage:'en',publisher:{'@id':ORG_ID},isPartOf:{'@id':episodeId(page.number)}}:undefined;
+  const video=id?{'@type':'VideoObject','@id':videoId,name:`Episode ${page.number}: ${page.episode.title}`,description:page.description,thumbnailUrl:[`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,`https://i.ytimg.com/vi/${id}/hqdefault.jpg`],uploadDate:page.episode.dateTime,embedUrl:`https://www.youtube-nocookie.com/embed/${id}`,contentUrl:`https://www.youtube.com/watch?v=${id}`,inLanguage:'en',publisher:{'@id':ORG_ID},isPartOf:{'@id':episodeId(page.number)},...(page.durationIso?{duration:page.durationIso}:{})}:undefined;
   const own=found&&video?{...found,video:{'@id':videoId}}:found;
   return graph([...(own?[own]:[]),...(video?[video]:[]),webPage('WebPage',page.path,page.title,page.description,{mainEntity:{'@id':episodeId(page.number)},datePublished:page.episode.dateTime}),breadcrumb(page.path,crumbs)],seriesLite);
+}
+export function episodesSchema(title:string,description:string){
+  const crumbs=[{name:'CR2',path:'/'},{name:'Episodes',path:'/episodes/'}];
+  const list={'@type':'ItemList','@id':absolute('/episodes/#list'),name:'Chill with R2 episodes',numberOfItems:episodes.length,itemListOrder:'https://schema.org/ItemListOrderDescending',itemListElement:episodes.map((e,i)=>{const p=episodePage(e.number);return {'@type':'ListItem',position:i+1,name:`Episode ${e.number}: ${e.title}`,url:p?absolute(p.path):e.url};})};
+  return graph([webPage('CollectionPage','/episodes/',title,description,{mainEntity:{'@id':absolute('/episodes/#list')}}),breadcrumb('/episodes/',crumbs),list]);
 }

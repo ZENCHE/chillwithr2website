@@ -4,6 +4,7 @@ export const ORG_DESCRIPTION = 'CR2 is independent media for crypto, finance and
 export const SOCIAL_IMAGE = `${SITE_URL}/assets/cr2-studio-social.png`;
 // YouTube channel for Organization sameAs. One-line switch: set YOUTUBE_LIVE to true once the channel is live.
 export const YOUTUBE_URL = 'https://www.youtube.com/@chillwithr2official';
+export const YOUTUBE_SUBSCRIBE = `${YOUTUBE_URL}?sub_confirmation=1`;
 export const YOUTUBE_LIVE = true;
 export const SOCIAL_IMAGE_ALT = 'Chill with R2 neon sign glowing violet, green and pink against a brick wall.';
 
@@ -17,4 +18,4 @@ export const sponsorEndpoint = sponsorshipContact.activated && /^[^\s@]+@[^\s@]+
   ? `https://formsubmit.co/ajax/${encodeURIComponent(sponsorshipContact.recipient)}` : '';
 
 // Change only when the corresponding page's content materially changes.
-export const pageDates = { home: '2026-11-18', partners: '2026-11-18', community: '2026-11-18' };
+export const pageDates = { home: '2026-11-19', partners: '2026-11-18', community: '2026-11-18', episodes: '2026-11-19' };

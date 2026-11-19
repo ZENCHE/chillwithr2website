@@ -1,6 +1,6 @@
 import { episodes, hosts, guests, communities, permanentGuests, listedCommunityChannels } from '../data';
-import { episodePages, type EpisodePage } from './episode-pages';
-import { SITE_URL, SITE_DESCRIPTION, bookingEndpoint, sponsorEndpoint } from '../site-config';
+import { episodePages, replayLink, type EpisodePage } from './episode-pages';
+import { SITE_URL, SITE_DESCRIPTION, YOUTUBE_SUBSCRIBE, bookingEndpoint, sponsorEndpoint } from '../site-config';
 export const xml=(value:string)=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]!));
 export const xmlResponse=(content:string)=>new Response('<?xml version="1.0" encoding="UTF-8"?>\n'+content,{headers:{'Content-Type':'application/xml; charset=utf-8'}});
 export const textResponse=(content:string,type='text/plain')=>new Response(content,{headers:{'Content-Type':`${type}; charset=utf-8`}});
@@ -18,7 +18,7 @@ ${episodes.slice(0,3).map(e=>`- [Episode ${e.number}: ${e.title}](${e.url}), ${e
 
 ## Episode archive
 
-${episodes.map(e=>{const p=episodePages.find(x=>x.number===e.number);return p?`- [Episode ${e.number}: ${e.title}](${SITE_URL}${p.path}), ${e.dateTime}. ${e.guests}. [X replay](${e.url}).`:`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}. ${e.guests}.`;}).join('\n')}
+${episodes.map(e=>{const p=episodePages.find(x=>x.number===e.number);const r=replayLink(e);return p?`- [Episode ${e.number}: ${e.title}](${SITE_URL}${p.path}), ${e.dateTime}. ${e.guests}. [${r.label}](${r.url}).`:`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}. ${e.guests}.`;}).join('\n')}
 
 ## Hosts
 
@@ -38,9 +38,11 @@ Put your brand in front of founders, investors and builders. [See the Partners p
 
 ## More from CR2
 
+- [Every episode](${SITE_URL}/episodes/)
 - [Join the CR2 community](${SITE_URL}/community/)
 - [Partner with CR2: audience, reach and formats](${SITE_URL}/partners/)
 - [CR2 on X](https://x.com/chillwithr2)
+- [Subscribe on YouTube](${YOUTUBE_SUBSCRIBE})
 - [Broadcast feed](${SITE_URL}/feed.xml)
 `;
 export const partnersMarkdown=()=>`# Partner with CR2: put your brand in the front row
@@ -108,9 +110,23 @@ A new series of conversations about the journey, what guests are building, and t
 - Tuesday 24 November: [CK](https://x.com/CaptainCKeth) (@CaptainCKeth), co-founder of R3ACH.
 - Thursday 26 November: [Ola](https://x.com/thegreatola) (@thegreatola), AI engineer, building Vano.
 
-Follow [@chillwithr2](https://x.com/chillwithr2) for who is on next. Watch every episode from the [homepage archive](${SITE_URL}/#episodes).
+Follow [@chillwithr2](https://x.com/chillwithr2) for who is on next. Watch every episode from the [episode archive](${SITE_URL}/episodes/).
 
 - [CR2 homepage](${SITE_URL}/)
+- [CR2 on X](https://x.com/chillwithr2)
+`;
+export const episodesMarkdown=()=>`# Every Chill with R2 episode
+
+> Every Chill with R2 episode, newest first: titles, dates, guests and a link to the episode page. Full replays are on YouTube when a video is public, otherwise on X. The show is live Tuesday and Thursday at 15:00 UTC.
+
+Canonical page: ${SITE_URL}/episodes/
+
+Chill with R2 goes live on X every Tuesday and Thursday at 15:00 UTC. [Subscribe on YouTube](${YOUTUBE_SUBSCRIBE}).
+
+${episodes.map(e=>{const p=episodePages.find(x=>x.number===e.number);const r=replayLink(e);return p?`- [Episode ${e.number}: ${e.title}](${SITE_URL}${p.path}), ${e.dateTime}. ${e.guests}. [${r.label}](${r.url}).`:`- [Episode ${e.number}: ${e.title}](${e.url}), ${e.dateTime}. ${e.guests}.`;}).join('\n')}
+
+- [CR2 homepage](${SITE_URL}/)
+- [Broadcast feed](${SITE_URL}/feed.xml)
 - [CR2 on X](https://x.com/chillwithr2)
 `;
 export const episodeMarkdown=(p:EpisodePage)=>`# Episode ${p.number}: ${p.episode.title}

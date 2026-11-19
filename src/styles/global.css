@@ -265,6 +265,12 @@ h1 > span {
   font-weight: 500;
   color: var(--cream);
 }
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px 36px;
+}
 .watch {
   display: inline-flex;
   align-items: center;
@@ -672,6 +678,10 @@ h2 > span {
   color: #e3d8e7;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+.footer-powered {
+  display: block;
+  margin-top: 6px;
 }
 .footer small {
   display: block;
@@ -1310,3 +1320,13 @@ h2 > span {
   margin-top: 9px;
 }
 .guest-topics { margin-top: 5px; }
+.episodes-page .about-intro {
+  grid-template-columns: 1fr;
+  padding-block: 64px 28px;
+}
+.episodes-page .program-list {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+  padding-bottom: 80px;
+}

@@ -1,6 +1,6 @@
 import { episodes } from '../data';
 import { SITE_URL, SITE_DESCRIPTION, pageDates } from '../site-config';
-import { homeMarkdown, partnersMarkdown, communityMarkdown, episodeMarkdown } from './discovery';
+import { homeMarkdown, partnersMarkdown, communityMarkdown, episodeMarkdown, episodesMarkdown } from './discovery';
 import { episodePages } from './episode-pages';
 
 // One registry for every indexable page. The sitemap, llms.txt and llms-full.txt are
@@ -13,8 +13,11 @@ export const partnersTitle='Partner with CR2 | Chill with R2 crypto livestream';
 export const partnersDescription='Partner with CR2 and Chill with R2: live Tuesday and Thursday shows on X, posts five days a week, live product testing, 600k+ X views on CR2 posts (Sep to Nov 2026) and an audience of founders, investors and builders.';
 export const communityTitle='Join the CR2 community | Chill with R2';
 export const communityDescription='Join the CR2 community: watch Chill with R2 live on X every Tuesday and Thursday at 15:00 UTC, and stay with the show on YouTube, State of Blocks, GreenFeed, Mosh Pit and Gypsy Traders.';
+export const episodesTitle='Every Chill with R2 episode | CR2';
+export const episodesDescription='Every Chill with R2 episode, newest first: titles, dates, guests and a link to the episode page. Full replays are on YouTube when a video is public, otherwise on X. The show is live Tuesday and Thursday at 15:00 UTC.';
 export const sitePages:SitePage[]=[
-  {path:'/',name:'CR2 homepage',summary:'The show, latest broadcasts, every episode with its X replay, hosts and guest booking.',title:homeTitle,description:SITE_DESCRIPTION,markdown:'/index.md',lastmod:latest(pageDates.home,episodes[0].dateTime),text:homeMarkdown},
+  {path:'/',name:'CR2 homepage',summary:'The show, latest broadcasts, every episode with its YouTube or X replay, hosts and guest booking.',title:homeTitle,description:SITE_DESCRIPTION,markdown:'/index.md',lastmod:latest(pageDates.home,episodes[0].dateTime),text:homeMarkdown},
+  {path:'/episodes/',name:'Every episode',summary:'Every Chill with R2 episode, newest first, with links to the episode page and the YouTube or X replay.',title:episodesTitle,description:episodesDescription,markdown:'/episodes/index.md',lastmod:latest(pageDates.episodes,episodes[0].dateTime),text:episodesMarkdown},
   {path:'/community/',name:'CR2 community',summary:'How to join: the weekly schedule, YouTube, State of Blocks, GreenFeed, Mosh Pit, Gypsy Traders, and the young founders series.',title:communityTitle,description:communityDescription,markdown:'/community/index.md',lastmod:pageDates.community,text:communityMarkdown},
   {path:'/partners/',name:'Partner with CR2',summary:'Partnerships: audience, reach, formats, guests and measurement notes.',title:partnersTitle,description:partnersDescription,markdown:'/partners/index.md',lastmod:pageDates.partners,text:partnersMarkdown}
 ];
