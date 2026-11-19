@@ -1,5 +1,5 @@
 export const SITE_URL = 'https://chillwithr2.com';
-export const SITE_DESCRIPTION = 'Chill with R2 is a live crypto show on X every Tuesday and Thursday at 15:00 UTC. A TradFi to crypto take on Robinhood Chain, Agentic AI, tokenized stocks and macro, with the founders and builders behind them.';
+export const SITE_DESCRIPTION = 'Chill with R2 is a live crypto show every Tuesday and Thursday at 15:00 UTC. A TradFi to crypto take on Robinhood Chain, Agentic AI, tokenized stocks and macro, with the founders and builders behind them.';
 export const ORG_DESCRIPTION = 'CR2 is independent media for crypto, finance and tech, and the home of Chill with R2, a live crypto show on X.';
 export const SOCIAL_IMAGE = `${SITE_URL}/assets/cr2-studio-social.png`;
 // YouTube channel for Organization sameAs. One-line switch: set YOUTUBE_LIVE to true once the channel is live.
