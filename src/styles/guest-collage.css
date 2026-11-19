@@ -18,3 +18,8 @@
 .collage-fallback { margin:16px 0 0; color:#c7a7f2; font-size:13px; }
 @media(max-width:700px) { .guest-collage { justify-self:center; max-width:380px; } .collage-grid { gap:8px 7px; } }
 @media(prefers-reduced-motion:reduce) { .collage-avatar { transition:none; } }
+@media(min-width:901px) {
+  .booking-row:has(.guest-collage) { grid-template-columns:max-content 1fr; gap:40px; }
+  .booking-row .guest-collage { max-width:none; }
+  .booking-row .collage-grid { grid-template-columns:repeat(auto-fill,48px); justify-content:end; gap:12px 8px; }
+}
