@@ -20,6 +20,6 @@
 @media(prefers-reduced-motion:reduce) { .collage-avatar { transition:none; } }
 @media(min-width:901px) {
   .booking-row:has(.guest-collage) { grid-template-columns:max-content 1fr; gap:40px; }
-  .booking-row .guest-collage { max-width:none; }
+  .booking-row .guest-collage { max-width:760px; width:100%; justify-self:end; }
   .booking-row .collage-grid { grid-template-columns:repeat(auto-fill,48px); justify-content:end; gap:12px 8px; }
 }
