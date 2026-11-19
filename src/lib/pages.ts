@@ -8,7 +8,7 @@ import { episodePages } from './episode-pages';
 // picked up by `discoveredRoutes()` so a new page never silently drops out of the sitemap.
 export interface SitePage { path:string; name:string; summary:string; title:string; description:string; markdown:string; lastmod:string; text:()=>string; }
 const latest=(...dates:string[])=>dates.sort().at(-1)!;
-export const homeTitle='Chill with R2, live on X: crypto, finance and tech podcasts';
+export const homeTitle='Chill with R2: crypto, finance and tech podcasts';
 export const homeDescription="Chill with R2 is CR2's live crypto show on X every Tuesday and Thursday at 15:00 UTC. A TradFi to crypto take on Robinhood Chain and tokenized stocks.";
 export const partnersTitle='Partner with CR2 | Chill with R2 crypto livestream';
 export const partnersDescription='Partner with CR2 and Chill with R2: live Tuesday and Thursday shows on X, posts five days a week, live product testing, 600k+ X views on CR2 posts (Sep to Nov 2026) and an audience of founders, investors and builders.';
