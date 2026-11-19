@@ -12,6 +12,15 @@ export interface Episode {
 // Each entry is grounded in an announcement or replay on @chillwithr2.
 export const episodes: Episode[] = [
   {
+    number: '13',
+    title: 'Did AI eat crypto?',
+    guests: '@mfisher10x · @justinbebis',
+    date: '19 NOV 2026',
+    dateTime: '2026-11-19',
+    url: 'https://x.com/i/broadcasts/2evOAArkmLWOzX',
+    accent: 'pink'
+  },
+  {
     number: '12',
     title: 'Breaking point?',
     guests: '@honey8bb · @horkays · @marcellovtv · @that1618guy',
@@ -147,7 +156,8 @@ export const guests = [
   { name: 'Deebs', handle: 'Deebs_DeFi', role: 'Lead Detective, Bubblemaps · onchain investigations' },
   { name: 'Honey8', handle: 'honey8bb', role: 'Crypto content & marketing, Ajla Capital · CS engineer' },
   { name: 'OKES', handle: 'horkays', role: 'Video & AI content creator · AI × Web3' },
-  { name: 'Marcello', handle: 'marcellovtv', role: 'Co-founder, Nova Gaming Guild · Host, M3LEE Live' }
+  { name: 'Marcello', handle: 'marcellovtv', role: 'Co-founder, Nova Gaming Guild · Host, M3LEE Live' },
+  { name: 'Matthew Fisher', handle: 'mfisher10x', role: 'CEO, Katana' }
 ];
 export const communities = [
   { name: 'Mosh Pit', count: '5,000+', label: 'members' },

@@ -1,0 +1,94 @@
+{
+  "episode": "13",
+  "slug": "ep-13-did-ai-eat-crypto",
+  "seo_title": "Matthew Fisher of Katana on Did AI Eat Crypto?",
+  "meta_description": "The first Young Crypto Voices episode, with Matthew Fisher of Katana on the Anthropic IPO, perps and owning apps, then Justin on liquidity and Mosh V1.",
+  "summary": "The hosts open on the Anthropic IPO, GTA 6 and whether AI has pulled liquidity out of crypto, then welcome Matthew Fisher, CEO of Katana, for the first Young Crypto Voices episode. Matthew talks about how remittance fees and DeFi brought him into crypto, what Katana is, how he explains perps, and why the team chose to own core apps instead of renting them. In the Hood, Justin discusses the IPO's effect on crypto liquidity and walks through the Mosh V1 beta, with a launch target around the first week of December.",
+  "takeaways": [
+    "The hosts sound more constructive than on recent shows, pointing to demand around the Anthropic IPO, slightly calmer geopolitics and a first look at the Mosh V1 beta, while asking whether the IPO pulled liquidity out of crypto.",
+    "They treat GTA 6 as a major cultural event, but say the onchain memecoin response looked weak, with many similar coins and no strong runners, which they tie to liquidity leaving the trenches.",
+    "Matthew traces his path from seeing high remittance fees, to Facebook's Libra, then DeFi, and later the CEO role at Katana. He says he would point a newcomer toward crypto if they care about emerging tech and finance, and that many apps may soon just use crypto in the background.",
+    "He describes Katana as an onchain financial markets company running perps, spot and the chain underneath, warns that perps are risky but simpler than options, and says the team chose to own core DeFi apps rather than rent them so fees do not leave when a builder does.",
+    "Justin walks through the Mosh V1 beta, says they are aiming to launch around the first week of December if the app is ready enough, and argues Mosh should be a fairer, easier alternative to more extractive launch tools, with bun staking still in the works."
+  ],
+  "chapters": [
+    {
+      "time": "00:01:41",
+      "title": "Welcome, and Young Crypto Voices begins"
+    },
+    {
+      "time": "00:06:38",
+      "title": "GTA 6 and the state of onchain runners"
+    },
+    {
+      "time": "00:09:27",
+      "title": "The Anthropic IPO on a thin float"
+    },
+    {
+      "time": "00:14:23",
+      "title": "Trading terminals and volume coming back"
+    },
+    {
+      "time": "00:17:38",
+      "title": "Did AI eat crypto?"
+    },
+    {
+      "time": "00:21:14",
+      "title": "Matthew Fisher joins: the IPO, liquidity and AI"
+    },
+    {
+      "time": "00:27:40",
+      "title": "From remittance fees to CEO of Katana"
+    },
+    {
+      "time": "00:32:04",
+      "title": "What he would tell someone starting in crypto"
+    },
+    {
+      "time": "00:43:41",
+      "title": "What Katana is, and how perps work"
+    },
+    {
+      "time": "00:48:03",
+      "title": "Tokenized stocks, and why he thinks perps are still early"
+    },
+    {
+      "time": "00:54:48",
+      "title": "Why Katana bought its core apps instead of renting them"
+    },
+    {
+      "time": "01:04:00",
+      "title": "Justin joins: the IPO, liquidity and Bitcoin"
+    },
+    {
+      "time": "01:12:58",
+      "title": "Mosh V1, a December target and a walk through the beta"
+    },
+    {
+      "time": "01:26:23",
+      "title": "Fairer bundles, serial deployers and bun staking"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Matthew Fisher",
+      "handle": "@mfisher10x",
+      "role": "CEO, Katana"
+    },
+    {
+      "name": "Justin Bebis",
+      "handle": "@justinbebis",
+      "role": "Co-founder, Mosh · CEO, UV"
+    }
+  ],
+  "topics": [
+    "Anthropic IPO",
+    "Young Crypto Voices",
+    "Katana",
+    "perps",
+    "Mosh"
+  ],
+  "community_line": "To try the Mosh V1 beta and follow Justin's updates with other holders, join the Mosh Pit on Telegram.",
+  "community_url": "https://t.me/moshtrade",
+  "community_cta": "Join the Mosh Pit on Telegram"
+}
