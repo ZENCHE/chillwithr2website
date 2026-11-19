@@ -14,8 +14,9 @@ html:has(.guest-dialog[open]) { overflow:hidden; }
 .guest-dialog[open] { animation:guest-enter .2s ease-out; }
 .guest-dialog-inner { padding:34px; position:relative; }
 .guest-dialog .eyebrow { color:#bfa5df; font-size:10px; margin:0 42px 17px 0; }
-.guest-dialog h2 { font-size:42px; }
-.guest-dialog h2:focus { outline:none; }
+.guest-dialog h2, .guest-dialog .dialog-title { font-size:42px; letter-spacing:-0.055em; font-weight:500; line-height:1.08; margin:0; }
+.guest-dialog h2:focus, .guest-dialog .dialog-title:focus { outline:none; }
+.guest-dialog .dialog-title > span { color:var(--green); }
 #guest-intro { color:var(--muted); font-size:14px; line-height:1.6; margin:13px 0 22px; max-width:440px; }
 .guest-close { position:absolute; right:20px; top:19px; width:40px; height:40px; background:#ffffff07; border:1px solid var(--line); border-radius:50%; color:var(--cream); font-size:25px; cursor:pointer; }
 .guest-close:hover { border-color:var(--pink); color:var(--pink); }
@@ -56,7 +57,7 @@ html:has(.guest-dialog[open]) { overflow:hidden; }
   .booking-trigger { padding:16px 18px; }
   .guest-dialog { max-height:calc(100dvh - 24px); width:calc(100% - 24px); }
   .guest-dialog-inner { padding:26px 20px; }
-  .guest-dialog h2 { font-size:36px; }
+  .guest-dialog h2, .guest-dialog .dialog-title { font-size:36px; }
   .guest-close { top:14px; right:14px; }
   .booking-fields { grid-template-columns:1fr; gap:16px; }
   .booking-submit-row { flex-direction:column; align-items:stretch; gap:14px; }

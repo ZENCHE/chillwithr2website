@@ -6,8 +6,8 @@ import Sponsorship from '../components/Sponsorship.astro';
 import Seo from '../components/Seo.astro';
 import Arrow from '../components/Arrow.astro';
 import { homeSchema } from '../lib/seo';
-import { SITE_DESCRIPTION, YOUTUBE_SUBSCRIBE } from '../site-config';
-import { homeTitle } from '../lib/pages';
+import { YOUTUBE_SUBSCRIBE } from '../site-config';
+import { homeTitle, homeDescription } from '../lib/pages';
 import { permanentGuestPortraits } from '../lib/guest-portraits';
 import { episodeHref, replayLink } from '../lib/episode-pages';
 import '@fontsource-variable/fredoka';
@@ -20,7 +20,7 @@ const featured = episodes[0];
 const featuredReplay = replayLink(featured);
 const permanent = await permanentGuestPortraits();
 const title = homeTitle;
-const description = SITE_DESCRIPTION;
+const description = homeDescription;
 const schema = homeSchema(title,description);
 ---
 <!doctype html>
@@ -47,6 +47,7 @@ const schema = homeSchema(title,description);
             <p class="eyebrow"><span></span> CR2 / INDEPENDENT MEDIA</p>
             <h1 id="intro-title">Crypto.<br />Finance.<br /><span>Tech.</span></h1>
             <h2 class="intro-dek">Home of <strong>Chill with R2</strong>, the live crypto show on X.<br />Robinhood Chain, Agentic AI, tokenized stocks and macro, from TradFi to crypto.</h2>
+            <p class="intro-body">CR2 is independent media for crypto, finance and tech.</p>
             <div class="hero-actions">
               <a class="watch" href={featuredReplay.url} target="_blank" rel="noopener noreferrer"><Arrow class="watch-icon" /><span>Watch the latest<span class="watch-meta">EPISODE {featured.number}</span></span></a>
               <a class="text-link" href={YOUTUBE_SUBSCRIBE} target="_blank" rel="noopener noreferrer">Subscribe on YouTube <Arrow /></a>
@@ -68,7 +69,7 @@ const schema = homeSchema(title,description);
       </section>
       <section class="hosts permanent-guests wrap" id="permanent-guests" aria-labelledby="permanent-title">
         <div><p class="eyebrow">EVERY WEEK ON CR2</p><h2 id="permanent-title">Permanent guests<span>.</span></h2></div>
-        <div class="host-list">{permanent.map((guest)=>(<a class="host" href={'https://x.com/' + guest.handle} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={guest.portrait.src} width="128" height="128" loading="lazy" decoding="async" alt={guest.name + '’s X profile avatar'} /><span><strong>{guest.name}</strong><small>@{guest.handle}</small><span class="host-bio">{guest.role}</span><span class="guest-slot">{guest.slot}</span><span class="host-bio guest-topics">{guest.topics}</span></span><Arrow class="host-arrow" /></a>))}</div>
+        <div class="host-list">{permanent.map((guest)=>(<a class="host" href={'https://x.com/' + guest.handle} target="_blank" rel="noopener noreferrer"><img class="host-avatar" src={guest.portrait.src} width="128" height="128" loading="lazy" decoding="async" alt={guest.name + ' (@' + guest.handle + '), ' + guest.role.replace(/[¹²]/g, '')} /><span><strong>{guest.name}</strong><small>@{guest.handle}</small><span class="host-bio">{guest.role}</span><span class="guest-slot">{guest.slot}</span><span class="host-bio guest-topics">{guest.topics}</span></span><Arrow class="host-arrow" /></a>))}</div>
       </section>
       <section class="archive" id="episodes" aria-labelledby="episodes-title">
         <div class="wrap">

@@ -253,12 +253,16 @@ h1 > span {
   color: var(--green);
   text-shadow: 0 0 55px #33e06a20;
 }
-.intro-dek {
+.intro-dek,
+.intro-body {
   font-weight: 400;
   letter-spacing: normal;
   font-size: 17px;
   line-height: 1.6;
   color: #bbb1c6;
+  margin: 0 0 12px;
+}
+.intro-body {
   margin: 0 0 27px;
 }
 .intro-dek strong {
@@ -746,7 +750,8 @@ h2 > span {
   h1 {
     font-size: 94px;
   }
-  .intro-dek {
+  .intro-dek,
+  .intro-body {
     font-size: 16px;
   }
   .episode-art {
@@ -823,9 +828,15 @@ h2 > span {
     letter-spacing: -0.065em;
     margin-bottom: 22px;
   }
-  .intro-dek {
+  .intro-dek,
+  .intro-body {
     font-size: 16px;
     line-height: 1.5;
+  }
+  .intro-dek {
+    margin-bottom: 10px;
+  }
+  .intro-body {
     margin-bottom: 23px;
   }
   .watch {
@@ -1208,8 +1219,14 @@ h2 > span {
   .intro-copy .eyebrow {
     margin-bottom: 18px;
   }
-  .intro-dek {
+  .intro-dek,
+  .intro-body {
     font-size: 15px;
+  }
+  .intro-dek {
+    margin-bottom: 10px;
+  }
+  .intro-body {
     margin-bottom: 22px;
   }
   .sign-stage {
