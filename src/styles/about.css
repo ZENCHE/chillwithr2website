@@ -201,3 +201,20 @@
   .why-section, .formats-section, .partner-steps { padding-block: 56px 24px; }
   .formats-section { padding-bottom: 56px; }
 }
+@media (max-width: 1100px) {
+  .about-dek,
+  .about-section-heading > p:last-child {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  .why-card p,
+  .format-card p,
+  .step-list p,
+  .geography > p,
+  .distribution > p,
+  .reach-stat p,
+  .guest-role {
+    font-size: 16px;
+  }
+}

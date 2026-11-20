@@ -172,6 +172,8 @@ a {
   gap: 14px;
   align-items: center;
   margin-right: auto;
+  min-width: 44px;
+  min-height: 44px;
 }
 .brand img {
   width: 58px;
@@ -189,6 +191,9 @@ a {
   font-size: 13px;
 }
 .header nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: #cbc2d3;
   transition: color 0.2s;
 }
@@ -321,16 +326,33 @@ h1 > span {
 .sign {
   position: relative;
   width: 100%;
-  transform: rotate(-5deg) rotateX(calc(var(--py) * -1.2deg))
+  transform: rotate(-2deg) rotateX(calc(var(--py) * -1.2deg))
     rotateY(calc(var(--px) * 1.5deg));
-  aspect-ratio: 820/620;
+  aspect-ratio: 16/9;
 }
-.sign img {
+.sign img,
+.sign-clip {
   position: absolute;
   width: 100%;
   height: 100%;
   inset: 0;
   object-fit: contain;
+}
+.sign-clip {
+  display: none;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #15101d;
+  filter: drop-shadow(8px 17px 18px #000000c0);
+  z-index: 3;
+}
+.sign.has-clip .sign-clip {
+  display: block;
+}
+.sign.has-clip .sign-core,
+.sign.has-clip .sign-halo {
+  opacity: 0;
+  pointer-events: none;
 }
 .sign-core {
   filter: drop-shadow(8px 17px 7px #000000c0);
@@ -353,14 +375,14 @@ h1 > span {
 }
 .sign-mount {
   position: absolute;
-  inset: 19% 15% 17%;
-  transform: rotate(-5deg);
-  border: 1px solid #ffffff05;
-  border-radius: 24px;
+  inset: 0;
+  transform: rotate(-2deg);
+  border: 1px solid #ffffff08;
+  border-radius: 16px;
   box-shadow:
-    9px 16px 18px #00000070,
+    9px 16px 22px #00000070,
     inset 0 0 15px #ffffff04;
-  background: #13101820;
+  background: #13101818;
 }
 .sign-mount i {
   position: absolute;
@@ -415,8 +437,10 @@ h2 > span {
   color: var(--green);
 }
 .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 12px;
-  padding-bottom: 4px;
   border-bottom: 1px solid #ffffff45;
   white-space: nowrap;
 }
@@ -679,6 +703,9 @@ h2 > span {
   color: var(--muted);
 }
 .footer p > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: #e3d8e7;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -696,8 +723,9 @@ h2 > span {
   display: grid;
   place-items: center;
   border: 1px solid #ffffff30;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
   font-size: 21px;
 }
 .back-top:hover {
@@ -843,9 +871,12 @@ h2 > span {
     font-size: 13px;
   }
   .watch-icon {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     font-size: 23px;
+  }
+  .watch {
+    min-height: 44px;
   }
   .watch-meta {
     font-size: 9px;
@@ -858,7 +889,7 @@ h2 > span {
   }
   .sign {
     max-width: 600px;
-    aspect-ratio: 820/620;
+    aspect-ratio: 16/9;
   }
   .wall {
     background-size: 690px auto;
@@ -1068,7 +1099,15 @@ h2 > span {
   transform: none;
 }
 .motion-off .sign {
-  transform: rotate(-5deg);
+  transform: rotate(-2deg);
+}
+.motion-off .sign-clip {
+  display: none !important;
+}
+.motion-off .sign.has-clip .sign-core,
+.motion-off .sign.has-clip .sign-halo {
+  opacity: 1;
+  pointer-events: auto;
 }
 .motion-off *,
 .motion-off *:before,
@@ -1094,7 +1133,15 @@ h2 > span {
     transform: none !important;
   }
   .sign {
-    transform: rotate(-5deg) !important;
+    transform: rotate(-2deg) !important;
+  }
+  .sign-clip {
+    display: none !important;
+  }
+  .sign.has-clip .sign-core,
+  .sign.has-clip .sign-halo {
+    opacity: 1 !important;
+    pointer-events: auto;
   }
   .episode-art:after {
     display: none;
@@ -1350,9 +1397,82 @@ h2 > span {
 
 /* Header channel icons */
 .socials { display:flex; align-items:center; gap:6px; margin:0; padding:0; list-style:none; }
-.socials a { display:grid; place-items:center; width:38px; height:38px; border:1px solid #ffffff40; border-radius:50%; color:#e9e2ee; background:#22192a66; transition:color .2s, border-color .2s, background .2s; }
+.socials a { display:grid; place-items:center; width:44px; height:44px; border:1px solid #ffffff40; border-radius:50%; color:#e9e2ee; background:#22192a66; transition:color .2s, border-color .2s, background .2s; }
 .socials a:hover, .socials a:focus-visible { color:var(--green); border-color:var(--green); background:#ffffff10; }
-@media (max-width: 760px) { .socials { gap:4px; } .socials a { width:32px; height:32px; } .socials svg { width:15px; height:15px; } }
-@media (max-width: 420px) { .socials a { width:28px; height:28px; border:0; background:none; } .socials svg { width:15px; height:15px; } }
-@media (max-width: 560px) { .header { gap:10px; } .header nav { gap:12px; } .socials { gap:0; } .socials a { width:26px; height:26px; } .socials svg { width:14px; height:14px; } }
-@media (max-width: 360px) { .header nav { gap:9px; font-size:10px; } .socials a { width:23px; } .socials svg { width:13px; height:13px; } }
+@media (max-width: 700px) {
+  .header { flex-wrap: wrap; height: auto; min-height: 80px; padding-block: 8px; row-gap: 4px; }
+  .header nav { gap: 16px; }
+  .socials { flex: 1 0 100%; justify-content: flex-end; gap: 8px; padding-bottom: 4px; }
+  .socials a { width: 44px; height: 44px; border: 1px solid #ffffff40; background: #22192a66; }
+  .socials svg { width: 16px; height: 16px; }
+}
+@media (max-width: 360px) { .header nav { gap: 12px; } }
+
+/* Body copy stays at least 16px on small screens. Eyebrows, times and legal notes stay smaller. */
+@media (max-width: 1100px) {
+  .about-dek,
+  .about-section-heading > p:last-child {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  .host-bio,
+  .episode-info p,
+  .booking-dek,
+  .contact-intro,
+  .newsletter-slot p,
+  .collage-bio p,
+  .guest-role,
+  .reach-stat p,
+  .geography > p,
+  .distribution > p,
+  .why-card p,
+  .format-card p,
+  .step-list p,
+  .week-slot p {
+    font-size: 16px;
+  }
+  .sponsor-copy > p:last-child {
+    font-size: 16px;
+  }
+}
+
+/* 16:9 hero clip: stack below the copy through tablet, and keep it off the CTAs. */
+@media (max-width: 1100px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding-top: 32px;
+    padding-bottom: 28px;
+    gap: 22px;
+  }
+  .sign-stage {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 720px;
+    align-self: center;
+  }
+  .sign {
+    max-width: 720px;
+    aspect-ratio: 16/9;
+    transform: rotate(-1deg);
+  }
+  .sign-mount {
+    transform: rotate(-1deg);
+  }
+  .motion-off .sign,
+  .motion-off .sign-mount {
+    transform: none;
+  }
+}
+
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+}
+

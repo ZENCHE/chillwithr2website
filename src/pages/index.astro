@@ -59,8 +59,74 @@ const schema = homeSchema(title,description);
               <img class="sign-halo halo-wide" src="/assets/studio-sign.svg" alt="" aria-hidden="true" width="820" height="620" />
               <img class="sign-halo halo-tight" src="/assets/studio-sign.svg" alt="" aria-hidden="true" width="820" height="620" />
               <img class="sign-core" src="/assets/studio-sign.svg" alt="Chill with R2 neon logo in violet, green and pink" width="820" height="620" fetchpriority="high" />
+              <video class="sign-clip" muted autoplay loop playsinline preload="none" poster="/assets/studio-sign.svg" width="1280" height="720" aria-label="Chill with R2 neon logo in violet, green and pink" aria-hidden="true"></video>
             </div>
           </div>
+          <script is:inline>
+            (function () {
+              var sign = document.getElementById("sign");
+              if (!sign) return;
+              var video = sign.querySelector(".sign-clip");
+              if (!video) return;
+              var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+              var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+              function isConstrained() {
+                if (reduced.matches) return true;
+                if (conn && (conn.saveData || /^(?:slow-2g|2g|3g)$/i.test(conn.effectiveType || ""))) return true;
+                return false;
+              }
+              function attach() {
+                if (isConstrained() || video.getAttribute("data-ready")) return;
+                if (!video.querySelector("source")) {
+                  var webm = document.createElement("source");
+                  webm.src = "/assets/hero-intro.webm";
+                  webm.type = "video/webm";
+                  var mp4 = document.createElement("source");
+                  mp4.src = "/assets/hero-intro.mp4";
+                  mp4.type = "video/mp4";
+                  video.appendChild(webm);
+                  video.appendChild(mp4);
+                }
+                video.muted = true;
+                video.defaultMuted = true;
+                video.setAttribute("muted", "");
+                video.playsInline = true;
+                video.setAttribute("playsinline", "");
+                video.setAttribute("webkit-playsinline", "");
+                video.removeAttribute("aria-hidden");
+                video.addEventListener("loadeddata", function () {
+                  sign.classList.add("has-clip");
+                  var core = sign.querySelector(".sign-core");
+                  if (core) core.setAttribute("aria-hidden", "true");
+                  video.play().catch(function () {});
+                }, { once: true });
+                video.setAttribute("data-ready", "1");
+                video.load();
+              }
+              function detach() {
+                sign.classList.remove("has-clip");
+                video.setAttribute("aria-hidden", "true");
+                var core = sign.querySelector(".sign-core");
+                if (core) core.removeAttribute("aria-hidden");
+                video.pause();
+                video.removeAttribute("data-ready");
+                video.querySelectorAll("source").forEach(function (s) { s.remove(); });
+                video.removeAttribute("src");
+                video.load();
+              }
+              if (isConstrained()) return;
+              if ("IntersectionObserver" in window) {
+                var io = new IntersectionObserver(function (entries) {
+                  if (entries[0].isIntersecting) attach();
+                }, { rootMargin: "80px" });
+                io.observe(sign);
+              } else attach();
+              reduced.addEventListener("change", function () {
+                if (isConstrained()) detach();
+                else attach();
+              });
+            })();
+          </script>
         </div>
       </section>
       <section class="hosts wrap" id="hosts" aria-labelledby="hosts-title">
