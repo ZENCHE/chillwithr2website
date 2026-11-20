@@ -1,5 +1,5 @@
 ---
-import Arrow from './Arrow.astro';
+import Socials from './Socials.astro';
 interface Props { active?: 'home' | 'partners' | 'community' | 'episodes' | 'none' }
 const { active = 'home' } = Astro.props;
 const home = active === 'home';
@@ -11,5 +11,5 @@ const home = active === 'home';
     <a href="/community/" aria-current={active === 'community' ? 'page' : undefined}>Community</a>
     <a href="/partners/" aria-current={active === 'partners' ? 'page' : undefined}>Partners</a>
   </nav>
-  <a class="follow" href="https://x.com/chillwithr2" target="_blank" rel="noopener noreferrer">Follow on X <Arrow /></a>
+  <Socials />
 </header>

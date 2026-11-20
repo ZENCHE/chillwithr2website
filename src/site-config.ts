@@ -6,6 +6,10 @@ export const SOCIAL_IMAGE = `${SITE_URL}/assets/cr2-studio-social.png`;
 export const YOUTUBE_URL = 'https://www.youtube.com/@chillwithr2official';
 export const YOUTUBE_SUBSCRIBE = `${YOUTUBE_URL}?sub_confirmation=1`;
 export const YOUTUBE_LIVE = true;
+// Header social icons. Leave SPOTIFY_URL empty to hide the Spotify icon until the show URL is confirmed.
+export const X_URL = 'https://x.com/chillwithr2';
+export const TIKTOK_URL = 'https://www.tiktok.com/@chillwithr2official';
+export const SPOTIFY_URL = '';
 export const SOCIAL_IMAGE_ALT = 'Chill with R2 neon sign glowing violet, green and pink against a brick wall.';
 
 // Set the receiving inbox, complete FormSubmit's email activation, then set activated.
