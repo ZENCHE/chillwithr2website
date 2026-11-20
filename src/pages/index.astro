@@ -54,12 +54,9 @@ const schema = homeSchema(title,description);
             </div>
           </div>
           <div class="sign-stage" id="show">
-            <div class="sign-mount" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
             <div class="sign" id="sign">
-              <img class="sign-halo halo-wide" src="/assets/studio-sign.svg" alt="" aria-hidden="true" width="820" height="620" />
-              <img class="sign-halo halo-tight" src="/assets/studio-sign.svg" alt="" aria-hidden="true" width="820" height="620" />
-              <img class="sign-core" src="/assets/studio-sign.svg" alt="Chill with R2 neon logo in violet, green and pink" width="820" height="620" fetchpriority="high" />
-              <video class="sign-clip" muted autoplay loop playsinline preload="none" poster="/assets/studio-sign.svg" width="1280" height="720" aria-label="Chill with R2 neon logo in violet, green and pink" aria-hidden="true"></video>
+              <img class="sign-core" src="/assets/hero-intro-poster.webp" alt="Chill with R2 neon logo in violet, green and pink" width="1280" height="720" fetchpriority="high" />
+              <video class="sign-clip" muted autoplay loop playsinline preload="none" width="1280" height="720" aria-label="Chill with R2 neon logo in violet, green and pink" aria-hidden="true"></video>
             </div>
           </div>
           <script is:inline>
@@ -75,6 +72,7 @@ const schema = homeSchema(title,description);
                 if (conn && (conn.saveData || /^(?:slow-2g|2g|3g)$/i.test(conn.effectiveType || ""))) return true;
                 return false;
               }
+              var stage = document.getElementById("show");
               function attach() {
                 if (isConstrained() || video.getAttribute("data-ready")) return;
                 if (!video.querySelector("source")) {
@@ -98,6 +96,11 @@ const schema = homeSchema(title,description);
                   sign.classList.add("has-clip");
                   var core = sign.querySelector(".sign-core");
                   if (core) core.setAttribute("aria-hidden", "true");
+                  if (stage) {
+                    var src = video.currentSrc || "";
+                    if (/\.mp4(?:$|\?)/i.test(src)) stage.classList.add("use-blend");
+                    else stage.classList.remove("use-blend");
+                  }
                   video.play().catch(function () {});
                 }, { once: true });
                 video.setAttribute("data-ready", "1");
@@ -105,6 +108,7 @@ const schema = homeSchema(title,description);
               }
               function detach() {
                 sign.classList.remove("has-clip");
+                if (stage) stage.classList.remove("use-blend");
                 video.setAttribute("aria-hidden", "true");
                 var core = sign.querySelector(".sign-core");
                 if (core) core.removeAttribute("aria-hidden");

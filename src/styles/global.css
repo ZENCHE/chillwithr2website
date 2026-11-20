@@ -315,19 +315,20 @@ h1 > span {
 .sign-stage {
   position: relative;
   align-self: center;
+  /* Match the wall's parallax translate so the neon stays bolted to the bricks. */
   transform: translate3d(
-    calc(var(--px) * 8px),
-    calc(var(--py) * 7px + var(--scroll) * -16px),
+    calc(var(--px) * -4px),
+    calc(var(--py) * -4px + var(--scroll) * 26px),
     0
   );
   margin: -15px -25px 0 -25px;
-  perspective: 1000px;
+}
+.sign-stage.use-blend {
+  mix-blend-mode: screen;
 }
 .sign {
   position: relative;
   width: 100%;
-  transform: rotate(-2deg) rotateX(calc(var(--py) * -1.2deg))
-    rotateY(calc(var(--px) * 1.5deg));
   aspect-ratio: 16/9;
 }
 .sign img,
@@ -337,13 +338,10 @@ h1 > span {
   height: 100%;
   inset: 0;
   object-fit: contain;
+  background: transparent;
 }
 .sign-clip {
   display: none;
-  object-fit: cover;
-  border-radius: 14px;
-  background: #15101d;
-  filter: drop-shadow(8px 17px 18px #000000c0);
   z-index: 3;
 }
 .sign.has-clip .sign-clip {
@@ -352,62 +350,12 @@ h1 > span {
 .sign.has-clip .sign-core,
 .sign.has-clip .sign-halo {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
+  animation: none;
 }
 .sign-core {
-  filter: drop-shadow(8px 17px 7px #000000c0);
   z-index: 2;
-}
-.sign-halo {
-  pointer-events: none;
-}
-.halo-wide {
-  filter: blur(28px);
-  opacity: 0.58;
-  mix-blend-mode: screen;
-  z-index: 0;
-}
-.halo-tight {
-  filter: blur(7px);
-  opacity: 0.8;
-  mix-blend-mode: screen;
-  z-index: 1;
-}
-.sign-mount {
-  position: absolute;
-  inset: 0;
-  transform: rotate(-2deg);
-  border: 1px solid #ffffff08;
-  border-radius: 16px;
-  box-shadow:
-    9px 16px 22px #00000070,
-    inset 0 0 15px #ffffff04;
-  background: #13101818;
-}
-.sign-mount i {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border: 1px solid #89808c;
-  background: #3a303c;
-  border-radius: 50%;
-  box-shadow: 2px 3px 5px #000;
-}
-.sign-mount i:nth-child(1) {
-  left: 14px;
-  top: 14px;
-}
-.sign-mount i:nth-child(2) {
-  right: 14px;
-  top: 14px;
-}
-.sign-mount i:nth-child(3) {
-  left: 14px;
-  bottom: 14px;
-}
-.sign-mount i:nth-child(4) {
-  right: 14px;
-  bottom: 14px;
 }
 .archive {
   padding: 74px 0 66px;
@@ -740,7 +688,7 @@ h2 > span {
     opacity: 1;
   }
 }
-.enhanced:not(.motion-off) .sign-core {
+.enhanced:not(.motion-off) .sign:not(.has-clip) .sign-core {
   animation: warmup 0.85s ease-out both;
 }
 .enhanced:not(.motion-off) .halo-wide {
@@ -1099,7 +1047,7 @@ h2 > span {
   transform: none;
 }
 .motion-off .sign {
-  transform: rotate(-2deg);
+  transform: none;
 }
 .motion-off .sign-clip {
   display: none !important;
@@ -1133,7 +1081,7 @@ h2 > span {
     transform: none !important;
   }
   .sign {
-    transform: rotate(-2deg) !important;
+    transform: none !important;
   }
   .sign-clip {
     display: none !important;
@@ -1457,14 +1405,6 @@ h2 > span {
   .sign {
     max-width: 720px;
     aspect-ratio: 16/9;
-    transform: rotate(-1deg);
-  }
-  .sign-mount {
-    transform: rotate(-1deg);
-  }
-  .motion-off .sign,
-  .motion-off .sign-mount {
-    transform: none;
   }
 }
 
