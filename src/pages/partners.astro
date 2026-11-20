@@ -1,15 +1,12 @@
 ---
 import Header from '../components/Header.astro';
 import Sponsorship from '../components/Sponsorship.astro';
-import { Image } from 'astro:assets';
 import Seo from '../components/Seo.astro';
 import Arrow from '../components/Arrow.astro';
 import { partnersSchema } from '../lib/seo';
 import { partnersTitle, partnersDescription } from '../lib/pages';
 import { guestPortraits } from '../lib/guest-portraits';
-import chillAvatar from '../../public/assets/chill-pill-avatar.png';
-import r2Avatar from '../../public/assets/r2d2-avatar.png';
-import { hosts, communities, episodes, guests } from '../data';
+import { communities, episodes, guests } from '../data';
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/space-grotesk';
 import '@fontsource/ibm-plex-mono/400.css';
@@ -45,16 +42,23 @@ const schema = partnersSchema(title,description,portraits.map(guest=>({...guest,
               <a class="text-link" href="#audience">See the audience <Arrow direction="south" /></a>
             </div>
           </div>
-          <aside class="host-board" aria-label="The hosts and their reach on X">
-            <div class="host-board-heading"><span>THE HOSTS</span><img src="/assets/studio-mark.svg" width="62" height="56" alt="" /></div>
-            {hosts.map((host, index) => (
-              <a class={'reach-host ' + (index === 0 ? 'chill' : 'r2')} href={host.url} target="_blank" rel="noopener noreferrer">
-                <Image class="reach-avatar" src={index === 0 ? chillAvatar : r2Avatar} width={200} height={200} format="webp" quality={90} alt={host.avatarAlt} loading="eager" decoding="async" />
-                <span class="reach-person"><strong>{host.name}</strong><small>{host.handle}</small><span class="reach-followers">{index === 0 ? '≈100k' : '15k'}<small>X followers · Nov 2026²</small></span></span>
-                <Arrow class="reach-arrow" />
-              </a>
-            ))}
-            <div class="host-board-footer"><span>CHILL WITH R2</span><span>ON X</span></div>
+          <aside class="host-board" aria-label="Live reach on StreamYard">
+            <div class="host-board-heading"><span>PROOF</span><img src="/assets/studio-mark.svg" width="62" height="56" alt="" /></div>
+            <div class="proof-lead">
+              <strong>Top 1%</strong>
+              <p>of StreamYard streamers</p>
+            </div>
+            <div class="proof-stats">
+              <div>
+                <strong>55,258</strong>
+                <p>viewer minutes<small>One stream, on X</small></p>
+              </div>
+              <div>
+                <strong>6</strong>
+                <p>live streams<small>November 2026</small></p>
+              </div>
+            </div>
+            <p class="host-board-footer proof-source">Source: StreamYard, Nov 2026</p>
           </aside>
         </section>
         <section class="reach-strip" aria-labelledby="reach-title">
@@ -128,7 +132,7 @@ const schema = partnersSchema(title,description,portraits.map(guest=>({...guest,
         <div class="wrap metrics-notes">
           <details>
             <summary>About the numbers <span aria-hidden="true">+</span></summary>
-            <div><p>November 2026 snapshot. X views on CR2 posts are the combined public X view counts on CR2-related posts from @chillwithr2, @R2D2zen and @ripchillpill, September to November 2026, as supplied by CR2 (a 16 November pull counted 512,863 excluding reposts and 646,527 including them). They are cumulative views, not unique viewers. Livestream views are the X replay view totals for Episodes 01 to 11 as of 16 November (20,198); they count live and replay views, not unique viewers. Audience geography is supplied by CR2.</p><p>² Host follower figures are rounded public X counts checked on 17 November 2026 (Chill Pill 99.5k, R2D2 15.0k), not live counts. Guest roles reflect the supplied guest list and guests’ own X bios. Community sizes are reported memberships and subscriptions, not deduplicated people.</p></div>
+            <div><p>November 2026 snapshot. X views on CR2 posts are the combined public X view counts on CR2-related posts from @chillwithr2, @R2D2zen and @ripchillpill, September to November 2026, as supplied by CR2 (a 16 November pull counted 512,863 excluding reposts and 646,527 including them). They are cumulative views, not unique viewers. Livestream views are the X replay view totals for Episodes 01 to 11 as of 16 November (20,198); they count live and replay views, not unique viewers. Audience geography is supplied by CR2.</p><p>Top 1% of StreamYard streamers is StreamYard’s ranking of users who broadcast in the last 30 days, as shown in StreamYard in November 2026. 55,258 viewer minutes is the total for one stream on X. 6 live streams is the November 2026 count in StreamYard. Guest roles reflect the supplied guest list and guests’ own X bios. Community sizes are reported memberships and subscriptions, not deduplicated people.</p></div>
           </details>
         </div>
       </main>

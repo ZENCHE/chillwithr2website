@@ -15,17 +15,16 @@
 .host-board::before { content: ""; position: absolute; inset: -9px 14px 8px -9px; border: 1px solid #8b4dff36; border-radius: 12px; z-index: -1; }
 .host-board-heading { height: 73px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); color: #d4b7ff; font: 11px var(--mono); letter-spacing: .15em; }
 .host-board-heading img { width: 48px; height: 44px; }
-.reach-host { display: grid; grid-template-columns: 100px 1fr auto; align-items: center; gap: 23px; padding: 26px 0; }
-.reach-host + .reach-host { border-top: 1px solid var(--line); }
-.reach-avatar { width: 100px; height: 100px; object-fit: cover; border-radius: 9px; box-shadow: 0 4px 18px #0005; }
-.reach-person > strong { display: block; font-size: 20px; font-weight: 500; }
-.reach-person > small { color: var(--muted); font: 10px var(--mono); display: block; margin-top: 4px; }
-.reach-followers { display: block; color: #c79bff; font-size: 36px; line-height: 1; letter-spacing: -.05em; margin-top: 17px; }
-.r2 .reach-followers { color: var(--green); }
-.reach-followers small { display: block; margin-top: 7px; color: var(--muted); font: 10px var(--mono); letter-spacing: 0; }
-.reach-arrow { align-self: start; color: #c4a2e5; font-size: 18px; transition: transform .2s; }
-.reach-host:hover .reach-arrow { transform: translate(2px,-2px); color: var(--green); }
-.host-board-footer { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding: 18px 0; color: var(--muted); font: 10px var(--mono); letter-spacing: .1em; }
+.proof-lead { padding: 28px 0 26px; }
+.proof-lead > strong { display: block; font-size: clamp(64px,7vw,80px); font-weight: 500; line-height: .9; letter-spacing: -.06em; color: var(--green); }
+.proof-lead > p { margin: 12px 0 0; color: #d4b7ff; font: 13px/1.4 var(--mono); letter-spacing: .04em; }
+.proof-stats { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 0 20px; padding: 22px 0 6px; border-top: 1px solid var(--line); }
+.proof-stats > div + div { border-left: 1px solid var(--line); padding-left: 20px; }
+.proof-stats strong { display: block; font-size: clamp(28px,3vw,36px); font-weight: 500; line-height: 1; letter-spacing: -.05em; color: #c79bff; }
+.proof-stats > div:last-child strong { color: var(--green); }
+.proof-stats p { margin: 8px 0 0; font-size: 14px; line-height: 1.35; color: var(--cream); }
+.proof-stats small { display: block; margin-top: 6px; color: var(--muted); font: 10px var(--mono); letter-spacing: 0; }
+.host-board-footer { margin: 0; border-top: 1px solid var(--line); padding: 16px 0 18px; color: var(--muted); font: 10px var(--mono); letter-spacing: .08em; }
 .reach-strip { color: #14261b; background: var(--green); position: relative; }
 .reach-strip::before { content: ""; position: absolute; inset: 0; background: url('/assets/studio-grain.webp'); opacity: .14; pointer-events: none; }
 .reach-strip-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding-block: 32px; position: relative; }
@@ -97,9 +96,8 @@
   .about-intro { gap: 36px; padding-block: 60px; }
   .about-copy h1 { font-size: 66px; }
   .host-board { padding-inline: 20px; }
-  .reach-host { grid-template-columns: 76px 1fr auto; gap: 16px; padding-block: 23px; }
-  .reach-avatar { width: 76px; height: 76px; }
-  .reach-followers { font-size: 32px; }
+  .proof-lead > strong { font-size: 64px; }
+  .proof-stats strong { font-size: 30px; }
   .reach-strip-inner { gap: 32px; }
   .reach-stat { gap: 18px; }
   .reach-stat + .reach-stat { padding-left: 32px; }
@@ -114,11 +112,13 @@
   .about-copy h1 { font-size: 54px; }
   .about-dek { font-size: 15px; }
   .about-primary { font-size: 12px; gap: 15px; padding: 13px 15px; }
-  .reach-host { grid-template-columns: 64px 1fr; gap: 14px; }
-  .reach-avatar { width: 64px; height: 64px; }
-  .reach-arrow { display: none; }
-  .reach-person > strong { font-size: 18px; }
-  .reach-followers { font-size: 30px; }
+  .proof-lead { padding: 22px 0 20px; }
+  .proof-lead > strong { font-size: 52px; }
+  .proof-lead > p { font-size: 11px; }
+  .proof-stats { padding-top: 18px; gap: 0 14px; }
+  .proof-stats > div + div { padding-left: 14px; }
+  .proof-stats strong { font-size: 26px; }
+  .proof-stats p { font-size: 13px; }
   .reach-stat { display: block; }
   .reach-stat p { margin-top: 15px; }
   .about-section-heading > p:last-child { font-size: 15px; }
@@ -134,13 +134,11 @@
   .host-board { transform: rotate(1deg); padding-inline: 20px; margin-inline: 4px; }
   .host-board-heading { height: 58px; }
   .host-board-heading img { width: 39px; height: 36px; }
-  .reach-host { grid-template-columns: 78px 1fr auto; gap: 18px; padding-block: 19px; }
-  .reach-avatar { width: 78px; height: 78px; }
-  .reach-person { display: grid; grid-template-columns: 1fr; }
-  .reach-person > strong { font-size: 21px; }
-  .reach-followers { font-size: 31px; margin-top: 12px; }
-  .reach-followers small { display: inline-block; margin: 0 0 0 10px; font-size: 9px; }
-  .reach-arrow { display: block; }
+  .proof-lead { padding: 22px 0 20px; }
+  .proof-lead > strong { font-size: 62px; }
+  .proof-lead > p { font-size: 12px; }
+  .proof-stats { padding-top: 20px; }
+  .proof-stats strong { font-size: 30px; }
   .host-board-footer { padding-block: 14px; font-size: 9px; }
   .reach-strip-inner { gap: 24px; padding-block: 28px; }
   .reach-stat + .reach-stat { padding-left: 24px; }
@@ -172,11 +170,10 @@
   .about-copy h1 { font-size: 51px; }
   .about-copy .eyebrow { font-size: 9px; }
   .about-divider { margin-inline: 6px; }
-  .reach-host { grid-template-columns: 66px 1fr; gap: 13px; }
-  .reach-avatar { width: 66px; height: 66px; }
-  .reach-arrow { display: none; }
-  .reach-followers { font-size: 28px; }
-  .reach-followers small { display: block; margin: 6px 0 0; }
+  .proof-lead > strong { font-size: 54px; }
+  .proof-stats { grid-template-columns: 1fr; gap: 16px; }
+  .proof-stats > div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 16px; }
+  .proof-stats strong { font-size: 28px; }
   .reach-strip-inner { gap: 18px; }
   .reach-stat + .reach-stat { padding-left: 18px; }
   .reach-stat > strong { font-size: 44px; }

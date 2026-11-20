@@ -22,4 +22,4 @@ export const sponsorEndpoint = sponsorshipContact.activated && /^[^\s@]+@[^\s@]+
   ? `https://formsubmit.co/ajax/${encodeURIComponent(sponsorshipContact.recipient)}` : '';
 
 // Change only when the corresponding page's content materially changes.
-export const pageDates = { home: '2026-11-19', partners: '2026-11-18', community: '2026-11-18', episodes: '2026-11-19' };
+export const pageDates = { home: '2026-11-19', partners: '2026-11-20', community: '2026-11-18', episodes: '2026-11-19' };

@@ -58,6 +58,9 @@ Chill with R2 goes live every Tuesday and Thursday with the founders and builder
 - 600k+ X views on CR2 posts across @chillwithr2, @R2D2zen and @ripchillpill, September to November 2026 (supplied by CR2; a 16 November pull counted 512,863 excluding reposts and 646,527 including them). Views, not unique viewers.
 - 20k+ livestream views: X replay totals for Episodes 01 to 11 as of 16 November (20,198), live and replay views combined.
 - ${episodes.length} live episodes since 6 October 2026 and ${guests.length} guests on air.
+- Top 1% of StreamYard streamers: StreamYard’s ranking of users who broadcast in the last 30 days, November 2026.
+- 55,258 viewer minutes on one stream, on X.
+- 6 live streams in November 2026.
 - Chill Pill: approximately 100k X followers. R2D2: 15k X followers. Public X counts checked 17 November 2026.
 - United States: 28%; United Kingdom: 8%; rest of the world: 64%.
 - 7,500+ community memberships across the four communities with published sizes. Memberships may overlap; MHH Colony is additional.
