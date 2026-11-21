@@ -4,10 +4,10 @@
 .sponsor-section h2 > span,.sponsor-contact h2 > span,.sponsor-dialog h2 > span { color:#bc95ff; }
 .sponsor-copy > p:last-child { color:var(--muted); line-height:1.6; font-size:13px; margin:8px 0 0; }
 .sponsor-actions { display:flex; align-items:center; flex:none; gap:24px; }
-.sponsor-primary { display:flex; align-items:center; gap:22px; color:#dfd4ec; background:transparent; border:1px solid #a58bb640; padding:12px 16px; border-radius:4px; font-size:13px; white-space:nowrap; transition:border-color .2s,color .2s; }
+.sponsor-primary { display:flex; align-items:center; gap:22px; color:#dfd4ec; background:transparent; border:1px solid #a58bb640; padding:12px 16px; border-radius:4px; font-size:13px; white-space:nowrap; min-height:44px; transition:border-color .2s,color .2s; }
 .sponsor-primary:hover { border-color:#c5a1ff; color:#fff; }
 .sponsor-primary span { font-size:18px; color:#c5a1ff; }
-.sponsor-learn { font-size:13px; padding:12px 0; white-space:nowrap; color:#c0b4ce; }
+.sponsor-learn { display:inline-flex; align-items:center; min-height:44px; font-size:13px; padding:12px 0; white-space:nowrap; color:#c0b4ce; }
 .sponsor-learn span { margin-left:10px; color:#c5a1ff; }
 .sponsor-learn:hover { color:#d6bcff; }
 .contact-intro { color:var(--muted); font-size:14px; line-height:1.6; margin:13px 0 22px; max-width:440px; }
@@ -27,3 +27,6 @@
 @media(max-width:760px) { .sponsor-contact { grid-template-columns:1fr; gap:27px; padding-block:40px; } .sponsor-contact-copy { padding-top:0; } .sponsor-contact h2 br { display:none; } .sponsor-contact-copy > p:not(.eyebrow) { max-width:450px; margin:16px 0 0; } .sponsor-signoff { display:none; } }
 @media(max-width:620px) { .sponsor-section { flex-direction:column; align-items:start; gap:18px; padding-block:24px; } .sponsor-actions { gap:22px; } .sponsor-form-card { padding:21px 18px; } }
 @media(prefers-reduced-motion:reduce) { .sponsor-primary { transition:none; } }
+@media (max-width: 900px) {
+  .contact-intro, .sponsor-copy > p:last-child { font-size:16px; }
+}

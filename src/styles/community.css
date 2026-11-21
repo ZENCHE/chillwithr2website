@@ -73,6 +73,9 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .founders-intro a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--green);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -176,4 +179,12 @@ a.format-card .icon-arrow {
     grid-template-columns: 1fr;
   }
 }
-
+@media (max-width: 900px) {
+  .week-slot p { font-size: 16px; }
+}
+.founders-list a.guest-handle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+}

@@ -172,6 +172,8 @@ a {
   gap: 14px;
   align-items: center;
   margin-right: auto;
+  min-width: 44px;
+  min-height: 44px;
 }
 .brand img {
   width: 58px;
@@ -189,6 +191,9 @@ a {
   font-size: 13px;
 }
 .header nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: #cbc2d3;
   transition: color 0.2s;
 }
@@ -415,8 +420,10 @@ h2 > span {
   color: var(--green);
 }
 .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 12px;
-  padding-bottom: 4px;
   border-bottom: 1px solid #ffffff45;
   white-space: nowrap;
 }
@@ -679,6 +686,9 @@ h2 > span {
   color: var(--muted);
 }
 .footer p > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: #e3d8e7;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -696,8 +706,9 @@ h2 > span {
   display: grid;
   place-items: center;
   border: 1px solid #ffffff30;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
   font-size: 21px;
 }
 .back-top:hover {
@@ -843,9 +854,12 @@ h2 > span {
     font-size: 13px;
   }
   .watch-icon {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     font-size: 23px;
+  }
+  .watch {
+    min-height: 44px;
   }
   .watch-meta {
     font-size: 9px;
@@ -1350,9 +1364,50 @@ h2 > span {
 
 /* Header channel icons */
 .socials { display:flex; align-items:center; gap:6px; margin:0; padding:0; list-style:none; }
-.socials a { display:grid; place-items:center; width:38px; height:38px; border:1px solid #ffffff40; border-radius:50%; color:#e9e2ee; background:#22192a66; transition:color .2s, border-color .2s, background .2s; }
+.socials a { display:grid; place-items:center; width:44px; height:44px; border:1px solid #ffffff40; border-radius:50%; color:#e9e2ee; background:#22192a66; transition:color .2s, border-color .2s, background .2s; }
 .socials a:hover, .socials a:focus-visible { color:var(--green); border-color:var(--green); background:#ffffff10; }
-@media (max-width: 760px) { .socials { gap:4px; } .socials a { width:32px; height:32px; } .socials svg { width:15px; height:15px; } }
-@media (max-width: 420px) { .socials a { width:28px; height:28px; border:0; background:none; } .socials svg { width:15px; height:15px; } }
-@media (max-width: 560px) { .header { gap:10px; } .header nav { gap:12px; } .socials { gap:0; } .socials a { width:26px; height:26px; } .socials svg { width:14px; height:14px; } }
-@media (max-width: 360px) { .header nav { gap:9px; font-size:10px; } .socials a { width:23px; } .socials svg { width:13px; height:13px; } }
+@media (max-width: 700px) {
+  .header { flex-wrap: wrap; height: auto; min-height: 80px; padding-block: 8px; row-gap: 4px; }
+  .header nav { gap: 16px; }
+  .socials { flex: 1 0 100%; justify-content: flex-end; gap: 8px; padding-bottom: 4px; }
+  .socials a { width: 44px; height: 44px; border: 1px solid #ffffff40; background: #22192a66; }
+  .socials svg { width: 16px; height: 16px; }
+}
+@media (max-width: 360px) { .header nav { gap: 12px; } }
+
+/* Body copy stays at least 16px on small screens. Eyebrows, times and legal notes stay smaller. */
+@media (max-width: 1100px) {
+  .about-dek,
+  .about-section-heading > p:last-child {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  .host-bio,
+  .episode-info p,
+  .booking-dek,
+  .contact-intro,
+  .newsletter-slot p,
+  .collage-bio p,
+  .guest-role,
+  .reach-stat p,
+  .geography > p,
+  .distribution > p,
+  .why-card p,
+  .format-card p,
+  .step-list p,
+  .week-slot p {
+    font-size: 16px;
+  }
+  .sponsor-copy > p:last-child {
+    font-size: 16px;
+  }
+}
+
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+}
