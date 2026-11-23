@@ -34,7 +34,7 @@ ${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_U
 
 ## Partnerships
 
-Put your brand in front of founders, investors and builders. [See the Partners page](${SITE_URL}/partners/) or use the [partnership form](${SITE_URL}/partners/#sponsor). ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."}
+Put your brand in front of founders, investors and builders. [See the Partners page](${SITE_URL}/partners/) or use the [partnership form](${SITE_URL}/partners/#partner). ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."}
 
 ## More from CR2
 
@@ -69,7 +69,7 @@ ${communities.map(c=>`- ${c.name}: ${c.count} ${c.label}.`).join('\n')}
 
 ## Formats
 
-- Chill with R2 livestream: Tuesday and Thursday, 15:00 UTC, about 90 minutes, with a replay. Recurring segments: The Golden Ratio and In the Hood.
+- Chill with R2 livestream: Tuesday and Thursday, 15:00 UTC, about 90 minutes, with a replay. Recurring segments: State of Blocks and In the Hood.
 - Posts: five days a week across @chillwithr2, @R2D2zen and @ripchillpill.
 - Live product testing: hands-on usage and feedback on air.
 - Clips and posts across @chillwithr2, @R2D2zen and @ripchillpill.
@@ -82,7 +82,7 @@ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildat
 
 ## How to partner
 
-1. Send an enquiry through the [partnership form](${SITE_URL}/partners/#sponsor). It asks for name, email, company or project, an optional X handle, and a message.
+1. Send an enquiry through the [partnership form](${SITE_URL}/partners/#partner). It asks for name, email, company or project, an optional X handle, and a message.
 2. Shape the fit: formats, segments, timing and posts.
 3. Go live in front of the CR2 audience.
 
@@ -97,7 +97,7 @@ export const communityMarkdown=()=>`# Join the CR2 community
 
 Canonical page: ${SITE_URL}/community/
 
-Chill with R2 is a live crypto show. There are two livestreams a week, every Tuesday and Thursday at 15:00 UTC, about 90 minutes each. Running order (UTC): 15:00 market updates with ChillPill and R2D2; 15:20 top industry guests and the Young Crypto Voices series; then The Golden Ratio with @that1618guy at 16:15 on Tuesdays, or In the Hood with Justin at 16:00 on Thursdays.
+Chill with R2 is a live crypto show. There are two livestreams a week, every Tuesday and Thursday at 15:00 UTC, about 90 minutes each. Running order (UTC): 15:00 market updates with ChillPill and R2D2; 15:20 top industry guests and the Young Crypto Voices series; then State of Blocks with @that1618guy at 16:15 on Tuesdays, or In the Hood with Justin at 16:00 on Thursdays.
 
 ## How to join
 
@@ -110,7 +110,7 @@ GreenFeed's subscriber count is the November 2026 snapshot also used on the Part
 A new series of conversations about the journey, what guests are building, and the markets they work in. [Announcement on X](https://x.com/chillwithr2/status/2123049654568751240).
 
 - Thursday 19 November: [Matthew Fisher](https://x.com/mfisher10x) (@mfisher10x), CEO of Katana. The first guest in the series.
-- Tuesday 24 November: [CK](https://x.com/CaptainCKeth) (@CaptainCKeth), co-founder of R3ACH.
+- Tuesday 24 November: TBC.
 - Thursday 26 November: [Ola](https://x.com/thegreatola) (@thegreatola), AI engineer, building Vano.
 
 Follow [@chillwithr2](https://x.com/chillwithr2) for who is on next. Watch every episode from the [episode archive](${SITE_URL}/episodes/).
