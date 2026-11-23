@@ -163,7 +163,8 @@ export const communities = [
   { name: 'Mosh Pit', count: '5,000+', label: 'members' },
   { name: 'GreenFeed', count: '800+', label: 'subscribers' },
   { name: 'Gypsy Traders', count: '440+', label: 'subscribers' },
-  { name: 'State of Blocks', count: '1,480+', label: 'members' }
+  { name: 'State of Blocks', count: '1,480+', label: 'members' },
+  { name: 'MHH Colony - Private Crypto Network group', count: 'Private', label: 'network' }
 ];
 
 
@@ -257,7 +258,7 @@ export const listedCommunityChannels = communityChannels.filter(channel => chann
 // that1618guy appears by X handle only.
 const guestRole = (handle: string) => guests.find(g => g.handle === handle)!.role;
 export const permanentGuests = [
-  { name: 'that1618guy', handle: 'that1618guy', role: guestRole('that1618guy'), slot: 'Every Tuesday · 16:15 UTC', topics: 'Macro, Crypto Markets, Charts and Robinhood Coverage' },
+  { name: 'that1618guy', handle: 'that1618guy', role: guestRole('that1618guy'), slot: 'Every Tuesday · 16:15 UTC · State of Blocks', topics: 'Macro, Crypto Markets, Charts and Robinhood Coverage' },
   { name: 'Justin', handle: 'justinbebis', role: guestRole('justinbebis'), slot: 'Every Thursday · 16:00 UTC', topics: 'Agentic AI, Markets and Robinhood Chain Coverage' }
 ];
 export const regulars = permanentGuests.map(g => g.handle);
@@ -268,7 +269,7 @@ export const show = {
   firstEpisode: '2026-10-06',
   schedule: 'Tuesday and Thursday, 15:00 UTC',
   length: 'about 90 minutes',
-  segments: ['The Golden Ratio', 'In the Hood'],
+  segments: ['State of Blocks', 'In the Hood'],
   topics: ['Robinhood Chain', 'tokenized stocks', 'onchain finance', 'macro', 'TradFi to crypto']
 };
 
@@ -277,6 +278,6 @@ type WeekSlot={time:string;title:string;detail:string;fixed?:boolean};
 const marketUpdates:WeekSlot = { time: '15:00', title: 'Market updates', detail: 'ChillPill and R2D2 on the week in crypto and markets.' };
 const guestSlot:WeekSlot = { time: '15:20', title: 'Top industry guests', detail: 'Founders, builders and the Young Crypto Voices series.' };
 export const weekRunOrder = [
-  { day: 'Tue', slots: [marketUpdates, guestSlot, { time: '16:15', title: 'The Golden Ratio', detail: 'Macro and markets with @that1618guy.', fixed: true }] },
+  { day: 'Tue', slots: [marketUpdates, guestSlot, { time: '16:15', title: 'State of Blocks', detail: 'Macro and markets with @that1618guy.', fixed: true }] },
   { day: 'Thu', slots: [marketUpdates, guestSlot, { time: '16:00', title: 'In the Hood', detail: 'Robinhood Chain with Justin.', fixed: true }] }
 ];

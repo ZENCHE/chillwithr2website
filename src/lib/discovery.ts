@@ -63,13 +63,13 @@ Chill with R2 goes live every Tuesday and Thursday with the founders and builder
 - 6 live streams in November 2026.
 - Chill Pill: approximately 100k X followers. R2D2: 15k X followers. Public X counts checked 17 November 2026.
 - United States: 28%; United Kingdom: 8%; rest of the world: 64%.
-- 7,500+ community memberships across Mosh Pit, GreenFeed, Gypsy Traders and State of Blocks. Memberships may overlap.
+- 7,500+ community memberships across the four communities with published sizes. Memberships may overlap; MHH Colony is additional.
 
 ${communities.map(c=>`- ${c.name}: ${c.count} ${c.label}.`).join('\n')}
 
 ## Formats
 
-- Chill with R2 livestream: Tuesday and Thursday, 15:00 UTC, about 90 minutes, with a replay. Recurring segments: The Golden Ratio and In the Hood.
+- Chill with R2 livestream: Tuesday and Thursday, 15:00 UTC, about 90 minutes, with a replay. Recurring segments: State of Blocks and In the Hood.
 - Posts: five days a week across @chillwithr2, @R2D2zen and @ripchillpill.
 - Live product testing: hands-on usage and feedback on air.
 - Clips and posts across @chillwithr2, @R2D2zen and @ripchillpill.
@@ -97,7 +97,7 @@ export const communityMarkdown=()=>`# Join the CR2 community
 
 Canonical page: ${SITE_URL}/community/
 
-Chill with R2 is a live crypto show. There are two livestreams a week, every Tuesday and Thursday at 15:00 UTC, about 90 minutes each. Running order (UTC): 15:00 market updates with ChillPill and R2D2; 15:20 top industry guests and the Young Crypto Voices series; then The Golden Ratio with @that1618guy at 16:15 on Tuesdays, or In the Hood with Justin at 16:00 on Thursdays.
+Chill with R2 is a live crypto show. There are two livestreams a week, every Tuesday and Thursday at 15:00 UTC, about 90 minutes each. Running order (UTC): 15:00 market updates with ChillPill and R2D2; 15:20 top industry guests and the Young Crypto Voices series; then State of Blocks with @that1618guy at 16:15 on Tuesdays, or In the Hood with Justin at 16:00 on Thursdays.
 
 ## How to join
 
@@ -110,7 +110,7 @@ GreenFeed's subscriber count is the November 2026 snapshot also used on the Part
 A new series of conversations about the journey, what guests are building, and the markets they work in. [Announcement on X](https://x.com/chillwithr2/status/2123049654568751240).
 
 - Thursday 19 November: [Matthew Fisher](https://x.com/mfisher10x) (@mfisher10x), CEO of Katana. The first guest in the series.
-- Tuesday 24 November: [CK](https://x.com/CaptainCKeth) (@CaptainCKeth), co-founder of R3ACH.
+- Tuesday 24 November: TBC.
 - Thursday 26 November: [Ola](https://x.com/thegreatola) (@thegreatola), AI engineer, building Vano.
 
 Follow [@chillwithr2](https://x.com/chillwithr2) for who is on next. Watch every episode from the [episode archive](${SITE_URL}/episodes/).

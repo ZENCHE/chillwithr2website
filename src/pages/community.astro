@@ -7,7 +7,6 @@ import { communitySchema } from '../lib/seo';
 import { communityTitle, communityDescription } from '../lib/pages';
 import { listedCommunityChannels, weekRunOrder } from '../data';
 import mfisher10x from '../assets/guests/mfisher10x.jpg';
-import captaincketh from '../assets/guests/captaincketh.jpg';
 import thegreatola from '../assets/guests/thegreatola.jpg';
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/space-grotesk';
@@ -16,18 +15,21 @@ import '../styles/global.css';
 import '../styles/about.css';
 import '../styles/community.css';
 
-const founders = await Promise.all([
+const seriesGuests = [
   { name: 'Matthew Fisher', handle: 'mfisher10x', datetime: '2026-11-19', when: 'Thu 19 Nov', role: 'CEO of Katana. The first guest in the series.', image: mfisher10x },
-  { name: 'CK', handle: 'CaptainCKeth', datetime: '2026-11-24', when: 'Tue 24 Nov', role: 'Co-founder of R3ACH.', image: captaincketh },
+  { name: 'TBC', handle: '', datetime: '2026-11-24', when: 'Tue 24 Nov', role: '', image: null },
   { name: 'Ola', handle: 'thegreatola', datetime: '2026-11-26', when: 'Thu 26 Nov', role: 'AI engineer, building Vano.', image: thegreatola },
-].map(async founder => ({
+];
+const founders = await Promise.all(seriesGuests.map(async founder => ({
   ...founder,
-  portrait: await getImage({ src: founder.image, width: 256, height: 256, format: 'webp', quality: 90 }),
+  portrait: founder.image
+    ? await getImage({ src: founder.image, width: 256, height: 256, format: 'webp', quality: 90 })
+    : null,
 })));
 
 const title = communityTitle;
 const description = communityDescription;
-const schema = communitySchema(title, description, founders.map(founder => ({ name: founder.name, handle: founder.handle, role: founder.role, image: founder.portrait.src })));
+const schema = communitySchema(title, description, founders.filter(founder => founder.handle && founder.portrait).map(founder => ({ name: founder.name, handle: founder.handle, role: founder.role, image: founder.portrait.src })));
 ---
 <!doctype html>
 <html lang="en">
@@ -92,7 +94,7 @@ const schema = communitySchema(title, description, founders.map(founder => ({ na
             <p>The show goes live on X every Tuesday and Thursday at 15:00 UTC. Follow @chillwithr2 for the live link each show.</p>
           </div>
           <div class="why-grid">
-            <article class="why-card"><span class="why-num">TUESDAY</span><h3>Market updates, guests and The Golden Ratio</h3><p>15:00 UTC market updates with ChillPill and R2D2, a top industry guest or Young Crypto Voices guest from 15:20, and The Golden Ratio with @that1618guy from 16:15.</p></article>
+            <article class="why-card"><span class="why-num">TUESDAY</span><h3>Market updates, guests and State of Blocks</h3><p>15:00 UTC market updates with ChillPill and R2D2, a top industry guest or Young Crypto Voices guest from 15:20, and State of Blocks with @that1618guy from 16:15.</p></article>
             <article class="why-card"><span class="why-num">THURSDAY</span><h3>Market updates, guests and In the Hood</h3><p>15:00 UTC market updates with ChillPill and R2D2, a top industry guest or Young Crypto Voices guest from 15:20, and In the Hood with Justin from 16:00.</p></article>
             <article class="why-card"><span class="why-num">EVERY EPISODE</span><h3>Replays and clips</h3><p>Each livestream stays up as a replay on X. Full episodes and key moments also go on the YouTube channel as they are published.</p></article>
           </div>
@@ -106,14 +108,18 @@ const schema = communitySchema(title, description, founders.map(founder => ({ na
             </div>
             <ol class="founders-list">
               {founders.map(founder => (
-                <li>
+                <li class={founder.handle ? undefined : 'is-tbc'}>
                   <time datetime={founder.datetime} class="founders-when">{founder.when}</time>
-                  <a class="founders-portrait" href={'https://x.com/' + founder.handle} target="_blank" rel="noopener noreferrer">
-                    <img src={founder.portrait.src} width="256" height="256" loading="lazy" decoding="async" alt={founder.name + '’s X profile avatar'} />
-                  </a>
+                  {founder.portrait && founder.handle ? (
+                    <a class="founders-portrait" href={'https://x.com/' + founder.handle} target="_blank" rel="noopener noreferrer">
+                      <img src={founder.portrait.src} width="256" height="256" loading="lazy" decoding="async" alt={founder.name + '’s X profile avatar'} />
+                    </a>
+                  ) : (
+                    <div class="founders-portrait is-tbc" aria-hidden="true"><span>TBC</span></div>
+                  )}
                   <h3>{founder.name}</h3>
-                  <p>{founder.role}</p>
-                  <a class="guest-handle" href={'https://x.com/' + founder.handle} target="_blank" rel="noopener noreferrer">@{founder.handle}</a>
+                  {founder.role && <p>{founder.role}</p>}
+                  {founder.handle && <a class="guest-handle" href={'https://x.com/' + founder.handle} target="_blank" rel="noopener noreferrer">@{founder.handle}</a>}
                 </li>
               ))}
             </ol>

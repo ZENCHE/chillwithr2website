@@ -131,6 +131,16 @@ a.format-card .icon-arrow {
   object-fit: cover;
   display: block;
 }
+.founders-portrait.is-tbc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 11px/1 var(--mono);
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  background: color-mix(in srgb, #b18aff 10%, transparent);
+  box-shadow: none;
+}
 .founders-list time,
 .founders-when {
   display: block;
