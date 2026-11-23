@@ -163,8 +163,7 @@ export const communities = [
   { name: 'Mosh Pit', count: '5,000+', label: 'members' },
   { name: 'GreenFeed', count: '800+', label: 'subscribers' },
   { name: 'Gypsy Traders', count: '440+', label: 'subscribers' },
-  { name: 'State of Blocks', count: '1,480+', label: 'members' },
-  { name: 'MHH Colony - Private Crypto Network group', count: 'Private', label: 'network' }
+  { name: 'State of Blocks', count: '1,480+', label: 'members' }
 ];
 
 

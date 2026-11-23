@@ -34,7 +34,7 @@ ${bookingEndpoint ? `Guest requests are open through the [booking form](${SITE_U
 
 ## Partnerships
 
-Put your brand in front of founders, investors and builders. [See the Partners page](${SITE_URL}/partners/) or use the [partnership form](${SITE_URL}/partners/#sponsor). ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."}
+Put your brand in front of founders, investors and builders. [See the Partners page](${SITE_URL}/partners/) or use the [partnership form](${SITE_URL}/partners/#partner). ${sponsorEndpoint ? "Partnership inquiries are open." : "Partnership inquiries are opening soon; the form is currently closed and collects no details."}
 
 ## More from CR2
 
@@ -63,7 +63,7 @@ Chill with R2 goes live every Tuesday and Thursday with the founders and builder
 - 6 live streams in November 2026.
 - Chill Pill: approximately 100k X followers. R2D2: 15k X followers. Public X counts checked 17 November 2026.
 - United States: 28%; United Kingdom: 8%; rest of the world: 64%.
-- 7,500+ community memberships across the four communities with published sizes. Memberships may overlap; MHH Colony is additional.
+- 7,500+ community memberships across Mosh Pit, GreenFeed, Gypsy Traders and State of Blocks. Memberships may overlap.
 
 ${communities.map(c=>`- ${c.name}: ${c.count} ${c.label}.`).join('\n')}
 
@@ -82,7 +82,7 @@ Zona won the Open Category at the Arbitrum × Robinhood Chain Open House buildat
 
 ## How to partner
 
-1. Send an enquiry through the [partnership form](${SITE_URL}/partners/#sponsor). It asks for name, email, company or project, an optional X handle, and a message.
+1. Send an enquiry through the [partnership form](${SITE_URL}/partners/#partner). It asks for name, email, company or project, an optional X handle, and a message.
 2. Shape the fit: formats, segments, timing and posts.
 3. Go live in front of the CR2 audience.
 
