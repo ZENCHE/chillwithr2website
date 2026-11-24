@@ -29,7 +29,7 @@ const founders = await Promise.all(seriesGuests.map(async founder => ({
 
 const title = communityTitle;
 const description = communityDescription;
-const schema = communitySchema(title, description, founders.filter(founder => founder.handle && founder.portrait).map(founder => ({ name: founder.name, handle: founder.handle, role: founder.role, image: founder.portrait.src })));
+const schema = communitySchema(title, description, founders.filter(founder => founder.handle && founder.portrait).map(founder => ({ name: founder.name, handle: founder.handle, role: founder.role, image: founder.portrait!.src })));
 ---
 <!doctype html>
 <html lang="en">

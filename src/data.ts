@@ -12,6 +12,15 @@ export interface Episode {
 // Each entry is grounded in an announcement or replay on @chillwithr2.
 export const episodes: Episode[] = [
   {
+    number: '14',
+    title: 'Tariffs, Ansem, and Jensen is back. Is crypto?',
+    guests: '@that1618guy',
+    date: '24 NOV 2026',
+    dateTime: '2026-11-24',
+    url: 'https://x.com/i/broadcasts/2LPoZEkzqyKVrY',
+    accent: 'violet'
+  },
+  {
     number: '13',
     title: 'Did AI eat crypto?',
     guests: '@mfisher10x · @justinbebis',
