@@ -12,6 +12,15 @@ export interface Episode {
 // Each entry is grounded in an announcement or replay on @chillwithr2.
 export const episodes: Episode[] = [
   {
+    number: '15',
+    title: 'Win with AI, or lose to it?',
+    guests: '@thegreatola · @justinbebis',
+    date: '26 NOV 2026',
+    dateTime: '2026-11-26',
+    url: 'https://x.com/i/broadcasts/2peVngkReAgqnz',
+    accent: 'green'
+  },
+  {
     number: '14',
     title: 'Tariffs, Ansem, and Jensen is back. Is crypto?',
     guests: '@that1618guy',
@@ -166,7 +175,8 @@ export const guests = [
   { name: 'Honey8', handle: 'honey8bb', role: 'Crypto content & marketing, Ajla Capital · CS engineer' },
   { name: 'OKES', handle: 'horkays', role: 'Video & AI content creator · AI × Web3' },
   { name: 'Marcello', handle: 'marcellovtv', role: 'Co-founder, Nova Gaming Guild · Host, M3LEE Live' },
-  { name: 'Matthew Fisher', handle: 'mfisher10x', role: 'CEO, Katana' }
+  { name: 'Matthew Fisher', handle: 'mfisher10x', role: 'CEO, Katana' },
+  { name: 'Ola', handle: 'thegreatola', role: 'AI engineer, building Vano · ex-growth, Irys' }
 ];
 export const communities = [
   { name: 'Mosh Pit', count: '5,000+', label: 'members' },
