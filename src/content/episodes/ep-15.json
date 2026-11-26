@@ -1,0 +1,123 @@
+{
+  "episode": "15",
+  "slug": "ep-15-win-with-ai-or-lose-to-it",
+  "seo_title": "Win with AI, or Lose to It? with Ola and Justin Bebis",
+  "meta_description": "A Thanksgiving special on winning with AI: Ola on his AI workflow, agents, Vano and his MetaMask rebuild, then Justin Bebis on the AI bubble, the Anthropic IPO and pump.fun's block zero fee.",
+  "summary": "A Thanksgiving special. The hosts open on what they are thankful for, how to tell whether AI is really making you productive, and a week of near daily hacks. In Young Crypto Voices, Ola explains how he went all in on AI, his workflow from notes to Claude Code, how he keeps his AI agents safe, his market analyst Vano, his MetaMask rebuild and how to make money with AI. Then Justin Bebis joins on Thanksgiving to talk launch timing, whether the AI bubble has popped, the Anthropic IPO, pump.fun's block zero fee and why Mosh builds for deployers.",
+  "takeaways": [
+    "The hosts argue that AI productivity should be judged by tangible outputs, not by hours spent chatting with a model. R2D2 shares how he tracked his own build journey day by day, including the days lost in frustrating loops, and says building the CR2 website himself showed him how much opportunity AI can unlock for non-technical people.",
+    "Ola's advice for beginners is to start with Claude and use it every day. His workflow: give each AI agent its own identity, capture ideas in notes, refine them until they no longer read like AI, then build in Claude Code. When he hits a wall, he sends screenshots and videos of what he means. His agents can work across his accounts, but never click a link without showing him first.",
+    "Ola demoed Vano, an AI market analyst you can ask about any asset, which tracks a watchlist, sends a daily summary and asks before it acts. His formula for making money with AI is to find a problem, narrow down who needs the fix and sell it as a service priced for the value it gives. To stand out, he rebuilt MetaMask's app with AI as an unofficial concept, which brought teams to his DMs.",
+    "Justin does not think the AI bubble has popped. He sees AI narrative trades and crypto fighting over the same dollar, and expects a slow exit of liquidity rather than a dramatic crash, with traditional markets better able to absorb the damage than crypto. He would rather own Anthropic common stock than OpenAI preferred stock, and thinks OpenAI now has to rush toward an IPO.",
+    "Justin calls pump.fun's block zero fee a positive change that will not do much on its own. He argues that when anyone can build an everything app, the winner shapes its product around one user, and that Mosh is building for token deployers while everyone else fights over traders. The hosts and Justin debate the ethics of the trenches and whether call-outs reward the wrong behaviour."
+  ],
+  "chapters": [
+    {
+      "time": "00:01:14",
+      "title": "Welcome: a Thanksgiving special, and what the hosts are thankful for"
+    },
+    {
+      "time": "00:05:52",
+      "title": "How do you measure AI productivity? R2D2's build journey"
+    },
+    {
+      "time": "00:11:07",
+      "title": "A quiet week, near daily hacks and what stronger AI models mean for security"
+    },
+    {
+      "time": "00:15:58",
+      "title": "Ola joins: from a personal trading system to going all in on AI"
+    },
+    {
+      "time": "00:19:41",
+      "title": "Swapping an NFT PFP for his own face, and his path into crypto"
+    },
+    {
+      "time": "00:22:46",
+      "title": "Where to start with AI, and his workflow from notes to Claude Code"
+    },
+    {
+      "time": "00:27:26",
+      "title": "Hitting a wall: new models, screenshots and video references"
+    },
+    {
+      "time": "00:30:03",
+      "title": "Measuring output, and running his own AI agents"
+    },
+    {
+      "time": "00:38:42",
+      "title": "Agent security: guardrails before any link gets clicked"
+    },
+    {
+      "time": "00:41:00",
+      "title": "Inside Vano, and his other AI builds"
+    },
+    {
+      "time": "00:48:28",
+      "title": "How to make money with AI: solve a problem, sell a service"
+    },
+    {
+      "time": "00:52:49",
+      "title": "Standing out: rebuilding MetaMask's app with AI"
+    },
+    {
+      "time": "00:57:16",
+      "title": "Ola's market view: bearish now, bullish on what comes next"
+    },
+    {
+      "time": "01:01:42",
+      "title": "Justin joins: Thanksgiving, and not rushing a launch into a dull market"
+    },
+    {
+      "time": "01:09:27",
+      "title": "AI and crypto fighting over the same dollar, and has the bubble popped?"
+    },
+    {
+      "time": "01:15:40",
+      "title": "Old GPUs, the Anthropic IPO and the pressure on OpenAI"
+    },
+    {
+      "time": "01:27:03",
+      "title": "Infinite money, the FTX parallel and pump.fun's block zero fee"
+    },
+    {
+      "time": "01:35:40",
+      "title": "Everything apps, and why Mosh builds for deployers"
+    },
+    {
+      "time": "01:41:22",
+      "title": "The ethics of the trenches, call-outs and voting with your dollars"
+    },
+    {
+      "time": "01:55:13",
+      "title": "Playing the game on the board without giving up your ethics"
+    },
+    {
+      "time": "02:02:54",
+      "title": "What everyone is thankful for, in and outside crypto"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Ola",
+      "handle": "@thegreatola",
+      "role": "AI engineer, building Vano · ex-growth, Irys"
+    },
+    {
+      "name": "Justin Bebis",
+      "handle": "@justinbebis",
+      "role": "Co-founder, Mosh · CEO, UV"
+    }
+  ],
+  "topics": [
+    "AI productivity",
+    "AI agents",
+    "Young Crypto Voices",
+    "AI bubble",
+    "Anthropic IPO",
+    "pump.fun"
+  ],
+  "community_line": "Between shows, CR2 shares updates, clips and opportunities worth watching on GreenFeed, our Telegram channel.",
+  "community_url": "https://t.me/GreenFeedTG",
+  "community_cta": "Join GreenFeed on Telegram"
+}
