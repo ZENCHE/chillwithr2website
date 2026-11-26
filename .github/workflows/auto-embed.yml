@@ -1,0 +1,69 @@
+# Fill youtube_id on existing episode pages from the public channel feed.
+# Runs every hour (and on workflow_dispatch). A push made with GITHUB_TOKEN
+# does not trigger other workflows, so when this job commits it also dispatches
+# the existing "Deploy Astro site to Pages" workflow (astro.yml).
+name: Auto-embed YouTube episodes
+
+on:
+  schedule:
+    # Every hour at minute 0 UTC (02:00, 03:00, ... Europe/Bucharest in EET, UTC+2;
+    # 03:00, 04:00, ... in EEST, UTC+3).
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: auto-embed
+  cancel-in-progress: false
+
+jobs:
+  embed:
+    name: Match public YouTube feed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find new episode videos
+        id: embed
+        run: node scripts/auto-embed-youtube.mjs
+
+      - name: Commit and push
+        if: steps.embed.outputs.changed == 'true'
+        run: |
+          git config user.name "ZENCHE"
+          git config user.email "153733192+ZENCHE@users.noreply.github.com"
+          git add -- scripts/episode-overrides.json src/content/episodes
+          git diff --cached --quiet && exit 0
+          git commit -m "${{ steps.embed.outputs.message }}"
+          git push origin HEAD:main
+
+      - name: Deploy the site
+        if: steps.embed.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          before="$(gh run list --workflow=astro.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
+          gh workflow run astro.yml --ref main
+          id=""
+          for i in $(seq 1 36); do
+            sleep 5
+            id="$(gh run list --workflow=astro.yml --branch main --event workflow_dispatch --limit 5 --json databaseId,createdAt --jq 'sort_by(.createdAt) | reverse | .[0].databaseId // empty')"
+            if [ -n "$id" ] && [ "$id" != "$before" ]; then
+              break
+            fi
+            id=""
+          done
+          if [ -z "$id" ]; then
+            echo "Timed out waiting for the Pages deploy run to start."
+            exit 1
+          fi
+          gh run watch "$id" --exit-status
+
+      - name: Ping IndexNow
+        if: steps.embed.outputs.changed == 'true' && steps.embed.outputs.urls != ''
+        run: node scripts/indexnow.mjs ${{ steps.embed.outputs.urls }}
